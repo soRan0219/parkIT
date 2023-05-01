@@ -10,7 +10,7 @@ import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
 
-public class AdminMemberAction implements Action {
+public class AdminMemberAction implements Action { //q
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
