@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% response.sendRedirect("./Main.park");  %><!-- 1 -->
+	<% response.sendRedirect("./Main.park");  %><!-- 1 2-->
 </body>
 </html>
