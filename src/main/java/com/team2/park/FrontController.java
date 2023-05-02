@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.team2.member.action.MemberJoinAction;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
@@ -36,18 +37,44 @@ public class FrontController extends HttpServlet {
 		/************************* 가상주소 매핑 *****************************/
 		System.out.println("가상주소 매핑 - 시작");
 		
-		ActionForward forward = null;
 		Action action = null;
+		ActionForward forward = null;
 		
-		if(command.equals("/Main.park")) {
+		//------------------------------------------------------------------
+		// 회원가입-./MemberJoin.park
+		if(command.equals("/MemberJoin.park")) { // command는 1단계 수행한 값
+			System.out.println(" C : /MemberJoin.park실행 "); // .은 ctxPath : /MVC7를 의미
+			
+			// 페이지 이동
+			forward = new ActionForward();
+			forward.setPath("./member/memberJoin.jsp");
+			forward.setRedirect(false);			
+		}
+		// 회원가입-./MemberJoinAction.park
+		else if(command.equals("/MemberJoinAction.park")) {
+			System.out.println(" C : /MemberJoinAction.me 호출 ");
+			
+			// MemberJoinAction 객체 생성
+			//MemberJoinAction joinAction = new MemberJoinAction(); 
+			action = new MemberJoinAction(); 
+			// try&catch 수행 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		
+		//------------------------------------------------------------------
+		// 예약
+		} if(command.equals("/Main.park")) {
 			System.out.println("C: /Main.park 호출");
 			
 			forward = new ActionForward();
 			forward.setPath("./reservation/main.jsp");
 			forward.setRedirect(false);
 			
-		} //if(Main)
-		//예약
+		}//if(Main)
 		else if(command.equals("/Reservation.park")) {
 			System.out.println("C: /Reservation.park 호출");
 			
@@ -56,7 +83,7 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			
 		} //if(Reservation.park)
-		//예약페이지
+		// 예약페이지
 		else if(command.equals("/ReservationAction.park")) {
 			System.out.println("C: /ReservationAction.park 호출");
 			
@@ -68,7 +95,7 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			} //try
 			
-		} //if(ReservationAction)
+		}//if(ReservationAction)
 		
 		
 		System.out.println("가상주소 매핑 - 끝");
