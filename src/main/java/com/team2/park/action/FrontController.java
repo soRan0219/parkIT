@@ -1,4 +1,4 @@
-package com.team2.admin.action;
+package com.team2.park.action;
 
 import java.io.IOException;
 
@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.team2.admin.action.AdminMemberAction;
-import com.team2.admin.action.AdminResAction;
-import com.team2.admin.db.MemberDAO;
+import com.team2.admin.action.AdminDataAction;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
@@ -21,7 +19,7 @@ import com.team2.commons.ActionForward;
  *    Model-View 연결동작 처리
  */
 @WebServlet("*.park")
-public class FrontController extends HttpServlet { //test용 주석
+public class FrontController extends HttpServlet {
 
 	
 	protected void doProcess(HttpServletRequest request,
@@ -29,7 +27,7 @@ public class FrontController extends HttpServlet { //test용 주석
 		// 페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
 		System.out.println("doProcess() 호출!");
 		
-		// URL : http://localhost:8088/parkIT/adminMain.park
+		// URL : http://localhost:8088/Team2/adminMain.park
 		
 		/**********************1. 가상주소 계산****************************/
 		System.out.println(" 1. 가상주소 계산 - 시작 ");
@@ -67,54 +65,19 @@ public class FrontController extends HttpServlet { //test용 주석
 		} // 관리자 메인페이지
 		
 		
-		
-		// 관리자 예약정보 관리
-		else if(command.equals("/AdminRes.park")) {
-			System.out.println(" C : /AdminRes.park호출 ");
+		// adminData.jsp
+		else if(command.equals("/AdminData.park")) {
+			System.out.println(" C : /AdminData.park호출 ");
 			
-			MemberDAO dao = new MemberDAO();
-			
-			dao.resList();
-			
-			request.getAttribute("resList"); // AdminResAction에 set 있음, request 영역에 정보 저장
-			
-			// 페이지 이동
-			action = new AdminResAction();
+			action = new AdminDataAction();
 			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-		} // 관리자 예약정보 관리
-		
-		
-		// 관리자 회원정보 관리
-		else if(command.equals("/AdminMember.park")) {
-			System.out.println(" C : /AdminMember.park호출 ");
-			
-			MemberDAO dao = new MemberDAO();
-			
-			dao.memberList();
-			
-			request.getAttribute("memberList");
-			// 페이지 이동
-			action = new AdminMemberAction();
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		} // 관리자 회원정보 관리
-		
-		
-		
-		
+		} // 데이터 받아오기
 		
 		
 		

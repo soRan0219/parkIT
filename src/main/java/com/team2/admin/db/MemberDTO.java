@@ -12,7 +12,21 @@ public class MemberDTO {
 	private String email;
 	private Date regDate;
 	private int point;
+	private int resStatus;
+	private int memberCount;
 	
+	public int getMemberCount() {
+		return memberCount;
+	}
+	public void setMemberCount(int memberCount) {
+		this.memberCount = memberCount;
+	}
+	public int getResStatus() {
+		return resStatus;
+	}
+	public void setResStatus(int resStatus) {
+		this.resStatus = resStatus;
+	}
 	public String getId() {
 		return id;
 	}
@@ -62,12 +76,15 @@ public class MemberDTO {
 		this.point = point;
 	}
 	
-	
-	// alt shfit s + s
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pw=" + pw + ", memName=" + memName + ", tel=" + tel + ", birth=" + birth
-				+ ", email=" + email + ", regDate=" + regDate + ", point=" + point + "]";
+				+ ", email=" + email + ", regDate=" + regDate + ", point=" + point + ", resStatus=" + resStatus
+				+ ", memberCount=" + memberCount + "]";
 	}
+	
+	
+	// alt shfit s + s
+	
 
 }
