@@ -1,0 +1,23 @@
+select option {
+  color: black;
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-form h2 {
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-top: 20px;
+}
+
+.login-form .btn-primary {
+  width: 100%;
+}
+
+.join-membership a {
+  color: #00ff00;
+}
