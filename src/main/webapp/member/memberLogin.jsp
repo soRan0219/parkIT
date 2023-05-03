@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>loginForm.jsp(TEAM2)</h1>
 		
 		<h2>ParkIT 로그인</h2>
 		<div class="login_content">

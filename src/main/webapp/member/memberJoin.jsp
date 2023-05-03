@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- saved from url=(0045)http://localhost:8088/jQuery/jq/testLogin.jsp -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>testLogin</title>
+<title>memberJoin</title>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
 <script type="text/javascript">
 	$(function() {
@@ -69,12 +68,11 @@
 
 </head>
 <body>
-	<h1>insertForm.jsp(TEAM2)</h1>
 	
 
 	<h2>ParkIT 회원가입</h2>	
 	<div class="join_content">
-		<form action="http://localhost:8088/jQuery/jq/MemberJoinAction.park" method="post">
+		<form action="./MemberJoinAction.park" method="post" onsubmit="return checkData();">
 	<!-- 아이디, 비밀번호 입력 -->
 		<div class="row_group">
 			<div class="join_row">
@@ -82,7 +80,7 @@
 					<class="join_title" label for="id">아이디</label><br>
 					<span class="ps_box int_id">
 						<input type="text" id="id" name="id" class="int" title="ID" maxlength="15" placeholder="영문, 숫자 6-15 자"> 
-						<input type="button" name="id2" value="중복확인">					
+<!-- 						<input type="button" name="id2" value="중복확인">					 -->
 					</span>
 				</p>
 			</div>	
@@ -138,7 +136,7 @@
 					<class="join_title" label for="email">이메일</label><br>
 					<span class="ps_box">
 						<input type="email" id="email" name="email" class="int" title="이메일"> 
-						<input type="button" name="email2" value="이메일인증">	
+<!-- 						<input type="button" name="email2" value="이메일인증">	 -->
 					</span>
 				</p>
 				
@@ -165,7 +163,7 @@
 			<div class="login-join_form_agreement_privacy">
 				<input type="checkbox" class="joincheck">	
 				<label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
-				<button onclick="location.href='memberJoinAgree.jsp';" class="privacyageAgreeCheckBox_link">자세히</button>
+				<button onclick="location.href='memberJoinAgree.park';" class="privacyageAgreeCheckBox_link">자세히</button>
 			</div>
 		<!-- class="adAgreeCheckBox" -->
 			<div class="login-join_form_agreement_ad">

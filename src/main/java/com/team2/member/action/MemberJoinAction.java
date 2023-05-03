@@ -30,7 +30,6 @@ public class MemberJoinAction implements Action{
 		dto.setBirth(request.getParameter("birth"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setEmail(request.getParameter("email"));
-		dto.setPoint(Integer.parseInt(request.getParameter("point")));
 		dto.setRegdate(new Date(System.currentTimeMillis()));
 		
 		System.out.println(" M : "+dto);

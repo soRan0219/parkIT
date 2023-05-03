@@ -32,39 +32,35 @@ public class MemberLoginAction implements Action{
 		// MemberDAO 객체 생성 
 		MemberDAO dao = new MemberDAO(); 
 		// 로그인 체크 메서드 호출 => 결과 확인
-		int result = dao.memberLogin(dto); // 정수 데이터가 리턴됨
+		int result = dao.memberLogin(dto); 
 		
 		// 페이지 이동
 		if(result == -1) { // 아이디 없을 때 
-			response.setContentType("text/html; charset=UTF-8"); // 처음 jsp 주소
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			// 이걸 써주면 html 코드를 출력해줄 수 있음
 			out.println("<script>");
 			out.println(" alert('아이디 없음!'); ");
 			out.println(" history.back(); ");
 			out.println("</script>");
 			out.close();
 			
-			return null; // 컨트롤러에서는 이동 X 
-			             // return은 리턴값 돌려줄 때 혹은 함수(execute)의 종료
+			return null; 
 		}
 		
 		if(result == 0) { // 비밀번호 틀렸을 때 
-			response.setContentType("text/html; charset=UTF-8"); // 처음 jsp 주소
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			// 이걸 써주면 html 코드를 출력해줄 수 있음
 			out.println("<script>");
 			out.println(" alert('비밀번호 오류!'); ");
 			out.println(" history.back(); ");
 			out.println("</script>");
 			out.close();
 			
-			return null; // 컨트롤러에서는 이동 X 
+			return null; 
 		}
 		
 		// 로그인 성공!(result == 1)
-		// 세션에 아이디 정보 저장 // jsp가 아니기 때문에 session 내장객체가 없음
-		HttpSession session = request.getSession(); // request는 MemberFrontController.java에서 받아옴
+		HttpSession session = request.getSession();
 		session.setAttribute("id", dto.getId());
 		
 		// 페이지 이동 - ActionForward 객체 생성
