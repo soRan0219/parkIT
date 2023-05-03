@@ -3,7 +3,6 @@ package com.team2.member.db;
 import java.sql.Date;
 
 public class MemberDTO {
-	// jspdb : itwill_member 테이블 정보 저장객체
 	private String id;
 	private String pw;
 	private String memName;

@@ -16,19 +16,16 @@ import com.team2.member.db.MemberDTO;
 // DB에 연결해서 처리하는 모든동작 수행
 public class MemberDAO {
 	// 공통변수 선언
-	private Connection con = null;  		//디비 연결정보 저장(관리)
-	private PreparedStatement pstmt = null; //SQL 작성, 실행
-	private ResultSet rs = null; 			//select결과 데이터 저장
-	private String sql ="";					//SQL구문 저장
+	private Connection con = null;  		
+	private PreparedStatement pstmt = null; 
+	private ResultSet rs = null; 		
+	private String sql ="";					
 
 	//디비 연결 메서드
 	private Connection getCon() throws Exception{
-		// Context 객체생성
 		Context initCTX = new InitialContext();
-		// 디비연결정보 불러와서 사용
 		DataSource ds 
-		   = (DataSource) initCTX.lookup("java:comp/env/jdbc/mvc7");
-		// 디비연결
+		   = (DataSource) initCTX.lookup("java:comp/env/jdbc/parkIT");
 		con = ds.getConnection();
 		System.out.println(" DAO : 디비연결 성공! "+con);
 		
@@ -56,8 +53,8 @@ public class MemberDAO {
 			// 1.2. 디비연결
 			con = getCon();
 			// 3. SQL작성 & pstmt 객체
-			sql = "insert into itwill_member(id,pw,memName,birth,tel,email,point,regdate) "
-					+ "values(?,?,?,?,?,?,?,?)";
+			sql = "insert into member(id,pw,memName,birth,tel,email,regdate) "
+					+ "values(?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
@@ -65,8 +62,7 @@ public class MemberDAO {
 			pstmt.setString(4, dto.getBirth());
 			pstmt.setString(5, dto.getTel());
 			pstmt.setString(6, dto.getEmail());
-			pstmt.setInt(7, dto.getPoint());
-			pstmt.setDate(8, dto.getRegdate());
+			pstmt.setDate(7, dto.getRegdate());
 			
 			// 4. SQL 실행
 			pstmt.executeUpdate();
@@ -89,7 +85,7 @@ public class MemberDAO {
 			// 1.2. 디비연결
 			con = getCon();
 			// 3. sql 작성 & pstmt 객체
-			sql = "select pw from team2_member where id=?";
+			sql = "select pw from member where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
 			// 4. sql 실행
@@ -118,7 +114,157 @@ public class MemberDAO {
 		}
 		return result;
 	}// 로그인 - memberLogin()
+
+
 	
+	
+
+	//----------------------------------------------------------------------------	
+	// 회원정보 조회 - getMember()
+	public MemberDTO getMember(String id) {
+		
+		MemberDTO dto = null; // 5. 정보를 처리하려고 
+		
+		try {
+			// 1+2 디비연결
+			con = getCon();
+			
+			// 3. sql & pstmt
+			sql = "select * from member where id=?";
+			pstmt = con.prepareStatement(sql);
+				// ???
+				pstmt.setString(1, id);
+			
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			// 5. 데이터 처리
+			if(rs.next()) {
+				dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setMemName(rs.getString("memName"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setTel(rs.getString("tel"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRegdate(rs.getDate("regdate"));
+			}// if
+			
+			System.out.println("DAO : 회원정보 저장완료!");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		
+		return dto;
+	}// 회원정보 조회 - getMember()
+	
+	
+	
+	
+	
+	
+	//----------------------------------------------------------------------------	
+	// 회원정보 수정 - memberUpdate(dto)
+	public int memberUpdate(MemberDTO dto) {
+		int result = -1; // -1   0   1
+		
+		try {
+			// 1.2. 디비연결
+			con = getCon();
+			// 3. sql & pstmt
+			sql = "select pw from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			// ??
+			pstmt.setString(1, dto.getId()); 
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			// 5. 데이터 처리
+			if(rs.next()) {
+				// 회원
+				if(dto.getPw().equals(rs.getString("pw"))) {
+					// 3. sql 작성&pstmt 객체
+					sql = "update itwill_member set memName=?,birth=?,tel=? where id=?";
+					pstmt = con.prepareStatement(sql); 
+					// ???
+					pstmt.setString(1, dto.getMemName());
+					pstmt.setString(2, dto.getBirth());
+					pstmt.setString(3, dto.getTel());
+					// 4. sql 실행(update)
+					result = pstmt.executeUpdate(); // 내가 실행시켰을 때 실행되는 행의 수를 출력하는데 id가 PK라서 1이 나올 수 밖에 없음
+					
+				} else {
+					// 비밀번호 오류
+					result = 0;
+				}
+			} else { 
+				// 비회원
+				result = -1;
+			}
+			
+			System.out.println(" DAO : 회원정보 수정 완료(" +result+")");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		return result;
+	}// 회원정보 수정 - memberUpdate(dto)
+
+	
+	
+	
+	
+	//----------------------------------------------------------------------------	
+	// 회원정보 탈퇴 - memberDelete(id,pw)
+	public int deleteMember(String id, String pw) {
+		int result = -1;
+		
+		try {
+			// 1+2 디비연결
+			con = getCon();
+			
+			// 3. sql 작성 & pstmt 객체
+			sql = "select pw from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			// 5. 데이터처리
+			if(rs.next()) {
+				if(pw.equals(rs.getString("pw"))) {
+					// 삭제 처리
+					// 3. sql 작성 & pstmt 객체
+					sql = "delete from member where id=?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, id);
+					
+					// 4. sql 실행
+					result = pstmt.executeUpdate(); // 1
+					
+				}else {
+					result = 0;
+				}
+				
+			}else { // 회원정보 X
+				result = -1;
+			}
+			System.out.println("DAO : 삭제 완료 "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		
+		
+		return result;
+	}// 회원정보 탈퇴 - memberDelete(id,pw)
+		
 
 	
 	

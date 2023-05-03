@@ -9,20 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.team2.member.action.MemberJoinAction;
+import com.team2.member.action.MemberDeleteAction;
+import com.team2.member.action.MemberInfoAction;
+import com.team2.member.action.MemberLogoutAction;
+import com.team2.member.action.MemberUpdateAction;
+import com.team2.member.action.MemberUpdateProAction;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.member.action.MemberJoinAction;
+import com.team2.member.action.MemberLoginAction;
 
 @WebServlet("*.park")
 public class FrontController extends HttpServlet {
 
 	//http://localhost:8088/Team2/Main.park
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doProcess()");
 		
 		/************************* 가상주소 계산 *****************************/
-		System.out.println("가상주소 계산 - 시작");
+		System.out.println("1. 가상주소 계산 - 시작");
 		
 		String requestURI = request.getRequestURI();
 		System.out.println("requestURI: " + requestURI);
@@ -31,11 +38,12 @@ public class FrontController extends HttpServlet {
 		String command = requestURI.substring(ctxPath.length());
 		System.out.println("command: " + command);
 		 
-		System.out.println("가상주소 계산 - 끝");
+		System.out.println("1. 가상주소 계산 - 끝");
+		System.out.println("\n");
 		/************************* 가상주소 계산 *****************************/
 		
 		/************************* 가상주소 매핑 *****************************/
-		System.out.println("가상주소 매핑 - 시작");
+		System.out.println("2. 가상주소 매핑 - 시작");
 		
 		Action action = null;
 		ActionForward forward = null;
@@ -52,7 +60,7 @@ public class FrontController extends HttpServlet {
 		}
 		// 회원가입-./MemberJoinAction.park
 		else if(command.equals("/MemberJoinAction.park")) {
-			System.out.println(" C : /MemberJoinAction.me 호출 ");
+			System.out.println(" C : /MemberJoinAction.park 호출 ");
 			
 			// MemberJoinAction 객체 생성
 			//MemberJoinAction joinAction = new MemberJoinAction(); 
@@ -63,46 +71,151 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		
+			
+			
+			
+		//----------------------------------------------------------------------------	
+		// 약관동의자세히 - ./MemberJoinAgree.park
+		if(command.equals("/MemberJoinAgree.park")) {
+			System.out.println(" C : /MemberJoinAgree.park 실행");
+			
+			// 페이지 이동
+			forward = new ActionForward();
+			forward.setPath("./member/memberJoinAgree.jsp");
+			forward.setRedirect(false);
+		}	
+			
+			
+			
+		//----------------------------------------------------------------------------	
+		// 로그인
+		} else if(command.equals("/MemberLogin.park")) { // 로그인-정보 입력(패턴1 -> 패턴3 -> 패턴2)
+			System.out.println(" C : /MemberLogin.park 호출 ");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberLogin.jsp");
+			forward.setRedirect(false); 
+		}
+		else if(command.equals("/MemberLoginAction.park")) { // 비교되는 주소에는 . 이 없다, 1번에서 다 비교함
+			System.out.println(" C : /MemberLoginAction.park 호출 ");
+			
+			// MemberLoginAction() 객체 생성
+			action = new MemberLoginAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/Main.park")) {
+			System.out.println(" C : /Main.park 호출");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/main.jsp");
+			forward.setRedirect(false);
+			
+		}	
 			
 		
-		//------------------------------------------------------------------
-		// 예약
-		} if(command.equals("/Main.park")) {
-			System.out.println("C: /Main.park 호출");
+		
+		
+		//----------------------------------------------------------------------------	
+		// 로그아웃
+		else if(command.equals("/MemberLogout.park")) {
+			System.out.println(" C : ./MemberLogout.park 호출 ");
 			
-			forward = new ActionForward();
-			forward.setPath("./reservation/main.jsp");
-			forward.setRedirect(false);
+			// MemberLogoutAction() 객체
+			action = new MemberLogoutAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
+		//----------------------------------------------------------------------------	
+		// MemberInfo 회원 정보 조회
+		else if(command.equals("/MemberInfo.park")) {
+			System.out.println(" C : /MemberInfo.park 호출 ");
 			
-		}//if(Main)
-		else if(command.equals("/Reservation.park")) {
-			System.out.println("C: /Reservation.park 호출");
+			// MemberInfoAction() 객체
+			action = new MemberInfoAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		
+		
+		
+		
+		
+		//----------------------------------------------------------------------------	
+		// 회원 정보 수정
+		else if(command.equals("/MemberUpdate.park")) {
+			System.out.println(" C : ./MemberUpdate.park 호출 ");
 			
-			forward = new ActionForward();
-			forward.setPath("./reservation/reservationForm.jsp");
-			forward.setRedirect(false);
+			// MemberUpdateAction() 객체
+			action = new MemberUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-		} //if(Reservation.park)
-		// 예약페이지
-		else if(command.equals("/ReservationAction.park")) {
-			System.out.println("C: /ReservationAction.park 호출");
 			
-			//action = new ReservationAction();
+		}
+		else if(command.equals("/MemberUpdateProAction.park")) {
+			System.out.println(" C : /MemberUpdateProAction.park 호출 ");
+			
+			// MemberUpdateProAction() 객체
+			action = new MemberUpdateProAction();
 			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			} //try
+			}
+		}
+		
+		
+		
+		//----------------------------------------------------------------------------	
+		// 회원 정보 삭제
+		else if(command.equals("/MemberDelete.park")) {
+			System.out.println(" C : /MemberDelete.park 호출 ");
 			
-		}//if(ReservationAction)
+			forward = new ActionForward();
+			forward.setPath("./member/memberDelete.jsp");
+			forward.setRedirect(false); 
+		}
+		else if(command.equals("/MemberDeleteAction.park")) {
+			System.out.println(" C : /MemberDeleteAction.park 호출 ");
+			
+			// MemberDeleteAction() 객체생성
+			action = new MemberDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
-		System.out.println("가상주소 매핑 - 끝");
+		
+			
+		System.out.println("2. 가상주소 매핑 - 끝");
+		System.out.println("\n");
 		/************************* 가상주소 매핑 *****************************/
 		
 		/************************* 가상주소 이동 *****************************/
-		System.out.println("가상주소 이동 - 시작");
+		System.out.println("3. 가상주소 이동 - 시작");
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
@@ -115,7 +228,8 @@ public class FrontController extends HttpServlet {
 			}
 		} //if(null 아닐때)
 		
-		System.out.println("가상주소 이동 - 끝");
+		System.out.println("3. 가상주소 이동 - 끝");
+		System.out.println("\n");
 		/************************* 가상주소 이동 *****************************/
 		
 		

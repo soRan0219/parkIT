@@ -17,4 +17,4 @@ public class ActionForward {
 		this.isRedirect = isRedirect;
 	}
 	
-} //ActionForward
+}//ActionForward
