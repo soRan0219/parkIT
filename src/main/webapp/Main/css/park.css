@@ -1,0 +1,64 @@
+select option {
+  color: black;
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-form h2 {
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-top: 20px;
+}
+
+.login-form .btn-primary {
+  width: 100%;
+}
+
+.join-membership a {
+  color: #00ff00;
+}
+
+.login_content {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.login_row {
+  margin-bottom: 10px;
+}
+
+.join_title {
+  display: inline-block;
+  width: 70px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.input_text {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="submit"], input[type="button"] {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 3px;
+  background-color: #2ecc71;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #27ae60;
+}
