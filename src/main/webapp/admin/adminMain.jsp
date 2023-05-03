@@ -156,9 +156,16 @@
 			})
 			
 			$(".admin5").show();
-		}) // 예약관리 버튼
+		}) // 주차장관리 버튼
 		
 		
+		
+		$(".main").on("click",function(){
+			$(".admin2").show();
+			$(".admin3").hide();
+			$(".admin4").hide();
+			$(".admin5").hide();
+		})
 		
 		
 	});
@@ -167,7 +174,7 @@
 
 </head>
 <body>
-		<h3>관리자 메인페이지</h3>
+		<h3 class="main">관리자 메인페이지</h3>
 		
 		
 		<div class="admin1"> <!-- 좌측페이지 -->
