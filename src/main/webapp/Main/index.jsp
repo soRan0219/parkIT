@@ -61,17 +61,52 @@
 			</div>
 		</div>
 
-		<div class="login-form">
-			<div class="form-group">
-				<a class="navbar-brand" href="#">Park<span>IT 로그인</span></a>
-			</div>
-			<div class="join-membership">
-				<a href="#">아이디/비밀번호 찾기</a>
-			</div>
-			<div class="join-membership">
-				<a href="#">회원가입</a>
-			</div>
-		</div>
+<?php
+session_start();
+if(isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+  // 데이터베이스에서 $user_id를 사용하여 사용자 정보를 가져오고 처리하는 코드
+?>
+  <div class="login-form">
+    <div class="login-membership">
+      <a><?php echo $user_id; ?>님 환영합니다.</a>
+    </div>
+    <div class="login-membership">
+      <a href="#">마이페이지</a>
+    </div>
+  </div>
+<?php
+session_start();
+if(isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+  // 데이터베이스에서 $user_id를 사용하여 사용자 정보를 가져오고 처리하는 코드
+?>
+  <div class="login-form">
+    <div class="login-membership">
+      <a><?php echo $user_id; ?>님 환영합니다.</a>
+    </div>
+    <div class="login-membership">
+      <a href="#">마이페이지</a>
+    </div>
+  </div>
+<?php
+} else {
+?>
+  <div class="login-form">
+    <div class="form-group">
+      <a class="navbar-brand" href="#">Park<span>IT 로그인</span></a>
+    </div>
+    <div class="join-membership">
+      <a href="#">아이디/비밀번호 찾기</a>
+    </div>
+    <div class="join-membership">
+      <a href="#">회원가입</a>
+    </div>
+  </div>
+<?php
+}
+?>
+
 	</nav>
 	<!-- END nav -->
 

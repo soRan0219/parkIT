@@ -1,5 +1,4 @@
 package com.team2.member.action;
-
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +11,7 @@ import com.team2.member.db.MemberDTO;
 
 // 회원가입 처리(인코딩, 정보저장, 디비연결, 페이지 이동)
 public class MemberJoinAction implements Action{
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -26,7 +25,9 @@ public class MemberJoinAction implements Action{
 		// 전달된 정보 저장
 		dto.setId(request.getParameter("id"));
 		dto.setPw(request.getParameter("pw"));
-		dto.setMemName(request.getParameter("memName"));
+		System.out.println("비밀번호를 불러옵니다"+request.getParameter("pw"));
+		dto.setMemname(request.getParameter("memname"));
+		System.out.println("이름을 불러옵니다"+request.getParameter("name"));
 		dto.setBirth(request.getParameter("birth"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setEmail(request.getParameter("email"));
