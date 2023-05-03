@@ -1,4 +1,4 @@
-package com.team2.park.action;
+package com.team2.admin.action;
 
 import java.io.IOException;
 
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.team2.admin.action.AdminDataAction;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
@@ -28,7 +27,7 @@ public class FrontController extends HttpServlet {
 		//  페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
 		System.out.println("doProcess() 호출!");
 		
-		// URL : http://localhost:8088/Team2/adminMain.park
+		// URL : http://localhost:8088/parkIT/adminMain.park
 		
 		/**********************1. 가상주소 계산****************************/
 		System.out.println(" 1. 가상주소 계산 - 시작 ");
@@ -52,7 +51,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		// URL : http://localhost:8088/Team2/adminMain.park
+		// URL : http://localhost:8088/parkIT/adminMain.park
 		// 관리자 메인페이지
 		if(command.equals("/adminMain.park")) {
 			System.out.println(" C : /adminMain.park실행 ");
