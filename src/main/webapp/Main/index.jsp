@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/park.css">
 </head>
 <body>
 
@@ -43,6 +44,8 @@
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span>
 			</button>
+			
+			
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
@@ -55,6 +58,18 @@
 					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
 				</ul>
+			</div>
+		</div>
+
+		<div class="login-form">
+			<div class="form-group">
+				<a class="navbar-brand" href="#">Park<span>IT 로그인</span></a>
+			</div>
+			<div class="join-membership">
+				<a href="#">아이디/비밀번호 찾기</a>
+			</div>
+			<div class="join-membership">
+				<a href="#">회원가입</a>
 			</div>
 		</div>
 	</nav>
@@ -136,12 +151,7 @@
 									</div>
 								</div>
 								<div class="d-flex">
-<style>
-/* 검색 목록의 글자 색상 변경 */
-select option {
-	color: black;
-}
-</style>
+
 
 									<div class="form-group mr-2">
 										<label for="park_on_time" class="label">오전/오후</label> <select
@@ -298,6 +308,8 @@ select option {
 				</div>
 			</div>
 	</section>
+	
+
 
 
 	<section class="ftco-section ftco-no-pt bg-light">
