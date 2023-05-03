@@ -20,7 +20,7 @@ import com.team2.commons.ActionForward;
  *  컨트롤러 : 서블릿 구현
  *    Model-View 연결동작 처리
  */
-@WebServlet("*.park")
+//@WebServlet("*.park")
 public class FrontController extends HttpServlet { //test용 주석
 
 	
