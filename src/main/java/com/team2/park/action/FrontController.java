@@ -24,7 +24,8 @@ public class FrontController extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// 페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
+		
+		//  페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
 		System.out.println("doProcess() 호출!");
 		
 		// URL : http://localhost:8088/Team2/adminMain.park
