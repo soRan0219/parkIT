@@ -10,7 +10,7 @@ import com.team2.member.db.MemberDAO;
 import com.team2.member.db.MemberDTO;
 
 public class MemberUpdateAction implements Action {
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

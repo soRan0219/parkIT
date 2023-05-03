@@ -14,7 +14,7 @@ import com.team2.commons.ActionForward;
 
 @WebServlet("*.park")
 public class FrontController extends HttpServlet {
-
+	//
 	// http://localhost:8088/TEAM2/itwill.park
 	
 	protected void doProcess(HttpServletRequest request, 

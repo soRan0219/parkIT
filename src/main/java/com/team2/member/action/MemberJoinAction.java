@@ -11,7 +11,7 @@ import com.team2.member.db.MemberDTO;
 
 // 회원가입 처리(인코딩, 정보저장, 디비연결, 페이지 이동)
 public class MemberJoinAction implements Action{
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

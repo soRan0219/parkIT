@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.team2.member.db.MemberDTO;
-
+//
 // DB에 연결해서 처리하는 모든동작 수행
 public class MemberDAO {
 	// 공통변수 선언

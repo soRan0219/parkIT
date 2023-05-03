@@ -1,7 +1,7 @@
 package com.team2.member.db;
 
 import java.sql.Date;
-
+//
 public class MemberDTO {
 	private String id;
 	private String pw;

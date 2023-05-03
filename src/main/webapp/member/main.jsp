@@ -14,6 +14,7 @@
 	<h1>main.jsp(TEAM2)</h1> 
 	<!-- 로그인 정보가 있을때만 메인페이지를 사용가능 -->
 	
+	
 	<%
 		// 로그인 정보 
 // 		String id = (String)session.getAttribute("id");

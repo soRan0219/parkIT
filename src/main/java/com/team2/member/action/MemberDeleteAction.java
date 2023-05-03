@@ -10,7 +10,7 @@ import com.team2.commons.JSForward;
 import com.team2.member.db.MemberDAO;
 
 public class MemberDeleteAction implements Action {
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

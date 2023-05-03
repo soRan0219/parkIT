@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +11,7 @@
 	<h1>memberInfo.jsp(마이페이지)</h1>
 	
 	<h2>마이페이지</h2>
+	
 	
 	<%
 		// 로그인 세션 제어 (로그인 했을때만 사용)

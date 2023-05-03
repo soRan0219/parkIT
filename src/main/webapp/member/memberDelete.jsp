@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,13 +16,13 @@
 // 		response.sendRedirect("main.jsp");
 // 	}
 	%>
-	
+
 	<c:if test="${empty id }"> <!-- sessionScope.id -->
 	 	<c:redirect url="./MemberLogin.park"/>
 	</c:if>
 
 	<h1>memberDelete.jsp</h1>
-	<h2>회원정보 삭제(탈퇴)(TEAM2)</h2>
+	<h2>회원정보 탈퇴(TEAM2)</h2>
 
 	<fieldset>
 		<form action="./MemberDeleteAction.park" method="post">

@@ -14,7 +14,7 @@ import com.mysql.cj.Session;
 
 // 로그인 정보 처리 
 public class MemberLoginAction implements Action{
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

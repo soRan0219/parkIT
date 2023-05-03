@@ -10,7 +10,7 @@ import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
 public class MemberLogoutAction implements Action {
-
+	//
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
