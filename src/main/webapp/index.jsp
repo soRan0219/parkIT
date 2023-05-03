@@ -8,5 +8,6 @@
 </head>
 <body>
 	<% response.sendRedirect("./Main.park");  %>
+	
 </body>
 </html>
