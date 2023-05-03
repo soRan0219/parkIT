@@ -44,7 +44,7 @@ public class MemberDAO {
 		}
 	}
 	
-	// 예약리스트
+	// 예약리스트만 들고옴
 	public List<ResDTO> resList() {
 		
 		List<ResDTO> resList = new ArrayList<ResDTO>();
@@ -89,16 +89,18 @@ public class MemberDAO {
 	
 	
 	
+	
+	
 	// 관리자 회원리스트
-	public List<Object> memberList() {
+	public List<MemberDTO> memberList() {
 		
-		List<Object> memberList = new ArrayList<Object>();
+		List<MemberDTO> memberList = new ArrayList<MemberDTO>();
 		
 		try {
 			// 1. 2. DB연결
 			con = getCon();
 			// 3. sql작성 & pstmt 객체
-			sql = "SELECT m.id, memName, birth, tel, email, count(resStatus), point"
+			sql = "SELECT m.id, memName, birth, tel, email, count(resStatus), point, regDate"
 					+ " FROM member m"
 					+ " JOIN reservation r on r.id = m.id WHERE resStatus =1 GROUP BY m.id;"; // sql문 띄어쓰기 !!
 			pstmt = con.prepareStatement(sql);
@@ -108,30 +110,24 @@ public class MemberDAO {
 			
 			// 데이터가 있는 동안 반복해서 정보를 담음
 			while(rs.next()) {
-				MemberDTO mdto = new MemberDTO();
-				ResDTO dto = new ResDTO();
+				MemberDTO dto = new MemberDTO();
 				
-				mdto.setId(rs.getString("id"));
-				mdto.setMemName(rs.getString("memName"));
-				mdto.setBirth(rs.getDate("birth"));
-				mdto.setTel(rs.getString("tel"));
-				mdto.setEmail(rs.getString("email"));
-				mdto.setPoint(rs.getInt("point"));
-//				dto.setResStatus(rs.getInt("count(resStatus)"));
-//				
-//				
-//				List<Object> tempList = new ArrayList<Object>();
-//				tempList.add(mdto);
-//				tempList.add(dto);
-//				memberList.add(tempList);
+				dto.setId(rs.getString("id"));
+				dto.setMemName(rs.getString("memName"));
+				dto.setBirth(rs.getDate("birth"));
+				dto.setTel(rs.getString("tel"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPoint(rs.getInt("point"));
+				dto.setResStatus(rs.getInt("count(resStatus)"));
+				dto.setRegDate(rs.getDate("regDate"));
 				
-				memberList.add(mdto);
+				memberList.add(dto);
+				
 			}
 			
 			System.out.println("예약관리");
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeDB();
@@ -142,9 +138,147 @@ public class MemberDAO {
 	}
 	
 	
+	// 총 회원수 출력
+	public MemberDTO memberListCount() {
+		
+		MemberDTO dto = null;
+		
+		try {
+			// 1. 2. DB연결
+			con = getCon();
+			// 3. sql작성 & pstmt 객체
+			sql = "SELECT count(id) FROM member";
+			pstmt = con.prepareStatement(sql);
+			
+			// 4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new MemberDTO();
+				
+				dto.setMemberCount(rs.getInt("count(id)"));
+				
+			}
+			
+			
+			System.out.println("총 회원수 저장완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		
+		
+		return dto;
+	}
 	
 	
+	// 총 예약건수
+	public ResDTO resCount() {
+		ResDTO dto = null;
+		
+		try {
+			// DB연결, sql 작성
+			con = getCon();
+			sql = "SELECT count(resStatus) FROM reservation WHERE resStatus=1";
+			pstmt = con.prepareStatement(sql);
+			
+			// sql 실행
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new ResDTO();
+				
+				dto.setResStatus(rs.getInt("count(resStatus)"));
+			}
+			
+			
+			System.out.println("총 예약건수 저장완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		
+		return dto;
+	} // 총 예약건수
 	
+	// 총 예약취소건수
+	public ResDTO resCancelCount() {
+		ResDTO dto = null;
+		
+		try {
+			// DB연결, sql 작성
+			con = getCon();
+			sql = "SELECT count(resStatus) FROM reservation WHERE resStatus=0";
+			pstmt = con.prepareStatement(sql);
+			
+			// sql 실행
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new ResDTO();
+				
+				dto.setResStatus(rs.getInt("count(resStatus)"));
+			}
+			
+			
+			System.out.println("총 예약취소건수 저장완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		
+		return dto;
+	} // 총 예약취소건수
+	
+	
+	// 주차장 정보(parking)
+	public List<ParkingDTO> parkingInfo() {
+		
+		ParkingDTO dto = null;
+		List<ParkingDTO> parkingInfoList = new ArrayList<ParkingDTO>();
+		
+		try {
+			// DB연결, sql 작성
+			con = getCon();
+			sql = "SELECT * FROM parking";
+			pstmt = con.prepareStatement(sql);
+			
+			// sql 실행
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new ParkingDTO();
+				
+				dto.setParkingCode(rs.getString("parkingCode"));
+				dto.setParkingName(rs.getString("parkingName"));
+				dto.setParkingAdr(rs.getString("parkingAdr"));
+				dto.setInOutDoor(rs.getString("inOutDoor"));
+				dto.setParkingTotal(rs.getInt("parkingTotal"));
+				dto.setParkingTel(rs.getString("parkingTel"));
+				
+				parkingInfoList.add(dto);
+			}
+			
+			System.out.println("주차장 정보 저장완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		
+		return parkingInfoList;
+	} // 주차장 정보 저장
 	
 	
 

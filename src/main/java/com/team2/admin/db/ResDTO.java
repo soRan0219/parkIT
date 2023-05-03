@@ -15,6 +15,7 @@ public class ResDTO {
 	private int price;
 	private String carNo;
 	private int resStatus;
+	
 	public int getResNo() {
 		return resNo;
 	}
@@ -81,6 +82,8 @@ public class ResDTO {
 				+ parkingPosition + ", resDate=" + resDate + ", parkInTime=" + parkInTime + ", parkOutTime="
 				+ parkOutTime + ", price=" + price + ", carNo=" + carNo + ", resStatus=" + resStatus + "]";
 	}
+	
+	
 	
 	
 	
