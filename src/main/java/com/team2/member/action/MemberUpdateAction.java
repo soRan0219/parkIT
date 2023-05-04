@@ -30,7 +30,7 @@ public class MemberUpdateAction implements Action {
 		
 		// 기존의 회원정보 가져오기
 		MemberDAO dao = new MemberDAO();
-		MemberDTO dto = new MemberDTO();
+		MemberDTO dto = dao.getMember(id);
 		
 		// 정보저장 (request영역)
 		request.setAttribute("dto", dto);

@@ -11,6 +11,9 @@ public class MemberDTO {
 	private String email;
 	private Date regdate;
 	private int point;
+	private String newpw;
+	
+	
 	
 	public String getId() {
 		return id;
@@ -60,10 +63,20 @@ public class MemberDTO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public String getNewpw() {
+		return newpw;
+	}
+	public void setNewpw(String newpw) {
+		this.newpw = newpw;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pw=" + pw + ", memname=" + memname + ", birth=" + birth + ", tel=" + tel
-				+ ", email=" + email + ", regdate=" + regdate + ", point=" + point + "]";
+				+ ", email=" + email + ", regdate=" + regdate + ", point=" + point + ", newpw=" + newpw + "]";
 	}
+	
 	
 }
