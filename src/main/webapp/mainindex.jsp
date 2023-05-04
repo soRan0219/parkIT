@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.JSP">Park<span>IT</span></a>
+			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -61,19 +62,33 @@
 			</div>
 		</div>
 
-
+<c:if test="${empty id }">
   <div class="login-form">
     <div class="form-group">
-      <a class="navbar-brand" href="#">Park<span>IT 로그인</span></a>
+      <a class="navbar-brand" href="./Main.park">Park<span>IT 로그인</span></a>
     </div>
     <div class="join-membership">
       <a href="#">아이디/비밀번호 찾기</a>
     </div>
     <div class="join-membership">
-      <a href="#">회원가입</a>
+      <a href="./MemberJoin.park">회원가입</a>
     </div>
   </div>
+</c:if>
+<c:if test="${not empty id }">
+  <div class="login-form">
+    아이디: ${id } <br> <!-- sessionScope 생략 -->
+	
+	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.park'">	
+	<hr>
+	
+	<h3><a href="./MemberInfo.park">회원정보 조회</a></h3>
 
+	<h3><a href="./MemberUpdate.park">회원정보 수정</a></h3>
+
+	<h3><a href="./MemberDelete.park">회원정보 삭제</a></h3>
+  </div>
+</c:if>
 	</nav>
 	<!-- END nav -->
 

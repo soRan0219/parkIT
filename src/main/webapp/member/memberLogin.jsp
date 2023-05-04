@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../Main/../Main/css/park.css">
-<link rel="stylesheet" href="../Main/../Main/css/style.css">
+<link rel="stylesheet" href="css/park.css">
+<link rel="stylesheet" href="css/style.css">
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="form-group">
-		<a class="navbar-brand" href="index.JSP">Park<span>IT</span></a>
+		<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
 	</div>
 	<div class="login_content">
 		<form action="./MemberLoginAction.park" method="post">

@@ -37,14 +37,7 @@
 <%-- 	로그인 아이디 : <%=session.getAttribute("id") %> <br> --%>
 	아이디: ${id } <br> <!-- sessionScope 생략 -->
 	
-	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.park'">	
-	<hr>
-	
-	<h3><a href="./MemberInfo.park">회원정보 조회</a></h3>
-
-	<h3><a href="./MemberUpdate.park">회원정보 수정</a></h3>
-
-	<h3><a href="./MemberDelete.park">회원정보 삭제</a></h3>
+	<c:redirect url="./MainMain.park"/>
 
 
 	<!-- admin 계정 추가하기 -->

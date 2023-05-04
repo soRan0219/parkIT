@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
-//@WebServlet("*.park")
+@WebServlet("*.park")
 public class FrontController extends HttpServlet {
 	//
 	// http://localhost:8088/TEAM2/itwill.park
@@ -55,7 +55,7 @@ public class FrontController extends HttpServlet {
 		
 		
 		// 약관동의자세히 - ./MemberJoinAgree.park
-		if(command.equals("/MemberJoinAgree.park")) {
+		else if(command.equals("/MemberJoinAgree.park")) {
 			System.out.println(" C : ./MemberJoinAgree.park 실행");
 			System.out.println(" C : DB 사용 X, view 페이지 이동 (패턴1)");
 			
@@ -109,6 +109,17 @@ public class FrontController extends HttpServlet {
 			// 페이지 이동
 			forward = new ActionForward();
 			forward.setPath("./member/main.jsp");
+			forward.setRedirect(false);
+			
+		}
+		
+		else if(command.equals("/MainMain.park")) {
+			System.out.println(" C : /MainMain.park 호출");
+			System.out.println(" C : DB사용 X, view 페이지 이동 (패턴1)");
+			
+			// 페이지 이동
+			forward = new ActionForward();
+			forward.setPath("mainindex.jsp");
 			forward.setRedirect(false);
 			
 		}
