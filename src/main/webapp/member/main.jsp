@@ -1,4 +1,4 @@
-<%@page import="java.beans.JavaBean"%>
+<%-- <%@page import="java.beans.JavaBean"%> --%>
 <%@page import="javax.management.MBeanAttributeInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

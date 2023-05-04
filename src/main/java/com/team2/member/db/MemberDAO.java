@@ -183,11 +183,11 @@ public class MemberDAO {
 				// 회원
 				if(dto.getPw().equals(rs.getString("pw"))) {
 					// 3. sql 작성 & pstmt 객체
-					sql = "update member set pw=?,tel=? where id=?";
+					sql = "update member set tel=? where id=?";
 					pstmt = con.prepareStatement(sql);
 						/// ???
-						pstmt.setString(1, dto.getPw());
-						pstmt.setString(2, dto.getTel());
+						pstmt.setString(1, dto.getTel());
+						pstmt.setString(2, dto.getId());
 						
 					// 4. sql 실행(select)
 					result = pstmt.executeUpdate(); // result = 1 // result에 저장
@@ -211,10 +211,58 @@ public class MemberDAO {
 		}
 		
 		return result;
-	}
-
-
+		
+}		
 	// 회원정보 수정 - memberUpdate(dto)
+		
+		
+	// 회원정보 수정 - memberUpdatePassword()
+	public int memberUpdatePassword(String id, String currentPw, String newPw) {
+	    int updateResult = -1;
+	    try {
+	        // 1. 디비연결
+	        con = getCon();
+	        // 2. SQL 작성 & pstmt 객체
+	        String sql = "SELECT pw FROM member WHERE id=?";
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, id);
+	        // 3. SQL 실행
+	        rs = pstmt.executeQuery();
+	        if (rs.next()) {
+//		            String dbPw = rs.getString("pw");
+//		        	currentPw = dto.getPw();
+	        		newPw = rs.getString("pw");
+	            if (currentPw.equals(newPw)) { // 현재 비밀번호와 일치하는 경우
+	                sql = "UPDATE member SET pw=? WHERE id=?";
+	                pstmt = con.prepareStatement(sql);
+	                pstmt.setString(1, newPw);
+	                pstmt.setString(2, id);
+	                updateResult = pstmt.executeUpdate(); // 회원 정보 수정
+	            } else { // 현재 비밀번호와 일치하지 않는 경우
+	            	updateResult = 0;
+	            }
+	        } else { // 아이디가 존재하지 않는 경우
+	        	updateResult = -1;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        closeDB();
+	    }
+	    return updateResult;
+	}
+	// 회원정보 수정 - memberUpdatePassword()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// 회원정보 탈퇴 - memberDelete(id, pw)
