@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.team2.parkingdetail.db.PDetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -77,14 +79,8 @@
 				type:"post",
 				data:{date:selectedDate,fromTime:fromTime,toTime:toTime,parkingCode:parkingCode},
 				success:function(data) {
-// 					alert("sucess");
-					console.log(data);
-// 					console.log(JSON.stringify(data));
-					
+// 					console.log(data);
 					var i;
-// 					for(i=0; i<data.length; i++) {
-// 						$('#pCodePosition').append(data[i].parkingCode).append(data[i].parkingPosition);
-// 					}
 					for(i=0; i<data.length-1; i++) {
 						let tmp = "<tr>";
 						tmp += "<td>" + data[i].parkingCode + "</td>";
@@ -100,9 +96,6 @@
 							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
 						$('#pArea').find('td').each(function() {
-// 							$(this).click(function() {
-// 								$('#selectedArea').html($(this).text());
-// 							});
 							if( $(this).text()==park ) {
 // 								$(this).html("<tr><td><a>"+park+"</a></td></tr>");
 								$(this).html(function(idx, txt) {
@@ -112,12 +105,9 @@
 							}
 						}); //pArea
 						
-						
-						
 					} //for
 					
 					$('#price').attr('value',data[i].price);
-					
 					
 				},  //success
 				error:function() {
@@ -125,7 +115,6 @@
 				}  //error
 			}); //ajax
 		}); //dateTimeBtn
-		
 		
 	});
 	
@@ -176,17 +165,39 @@
 	<div id="pArea">
 	주차장 좌석 배치
 		<table id="pAreaTable">
-			<c:forEach var="al" items="${allList }">
-			 <tr>
-				<td>${al.parkingCode }${al.parkingPosition }</td>
-<!-- 			<td><a id="a2" href="#">A2</a></td> -->
-<!-- 			<td><a id="a3" href="#">A3</a></td> -->
-<!-- 			<td><a id="a4" href="#">A4</a></td> -->
-<!-- 			<td><a id="a5" href="#">A5</a></td> -->
-			 </tr>
-			</c:forEach>
+		<%  List<PDetailDTO> available = (List<PDetailDTO>)request.getAttribute("available");
+			List<PDetailDTO> allList = (List<PDetailDTO>)request.getAttribute("allList");
+			for(int i=0; i<allList.size(); i++) { %>
+				<tr>
+					<% for(int j=0; j<available.size(); j++) { 
+						if(allList.get(i)==available.get(i)) { %>
+							<td><a href="#"> ${al.parkingCode }${al.parkingPosition } </a></td> 
+					<% 	} else { %>
+						<td> ${al.parkingCode }${al.parkingPosition } </td>
+					<%		i++;
+							continue;
+						} //if-else %>
+					<%} //for %>
+				</tr>
+			<% } %>
 		</table>
 	</div>
+	
+<%-- 	<div id="pArea">
+	주차장 좌석 배치
+		<table id="pAreaTable">
+			<c:forEach var="al" items="${allList }">
+				<tr>
+					<c:forEach var="a" items="${available }">
+						<c:if test="${al.parkingCode eq a.parkingCode }"> 
+							<td><a href="#"> ${al.parkingCode }${al.parkingPosition } </a></td> 
+						</c:if> 
+						<td> ${al.parkingCode }${al.parkingPosition } </td>
+					</c:forEach>
+				</tr>
+			</c:forEach>
+		</table>
+	</div> --%>
 	
 	<div id="selectedArea">
 		selected
@@ -196,9 +207,12 @@
 	
 	<div id="payInfo">
 		<form action="./PayAction.park" method="post">
-			<input type="hidden" id="id" value="${sessionScope.id }">
-			<input type="hidden" id="parkingCode" value="${available.parkingCode }">
-			<input type="hidden" id="parkingPosition" value="${available.parkingPosition }">
+			<!-- 회원 아이디 -->
+<%-- 		<input type="hidden" id="id" value="${sessionScope.id }"> --%>
+			<!-- 주차장코드 -->
+			<input type="hidden" id="parkingCode" value="${available[0].parkingCode }">
+			<!-- 주차장자리번호 -->
+			<input type="hidden" id="parkingPosition" value="">
 			<!-- 예약날짜 -->
 			<!-- 입차시간 -->
 			<!-- 출차시간 -->
