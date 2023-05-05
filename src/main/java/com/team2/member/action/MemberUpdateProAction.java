@@ -40,6 +40,7 @@ public class MemberUpdateProAction implements Action {
 		dto.setMemname(request.getParameter("memname"));
 		dto.setPoint(Integer.parseInt(request.getParameter("point")));
 		dto.setPw(request.getParameter("pw"));
+		dto.setNewpw(request.getParameter("newpw"));
 		dto.setTel(request.getParameter("tel"));
 		
 		// DAO 정보수정 메서드 호출 - memberUpdate(dto)

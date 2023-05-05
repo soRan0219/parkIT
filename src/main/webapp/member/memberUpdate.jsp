@@ -34,6 +34,7 @@
 		<form action="./MemberUpdateProAction.park" method="post" name="fr" onsubmit="return checkDate();">
 			아이디 : <input type="text" name="id" value="${requestScope.dto.id }" readonly>					<br>
 			비밀번호 : <input type="password" name="pw" placeholder="비밀번호를 입력하세요."> 			<br>	
+			새비밀번호 : <input type="password" name="pw" placeholder="새비밀번호를 입력하세요."> 			<br>	
 			이름 : <input type="text" name="memname" value="${dto.memname }" readonly> 					<br>
 			휴대전화 : <input type="tel" name="tel" value="${dto.tel }" >	<br>
 			이메일 : <input type="text" name="email" value="${dto.email }" readonly> 				<br>

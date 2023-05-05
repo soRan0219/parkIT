@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% response.sendRedirect("./MainMain.park");  %>
-	
+	<h1><a href="./Reservation.park"> 예약하기 </a></h1>
 </body>
 </html>
