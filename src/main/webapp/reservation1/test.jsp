@@ -8,16 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+		
 		<c:set var="selectedButton" value="${param.selectedButton }"/>
 		<c:set var="resDate" value="${param.resDate}"/>
 		<c:set var="parkInTime" value="${param.parkInTime}"/>
 		<c:set var="parkOutTime" value="${param.parkOutTime }"/>
 		<c:set var="parkingCode" value="${param.parkingCode}"/>
+		
+		
+		
+		
 		${param.selectedButton }
 		${param.resDate }
 		${param.parkInTime}
 		${param.parkOutTime }
 		${param.parkingCode }
+		
+		<a href="#" onclick="history.back();">뒤로가기</a>
 		
 		
 </body>

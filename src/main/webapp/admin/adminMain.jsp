@@ -19,7 +19,7 @@
 			url: "./AdminData.park",
 			dataType:"JSON",
 			success: function(data){
-// 				console.log(data);
+				console.log(data);
 				
 				// 총회원수 출력
 				var memberCount = parseInt(data.memberListCount.match(/memberCount=(\d+)/)[1]);
@@ -43,9 +43,8 @@
 		// 회원관리 버튼
 		$("#memberListBtn").on("click",function(){
 		
-			$(".admin2").hide();
-			$(".admin4").hide();
-			$(".admin5").hide();
+			$(".admin2, .admin3, .admin4, .admin5").hide();
+			
 			$(".admin3 tbody").empty(); // 이전 검색 결과 제거
 			
 			$.ajax({
@@ -53,7 +52,7 @@
 				url: "./AdminData.park",
 				dataType:"JSON",
 				success: function(data){
-					console.log(data.memberList); // 데이터출력 확인용
+// 					console.log(data.memberList); // 데이터출력 확인용
 					
 					var memberList = data.memberList;
 					var tbody = $(".admin3 tbody");
@@ -68,20 +67,21 @@
 						tr.append($("<td>").text(memberList[i].point));
 						tbody.append(tr);
 		            }
+					
+					$(".admin3").show();
 						
 				}
 			
 			})
 			
-			$(".admin3").show();
+			
 		}) // 회원관리 버튼
 		
 		// 예약관리 버튼
 		$("#resListBtn").on("click",function(){
 		
-			$(".admin2").hide();
-			$(".admin3").hide();
-			$(".admin5").hide();
+			$(".admin2, .admin3, .admin4, .admin5").hide();
+			
 			$(".admin4 tbody").empty(); // 이전 검색 결과 제거
 			
 			$.ajax({
@@ -92,7 +92,8 @@
 					console.log(data.resList); // 데이터출력 확인용
 					
 					var resList = data.resList;
-					var tbody = $(".admin4 tbody");
+					var tbody = $(".admin4 tbody"); //admin4 의 tbody
+					
 					for (var i = 0; i < resList.length; i++) {
 						var tr = $("<tr>");
 						tr.append($("<td>").text(resList[i].resNo));
@@ -109,21 +110,21 @@
 						}
 						tbody.append(tr);
 		            }
+					
+					$(".admin4").show();
 						
 				}
 			
 			})
 			
-			$(".admin4").show();
+			
 		}) // 예약관리 버튼
-		
 		
 		// 주차장관리 버튼
 		$("#parkingBtn").on("click",function(){
 		
-			$(".admin2").hide();
-			$(".admin3").hide();
-			$(".admin4").hide();
+			$(".admin2, .admin3, .admin4, .admin5").hide();
+			
 			$(".admin5 tbody").empty(); // 이전 검색 결과 제거
 			
 			$.ajax({
@@ -137,6 +138,10 @@
 					var tbody = $(".admin5 tbody");
 					for (var i = 0; i < parkingInfoList.length; i++) {
 						var tr = $("<tr>");
+						
+						
+						// j쿼리를 사용하여 생성된 요소는 자동으로 닫는 태그가 생성됨 -> </td> 생략 가능
+						// gpt가 그렇다고 함
 						tr.append($("<td>").text(parkingInfoList[i].parkingCode));
 						tr.append($("<td>").text(parkingInfoList[i].parkingName));
 						tr.append($("<td>").text(parkingInfoList[i].parkingAdr));
@@ -151,21 +156,21 @@
 						
 						tbody.append(tr);
 		            }
+					
+					$(".admin5").show();
 						
 				}
 			
 			})
 			
-			$(".admin5").show();
-		}) // 주차장관리 버튼
+			
+		}) // 예약관리 버튼
 		
 		
-		
+		// 메인페이지 버튼 누르면 초기화면으로
 		$(".main").on("click",function(){
+			$(".admin2, .admin3, .admin4, .admin5").hide();
 			$(".admin2").show();
-			$(".admin3").hide();
-			$(".admin4").hide();
-			$(".admin5").hide();
 		})
 		
 		
@@ -195,7 +200,7 @@
 			
 			
 		<div class="admin2"> <!-- 우측페이지 -->
-				
+		
 			<div> <!-- 월별 현황 -->
 			현재 현황
 			</div>

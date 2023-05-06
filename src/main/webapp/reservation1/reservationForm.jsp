@@ -79,6 +79,12 @@
 			$('#parkingCode').val(parkingCode);
 			
 			
+			// 날짜를 선택하지 않은 경우
+			if (!resDate){
+				alert("날짜를 선택하세요.");
+				return;
+			}
+			
 			// 시간을 선택하지 않은 경우
 			if (!parkInTime || !parkOutTime) {
 				alert("시간을 선택하세요.");
