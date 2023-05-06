@@ -1,0 +1,28 @@
+@charset "EUC-KR";
+
+
+.button{
+	width: 50px;
+	height: 100px;
+	cursor: pointer;
+	border-radius: 1px;/* 모서리 숫자에 따라 둥글게 */
+}
+
+
+.buttonN{
+	width: 50px;
+	height: 100px;
+	border-radius: 1px;
+	background-color: red;
+}
+
+.blue{
+	background-color: #00ffff; /* 대충 하늘색 */
+}
+
+
+
+.menu{
+	margin-bottom: 50px;
+}
+
