@@ -15,7 +15,7 @@ import com.team2.reservation.action.AreaInfoAction;
 import com.team2.reservation.action.AvailableAction;
 import com.team2.reservation.action.ReservationAction;
 
-@WebServlet("*.park")
+//@WebServlet("*.park")
 public class FrontController extends HttpServlet {
 
 	//http://localhost:8088/Team2/Main.park
