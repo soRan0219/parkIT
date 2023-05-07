@@ -26,7 +26,7 @@ public class JSForward {
 			e.printStackTrace();
 		}
 
-	}
+	} //alertAndBack()
 	
 	// 2. alert 메세지 출력, 원하는 위치로 이동
 	public static void alertAndMove(HttpServletResponse response, 
@@ -44,6 +44,28 @@ public class JSForward {
 			e.printStackTrace();
 		}		
 		
-	}
+	} //alertAndMove()
+	
+	//3. confirmAndMove()
+	public static void confirmAndMove(HttpServletResponse response, String msg, String yesLoc, String noLoc) {
+		
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>");
+			out.print("var c=confirm('"+ msg +"');");
+			out.print("if(c){");
+			out.print("location.href='"+ yesLoc +"';");
+			out.print("}else{");
+			out.print("location.href='"+ noLoc +"';");
+			out.print("}");
+			out.print("</script>");
+			out.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	} //confirmAndMove()
+	
 
 }
