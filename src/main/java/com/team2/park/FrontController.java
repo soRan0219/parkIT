@@ -12,98 +12,135 @@ import javax.servlet.http.HttpServletResponse;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
+
 @WebServlet("*.park")
-public class FrontController extends HttpServlet {
-
-	//http://localhost:8088/Team2/Main.park
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doProcess()");
-		
-		/************************* 가상주소 계산 *****************************/
-		System.out.println("가상주소 계산 - 시작");
-		
-		String requestURI = request.getRequestURI();
-		System.out.println("requestURI: " + requestURI);
-		String ctxPath = request.getContextPath();
-		System.out.println("ctxPath: " + ctxPath);
-		String command = requestURI.substring(ctxPath.length());
-		System.out.println("command: " + command);
-		 
-		System.out.println("가상주소 계산 - 끝");
-		/************************* 가상주소 계산 *****************************/
-		
-		/************************* 가상주소 매핑 *****************************/
-		System.out.println("가상주소 매핑 - 시작");
-		
-		ActionForward forward = null;
-		Action action = null;
-		
-		if(command.equals("/Main.park")) {
-			System.out.println("C: /Main.park 호출");
+	public class FrontController extends HttpServlet {
+
+		//http://localhost:8088/parkIT/noticeList.park	
+	
+		protected void doProcess(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			// 페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
+			System.out.println("doProcess() 호출!");
 			
-			forward = new ActionForward();
-			forward.setPath("./reservation/main.jsp");
-			forward.setRedirect(false);
+			// URL : http://localhost:8088/MVC7/itwill.me
+			// URI : /MVC7/itwill.me
 			
-		} //if(Main)
-		//예약
-		else if(command.equals("/Reservation.park")) {
-			System.out.println("C: /Reservation.park 호출");
+			/**********************1. 가상주소 계산****************************/
+			System.out.println(" 1. 가상주소 계산 - 시작 ");
 			
-			forward = new ActionForward();
-			forward.setPath("./reservation/reservationForm.jsp");
-			forward.setRedirect(false);
+			String requestURI = request.getRequestURI();
+			System.out.println(" requestURI : "+requestURI);
+			String ctxPath = request.getContextPath();
+			System.out.println(" ctxPath : "+ctxPath);
+			String command = requestURI.substring(ctxPath.length());
+			System.out.println(" command : "+command);
 			
-		} //if(Reservation.park)
-		//예약페이지
-		else if(command.equals("/ReservationAction.park")) {
-			System.out.println("C: /ReservationAction.park 호출");
+			System.out.println(" 1. 가상주소 계산 - 끝 ");
+			/**********************1. 가상주소 계산****************************/
 			
-			//action = new ReservationAction();
+			/**********************2. 가상주소 매핑****************************/
+			System.out.println("\n");
+			System.out.println(" 2. 가상주소 매핑 - 시작 ");
 			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			} //try
+
+	        System.out.println("\n\n"); // 칸 띄우기
+			System.out.println(" 2. 가상주소 매핑 - 시작 ");
 			
-		} //if(ReservationAction)
-		
-		
-		System.out.println("가상주소 매핑 - 끝");
-		/************************* 가상주소 매핑 *****************************/
-		
-		/************************* 가상주소 이동 *****************************/
-		System.out.println("가상주소 이동 - 시작");
-		
-		if(forward != null) {
-			if(forward.isRedirect()) {
-				System.out.println("redirect 방식 이동 - " + forward.getPath());
-				response.sendRedirect(forward.getPath());
-			} else {
-				System.out.println("forward 방식 이동 - " + forward.getPath());
-				RequestDispatcher dis = request.getRequestDispatcher(forward.getPath());
-				dis.forward(request, response);
+			Action action = null;
+			ActionForward forward = null;
+			
+			// 글쓰기 동작 : 글 입력 + DB저장
+			if(command.equals("/noticeWriteForm.park")) {
+				System.out.println(" C : /NoticeWriteForm.park 주소 요청 ");
+				forward = new ActionForward();
+				forward.setPath("./notice/noticeWriteForm.jsp");
+				forward.setRedirect(false);
+				System.out.println(" C : ./notice/noticeWriteForm.jsp로 이동준비완료 ");
+			}else if(command.equals("/NoticeWriteAction.park")) {
+				
+				try {
+					action = new NoticeWriteAction();
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-		} //if(null 아닐때)
+			else if(command.equals("/noticeList.park")) {
+				System.out.println(" C : /noticeList.park 주소 요청 ");
+				action = new NoticeListAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			else if(command.equals("/noticeContent.park")) {
+				System.out.println(" C : /noticeContent 주소 요청");
+				action = new NoticeContentAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(command.equals("/faqWriteForm.park")) {
+				System.out.println(" C : faqWriteForm.park 주소 요청 ");
+				action = new FaqWriteAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+				
+			
+			
+		    
+				
+			
+			
+			System.out.println(" 2. 가상주소 매핑 - 끝 ");
+			System.out.println("\n");
+			/**********************2. 가상주소 매핑****************************/
+			
+			/**********************3. 가상주소 이동****************************/
+			System.out.println(" 3. 가상주소 이동 - 시작 ");
+			if(forward != null) { //이동정보가 있을때
+				if(forward.isRedirect()) {
+					// 페이지 이동방식 - true
+					System.out.println(" C : sendRedirect방식 - "+forward.getPath()+"이동");
+					response.sendRedirect(forward.getPath());
+				}else {							
+					// 페이지 이동방식 - false
+					System.out.println(" C : forward방식 - "+forward.getPath()+"이동");
+					RequestDispatcher dis = 
+							request.getRequestDispatcher(forward.getPath());
+					dis.forward(request, response);
+				}			
+			}		
+			System.out.println(" 3. 가상주소 이동 - 끝 ");
+			/**********************3. 가상주소 이동****************************/
+			
+			System.out.println(" doProcess - 끝(컨트롤러 종료) ");
+		}// doProcess
 		
-		System.out.println("가상주소 이동 - 끝");
-		/************************* 가상주소 이동 *****************************/
 		
-		
-	} //doProcess()
-	
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet()");
-		doProcess(request, response);
-	} //doGet()
+		@Override
+		protected void doGet(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("doGET() 호출!");
+			doProcess(request, response);		
+		}
+		@Override
+		protected void doPost(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("doPOST() 호출!");
+			doProcess(request, response);
+		}
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost()");
-		doProcess(request, response);
-	} //doPost()
-	
-} //FrontController
+	}
+
+

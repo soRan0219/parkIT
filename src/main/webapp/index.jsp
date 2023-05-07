@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% response.sendRedirect("./Main.park");  %>
+	<% response.sendRedirect("./noticeWriteForm.park"); 
+	   session.setAttribute("id", "admin");
+	   %>
 </body>
 </html>
+
+

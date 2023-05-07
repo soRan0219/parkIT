@@ -9,10 +9,26 @@ public class NoticeDTO {
 	private String noticeContents;
 	private int noticeNo;
 	private Date noticeDate;
+	private int noticeRcnt;
+	private String noticeFile;
+	private String searchKeyword;
+	
 	
 	
 
-	public String getnoticeTitle() {
+	public String getNoticeFile() {
+		return noticeFile;
+	}
+	public void setNoticeFile(String noticeFile) {
+		this.noticeFile = noticeFile;
+	}
+	public int getNoticeRcnt() {
+		return noticeRcnt;
+	}
+	public void setNoticeRcnt(int noticeRcnt) {
+		this.noticeRcnt = noticeRcnt;
+	}
+	public String getNoticeTitle() {
 		return noticeTitle;
 	}
 	public void setnoticeTitle(String noticeTitle) {
