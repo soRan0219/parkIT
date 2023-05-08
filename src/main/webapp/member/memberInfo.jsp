@@ -5,12 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보 보기</title>
 </head>
 <body>
-	<h1>memberInfo.jsp(마이페이지)</h1>
-	
-	<h2>마이페이지</h2>
+	<h2>회원정보 보기</h2>
 	
 	
 	<%
@@ -54,7 +52,7 @@
 		<tr>
 	</table>
 	
-	<h2><a href="./Main.park">메인페이지로</a></h2>
+	<h3><a href="./Main.park">메인페이지로</a></h3>
 
 	
 	

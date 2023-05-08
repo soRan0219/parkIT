@@ -75,6 +75,69 @@ public class MemberDAO {
 		}		
 	}// 회원가입 - memberJoin()	
 	
+
+	
+	
+	
+	//----------------------------------------------------------------------------	
+	// 아이디 중복확인
+//	public void IdCheck(MemberDTO dto) {
+//		int result = -1; 
+//		
+//		try {
+//			// 1+2 디비연결
+//			con = getCon();
+//			
+//			// 3. sql & pstmt 객체
+//			sql = "select pw from member where id=?";
+//			pstmt = con.prepareStatement(sql);
+//				// ???
+//				pstmt.setString(1, dto.getId());
+//			
+//			// 4. sql 실행(select)
+//			rs = pstmt.executeQuery();
+//			
+//			// 5. 데이터처리
+//			if(rs.next()) { 
+//				// 회원
+//				if(dto.getId().equals(rs.getString("id"))) {
+//					// 3. sql 작성 & pstmt 객체
+//					sql = "update member set tel=? where id=?";
+//					pstmt = con.prepareStatement(sql);
+//						/// ???
+//						pstmt.setString(1, dto.getTel());
+//						pstmt.setString(2, dto.getId());
+//						
+//					// 4. sql 실행(select)
+//					result = pstmt.executeUpdate(); // result = 1 // result에 저장
+//					
+//				}else {
+//					// 비밀번호 오류
+//					result = 0;
+//				}
+//				
+//			}else {
+//				// 비회원
+//				result = -1;
+//			}
+//			
+//			System.out.println(" DAO : 회원정보 수정 완료("+result+")");
+//				
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}finally {
+//			closeDB();
+//		}
+//		
+//		return result;
+//		
+//	}
+	
+	
+	
+	
+	
+	
 	//----------------------------------------------------------------------------	
 	// 로그인 - memberLogin()
 	public int memberLogin(MemberDTO dto) {
@@ -116,9 +179,94 @@ public class MemberDAO {
 		return result;
 	}// 로그인 - memberLogin()
 	
+
+	
+	
+	//----------------------------------------------------------------------------	
+	// 아이디 찾기 - memberFindid()
+		public String memberFindid(MemberDTO dto) {
+		    String id = null;
+		    System.out.println("아이디찾기 : "+dto);
+		    try {
+		        // 1.2. 디비연결
+		        con = getCon();
+
+		        // 3. sql 작성 & pstmt 객체
+		        sql = "select id from member where memname=? and email=?";
+		        pstmt = con.prepareStatement(sql);
+		        pstmt.setString(1, dto.getMemname());
+		        pstmt.setString(2, dto.getEmail());
+
+		        // 4. sql 실행
+		        rs = pstmt.executeQuery();
+		        // 5. 데이터 처리
+		        if (rs.next()) {
+		        	System.out.println("여기들어옴");
+		            id = rs.getString("id");
+		        }
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        closeDB();
+		    }
+
+		    System.out.println("아이디는(dao)" + id);
+		    
+		    return id;
+
+		}
+		// 아이디 찾기 - memberFindid()
+		
+		
+		// 비밀번호 찾기 - memberFindpw()
+		public String memberFindpw(MemberDTO dto) {
+			String pw = null;
+			System.out.println("비밀번호 찾기(dao) : "+dto);
+			
+			try {
+				// 1+2 디비연결
+				con = getCon();
+				
+				// 3. sql & pstmt
+				sql = "select pw from member where id=? and email=?";
+				pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, dto.getId());
+					pstmt.setString(2, dto.getEmail());
+				
+				// 4. sql 실행
+				rs = pstmt.executeQuery();
+				
+				// 5. 데이터 처리
+				if(rs.next()) {
+					System.out.println("5.데이터처리 들어옴");
+					pw = rs.getString("pw");
+				}
+				else {
+					System.out.println("5.데이터처리 안들어옴");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+			
+			System.out.println("비밀번호는(dao)"+pw);
+			
+			return pw;
+		}
+		// 비밀번호 찾기 - memberFindpw()
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//-----------------------------------------------------------------------
-	// 회원정보 조회 - getMember() 
+	// 회원정보 보기 - getMember() 
 	public MemberDTO getMember(String id) {
 		MemberDTO dto = null;
 	
@@ -130,14 +278,14 @@ public class MemberDAO {
 			sql = "select * from member where id=?";
 			pstmt = con.prepareStatement(sql);
 				// ???
-				pstmt.setString(1, id);
+			pstmt.setString(1, id);
 			
 			// 4 sql 실행
 			rs = pstmt.executeQuery();
 			
 			// 5 데이터 처리
 			if(rs.next()) {
-				dto = new  MemberDTO();
+				dto = new MemberDTO();
 				dto.setBirth(rs.getString("birth"));
 				dto.setEmail(rs.getString("email"));
 				dto.setId(rs.getString("id"));
@@ -157,11 +305,14 @@ public class MemberDAO {
 		}
 		
 		return dto;
-	}
-	// 회원정보 조회 - getMember() 
+	}// 회원정보 보기 - getMember() 
 
-
-	// 회원정보 수정 - memberUpdate(dto)
+	
+	
+	
+	
+	//-----------------------------------------------------------------------
+	// 내 정보 보기 및 수정 - memberUpdate(dto)
 	public int memberUpdate(MemberDTO dto) {
 		int result = -1; 
 		
@@ -212,60 +363,72 @@ public class MemberDAO {
 		
 		return result;
 		
-}		
-	// 회원정보 수정 - memberUpdate(dto)
+	}// 내 정보 보기 및 수정 - memberUpdate(dto)
 		
 		
-	// 회원정보 수정 - memberUpdatePassword()
-	public int memberUpdatePassword(String id, String currentPw, String newPw) {
-	    int updateResult = -1;
-	    try {
-	        // 1. 디비연결
-	        con = getCon();
-	        // 2. SQL 작성 & pstmt 객체
-	        String sql = "SELECT pw FROM member WHERE id=?";
-	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, id);
-	        // 3. SQL 실행
-	        rs = pstmt.executeQuery();
-	        if (rs.next()) {
-//		            String dbPw = rs.getString("pw");
-//		        	currentPw = dto.getPw();
-	        		newPw = rs.getString("pw");
-	            if (currentPw.equals(newPw)) { // 현재 비밀번호와 일치하는 경우
-	                sql = "UPDATE member SET pw=? WHERE id=?";
-	                pstmt = con.prepareStatement(sql);
-	                pstmt.setString(1, newPw);
-	                pstmt.setString(2, id);
-	                updateResult = pstmt.executeUpdate(); // 회원 정보 수정
-	            } else { // 현재 비밀번호와 일치하지 않는 경우
-	            	updateResult = 0;
-	            }
-	        } else { // 아이디가 존재하지 않는 경우
-	        	updateResult = -1;
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        closeDB();
-	    }
-	    return updateResult;
-	}
-	// 회원정보 수정 - memberUpdatePassword()
+
+	
+	//-----------------------------------------------------------------------
+	// 비밀번호 변경
+	public int MemberPasswordUpdate(MemberDTO dto) {
+		int result = -1; 
+		
+		try {
+			// 1+2 디비연결
+			con = getCon();
+			
+			// 3. sql & pstmt 객체
+			sql = "select pw from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			// ???
+			pstmt.setString(1, dto.getId());
+			
+			// 4. sql 실행(select)
+			rs = pstmt.executeQuery();
+			
+			// 5. 데이터처리
+			if(rs.next()) { 
+				// 회원
+				if(dto.getPw() != dto.getNewpw()) {
+					// 3. sql 작성 & pstmt 객체
+					sql = "update member set pw=? where newpw=?";
+					pstmt = con.prepareStatement(sql);
+					/// ???
+					pstmt.setString(1, dto.getPw());
+					pstmt.setString(2, dto.getNewpw());
+					
+					// 4. sql 실행(select)
+					result = pstmt.executeUpdate(); // result = 1 // result에 저장
+					
+				}else {
+					// 비밀번호 오류
+					result = 0;
+				}
+				
+			}else {
+				// 비회원
+				result = -1;
+			}
+			
+			System.out.println(" DAO : 회원정보 수정 완료("+result+")");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeDB();
+		}
+		
+		return result;
+		
+	}// 내 정보 보기 및 수정 - memberUpdate(dto)
 	
 	
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	// 회원정보 탈퇴 - memberDelete(id, pw)
+	//-----------------------------------------------------------------------
+	// 회원 탈퇴 - memberDelete(id, pw)
 	
 	public int deleteMember(String id, String pw) {
 		int result = -1;
@@ -310,9 +473,7 @@ public class MemberDAO {
 		
 		
 		return result;
-	}
-	
-	// 회원정보 탈퇴 - memberDelete(id, pw)
+	}// 회원 탈퇴 - memberDelete(id, pw)
 	
 	
 

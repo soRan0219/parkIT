@@ -6,17 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>testLogin</title>
+<title>ParkIT 회원가입</title>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
 <script type="text/javascript">
 	$(function() {
+		$('#alert-success').css('color', 'blue');
+		$('#alert-danger').css('color', 'red');
 		$("#alert-success").hide();
 		$("#alert-danger").hide();
 		$("input").keyup(function() {
 			var pw=$("#pw").val();
-			var pwd2=$("#pwd2").val();
-			if(pw != "" || pwd2 != ""){
-				if(pw == pwd2){
+			var pw2=$("#pw2").val();
+			if(pw != "" || pw2 != ""){
+				if(pw == pw2){
 					$("#alert-success").show();
 					$("#alert-danger").hide();
 					$("submit").removeAttr("disabled");
@@ -31,8 +33,39 @@
 		});
 		
 	});
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
+<script type="text/javascript">
+/* 인증번호 이메일 전송 */
+$('#mail-Check-Btn').click(function() {
+		const eamil = $('#userEmail1').val() + $('#userEmail2').val(); // 이메일 주소값 얻어오기!
+		console.log('완성된 이메일 : ' + eamil); // 이메일 오는지 확인
+		const checkInput = $('.mail-check-input') // 인증번호 입력하는곳 
+		
+		$.ajax({
+			type : 'get',
+			url : '<c:url value ="/user/mailCheck?email="/>'+eamil, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+			success : function (data) {
+				console.log("data : " +  data);
+				checkInput.attr('disabled',false);
+				code =data;
+				alert('인증번호가 전송되었습니다.')
+			}			
+		}); // end ajax
+	}); // end send eamil
 
 </script>
+
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script type="text/javascript">
@@ -46,7 +79,7 @@
       }
     });
 
-    // 체크된거 해제하면 전체선택 박스 해제 및 개별체크 전부 클릭시 전체 선택 선택 처리
+    // 체크된거 해제하면 전체선택 박스 해제 및 개별체크 전부 클릭시 전체 선택 처리
     $(".joincheck").click(function() {
       if ($("input[class='joincheck']:checked").length == 3) {
         $("#AgreeCheckBox-All").prop("checked", true);
@@ -55,15 +88,33 @@
       }
     });
   });
+
+
+      $("#nextBtn").click(function() {
+          if($("#check_1").is(":checked") == false){
+              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다.");
+              return;
+          }else if($("#check_2").is(":checked") == false){
+              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다..");
+              return;
+          }else if($("#check_3").is(":checked") == false){
+              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다...");
+              return;
+          }else{
+              $("#terms_form").submit();
+          }
+      });
+  });
+  
 </script>
+
+
 
 
 </head>
 <body>
-	<h1>insertForm.jsp(TEAM2)</h1>
-	
 
-	<h2>파킹 회원가입</h2>	
+	<h2>ParkIT 회원가입</h2>	
 	<div class="join_content">
 		<form action="./MemberJoinAction.park" method="post" onsubmit="return checkData();">
 	<!-- 아이디, 비밀번호 입력 -->
@@ -72,8 +123,9 @@
 				<p>
 					<class="join_title" label for="id">아이디</label><br>
 					<span class="ps_box int_id">
-						<input type="text" id="id" name="id" class="int" title="ID" maxlength="15" placeholder="영문, 숫자 6-15 자"> 
-						<input type="button" name="id2" value="중복확인">					
+						<input type="text" id="id" name="id" class="int" title="ID" maxlength="15" placeholder="영문, 숫자 6-15 자" onkeydown="openIdCk()"> 
+						<input type="button" id="confirmId" value="중복확인"><br>	
+						<div><span id="id_signed"></span></div>				
 					</span>
 				</p>
 			</div>	
@@ -87,7 +139,7 @@
 				<p>	
 					<class="join_title" label for="pw2">비밀번호 재확인</label><br>
 					<span class="ps_box int_pass_check" id="pswd2Img">
-						<input type="password" id="pwd2" name="pw2" class="form-control" title="비밀번호 재확인 입력" required="">
+						<input type="password" id="pw2" name="pw2" class="form-control" title="비밀번호 재확인 입력" required="">
 					</span>
 						<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
@@ -133,12 +185,31 @@
 					</span>
 				</p>
 				
+				
+<!-- 				<div class="form-group email-form"> -->
+<!-- 	 <label for="email">이메일</label> -->
+<!-- 	 <div class="input-group"> -->
+<!-- 	<input type="email" name="userEmail1" id="userEmail1" placeholder="이메일" > -->
+	
+	   
+<div class="input-group-addon">
+	<button type="button" class="btn btn-primary" id="mail-Check-Btn">본인인증</button>
+</div>
+	<div class="mail-check-box">
+<input class="form-control mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+</div>
+	<span id="mail-check-warn"></span>
+</div>
+				
+				
 			</div>	
 		</div>			
 	<!-- // 이메일 입력 -->			
 		<hr>
 		<div><input type="submit" value="가입하기"></div>
 	</div>
+		
+		<br><br><br><br>
 		
 		
 		<!-- 약관동의 -->
@@ -159,7 +230,7 @@
 		<div class="login-join_form_agreement_privacy">
 			<input type="checkbox" class="joincheck">	
 			<label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
-			<button onclick="window.open('MemberJoinAgree.park', '_blank');" class="privacyageAgreeCheckBox_link">자세히</button>
+			<button onclick="window.open('MemberJoinAgree.park', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));">자세히</button>
 		</div>
 		
 <!-- 		class="adAgreeCheckBox" -->

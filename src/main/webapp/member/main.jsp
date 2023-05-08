@@ -1,4 +1,3 @@
-<%-- <%@page import="java.beans.JavaBean"%> --%>
 <%@page import="javax.management.MBeanAttributeInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,22 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyPage</title>
 </head>
 <body>
-	<h1>main.jsp(TEAM2)</h1> 
+	<h1>MyPage</h1> 
 	<!-- 로그인 정보가 있을때만 메인페이지를 사용가능 -->
 	
-	
-	<%
-		// 로그인 정보 
-// 		String id = (String)session.getAttribute("id");
-	
-// 		if(id == null){
-// 			response.sendRedirect("loginForm.jsp");
-			
-// 		}
-	%>
 	
 	<!-- 스크립틀릿 말고 jstl 사용하기 -->
 	<!-- 로그인 정보 -->
@@ -40,11 +29,13 @@
 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.park'">	
 	<hr>
 	
-	<h3><a href="./MemberInfo.park">회원정보 조회</a></h3>
+	<h3><a href="./MemberInfo.park">회원정보 보기</a></h3>
 
-	<h3><a href="./MemberUpdate.park">회원정보 수정</a></h3>
+	<h3><a href="./MemberUpdate.park">내 정보 보기 및 수정</a></h3>
+	
+	<h3><a href="./MemberPasswordUpdate.park">비밀번호 변경</a></h3>
 
-	<h3><a href="./MemberDelete.park">회원정보 삭제</a></h3>
+	<h3><a href="./MemberDelete.park">회원 탈퇴</a></h3>
 
 
 	<!-- admin 계정 추가하기 -->

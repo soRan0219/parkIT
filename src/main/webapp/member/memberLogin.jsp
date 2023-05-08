@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ParkIT 로그인</title>
 </head>
 <body>
 	<div class="form-group">
@@ -42,9 +42,16 @@
 				<input type="button" value="회원가입"
 					onclick=" location.href='./MemberJoin.park'; ">
 			</div>
-			<div class="join-membership">
-				<a href="#">아이디/비밀번호 찾기</a>
+			
+			
+			
+			<div>
+				<div>
+					<input type="button" value="찾기" onclick="location.href='./MemberFindID.park';">
+				</div>
 			</div>
+			
+		
 	</div>
 
 

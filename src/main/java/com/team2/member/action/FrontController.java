@@ -14,7 +14,7 @@ import com.team2.commons.ActionForward;
 
 @WebServlet("*.park")
 public class FrontController extends HttpServlet {
-	//
+	
 	// http://localhost:8088/TEAM2/itwill.park
 	
 	protected void doProcess(HttpServletRequest request, 
@@ -42,6 +42,7 @@ public class FrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
+		// --------------------------------------------------------------------------------
 		// 회원가입 - ./MemberJoin.park
 		if(command.equals("/MemberJoin.park")) {
 			System.out.println(" C : ./MemberJoin.park 실행");
@@ -54,8 +55,13 @@ public class FrontController extends HttpServlet {
 		}
 		
 		
+		
+		
+		
+		
+		// --------------------------------------------------------------------------------
 		// 약관동의자세히 - ./MemberJoinAgree.park
-		if(command.equals("/MemberJoinAgree.park")) {
+		else if(command.equals("/MemberJoinAgree.park")) {
 			System.out.println(" C : ./MemberJoinAgree.park 실행");
 			System.out.println(" C : DB 사용 X, view 페이지 이동 (패턴1)");
 			
@@ -65,9 +71,6 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
-		
-		
-		// 회원가입 - ./MemberJoinAction.park
 		else if(command.equals("/MemberJoinAction.park")) {
 			System.out.println(" C : /MemberJoinAction.park 호출");
 			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
@@ -80,6 +83,11 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 로그인 - ./MemberLogin.park
 		else if(command.equals("/MemberLogin.park")) {
 			System.out.println(" C : /MemberLogin.park 호출");
 			System.out.println(" C : DB사용 X, view 페이지 이동 (패턴1)");
@@ -112,6 +120,11 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			
 		}
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 로그아웃 - ./MemberLogout.park
 		else if(command.equals("/MemberLogout.park")) {
 			System.out.println(" C : /MemberLogout.park 호출");
 			System.out.println(" C : 처리작업, 페이지 이동 (패턴2)");
@@ -126,6 +139,133 @@ public class FrontController extends HttpServlet {
 			}
 			
 		}
+		
+		
+		
+		
+	///////아이디 찾기 / 비밀번호 찾기 메뉴 /////////////
+			else if(command.equals("/MemberFindPW.park")) {
+				System.out.println(" C : ./MemberFindPW.park 실행");
+				System.out.println(" C : DB X , view 페이지 이동(패턴1)");
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberFindPW.jsp");
+				forward.setRedirect(false);
+			}
+			
+			///////아이디 찾기 / 비밀번호 찾기 메뉴 /////////////
+			
+			
+			//////////////////////////////////////////////////////////////////
+			
+			// 아이디찾기 -./MemberFindID.park
+			else if(command.equals("/MemberFindID.park")) {
+				System.out.println(" C : ./MemberFindID.park 실행");
+				System.out.println(" C : DB X , view 페이지 이동(패턴1)");
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberFindID.jsp");
+				forward.setRedirect(false);
+				
+			}
+			
+			// 아이디찾기
+			else if(command.equals("/MemberFindIDAction.park")) {
+				System.out.println(" C : /MemberFindIDAction.park 호출");
+				System.out.println(" C : DB 사용 O, 페이지 이동 O (패턴2)");
+				
+				// MemberFindIDAction() 객체
+				action = new MemberFindIDAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			// 아이디찾기 후
+			else if(command.equals("/MemberFindIDafter.park")) {
+				System.out.println(" C : ./MemberFindIDafter.park 실행");
+				System.out.println(" C : DB X , view 페이지 이동(패턴1)");
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberFindIDafter.jsp");
+				forward.setRedirect(false);
+			}
+			
+			// 로그인화면으로 돌아가기
+			else if(command.equals("/MemberLogin.park")) {
+				System.out.println();
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberLogin.jsp");
+				forward.setRedirect(false);
+			}
+		
+			
+			////////////////////////////////////////////////////////////////
+			
+			
+			//////////////////////////////////////////////////////////////////
+			
+			// 비번 찾기 -./MemberFindPW.park
+			else if(command.equals("/MemberFindPW.park")) {
+				System.out.println(" C : ./MemberFindPW.park 실행");
+				System.out.println(" C : DB X , view 페이지 이동(패턴1)");
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberFindPW.jsp");
+				forward.setRedirect(false);
+				
+			}
+			
+			// 비번찾기
+			else if(command.equals("/MemberFindPWAction.park")) {
+				System.out.println(" C : /MemberFindPWAction.park 호출");
+				System.out.println(" C : DB 사용 O, 페이지 이동 O (패턴2)");
+				
+				// MemberFindIDAction() 객체
+				action = new MemberFindPWAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			// 비번찾기 후
+			else if(command.equals("/MemberFindPWafter.park")) {
+				System.out.println(" C : ./MemberFindPWafter.park 실행");
+				System.out.println(" C : DB X , view 페이지 이동(패턴1)");
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberFindPWafter.jsp");
+				forward.setRedirect(false);
+			}
+			
+			// 로그인화면으로 돌아가기
+			else if(command.equals("/MemberLogin.park")) {
+				System.out.println();
+				
+				// 페이지 이동
+				forward = new ActionForward();
+				forward.setPath("./member/memberLogin.jsp");
+				forward.setRedirect(false);
+			}
+		
+			
+			////////////////////////////////////////////////////////////////
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 회원 정보 보기 - ./MemberInfo.park
 		else if(command.equals("/MemberInfo.park")) {
 			System.out.println(" C : /MemberInfo.park 호출");
 			System.out.println(" C : DB 사용 O, view 이동 & 출력 (패턴3)");
@@ -138,6 +278,12 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 내 정보 보기 및 수정 - ./MemberUpdate.park
 		else if(command.equals("/MemberUpdate.park")) {
 			System.out.println(" C : /MemberUpdate.park 호출");
 			System.out.println(" C : DB 사용 O, view 이동 & 출력 (패턴3)");
@@ -164,8 +310,50 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		
+		
+
+		// --------------------------------------------------------------------------------
+		// 비밀번호 변경
+		else if(command.equals("/memberPasswordUpdate.park")) {
+			System.out.println(" C : /memberPasswordUpdate.park 호출");
+			System.out.println(" C : DB사용 X, view 페이지 이동 O (패턴1)");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberPasswordUpdate.jsp");
+			forward.setRedirect(false);
+			
+		}
+		else if(command.equals("/MemberPasswordUpdateAction.park")) {
+			System.out.println(" C : /MemberPasswordUpdateAction.park 호출 ");
+			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
+			
+			// MemberDeleteAction() 객체
+			action = new MemberPasswordUpdateAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 회원 탈퇴 - ./MemberDelete.park
 		else if(command.equals("/MemberDelete.park")) {
-			System.out.println(" C : /MemberDelete.me 호출 ");
+			System.out.println(" C : /MemberDelete.park 호출 ");
 			System.out.println(" C : DB사용 X, view 페이지 이동 O (패턴1)");
 			
 			forward = new ActionForward();
@@ -185,9 +373,9 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
-		}
+		}	
+		
+		
 		
 		
 		System.out.println("2. 매핑 끝 ");

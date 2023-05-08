@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 탈퇴</title>
 </head>
 <body>
 	<%
@@ -21,8 +21,7 @@
 	 	<c:redirect url="./MemberLogin.park"/>
 	</c:if>
 
-	<h1>memberDelete.jsp</h1>
-	<h2>회원정보 탈퇴(TEAM2)</h2>
+	<h2>회원 탈퇴</h2>
 
 	<fieldset>
 		<form action="./MemberDeleteAction.park" method="post">
@@ -32,7 +31,7 @@
 		</form>
 	</fieldset>
 	
-
+	<h3><a href="./Main.park">메인페이지로</a></h3>
 	
 	
 	

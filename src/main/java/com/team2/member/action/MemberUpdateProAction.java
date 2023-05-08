@@ -40,8 +40,8 @@ public class MemberUpdateProAction implements Action {
 		dto.setMemname(request.getParameter("memname"));
 		dto.setPoint(Integer.parseInt(request.getParameter("point")));
 		dto.setPw(request.getParameter("pw"));
-		dto.setNewpw(request.getParameter("newpw"));
 		dto.setTel(request.getParameter("tel"));
+		dto.setBirth(request.getParameter("birth"));
 		
 		// DAO 정보수정 메서드 호출 - memberUpdate(dto)
 		MemberDAO dao = new MemberDAO();
@@ -56,11 +56,11 @@ public class MemberUpdateProAction implements Action {
 			return null;
 		}
 		if(result == 0) {
-			JSForward.alertAndBack(response, "비밀번호 오류");
+			JSForward.alertAndBack(response, "비밀번호가 일치하지 않습니다.\\n다시 입력해주세요");
 			return null;
 		}
 		
-		JSForward.alertAndMove(response, "수정완료", "./Main.park");
+		JSForward.alertAndMove(response, "수정 되었습니다.", "./Main.park");
 		return null;
 	}
 
