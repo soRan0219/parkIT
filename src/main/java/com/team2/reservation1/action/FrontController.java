@@ -13,7 +13,7 @@ import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
 
-@WebServlet("*.park")
+//@WebServlet("*.park")
 public class FrontController extends HttpServlet {
 
 	//http://localhost:8088/parkIT/Main.park

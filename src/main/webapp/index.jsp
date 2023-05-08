@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% response.sendRedirect("./MainMain.park");  %>
+	<% //response.sendRedirect("./Main.park"); 
+		response.sendRedirect("./Reservation.park"); 
+		session.setAttribute("id", "abc123");
+	%>
 	
 </body>
 </html>

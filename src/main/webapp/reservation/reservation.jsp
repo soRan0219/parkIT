@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <title> reservation </title>
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/lot.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -40,48 +42,52 @@
 		$('#fromTime').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
-			startTime:'00:00',
-			defaultTime:'12:00',
+			startTime:'06:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
-				console.log(time);
-// 				$('#toTime').timepicker({startTime:time});
+				var minTime = new Date(time);
+				minTime.setMinutes(minTime.getMinutes() + 30);
+				$('#toTime').timepicker('option', 'minTime', minTime);
 			}
 		});
 
 		$('#toTime').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
-			startTime:'00:00',
-// 			startTime:$('#fromTime').val(),
+			startTime:'06:00',
 			dynamic:false,
 			scrollbar:true
-// 			minTime:$('#fromTime').val()
 		});
 		
-		$('#pArea').find('td').each(function() {
-// 			alert("클릭");
-// 			alert($(this).text());
-			$(this).click(function() {
-				$('#selectedArea').html($(this).text());
-			});
-		}); //pArea
-		
+			
 		$('#dateTimeBtn').click(function() {
-			let selectedDate = $('#datepicker').datepicker('getDate');
-			let fromTime = $('#fromTime').timepicker('getTime');
-			let toTime = $('#toTime').timepicker('getTime');
+			
+			let selectedDate = $('#datepicker').val();
+			let fromTime = $('#fromTime').val();
+			let toTime = $('#toTime').val();
 			let parkingCode = $('#parkingCode').val();
 			
+			$('.click_inner a.selected').removeClass('selected');
+			$('#payInfo input#parkingCode').val('');
+			$('#payInfo input#parkingPosition').val('');
+			
+			$('#resDate').val(selectedDate);
+			$('#parkInTime').val(fromTime);
+			$('#parkOutTime').val(toTime);
+			
+			$('#res_click_map').find('.cbtn').each(function() {
+				$(this).removeClass('cbtn_on').addClass('cbtn_off');
+			});
+					
 			$.ajax({
 				url:"./Available.park",
 				type:"post",
 				data:{date:selectedDate,fromTime:fromTime,toTime:toTime,parkingCode:parkingCode},
 				success:function(data) {
-// 					console.log(data);
+					
 					var i;
-					for(i=0; i<data.length-1; i++) {
+					for(i=0; i<data.length-1; i++) { 
 						let tmp = "<tr>";
 						tmp += "<td>" + data[i].parkingCode + "</td>";
 						tmp += "<td>" + data[i].parkingPosition + "</td>";
@@ -93,17 +99,20 @@
 							$('#available').find('table').append(tmp);
 						} //if-else
 							
-							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
-						$('#pArea').find('td').each(function() {
-							if( $(this).text()==park ) {
-// 								$(this).html("<tr><td><a>"+park+"</a></td></tr>");
-								$(this).html(function(idx, txt) {
-									return "<a href='#'>" + txt + "</a>";
-								});
-// 								$('#pAreaTable').append("<tr><td><a>"+park+"</a></td></tr>");
+						
+						$('#res_click_map').find('.cbtn').each(function(idx, elem) {
+							let code = $(this).find('#code').val();
+							let position = $(this).find('#position').val();
+							let result = code + position;
+							console.log(result);
+							
+							if(result==park) {
+								$(this).removeClass('cbtn_off').addClass('cbtn_on');
 							}
-						}); //pArea
+							
+						}); //res_click_map
+						
 						
 					} //for
 					
@@ -114,6 +123,8 @@
 					alert("error");
 				}  //error
 			}); //ajax
+			
+			
 		}); //dateTimeBtn
 		
 	});
@@ -136,7 +147,6 @@
 	희망 출차 시간: ${parkOutTime } <br>
 	
 		<div>
-<!-- 		<form action="" name="fr" method="post"> -->
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
 				<input type="text" id="datepicker" name="selectedDate">
@@ -144,7 +154,6 @@
 				<input type="text" id="toTime" name="toTime">
 				<input type="button" value="조회하기" id="dateTimeBtn">
 			</div>
-<!-- 		</form> -->
 	</div>
 	
 	<hr>
@@ -162,65 +171,108 @@
 	
 	<hr>
 	
-	<div id="pArea">
-	주차장 좌석 배치
-		<table id="pAreaTable">
-		<%  List<PDetailDTO> available = (List<PDetailDTO>)request.getAttribute("available");
-			List<PDetailDTO> allList = (List<PDetailDTO>)request.getAttribute("allList");
-			for(int i=0; i<allList.size(); i++) { %>
-				<tr>
-					<% for(int j=0; j<available.size(); j++) { 
-						if(allList.get(i)==available.get(i)) { %>
-							<td><a href="#"> ${al.parkingCode }${al.parkingPosition } </a></td> 
-					<% 	} else { %>
-						<td> ${al.parkingCode }${al.parkingPosition } </td>
-					<%		i++;
-							continue;
-						} //if-else %>
-					<%} //for %>
-				</tr>
-			<% } %>
-		</table>
+	<script type="text/javascript">
+		let aList = ${aList};
+		
+		$(function() {
+			
+			$('#res_click_map').find('.cbtn').each(function() {
+				$(this).removeClass('cbtn_on').addClass('cbtn_off');
+			});
+			
+			for(var i=0; i<aList.length; i++) {
+				console.log(aList[i]);
+				let park = aList[i].parkingCode + aList[i].parkingPosition;
+				
+				$('#res_click_map').find('.cbtn').each(function(idx, elem) {
+					let code = $(this).find('#code').val();
+					let position = $(this).find('#position').val();
+					let result = code + position;
+					console.log(result);
+					
+					if(result==park) {
+						$(this).removeClass('cbtn_off').addClass('cbtn_on');
+					}
+					
+				}); //res_click_map
+				
+			} //for
+		});
+		
+	</script>
+	
+	<div id="res_click_map">
+		<img src="./img/parking3.png">
+		<div class="click_inner">
+		
+			<a href="#" class="cbtn cbtn_01" onclick="return false;">
+				<input type="hidden" id="code" class="" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="1">
+			01
+			</a>
+			
+			<a href="#" class="cbtn cbtn_02" onclick="return false;">
+				<input type="hidden" id="code" class="" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="2">
+			02
+			</a>
+			
+			<a href="#" class="cbtn cbtn_03" onclick="return false;">
+				<input type="hidden" id="code" class="" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="3">
+			03
+			</a>
+			
+			<a href="#" class="cbtn cbtn_04" onclick="return false;">
+				<input type="hidden" id="code" class="" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="4">
+			04
+			</a>
+			
+			<a href="#" class="cbtn cbtn_05" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="5">
+			05
+			</a>
+			
+		</div>
 	</div>
 	
-<%-- 	<div id="pArea">
-	주차장 좌석 배치
-		<table id="pAreaTable">
-			<c:forEach var="al" items="${allList }">
-				<tr>
-					<c:forEach var="a" items="${available }">
-						<c:if test="${al.parkingCode eq a.parkingCode }"> 
-							<td><a href="#"> ${al.parkingCode }${al.parkingPosition } </a></td> 
-						</c:if> 
-						<td> ${al.parkingCode }${al.parkingPosition } </td>
-					</c:forEach>
-				</tr>
-			</c:forEach>
-		</table>
-	</div> --%>
-	
-	<div id="selectedArea">
-		selected
-	</div>
+	<script type="text/javascript">
+		$(function() {
+			$('.cbtn').click(function() {
+				if( $(this).hasClass('cbtn_on') ) {
+					$('.click_inner a.selected').removeClass('selected');
+					$(this).addClass('selected');
+					$('#payInfo input#parkingCode').val( $(this).find('#code').val() );
+					$('#payInfo input#parkingPosition').val( $(this).find('#position').val() );
+				} 
+			}); //cbtnClick
+		});
+	</script>
 	
 	<hr>
 	
-	<div id="payInfo">
-		<form action="./PayAction.park" method="post">
+	<div>
+		<form action="./PayAction.park" id="payInfo" method="post">
 			<!-- 회원 아이디 -->
-<%-- 		<input type="hidden" id="id" value="${sessionScope.id }"> --%>
+			<input type="hidden" id="id" name="id" value="${sessionScope.id }">
 			<!-- 주차장코드 -->
-			<input type="hidden" id="parkingCode" value="${available[0].parkingCode }">
+			<input type="hidden" id="parkingCode" name="parkingCode" value="${available[0].parkingCode }">
 			<!-- 주차장자리번호 -->
-			<input type="hidden" id="parkingPosition" value="">
+			<input type="hidden" id="parkingPosition" name="parkingPosition" value="">
 			<!-- 예약날짜 -->
+			<input type="text" id="resDate" name="resDate" value="${resDate }">
 			<!-- 입차시간 -->
+			<input type="text" id="parkInTime" name="parkInTime" value="${parkInTime }">
 			<!-- 출차시간 -->
-			연락처: <input type="text" id="tel">
-			차량번호: <input type="text" id="carNo">
-			사용 포인트: <input type="text" id="usePoint">
+			<input type="text" id="parkOutTime" name="parkOutTime" value="${parkOutTime }">
+			연락처: <input type="text" id="tel" name="tel">
+			차량번호: <input type="text" id="carNo" name="carNo">
+			사용 포인트: <input type="text" id="usePoint" name="usePoint">
 			<div>
-				<h3> 결제 예상금액: <input type="text" id="price" value="${price }" readonly></h3>
+				<%-- <h3> 결제 예상금액: <input type="text" id="price" name="price" value="${price }" readonly></h3> --%>
+				<input type="hidden" id="price" name="price" value="${price }">
 				<input type="submit" value="결제하기">
 			</div>
 		</form>
