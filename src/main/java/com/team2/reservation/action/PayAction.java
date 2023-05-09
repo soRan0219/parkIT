@@ -11,6 +11,7 @@ import com.google.gson.JsonObject;
 import com.team2.admin.db.ResDTO;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.reservation.db.PayDTO;
 import com.team2.reservation.db.ResDAO;
 
 public class PayAction implements Action {
@@ -34,19 +35,16 @@ public class PayAction implements Action {
 		//입, 출차시간
 		String fromTime = request.getParameter("parkInTime");
 		String toTime = request.getParameter("parkOutTime");
-		System.out.println(fromTime + ", " + toTime);
 		
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
-		System.out.println(parkInTime + ", " + parkOutTime);
 		
 		//연락처, 차량번호, 결제예상금액
 		String contact = request.getParameter("tel");
 		String carNo = request.getParameter("carNo");
 		int price = Integer.parseInt(request.getParameter("price"));
-		System.out.println(price);
 		
-		//위 정보 모두 저장
+		//위 정보 모두 ResDTO에 저장
 		ResDTO dto = new ResDTO();
 		dto.setId(id);
 		dto.setParkingCode(parkingCode);
@@ -57,11 +55,30 @@ public class PayAction implements Action {
 		dto.setPrice(price);
 		dto.setCarNo(carNo);
 		
+		//결제 테이블에 들어갈 정보
+		String payNo = request.getParameter("payNo");
+		
+		String strPayDate = request.getParameter("payDate");
+		Date parsedPayDate = new SimpleDateFormat("yyyy-MM-dd").parse(strPayDate);
+		java.sql.Date payDate = new java.sql.Date(parsedPayDate.getTime());
+		
+		//결제 정보 PayDTO에 저장
+		PayDTO payDto = new PayDTO();
+		payDto.setPayNo(payNo);
+		payDto.setPayWay("card");
+		payDto.setPayCondition("paid");
+		payDto.setPayDate(payDate);
+		payDto.setTotalPrice(price);
+		
 		ResDAO dao = new ResDAO();
-		int result = dao.reservate(dto);
+		int resResult = dao.reservate(dto);
+		int payResult = dao.pay(payDto);
+		
+		System.out.println("resResult: " + resResult + "\npayResult: " + payResult);
 		
 		JsonObject obj = new JsonObject();
-		obj.addProperty("result", result);
+		obj.addProperty("resResult", resResult);
+		obj.addProperty("payResult", payResult);
 		
 		response.setContentType("application/x-json; charset=utf-8");
 		response.getWriter().print(obj);
