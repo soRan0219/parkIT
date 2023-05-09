@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,26 +31,61 @@
   </head>
   <body>
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.jsp">Car<span>Book</span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+	 <nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span>
+			</button>
+			
+			
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="pricing.jsp" class="nav-link">Pricing</a></li>
-	          <li class="nav-item"><a href="car.jsp" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
-	          <li class="nav-item active"><a href="contact.jsp" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="index.jsp"
+						class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+					<li class="nav-item"><a href="pricing.jsp" class="nav-link">Pricing</a></li>
+					<li class="nav-item"><a href="car.jsp" class="nav-link">Cars</a></li>
+					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="contact.jsp" class="nav-link">FAQ</a></li>
+				</ul>
+			</div>
+		</div>
+
+<c:if test="${empty id }">
+  <div class="login-form">
+    <div class="form-group">
+      <a class="navbar-brand" href="./Main.park">Park<span>IT 로그인</span></a>
+    </div>
+    <div class="join-membership">
+      <a href="#">아이디/비밀번호 찾기</a>
+    </div>
+    <div class="join-membership">
+      <a href="./MemberJoin.park">회원가입</a>
+    </div>
+  </div>
+</c:if>
+<c:if test="${not empty id }">
+  <div class="login-form">
+    아이디: ${id } <br> <!-- sessionScope 생략 -->
+	
+	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.park'">	
+	<hr>
+	
+	<h3><a href="./MemberInfo.park">회원정보 조회</a></h3>
+
+	<h3><a href="./MemberUpdate.park">회원정보 수정</a></h3>
+
+	<h3><a href="./MemberDelete.park">회원정보 삭제</a></h3>
+  </div>
+</c:if>
+	</nav>
     <!-- END nav -->
     
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
@@ -74,7 +110,7 @@
 			          	<div class="icon mr-3">
 			          		<span class="icon-map-o"></span>
 			          	</div>
-			            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+			            <p><span>Address:</span> 아이티윌 23433층 2호</p>
 			          </div>
 		          </div>
 		          <div class="col-md-12">
@@ -90,30 +126,13 @@
 			          	<div class="icon mr-3">
 			          		<span class="icon-envelope-o"></span>
 			          	</div>
-			            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+			            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@itwill.com</a></p>
 			          </div>
 		          </div>
 		        </div>
           </div>
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
+          <div class="faqpage">
+           <jsp:include page="./faq/faqList.jsp" />
           </div>
         </div>
         <div class="row justify-content-center">

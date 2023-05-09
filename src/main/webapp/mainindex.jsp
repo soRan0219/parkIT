@@ -57,7 +57,7 @@
 					<li class="nav-item"><a href="pricing.jsp" class="nav-link">Pricing</a></li>
 					<li class="nav-item"><a href="car.jsp" class="nav-link">Cars</a></li>
 					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
-					<li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="contact.jsp" class="nav-link">FAQ</a></li>
 				</ul>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 	<!-- END nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
-		style="background-image: url('images/bg_1.jpg');"
+		style="background-image: url('images/park5.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -343,15 +343,15 @@
 						<div class="item">
 							<div class="car-wrap rounded ftco-animate">
 								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/car-1.jpg);"></div>
+									style="background-image: url(images/park2.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">Mercedes Grand Sedan</a>
+										<a href="#">서면점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">Cheverolet</span>
+										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$500 <span>/day</span>
+											$2000 <span>/30min</span>
 										</p>
 									</div>
 									<p class="d-flex mb-0 d-block">
@@ -364,15 +364,15 @@
 						<div class="item">
 							<div class="car-wrap rounded ftco-animate">
 								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/car-2.jpg);"></div>
+									style="background-image: url(images/park3.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">Mercedes Grand Sedan</a>
+										<a href="#">광안리점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">Cheverolet</span>
+										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$500 <span>/day</span>
+											$2000 <span>/30min</span>
 										</p>
 									</div>
 									<p class="d-flex mb-0 d-block">
@@ -385,15 +385,15 @@
 						<div class="item">
 							<div class="car-wrap rounded ftco-animate">
 								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/car-3.jpg);"></div>
+									style="background-image: url(images/park4.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">Mercedes Grand Sedan</a>
+										<a href="#">해운대점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">Cheverolet</span>
+										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$500 <span>/day</span>
+											$2000 <span>/30min</span>
 										</p>
 									</div>
 									<p class="d-flex mb-0 d-block">
@@ -406,15 +406,15 @@
 						<div class="item">
 							<div class="car-wrap rounded ftco-animate">
 								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/car-4.jpg);"></div>
+									style="background-image: url(images/park1.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">Mercedes Grand Sedan</a>
+										<a href="#">서면점2</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">Cheverolet</span>
+										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$500 <span>/day</span>
+											$2000 <span>/30min</span>
 										</p>
 									</div>
 									<p class="d-flex mb-0 d-block">
