@@ -7,10 +7,10 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
 import com.team2.admin.db.ResDTO;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
-import com.team2.commons.JSForward;
 import com.team2.reservation.db.ResDAO;
 
 public class PayAction implements Action {
@@ -34,9 +34,11 @@ public class PayAction implements Action {
 		//입, 출차시간
 		String fromTime = request.getParameter("parkInTime");
 		String toTime = request.getParameter("parkOutTime");
+		System.out.println(fromTime + ", " + toTime);
 		
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
+		System.out.println(parkInTime + ", " + parkOutTime);
 		
 		//연락처, 차량번호, 결제예상금액
 		String contact = request.getParameter("tel");
@@ -58,11 +60,17 @@ public class PayAction implements Action {
 		ResDAO dao = new ResDAO();
 		int result = dao.reservate(dto);
 		
-		if(result==0) {
-			JSForward.alertAndBack(response, "결제에 실패했습니다.");
-		} else {
-			JSForward.confirmAndMove(response, "결제성공! 예약내역 페이지로 이동하시겠습니까?", "./ResInfo.park", "./Main.park");
-		}
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", result);
+		
+		response.setContentType("application/x-json; charset=utf-8");
+		response.getWriter().print(obj);
+		
+//		if(result==0) {
+//			JSForward.alertAndBack(response, "결제에 실패했습니다.");
+//		} else {
+//			JSForward.confirmAndMove(response, "결제성공! 예약내역 페이지로 이동하시겠습니까?", "./ResInfo.park", "./Main.park");
+//		}
 		
 		return null;
 	} //execute()
