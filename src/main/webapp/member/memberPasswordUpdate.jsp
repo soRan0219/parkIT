@@ -11,12 +11,12 @@
 		function pwCheck() {
 			if(document.fr.pw.value=="") {
 				alert("현재 비밀번호를 입력해 주세요.");
-				document.fr.currpw.focus();
+				document.fr.pw.focus();
 				return false;
 			}	
 			
 			if(document.fr.newpw.value=="") {
-				alert("새로운 비밀번호를 입력해 주세요.");
+				alert("변경할 비밀번호를 입력해 주세요.");
 				document.fr.newpw.focus();
 				return false;
 			}	
@@ -35,9 +35,10 @@
 	<fieldset>
 		<legend>비밀번호 변경</legend>
 		<!-- action 주소가 없으면 자신의 페이지 호출 -->
-		<form action="./MemberPasswordUpdateAction.park" method="post" name="fr" onsubmit="return checkDate();">
-			현재 비밀번호 : <input type="password" name="pw" placeholder="현재 비밀번호를 입력하세요."> 			<br>	
-			새로운 비밀번호 : <input type="password" name="newpw" placeholder="새로운 비밀번호를 입력하세요."> 			<br>	
+		<form action="./MemberPasswordUpdateProAction.park" method="post" name="fr" onsubmit="return checkDate();">
+			현재 비밀번호 : <input type="password" name="pw" placeholder="현재 비밀번호를 입력하세요." required="required"> 			<br>	
+			변경할 비밀번호 : <input type="password" name="newpw" placeholder="변경할 비밀번호를 입력하세요." required="required"> 			<br>	
+			
 			
 			<hr>
 			<input type="submit" value="변경">

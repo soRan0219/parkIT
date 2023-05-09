@@ -9,6 +9,7 @@
 <title>ParkIT 회원가입</title>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
 <script type="text/javascript">
+// 비밀번호 일치,불일치 입력창 밑에 띄우기
 	$(function() {
 		$('#alert-success').css('color', 'blue');
 		$('#alert-danger').css('color', 'red');
@@ -36,37 +37,7 @@
 </script>
 
 
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
-<script type="text/javascript">
-/* 인증번호 이메일 전송 */
-$('#mail-Check-Btn').click(function() {
-		const eamil = $('#userEmail1').val() + $('#userEmail2').val(); // 이메일 주소값 얻어오기!
-		console.log('완성된 이메일 : ' + eamil); // 이메일 오는지 확인
-		const checkInput = $('.mail-check-input') // 인증번호 입력하는곳 
-		
-		$.ajax({
-			type : 'get',
-			url : '<c:url value ="/user/mailCheck?email="/>'+eamil, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
-			success : function (data) {
-				console.log("data : " +  data);
-				checkInput.attr('disabled',false);
-				code =data;
-				alert('인증번호가 전송되었습니다.')
-			}			
-		}); // end ajax
-	}); // end send eamil
-
-</script>
-
-
-
-
-
+<!-- 회원 약관 동의 전체 선택 처리 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -88,29 +59,72 @@ $('#mail-Check-Btn').click(function() {
       }
     });
   });
-
-
-      $("#nextBtn").click(function() {
-          if($("#check_1").is(":checked") == false){
-              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다.");
-              return;
-          }else if($("#check_2").is(":checked") == false){
-              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다..");
-              return;
-          }else if($("#check_3").is(":checked") == false){
-              alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다...");
-              return;
-          }else{
-              $("#terms_form").submit();
-          }
-      });
-  });
+</script>  
   
+
+
+<!-- 회원 약관 동의 하나라도 안되어있으면 안넘어가게 처리 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$("#join_submit").click(function () {
+			if($("#check_1").is(":checked")&&$("#check_2").is(":checked")&&$("#check_3").is(":checked")){
+				// 모두 체크되어 있다면 회원가입 가능
+				window.location.href = './MemberJoinAction.park';					
+			}else{
+				// 하나라도 안되어있다면 알림창 
+				alert('모든 약관에 동의해야 회원가입이 가능합니다.');
+			}
+			return false;
+		});
+		
+	});
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#join_submit').click(function() {
+      var pw = $('#pw').val();
+      var pw2 = $('#pw2').val();
+
+      if (pw != pw2) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return false;
+      }
+      return true;
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script type="text/javascript">
+// 전화번호 하이픈 넣기
+	$(function () {
+		$("#tel").on("keyup", function () {
+			var telVal = $(this).val();
+			telVal = telVal.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+			var telLen = telVal.length;
+			if(telLen > 3){
+				telVal = telVal.substring(0,3) + "-" + telVal.substring(3);
+			}
+			if(telLen > 7){
+				telVal = telVal.substring(0,8) + "-" +telVal.substring(8);
+			}
+			$(this).val(telVal);
+		});
+		
+	});
 </script>
 
 
 
 
+
+<!--------------------------------------------------------------------------------------------------------------------------->
 </head>
 <body>
 
@@ -186,10 +200,6 @@ $('#mail-Check-Btn').click(function() {
 				</p>
 				
 				
-<!-- 				<div class="form-group email-form"> -->
-<!-- 	 <label for="email">이메일</label> -->
-<!-- 	 <div class="input-group"> -->
-<!-- 	<input type="email" name="userEmail1" id="userEmail1" placeholder="이메일" > -->
 	
 	   
 <div class="input-group-addon">
@@ -206,7 +216,7 @@ $('#mail-Check-Btn').click(function() {
 		</div>			
 	<!-- // 이메일 입력 -->			
 		<hr>
-		<div><input type="submit" value="가입하기"></div>
+		<div><input type="submit" value="가입하기" id="join_submit"></div>
 	</div>
 		
 		<br><br><br><br>
@@ -222,21 +232,27 @@ $('#mail-Check-Btn').click(function() {
 		
 <!-- 		class="ageAgreeCheckBox" -->
 		<div class="login-join_form_agreement_age">
-			<input type="checkbox" class="joincheck">	
+			<input type="checkbox" class="joincheck" id="check_1">	
 			<label for="ageAgreeCheckBox">[필수] 만 18세 이상입니다. </label>
 		</div>
 		
 <!-- 		class="privacyAgreeCheckBox"  -->
 		<div class="login-join_form_agreement_privacy">
-			<input type="checkbox" class="joincheck">	
-			<label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
-			<button onclick="window.open('MemberJoinAgree.park', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));">자세히</button>
+		  <input type="checkbox" class="joincheck" id="check_2">	
+		  <label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
+		  <button onclick="showAgreementDetails(); return false;">자세히</button>
 		</div>
+		
+		<script type="text/javascript">
+		  function showAgreementDetails() {
+		    window.open('MemberJoinAgree.park', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));
+		  }
+		</script>
 		
 <!-- 		class="adAgreeCheckBox" -->
 		<div class="login-join_form_agreement_ad">
-			<input type="checkbox" class="joincheck">	
-			<label for="adAgreeCheckBox">[선택] 광고성 정보 수신 동의 </label>
+			<input type="checkbox" class="joincheck" id="check_3">	
+			<label for="adAgreeCheckBox">[필수] 광고성 정보 수신 동의 </label>
 		</div>
 
 	</div>

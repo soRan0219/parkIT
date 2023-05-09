@@ -12,8 +12,7 @@ public class MemberDTO {
 	private String email;
 	private Date regdate;
 	private int point;
-	
-	
+
 	
 	
 	public String getId() {

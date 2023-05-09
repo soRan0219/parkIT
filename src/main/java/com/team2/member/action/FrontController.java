@@ -71,6 +71,12 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
+		
+		
+		
+		
+		// --------------------------------------------------------------------------------
+		// 회원가입 - ./MemberJoin.park
 		else if(command.equals("/MemberJoinAction.park")) {
 			System.out.println(" C : /MemberJoinAction.park 호출");
 			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
@@ -318,29 +324,31 @@ public class FrontController extends HttpServlet {
 
 		// --------------------------------------------------------------------------------
 		// 비밀번호 변경
-		else if(command.equals("/memberPasswordUpdate.park")) {
-			System.out.println(" C : /memberPasswordUpdate.park 호출");
-			System.out.println(" C : DB사용 X, view 페이지 이동 O (패턴1)");
+		else if(command.equals("/MemberPasswordUpdate.park")) {
+			System.out.println(" C : /MemberPasswordUpdate.park 호출");
+			System.out.println(" C : DB 사용 O, view 이동 & 출력 (패턴3)");
 			
-			forward = new ActionForward();
-			forward.setPath("./member/memberPasswordUpdate.jsp");
-			forward.setRedirect(false);
-			
-		}
-		else if(command.equals("/MemberPasswordUpdateAction.park")) {
-			System.out.println(" C : /MemberPasswordUpdateAction.park 호출 ");
-			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
-			
-			// MemberDeleteAction() 객체
-			action = new MemberPasswordUpdateAction();
-			
+			// MemberPasswordUpdateAction() 객체
+				action = new MemberPasswordUpdateAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
+		}
+		else if(command.equals("/MemberPasswordUpdateProAction.park")) {
+			System.out.println(" C : /MemberPasswordUpdateProAction.park 호출 ");
+			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
 			
+			// MemberPasswordUpdateProAction() 객체
+			action = new MemberPasswordUpdateProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
