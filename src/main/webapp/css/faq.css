@@ -1,0 +1,52 @@
+.faqpage body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.faqpage .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.faqpage .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.faqpage .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px 300px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease-out;
+}
+
+.faqpage .active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.faqpage .panel {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    transition: max-height 0.2s ease-out;
+}
+
+.faqpage .panel p {
+    margin: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.faqpage .panel:last-child p {
+    border-bottom: none;
+}
