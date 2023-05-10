@@ -22,7 +22,7 @@ public class MemberDeleteAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		if(id == null) {
-			forward.setPath("./MemberLogin.park");
+			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);
 			
 			return forward;
@@ -45,7 +45,7 @@ public class MemberDeleteAction implements Action {
 		}
 		session.invalidate();
 		
-		JSForward.alertAndMove(response, "회원 탈퇴를 했습니다", "./Main.park");
+		JSForward.alertAndMove(response, "회원 탈퇴를 했습니다", "./Main.me");
 		
 		return null;
 	}

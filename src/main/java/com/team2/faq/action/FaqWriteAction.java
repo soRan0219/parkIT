@@ -15,8 +15,8 @@ public class FaqWriteAction implements Action {
 		System.out.println(" M : BoardWriteAction_execute ");
 		
     	// 한글처리
-		// request.setCharacterEncoding("UTF-8");
-		System.out.println(" M : 한글처리 필터(web.xml) ");
+		 request.setCharacterEncoding("UTF-8");
+//		System.out.println(" M : 한글처리 필터(web.xml) ");
 		
 		// 전달정보 저장
 		FaqDTO dto = new FaqDTO();
@@ -31,7 +31,7 @@ public class FaqWriteAction implements Action {
 		
 		// 페이지 이동 ( List )
 		ActionForward forward = new ActionForward();
-		forward.setPath("./FaqList.park");
+		forward.setPath("./FaqList.fa");
 		forward.setRedirect(true);
 		return forward;
 	}

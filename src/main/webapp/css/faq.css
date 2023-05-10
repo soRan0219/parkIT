@@ -20,7 +20,7 @@
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 18px 300px;
+    padding: 18px 200px;
     width: 100%;
     border: none;
     text-align: center;
@@ -49,4 +49,19 @@
 
 .faqpage .panel:last-child p {
     border-bottom: none;
+}
+
+ .write-button {
+    float: right;
+  }
+  
+.delete-button {
+  margin-left: auto;
+  display: block;
+  text-align: right;
+}
+
+.delete-button form {
+  display: inline-block;
+ 
 }

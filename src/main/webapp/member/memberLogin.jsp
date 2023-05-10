@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ParkIT 로그인</title>
 </head>
 <body>
 	<div class="form-group">
-		<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
+		<a class="navbar-brand" href="./MainMain.me">Park<span>IT</span></a>
 	</div>
 	<div class="login_content">
-		<form action="./MemberLoginAction.park" method="post">
+		<form action="./MemberLoginAction.me" method="post">
 			<input type="hidden" name="oldURL"
 				value="<%=request.getParameter("oldURL")%>">
 			<!-- 아이디 입력 -->
@@ -40,11 +40,18 @@
 			<div>
 				<div></div>
 				<input type="button" value="회원가입"
-					onclick=" location.href='./MemberJoin.park'; ">
+					onclick=" location.href='./MemberJoin.me'; ">
 			</div>
-			<div class="join-membership">
-				<a href="#">아이디/비밀번호 찾기</a>
+			
+			
+			
+			<div>
+				<div>
+					<input type="button" value="찾기" onclick="location.href='./MemberFindID.me';">
+				</div>
 			</div>
+			
+		
 	</div>
 
 

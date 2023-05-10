@@ -42,7 +42,7 @@ public class MemberJoinAction implements Action{
 		
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("./MemberLogin.park");
+		forward.setPath("./MemberLogin.me");
 		forward.setRedirect(true);
 		
 		System.out.println(" M : 데이터 처리완료! 티켓 가지고 이동");
