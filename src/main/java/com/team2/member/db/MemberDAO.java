@@ -47,6 +47,34 @@ public class MemberDAO {
 	}
 	
 	
+	//----------------------------------------------------------------------------	
+	// 아이디 찾기
+//	public String checkId(String id) {
+//		  String check = "empty";
+//		    try {
+//		      con = getCon();
+//		      sql = "select id from member where id=?";
+//		      pstmt = con.prepareStatement(sql);
+//			  pstmt.setString(1, id);
+//			  // 4. sql 실행
+//			  rs = pstmt.executeQuery();
+//		      
+//		      
+//		      if(rs.next()){
+//		        check="existed";
+//		        System.out.println("DAO : 이미 등록된 ID입니다" + check);
+//		      }else{
+//		    	 check = "available";
+//		        System.out.println("DAO : 사용가능한 ID입니다" + check);
+//		      }
+//	      } catch (Exception e) {
+//	        e.printStackTrace();
+//	      }finally{
+//	        closeDB();
+//	    }
+//	  return check;
+//	}
+	
 	
 	
 	//----------------------------------------------------------------------------	
