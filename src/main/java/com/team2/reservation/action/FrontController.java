@@ -1,4 +1,4 @@
-package com.team2.park;
+package com.team2.reservation.action;
 
 import java.io.IOException;
 
@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
-import com.team2.reservation.action.AvailableAction;
-import com.team2.reservation.action.PayAction;
-import com.team2.reservation.action.ReservationAction;
 
-@WebServlet("*.park")
+@WebServlet("*.res")
 public class FrontController extends HttpServlet {
 
 	//http://localhost:8088/Team2/Main.park
@@ -42,8 +39,8 @@ public class FrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/Main.park")) {
-			System.out.println("C: /Main.park 호출");
+		if(command.equals("/Main.res")) {
+			System.out.println("C: /Main.res 호출");
 			
 			forward = new ActionForward();
 			forward.setPath("./reservation/main.jsp");
@@ -51,17 +48,17 @@ public class FrontController extends HttpServlet {
 			
 		} //if(Main)
 		//예약
-		else if(command.equals("/Reservation.park")) {
-			System.out.println("C: /Reservation.park 호출");
+		else if(command.equals("/Reservation.res")) {
+			System.out.println("C: /Reservation.res 호출");
 			
 			forward = new ActionForward();
 			forward.setPath("./reservation/reservationForm.jsp");
 			forward.setRedirect(false);
 			
-		} //if(Reservation.park)
+		} //if(Reservation.res)
 		//예약페이지
-		else if(command.equals("/ReservationAction.park")) {
-			System.out.println("C: /ReservationAction.park 호출");
+		else if(command.equals("/ReservationAction.res")) {
+			System.out.println("C: /ReservationAction.res 호출");
 			
 			action = new ReservationAction();
 			
@@ -73,9 +70,9 @@ public class FrontController extends HttpServlet {
 			
 		} //if(ReservationAction)
 		
-		//예약가능자리조회(JSON) - /Available.park
-		else if(command.equals("/Available.park")) {
-			System.out.println("C: /Available.park 호출");
+		//예약가능자리조회(JSON) - /Available.res
+		else if(command.equals("/Available.res")) {
+			System.out.println("C: /Available.res 호출");
 			
 			//AvailableAction()
 			action = new AvailableAction();
@@ -89,8 +86,8 @@ public class FrontController extends HttpServlet {
 		} //if(Available)
 		
 		//결제 - /PayAction.park
-		else if(command.equals("/PayAction.park")) {
-			System.out.println("C: /PayAction.park 호출");
+		else if(command.equals("/PayAction.res")) {
+			System.out.println("C: /PayAction.res 호출");
 			
 			//PayAction() 호출
 			action = new PayAction();

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="./Reservation.park"> 예약하기 </a></h1>
+	<h1><a href="./Reservation.res"> 예약하기 </a></h1>
 </body>
 </html>

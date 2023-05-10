@@ -84,7 +84,7 @@
 			});
 					
 			$.ajax({
-				url:"./Available.park",
+				url:"./Available.res",
 				type:"post",
 				data:{date:selectedDate,fromTime:fromTime,toTime:toTime,parkingCode:parkingCode},
 				success:function(data) {
@@ -239,7 +239,7 @@
 	<hr>
 	
 	<div>
-		<form action="./PayAction.park" id="payInfo" method="post">
+		<form action="./PayAction.res" id="payInfo" method="post">
 			<!-- 회원 아이디 -->
 			<input type="hidden" id="id" name="id" value="${sessionScope.id }">
 			<!-- 회원 이메일 -->
@@ -314,7 +314,7 @@
 				if(rsp.success) {
 				
 					$.ajax({
-						url: "./PayAction.park",
+						url: "./PayAction.res",
 						type: "post",
 						dataType: "json",
 						data: {
@@ -338,7 +338,7 @@
 						if(data.resResult==1 && data.payResult==1) {
 							var con = confirm("결제가 완료되었습니다. 예약상세페이지로 이동하시겠습니까?");
 							if(con) {
-								location.href = "./Main.park";
+								location.href = "./Main.res";
 							} else {
 								history.back();
 							}

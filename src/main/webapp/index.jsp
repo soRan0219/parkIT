@@ -8,7 +8,7 @@
 </head>
 <body>
 	<% //response.sendRedirect("./Main.park"); 
-		response.sendRedirect("./Reservation.park"); 
+		response.sendRedirect("./Reservation.res"); 
 		session.setAttribute("id", "abc123");
 	%>
 	
