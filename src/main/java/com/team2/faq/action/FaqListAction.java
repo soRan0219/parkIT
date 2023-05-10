@@ -74,7 +74,7 @@ public class FaqListAction implements Action {
 
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("./faq/faqList.jsp");
+		forward.setPath("./faqList.jsp");
 		forward.setRedirect(false);
 
 		return forward;

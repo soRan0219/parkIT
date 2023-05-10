@@ -40,7 +40,7 @@ public class MemberLoginAction implements Action{
 			PrintWriter out = response.getWriter();
 			// 이걸 써주면 html 코드를 출력해줄 수 있음
 			out.println("<script>");
-			out.println(" alert('아이디 없음!'); ");
+			out.println(" alert('아이디 또는 비밀번호를 잘못 입력했습니다. \\n입력하신 내용을 다시 확인해주세요.'); ");
 			out.println(" history.back(); ");
 			out.println("</script>");
 			out.close();
@@ -54,7 +54,7 @@ public class MemberLoginAction implements Action{
 			PrintWriter out = response.getWriter();
 			// 이걸 써주면 html 코드를 출력해줄 수 있음
 			out.println("<script>");
-			out.println(" alert('비밀번호 오류!'); ");
+			out.println(" alert('아이디 또는 비밀번호를 잘못 입력했습니다. \\n입력하신 내용을 다시 확인해주세요.'); ");
 			out.println(" history.back(); ");
 			out.println("</script>");
 			out.close();
@@ -69,7 +69,7 @@ public class MemberLoginAction implements Action{
 		
 		// 페이지 이동 - ActionForward 객체 생성
 		ActionForward forward = new ActionForward();
-		forward.setPath("./Main.park");
+		forward.setPath("./Main.me");
 		forward.setRedirect(true);
 		
 		return forward;

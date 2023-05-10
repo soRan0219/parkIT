@@ -14,7 +14,7 @@ import com.team2.commons.ActionForward;
 
 // 프로젝트에서 사용되는 주요 개념(명사) => 디비 테이블 구분
 
-@WebServlet("*.park")
+@WebServlet("*.fa")
 public class FaqFrontController extends HttpServlet {
 
 	protected void doProcess(HttpServletRequest request,
@@ -45,16 +45,16 @@ public class FaqFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		
-		if(command.equals("/FaqWrite.park")) {
-			System.out.println(" C : /FaqWrite.park ");
+		if(command.equals("/FaqWrite.fa")) {
+			System.out.println(" C : /FaqWrite.fa ");
 			System.out.println(" C : 패턴1 - 디비 x, 연결된 뷰페이지 이동");
 			
 			forward = new ActionForward();
-			forward.setPath("./faq/writeForm.jsp");
+			forward.setPath("./faq/faqWriteForm.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/FaqWriteAction.park")) {
-			System.out.println(" C : /FaqWriteAction.Park 호출 ");
+		else if(command.equals("/FaqWriteAction.fa")) {
+			System.out.println(" C : /FaqWriteAction.fa 호출 ");
 			System.out.println(" C : 패턴2 - DB사용O,페이지 이동");
 			
 			// BoardWriteAction 객체
@@ -65,8 +65,8 @@ public class FaqFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/FaqList.park")) {
-			System.out.println(" C : /FaqList.park 호출 ");
+		else if(command.equals("/FaqList.fa")) {
+			System.out.println(" C : /FaqList.fa 호출 ");
 			System.out.println(" C : 패턴3-DB사용O,view페이지 출력");
 			// BoardListAction 객체 
 			action = new FaqListAction();
@@ -74,6 +74,47 @@ public class FaqFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/FaqDeleteAction.fa")) {
+			System.out.println(" C : /FaqDeleteAction.fa 호출 ");
+			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
+			
+			// MemberDeleteAction() 객체
+			action = new FaqDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/FaqUpdate.fa")) {
+			System.out.println(" C : /FaqUpdate.fa 호출");
+			System.out.println(" C : DB 사용 O, view 이동 & 출력 (패턴3)");
+			
+			// MemberUpdateAction() 객체
+				action = new FaqUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		else if(command.equals("/FaqUpdateProAction.fa")) {
+			System.out.println(" C : /FaqUpdateProAction.fa 호출 ");
+			System.out.println(" C : DB사용 O, 페이지 이동 O (패턴2)");
+			
+			// MemberUpdateProAction() 객체
+			action = new FaqUpdateProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

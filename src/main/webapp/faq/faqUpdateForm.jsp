@@ -48,23 +48,24 @@
 <article>
 <h1> 글쓰기 </h1>
 
-<form action="./FaqWriteAction.park" method="post" >
+<form action="./FaqUpdateProAction.fa" method="post" >
 	<table id="notice">
 		<tr>
 		    <th class="ttitle" colspan="2">Title</th>
 		</tr>
 		<tr>
 			<td> 제목 </td>
-			<td><input type="text" name="faqTitle"></td>
+			<td><input type="text" name="faqTitle" value="${param.faqTitle }"></td>
 	 	</tr>
 		<tr>
 			<td> 내용 </td>
-			<td><textarea name="faqContents"></textarea></td>
+			<td><textarea name="faqContents">${param.faqContents }</textarea></td>
+			<td><input type="hidden" name="faqNo" value="${param.faqNo }"></td>
 		</tr>
 		<tr>
 		   <td colspan="2">
 		     	<div id="table_search">
-					<input type="submit" value="글쓰기" class="btn">
+					<input type="submit" value="수정하기" class="btn">
 				</div>
 		   </td>
 		</tr>

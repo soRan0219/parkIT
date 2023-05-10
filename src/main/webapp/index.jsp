@@ -8,9 +8,9 @@
 </head>
 <body>
 	<% //response.sendRedirect("./Main.park"); 
-// 		response.sendRedirect("./MainMain.park"); 
-// 		session.setAttribute("id", "admin");
-    response.sendRedirect("./FaqWrite.park"); 
+		response.sendRedirect("./MainMain.park"); 
+ 	session.setAttribute("id", "admin");
+//     response.sendRedirect("./FaqWrite.park"); 
 	%>
 	
 </body>

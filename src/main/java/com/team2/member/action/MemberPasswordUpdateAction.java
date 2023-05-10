@@ -1,5 +1,7 @@
 package com.team2.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,14 +11,14 @@ import com.team2.commons.ActionForward;
 import com.team2.member.db.MemberDAO;
 import com.team2.member.db.MemberDTO;
 
-public class MemberInfoAction implements Action {
-	//
+public class MemberPasswordUpdateAction implements Action {
+
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println(" M : MemberInfoAction_execute()");
+		System.out.println(" M : MemberPasswordUpdateAction_execute() ");
 		
-		// 세션정보 가져오기
+		// 세션정보 제어
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
@@ -28,21 +30,21 @@ public class MemberInfoAction implements Action {
 			return forward;
 		}
 		
-		// MemberDAO 객체 생성 - 회원정보 조회메서드 getMember()
+		// 기존의 회원정보 가져오기
 		MemberDAO dao = new MemberDAO();
-		
 		MemberDTO dto = dao.getMember(id);
 		
-		// 회원정보 저장
+		// 정보저장 (request영역)
 		request.setAttribute("dto", dto);
 		
-		// 페이지 이동 + 정보 출력(패턴3)
-		forward.setPath("./member/memberInfo.jsp");
+		// ./member/memberPasswordUpdate.jsp 출력
+		forward.setPath("./member/memberPasswordUpdate.jsp");
 		forward.setRedirect(false);
 		
-		System.out.println(" M : 정보조회 저장, 처리 끝");
+		System.out.println(" M : 정보수정 완료!");
 		
 		return forward;
+
 	}
 
 }

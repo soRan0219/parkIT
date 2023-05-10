@@ -280,7 +280,7 @@ public class FaqDAO {
 			con = getCon();
 			//3. sql(select) & pstmt 객체
 			// dto(수정할 글)가 실제로 있는지 체크 
-			sql = "select pass from faq where faqNo=?";
+			sql = "select * from faq where faqNo=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, dto.getFaqNo());
 			//4. sql 실행
@@ -315,17 +315,18 @@ public class FaqDAO {
 	// updateBoard(dto)
 	
 	// deleteBoard(dto)
-	public int deletefaq(FaqDTO dto) {
+	public int deletefaq(int faqNo) {
 		int result = -1;
+		System.out.println("delete시작");
 		
 		try {
 			//1.2. 디비연결
 			con = getCon();
 			//3. sql(select) & pstmt 객체
 			// dto(삭제할 글)가 실제로 있는지 체크 
-			sql = "select pass from faq where faqNo=?";
+			sql = "select * from faq where faqNo=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, dto.getFaqNo());
+			pstmt.setInt(1, faqNo);
 			//4. sql 실행
 			rs = pstmt.executeQuery();
 			//5. 데이터 처리 (정보 수정)
@@ -335,7 +336,7 @@ public class FaqDAO {
 					// 3. sql & pstmt
 					sql = "delete from faq where faqNo=?";
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, dto.getFaqNo());					
+					pstmt.setInt(1, faqNo);					
 					// 4. sql 실행
 					result = pstmt.executeUpdate();
 					//result = 1;					
@@ -351,6 +352,7 @@ public class FaqDAO {
 		return result;
 	}
 	// deleteBoard(dto)
+	
 
 	
 	
