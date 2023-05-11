@@ -64,6 +64,7 @@ function noticeConfirm(noticeNo) {
 	<tr>
 		<th>내용</th>
 		<td colspan="3" height="300px">${dto.noticeContents}</td>
+		<td><img src="./upload/${dto.noticeFile }"></td>
 	</tr>
 	
 	<tr>

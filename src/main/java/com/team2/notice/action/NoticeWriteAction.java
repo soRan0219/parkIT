@@ -28,6 +28,7 @@ public class NoticeWriteAction implements Action {
 		// 파일이 저장되는 실제 경로
 		String realPath = request.getRealPath("/upload");
 		
+		
 		// 파일 최대 사이즈 (10메가)
 		int maxSize = 10 * 1024 * 1024;
 		
