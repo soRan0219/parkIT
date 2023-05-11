@@ -247,7 +247,6 @@ public class NoticeDAO {
 			System.out.println("deleteNotice 작업 완료");
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeDB();

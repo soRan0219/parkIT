@@ -25,8 +25,8 @@ public class NoticeListAction implements Action{
 		
 		// 공지글 개수 체크하는 메서드
 		int noticeCount = 0;
-		if (keyWord != null && !keyWord.trim().equals("")) { // 검색어가 있을 경우
-	       noticeCount =  dao.getSearchNoticeCount(keyWord);
+		if (keyWord != null) { // 검색어가 있을 경우
+	       noticeCount =  dao.getSearchNoticeCount(keyWord.trim());
 	    } else { // 검색어가 없을 경우
 	       noticeCount =  dao.getNoticeCount();
 	    }
@@ -73,8 +73,8 @@ public class NoticeListAction implements Action{
 		// DB에서 페이징 처리된 리스트 들고오기
 			
 		List noticeList = null;
-		if (keyWord != null && !keyWord.trim().equals("")) { // 검색어가 있을 경우
-			    noticeList = dao.getSearchNoticeList(keyWord, startRow, pageSize);
+		if (keyWord != null) { // 검색어가 있을 경우
+			    noticeList = dao.getSearchNoticeList(keyWord.trim(), startRow, pageSize);
 		} else { // 검색어가 없을 경우
 			    noticeList = dao.getNoticeList(startRow, pageSize);
 	    }
@@ -94,8 +94,6 @@ public class NoticeListAction implements Action{
 		// ----------------------------------------------------------
 		
 		List searchNoticeList = dao.getSearchNoticeList(keyWord,startRow,pageSize);
-		System.out.println("키워드 = " + keyWord);
-		System.out.println("리스트 사이즈 = " + searchNoticeList.size());
 		
 		
 		// 페이지 이동 (./notice/noticeList.jsp)	

@@ -50,7 +50,7 @@ import com.team2.commons.ActionForward;
 			Action action = null;
 			ActionForward forward = null;
 			
-			// http://localhost:8088/parkIT/noticeList.park	
+			
 			if(command.equals("/noticeList.no")) {
 				System.out.println(" C : /noticeList.no 주소 요청 ");
 				
@@ -63,7 +63,7 @@ import com.team2.commons.ActionForward;
 				}
 			}
 			
-			// http://localhost:8088/parkIT/noticeList.park
+			
 			else if(command.equals("/noticeWriteForm.no")) {
 				System.out.println(" C : /NoticeWriteForm.no 주소 요청 ");
 				forward = new ActionForward();

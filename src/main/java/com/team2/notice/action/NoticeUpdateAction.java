@@ -19,7 +19,7 @@ public class NoticeUpdateAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		// 파일이 저장되는 실제 경로
+		    // 파일이 저장되는 실제 경로
 			String realPath = request.getRealPath("/upload");
 			
 			// 파일 최대 사이즈 (10메가)
@@ -44,8 +44,8 @@ public class NoticeUpdateAction implements Action{
 			dto.setNoticeNo(Integer.parseInt(multi.getParameter("noticeNo")));
 			dto.setNoticeTitle(multi.getParameter("noticeTitle"));
 			dto.setNoticeContents(multi.getParameter("noticeContents"));
-//			
-//			// 첨부파일명 저장
+			
+			// 첨부파일명 저장
 			dto.setNoticeFile(multi.getFilesystemName("noticeFile"));
 			
 			// NoticeDAO 객체생성
@@ -53,7 +53,7 @@ public class NoticeUpdateAction implements Action{
 			dao.updateNotice(dto);
 			
 			// 페이지 이동
-//				forward = new ActionForward(); // 위에 있으니까 안적어도 되는거
+		    // forward = new ActionForward(); // 위에 있으니까 안적어도 되는거
 			
 			
 			
