@@ -17,17 +17,16 @@ import com.team2.commons.ActionForward;
  *  컨트롤러 : 서블릿 구현
  *    Model-View 연결동작 처리
  */
-//@WebServlet("*.park")
+@WebServlet("*.ad")
 public class FrontController extends HttpServlet {
 
 	
 	protected void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		//  페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
+		// 페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
 		System.out.println("doProcess() 호출!");
 		
-		// URL : http://localhost:8088/parkIT/adminMain.park
+		// URL : http://localhost:8088/Team2/adminMain.ad
 		
 		/**********************1. 가상주소 계산****************************/
 		System.out.println(" 1. 가상주소 계산 - 시작 ");
@@ -51,12 +50,10 @@ public class FrontController extends HttpServlet {
 		
 		
 		
-		// URL : http://localhost:8088/parkIT/adminMain.park
+		// URL : http://localhost:8088/Team2/adminMain.ad
 		// 관리자 메인페이지
-		if(command.equals("/adminMain.park")) {
-			System.out.println(" C : /adminMain.park실행 ");
-			
-			
+		if(command.equals("/adminMain.ad")) {
+			System.out.println(" C : /adminMain.ad실행 ");
 			
 			// 페이지 이동
 			forward = new ActionForward();
@@ -65,11 +62,59 @@ public class FrontController extends HttpServlet {
 		} // 관리자 메인페이지
 		
 		
-		// adminData.jsp
-		else if(command.equals("/AdminData.park")) {
-			System.out.println(" C : /AdminData.park호출 ");
+		// adminCountData(총 회원수, 예약수, 예약취소건수)
+		else if(command.equals("/AdminCountData.ad")) {
+			System.out.println(" C : /AdminCountData.ad호출 ");
 			
-			action = new AdminDataAction();
+			action = new AdminCountDataAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // 데이터 받아오기
+		
+		
+		
+		// adminMemberData(총 회원수, 회원리스트)
+		else if(command.equals("/AdminMemberData.ad")) {
+			System.out.println(" C : /AdminMemberData.ad호출 ");
+			
+			action = new AdminMemberDataAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // 데이터 받아오기
+		
+		
+		
+		// adminResData(총 예약수, 예약리스트)
+		else if(command.equals("/AdminResData.ad")) {
+			System.out.println(" C : /AdminResData.ad호출 ");
+			
+			action = new AdminResDataAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // 데이터 받아오기
+		
+		
+		
+		// adminParkingInfoData(주차장 정보)
+		else if(command.equals("/AdminParkingInfoData.ad")) {
+			System.out.println(" C : /AdminParkingInfoData.ad호출 ");
+			
+			action = new AdminParkingInfoDataAction();
 			
 			try {
 				forward = action.execute(request, response);
