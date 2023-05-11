@@ -49,17 +49,25 @@
 			
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.jsp"
-						class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
-					<li class="nav-item"><a href="pricing.jsp" class="nav-link">Pricing</a></li>
-					<li class="nav-item"><a href="car.jsp" class="nav-link">Cars</a></li>
-					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
-					<li class="nav-item"><a href="./FaqList.fa" class="nav-link">FAQ</a></li>
-				</ul>
-			</div>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
+        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li>
+     <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li>
+        <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
 		</div>
 
 <c:if test="${empty id }">
