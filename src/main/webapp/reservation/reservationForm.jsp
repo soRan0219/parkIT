@@ -75,7 +75,7 @@
 	<h1> reservationForm.jsp </h1>
 	
 	<div>
-		<form action="./ReservationAction.park" name="fr" method="post">
+		<form action="./ReservationAction.res" name="fr" method="post">
 			<div>
 				<select name="parking">
 				 <option value="A"> 주차장1 </option>

@@ -11,6 +11,8 @@
 		response.sendRedirect("./MainMain.park"); 
  	session.setAttribute("id", "admin");
 //     response.sendRedirect("./FaqWrite.park"); 
+		//response.sendRedirect("./Reservation.res"); 
+		session.setAttribute("id", "abc123");
 	%>
 	
 </body>

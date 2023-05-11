@@ -22,18 +22,6 @@ import com.team2.reservation.db.ResDAO;
 
 public class ReservationAction implements Action {
 	
-//	public Time stringToTime(String time) {
-//		Time parsedTime = null;
-//		try {
-//			SimpleDateFormat dateFormat = new SimpleDateFormat("H:mm", Locale.ENGLISH);
-//			java.util.Date parsedDate = dateFormat.parse(time);
-//			parsedTime = new Time(parsedDate.getTime());
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return parsedTime;
-//	} //stringToTime()
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
