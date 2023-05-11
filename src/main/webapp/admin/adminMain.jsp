@@ -433,9 +433,9 @@
 </head>
 <body>
 
-		<c:if test="${sessionScope.id != 'admin' }"> <!-- 접속id가 admin이 아니면 메인페이지로 이동 -->
-			<c:redirect url="./MainMain.me"/>
-		</c:if>
+<%-- 		<c:if test="${sessionScope.id != 'admin' }"> <!-- 접속id가 admin이 아니면 메인페이지로 이동 --> --%>
+<%-- 			<c:redirect url="./MainMain.me"/> --%>
+<%-- 		</c:if> --%>
 		
 		<h3 class="main">관리자 메인페이지</h3>
 		
