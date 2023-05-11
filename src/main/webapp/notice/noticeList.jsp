@@ -29,7 +29,7 @@
 
 <!-- 아이디 없을 때 로그인 페이지로 보내버리는거-->
 <%-- <c:if test="${id == null}"> --%>
-<%-- 	<c:redirect url="./MemberLogin.park"/> --%>
+<%-- 	<c:redirect url="./MemberLogin.me"/> --%>
 <%-- </c:if> --%>
 
 

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% response.sendRedirect("./noticeWriteForm.no"); 
+	<% response.sendRedirect("../noticeWriteForm.no"); 
 	   session.setAttribute("id", "admin");
 	%>
 </body>
