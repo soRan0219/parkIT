@@ -331,7 +331,6 @@ public class MemberDAO {
 				dto.setEmail(rs.getString("email"));
 				dto.setId(rs.getString("id"));
 				dto.setMemname(rs.getString("memname"));
-				dto.setPoint(rs.getInt("point"));
 				dto.setPw(rs.getString("pw"));
 				dto.setRegdate(rs.getDate("regdate"));
 				dto.setTel(rs.getString("tel"));

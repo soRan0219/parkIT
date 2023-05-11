@@ -3,6 +3,7 @@ import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
@@ -18,6 +19,7 @@ public class MemberJoinAction implements Action{
 		System.out.println(" M : MemberJoinAction_execute() 실행");
 		
 		// 한글처리
+	
 		request.setCharacterEncoding("UTF-8");
 		
 		// MemberDTO 객체 생성

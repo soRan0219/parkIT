@@ -38,7 +38,6 @@ public class MemberUpdateProAction implements Action {
 		dto.setEmail(request.getParameter("email"));
 		dto.setId(request.getParameter("id"));
 		dto.setMemname(request.getParameter("memname"));
-		dto.setPoint(Integer.parseInt(request.getParameter("point")));
 		dto.setPw(request.getParameter("pw"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setBirth(request.getParameter("birth"));

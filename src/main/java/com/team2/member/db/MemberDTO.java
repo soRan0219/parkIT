@@ -11,8 +11,6 @@ public class MemberDTO {
 	private String tel;
 	private String email;
 	private Date regdate;
-	private int point;
-
 	
 	
 	public String getId() {
@@ -63,21 +61,14 @@ public class MemberDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
-	
 	
 	
 	
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pw=" + pw + ", newpw=" + newpw + ", memname=" + memname + ", birth=" + birth
-				+ ", tel=" + tel + ", email=" + email + ", regdate=" + regdate + ", point=" + point + "]";
+				+ ", tel=" + tel + ", email=" + email + ", regdate=" + regdate + "]";
 	}
-
+	
 	
 }

@@ -122,7 +122,7 @@ public class MemberFrontController extends HttpServlet {
 			
 			// 페이지 이동
 			forward = new ActionForward();
-			forward.setPath("./mainindex.jsp");
+			forward.setPath("./member/main.jsp");
 			forward.setRedirect(false);
 			
 		}
