@@ -18,7 +18,7 @@ import com.team2.commons.ActionForward;
  *    Model-View 연결동작 처리
  */
 @WebServlet("*.ad")
-public class FrontController extends HttpServlet {
+public class AdminFrontController extends HttpServlet {
 
 	
 	protected void doProcess(HttpServletRequest request,
@@ -26,7 +26,7 @@ public class FrontController extends HttpServlet {
 		// 페이지 정보 전달방식에 상관없이 한번에 처리하는 메서드
 		System.out.println("doProcess() 호출!");
 		
-		// URL : http://localhost:8088/Team2/adminMain.ad
+		// URL : http://localhost:8088/parkIT/adminMain.ad
 		
 		/**********************1. 가상주소 계산****************************/
 		System.out.println(" 1. 가상주소 계산 - 시작 ");
