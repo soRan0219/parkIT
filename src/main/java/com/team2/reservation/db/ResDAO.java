@@ -114,8 +114,7 @@ public class ResDAO {
 				available.add(pdDto);
 			} //while
 			
-			System.out.println("DAO: 예약 가능한 자리 조회 완료");
-			System.out.println(available.size());
+			System.out.println("DAO: 예약 가능한 자리 조회 완료 - " + available.size());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

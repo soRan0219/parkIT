@@ -34,24 +34,26 @@
 			maxDate:+30
 		});
 		
-		$('#fromTime').timepicker({
+		$('#from').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
+			minTime:'06:00',
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
 				var minTime = new Date(time);
 				minTime.setMinutes(minTime.getMinutes() + 30);
-				$('#toTime').timepicker('option', 'minTime', minTime);
+				$('#to').timepicker('option', 'minTime', minTime);
 			}
 		});
 
-		$('#toTime').timepicker({
+		$('#to').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
+			minTime:'06:00',
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
@@ -59,8 +61,8 @@
 		
 		$('input[type=submit]').click(function() {
 			var selectedDate = $('#datepicker').val();
-			var fromTime = $('#fromTime').val();
-			var toTime = $('#toTime').val();
+			var fromTime = $('#from').val();
+			var toTime = $('#to').val();
 			
 			$('#selectedDate').val(selectedDate);
 			$('input[type="hidden"]#fromTime').val(fromTime);
@@ -69,13 +71,31 @@
 		
 	});
 	
+	function check() {
+		if(document.fr.datepicker.value=="") {
+			alert("날짜를 선택하세요");
+			document.fr.datepicker.focus();
+			return false;
+		} 
+		if(document.fr.from.value=="") {
+			alert("입차시간을 선택하세요");
+			document.fr.from.focus();
+			return false;
+		}
+		if(document.fr.to.value=="") {
+			alert("출차시간을 선택하세요");
+			document.fr.to.focus();
+			return false;
+		}
+	} //check()
+	
 </script>
 </head>
 <body>
 	<h1> reservationForm.jsp </h1>
 	
 	<div>
-		<form action="./ReservationAction.res" name="fr" method="post">
+		<form action="./ReservationAction.res" name="fr" method="post" onsubmit="return check();">
 			<div>
 				<select name="parking">
 				 <option value="A"> 주차장1 </option>
@@ -84,9 +104,9 @@
 				</select>
 			</div>
 			<div>
-				<input type="text" id="datepicker">
-				<input type="text" id="fromTime">
-				<input type="text" id="toTime">
+				<input type="text" id="datepicker" autocomplete="off">
+				<input type="text" id="from" autocomplete="off">
+				<input type="text" id="to" autocomplete="off">
 				
 				<input type="hidden" id="selectedDate" name="selectedDate">
 				<input type="hidden" id="fromTime" name="fromTime">

@@ -13,7 +13,7 @@ import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 
 @WebServlet("*.res")
-public class FrontController extends HttpServlet {
+public class ResFrontController extends HttpServlet {
 
 	//http://localhost:8088/Team2/Main.park
 	
@@ -85,7 +85,7 @@ public class FrontController extends HttpServlet {
 			
 		} //if(Available)
 		
-		//결제 - /PayAction.park
+		//결제 - /PayAction.res
 		else if(command.equals("/PayAction.res")) {
 			System.out.println("C: /PayAction.res 호출");
 			
