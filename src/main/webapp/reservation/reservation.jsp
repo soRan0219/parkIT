@@ -46,6 +46,7 @@
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
+			minTime:'06:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
@@ -59,6 +60,7 @@
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
+			minTime:'06:00',
 			dynamic:false,
 			scrollbar:true
 		});
@@ -70,6 +72,22 @@
 			let fromTime = $('#fromTime').val();
 			let toTime = $('#toTime').val();
 			let parkingCode = $('#parkingCode').val();
+			
+			if(selectedDate=="") {
+				alert("날짜를 선택하세요");
+				$('#datepicker').focus();
+				return false;
+			}
+			if(fromTime=="") {
+				alert("입차시간을 선택하세요");
+				$('#fromTime').focus();
+				return false;
+			}
+			if(toTime=="") {
+				alert("출차시간을 선택하세요");
+				$('#toTime').focus();
+				return false;
+			}
 			
 			$('.click_inner a.selected').removeClass('selected');
 			$('#payInfo input#parkingCode').val('');
@@ -147,9 +165,9 @@
 		<div>
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
-				<input type="text" id="datepicker" name="selectedDate">
-				<input type="text" id="fromTime" name="fromTime">
-				<input type="text" id="toTime" name="toTime">
+				<input type="text" id="datepicker" name="selectedDate" autocomplete="off">
+				<input type="text" id="fromTime" name="fromTime" autocomplete="off">
+				<input type="text" id="toTime" name="toTime" autocomplete="off">
 				<input type="button" value="조회하기" id="dateTimeBtn">
 			</div>
 	</div>
@@ -254,9 +272,7 @@
 			<input type="text" id="parkInTime" name="parkInTime" value="${parkInTime }">
 			<!-- 출차시간 -->
 			<input type="text" id="parkOutTime" name="parkOutTime" value="${parkOutTime }">
-			연락처: <input type="text" id="tel" name="tel">
 			차량번호: <input type="text" id="carNo" name="carNo">
-			사용 포인트: <input type="text" id="usePoint" name="usePoint">
 			<div>
 				<%-- <h3> 결제 예상금액: <input type="text" id="price" name="price" value="${price }" readonly></h3> --%>
 				<input type="hidden" id="price" name="price" value="${price }">
@@ -293,10 +309,18 @@
 			var parkOutTime = $('#payInfo input#parkOutTime').val();
 			var price = $('#price').val();
 			var carNo = $('#carNo').val();
-			var tel = $('#tel').val();
 			
 			//결제 테이블에 들어갈 값
 			var today = getToday(); 
+			
+			if(price==0) {
+				alert("결제 가능한 자리가 없습니다.");
+				return false;
+			}
+			if(name.length<2) {
+				alert("자리를 선택해주세요.");
+				return false;
+			}
 			
 			let msg;
 			
@@ -306,7 +330,6 @@
 				merchant_uid: "order_" + new Date().getTime(),  //주문번호
 				name: name,  //결제창에서 보여질 이름(제품이름)
 				amount: price,  //가격(숫자타입)
-				buyer_tel: tel  //구매자 전화번호
 			}, function(rsp) {
 				console.log(rsp);
 				//rsp.imp_uid 값으로 결제 단건조회 API 호출하여 결제결과 판단
@@ -325,7 +348,6 @@
 							"parkInTime":parkInTime,
 							"parkOutTime":parkOutTime,
 							"price":price,  //예약, 결제
-							"tel":tel,
 							"carNo":carNo,
 							"payNo":rsp.merchant_uid,  //결제
 							"payDate":today  //결제

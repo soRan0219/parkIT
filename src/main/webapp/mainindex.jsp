@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title> parkIT </title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,7 +57,7 @@
         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li>
       </ul>
     </li>
-    <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li>
+    <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li>
      <li class="nav-item dropdown">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
       <ul class="dropdown-menu">

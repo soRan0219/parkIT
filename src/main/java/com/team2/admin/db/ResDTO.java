@@ -76,18 +76,14 @@ public class ResDTO {
 	public void setResStatus(int resStatus) {
 		this.resStatus = resStatus;
 	}
+	
 	@Override
 	public String toString() {
 		return "ResDTO [resNo=" + resNo + ", id=" + id + ", parkingCode=" + parkingCode + ", parkingPosition="
 				+ parkingPosition + ", resDate=" + resDate + ", parkInTime=" + parkInTime + ", parkOutTime="
-				+ parkOutTime + ", price=" + price + ", carNo=" + carNo + ", resStatus=" + resStatus + "]";
+				+ parkOutTime + ", price=" + price + ", carNo=" + carNo + ", resStatus=" + resStatus
+				+ "]";
 	}
 	
 	
-	
-	
-	
-
-	
-
 }

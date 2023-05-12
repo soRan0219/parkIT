@@ -17,6 +17,7 @@ import com.team2.admin.db.ParkingDTO;
 import com.team2.admin.db.ResDTO;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.commons.JSForward;
 import com.team2.parkingdetail.db.PDetailDTO;
 import com.team2.reservation.db.ResDAO;
 
@@ -66,11 +67,11 @@ public class ReservationAction implements Action {
 		List<PDetailDTO> available = dao.getAvailable(rDto);
 		request.setAttribute("available", available);
 		
-//		HttpSession session = request.getSession();
-//		session.setAttribute("available", available);
+		if(available.size()==0) {
+			JSForward.alertAndBack(response, "예약 가능한 자리가 없습니다.");
+		}
 		
 		String json = new Gson().toJson(available);
-//		session.setAttribute("aList", json);
 		request.setAttribute("aList", json);
 		
 		//결제 예상금액
