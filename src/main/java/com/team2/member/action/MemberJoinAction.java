@@ -1,4 +1,5 @@
 package com.team2.member.action;
+import java.io.PrintWriter;
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.commons.JSForward;
 import com.team2.member.db.MemberDAO;
 import com.team2.member.db.MemberDTO;
 
@@ -43,13 +45,12 @@ public class MemberJoinAction implements Action{
 		dao.memberJoin(dto);
 		
 		// 페이지 이동
-		ActionForward forward = new ActionForward();
-		forward.setPath("./MemberLogin.me");
-		forward.setRedirect(true);
+		JSForward.alertAndMove(response, "회원 가입이 완료되었습니다.", "./MemberLogin.me");
 		
 		System.out.println(" M : 데이터 처리완료! 티켓 가지고 이동");
 		
-		return forward;
+//		return forward;
+		return null;
 	}
 	
 	

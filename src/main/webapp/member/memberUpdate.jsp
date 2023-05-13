@@ -31,13 +31,12 @@
 		<legend>내 정보 보기 및 수정</legend>
 		<!-- action 주소가 없으면 자신의 페이지 호출 -->
 		<form action="./MemberUpdateProAction.me" method="post" name="fr" onsubmit="return checkDate();">
-			아이디 : <input type="text" name="id" value="${requestScope.dto.id }" readonly>					<br>
-			비밀번호 : <input type="password" name="pw" placeholder="비밀번호를 입력하세요."> 			<br>	
-			이름 : <input type="text" name="memname" value="${dto.memname }" readonly> 					<br>
-			생년월일 : <input type="date" name="birth" value="${dto.birth }" readonly>              <br>
-			휴대전화 : <input type="tel" name="tel" value="${dto.tel }" >	<br>
-			이메일 : <input type="text" name="email" value="${dto.email }" readonly> 				<br>
-			포인트 : <input type="text" name="point" value="${dto.point }" readonly> <br>
+			아이디 : <input type="text" name="id" value="${requestScope.dto.id }" readonly> <br>
+			비밀번호 : <input type="password" name="pw" placeholder="비밀번호를 입력하세요."> <br>	
+			이름 : <input type="text" name="memname" value="${dto.memname }" readonly> <br>
+			생년월일 : <input type="date" name="birth" value="${dto.birth }" readonly> <br>
+			휴대전화 : <input type="tel" name="tel" value="${dto.tel }" > <br>
+			이메일 : <input type="text" name="email" value="${dto.email }" readonly> <br>
 			
 			<hr>
 			<input type="submit" value="회원수정">

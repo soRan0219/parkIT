@@ -9,15 +9,8 @@
 <title>회원 탈퇴</title>
 </head>
 <body>
-	<%
-	// 로그인 세션 제어		
-// 	String id = (String)session.getAttribute("id");
-// 	if(id == null ){
-// 		response.sendRedirect("main.jsp");
-// 	}
-	%>
-
-	<c:if test="${empty id }"> <!-- sessionScope.id -->
+	
+	<c:if test="${empty id }">
 	 	<c:redirect url="./MemberLogin.me"/>
 	</c:if>
 

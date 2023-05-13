@@ -13,24 +13,15 @@
 	<h1>MyPage</h1> 
 	<!-- 로그인 정보가 있을때만 메인페이지를 사용가능 -->
 	
-	
-	<!-- 스크립틀릿 말고 jstl 사용하기 -->
-	<!-- 로그인 정보 -->
-<%-- 	<c:set var="id" value="${sessionScope.id }" scope="page"/> --%>
-	
-	<!--  empty 참조변수 : 객체가 null, 컬렉션 사이즈가 0일 때 true 리턴 -->
 	<c:if test="${empty id }">
 		<c:redirect url="./MemberLogin.me"/>
 	</c:if>
 	
-<%-- 	로그인 아이디 : <%=session.getAttribute("id") %> <br> --%>
-	아이디: ${id } <br> <!-- sessionScope 생략 -->
+	아이디: ${id } <br>
 	
 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
 	<hr>
 	
-	<h3><a href="./MemberInfo.me">회원정보 보기</a></h3>
-
 	<h3><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></h3>
 	
 	<h3><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></h3>
