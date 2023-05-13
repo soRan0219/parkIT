@@ -54,7 +54,20 @@ public class MemberFrontController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
-		
+		// --------------------------------------------------------------------------------
+		// 아이디 중복검사
+		else if(command.equals("/MemberConfirmIdAction.me")) {
+			System.out.println("C : /MemberConfirmId.me 호출");
+			
+			action = new MemberConfirmIdAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		
 		

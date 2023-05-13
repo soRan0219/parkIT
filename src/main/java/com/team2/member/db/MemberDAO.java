@@ -349,6 +349,46 @@ public class MemberDAO {
 
 	
 	
+	// id 중복확인
+		public List<MemberDTO> memberList() {
+			
+			List<MemberDTO> memberList = new ArrayList<MemberDTO>();
+			
+			try {
+				// 1+2 디비연결
+				con = getCon();
+				
+				// 3 sql & pstmt
+				sql = "select * from member";
+				pstmt = con.prepareStatement(sql);
+				// ???
+				
+				// 4 sql 실행
+				rs = pstmt.executeQuery();
+				
+				// 5 데이터 처리
+				while(rs.next()) {
+					
+					MemberDTO dto = new MemberDTO();
+					
+					dto = new MemberDTO();
+					dto.setId(rs.getString("id"));
+					
+					memberList.add(dto);
+				}
+				
+				System.out.println("DAO : 회원리스트 저장완료!");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			
+			return memberList;
+		}// id 중복확인
+	
+	
 	
 	
 	//-----------------------------------------------------------------------
