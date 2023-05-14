@@ -31,6 +31,100 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/park.css">
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!--  datepicker -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!-- timepicker -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+<script type="text/javascript">			
+	
+	$(function() {
+		$('#datepicker').datepicker({
+			showOn:'focus',
+// 			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
+// 			buttonImageOnly:'true',
+			changeMonth:'true',
+			changeYear:'true',
+			nextText:'다음달',
+			prevText:'이전달',
+			showButtonPanel:'true',
+			currentText:'오늘',
+			closeText:'닫기',
+			dateFormat:'yy-mm-dd',
+			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
+			dayNamesMin:['월','화','수','목','금','토','일'],
+			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			minDate:0,
+			maxDate:+30
+		});
+		
+		$('#fromTime').timepicker({
+			timeFormat:'H:mm',
+			interval:30,
+			startTime:'06:00',
+			minTime:'06:00',
+			maxTime: '22:00',
+			dynamic:false,
+			scrollbar:true,
+			change:function(time) {
+				console.log("fromTime: " + $(this).val());
+				console.log("fromTime: " + time);
+				var minTime = new Date(time);
+				minTime.setMinutes(minTime.getMinutes() + 30);
+				$('#toTime').timepicker('option', 'minTime', minTime);
+			}
+		});
+		
+
+		$('#toTime').timepicker({
+			timeFormat:'H:mm',
+			interval:30,
+			startTime:'06:00',
+			minTime:'06:00',
+			maxTime: '22:00',
+			dynamic:false,
+			scrollbar:true
+		});
+		
+		$('input[type=submit]').click(function() {
+			var selectedDate = $('#datepicker').val();
+			var fromTime = $('#fromTime').val();
+			var toTime = $('#toTime').val();
+			
+			$('#selectedDate').val(selectedDate);
+			$('input[type="hidden"]#parkInTime').val(fromTime);
+			$('input[type="hidden"]#parkOutTime').val(toTime);
+		});
+		
+	});
+	
+	function check() {
+		if(document.fr.datepicker.value=="") {
+			alert("날짜를 선택하세요");
+			document.fr.datepicker.focus();
+			return false;
+		} 
+		if(document.fr.fromTime.value=="") {
+			alert("입차시간을 선택하세요");
+			document.fr.fromTime.focus();
+			return false;
+		}
+		if(document.fr.toTime.value=="") {
+			alert("출차시간을 선택하세요");
+			document.fr.toTime.focus();
+			return false;
+		}
+	} //check()
+	
+</script>
+
 </head>
 <body>
 
@@ -54,7 +148,7 @@
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a>
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li>
+        <li class="nav-item"><a href="./Introduction.park" class="nav-link2">주차장 안내</a></li>
       </ul>
     </li>
     <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li>
@@ -134,152 +228,64 @@
 				<div class="col-md-12	featured-top">
 					<div class="row no-gutters">
 						<div class="col-md-4 d-flex align-items-center">
-							<form action="#" class="request-form ftco-animate bg-primary">
+						
+							<form action="./ReservationAction.res" name="fr" method="post" onsubmit="return check();" class="request-form ftco-animate bg-primary">
 								<h2>Make your reservation</h2>
 								<div class="form-group">
 									<label for="" class="label">Parking location</label>
 									<div class="dropdown">
-										<button class="btn btn-secondary dropdown-toggle"
-											type="button" id="dropdownMenuButton" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false">주차장 선택</button>
-										<div class="dropdown-menu"
-											aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="#">A</a> <a
-												class="dropdown-item" href="#">B</a> <a
-												class="dropdown-item" href="#">C</a>
-										</div>
+										<select name="parking" class="btn parking">
+											 <option value="A"> 서면점 </option>
+											 <option value="B"> 해운대점 </option>
+											 <option value="C"> 명지점 </option>
+										</select>
 									</div>
-									<input type="hidden" id="parking-location">
 								</div>
 
 								<script>
-  // 선택한 항목을 검색창에 나타내는 함수
-  function updateSearchInput(value) {
-    document.getElementById("parking-location").value = value;
-    document.querySelector(".dropdown-toggle").textContent = value;
-  }
+//   // 선택한 항목을 검색창에 나타내는 함수
+//   function updateSearchInput(value) {
+//     document.getElementById("parking-location").value = value;
+//     document.querySelector(".dropdown-toggle").textContent = value;
+//   }
 
-  // 선택한 항목을 검색창에 나타냄
-  const dropdownItems = document.querySelectorAll(".dropdown-item");
-  dropdownItems.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      const selectedValue = event.target.textContent;
-      updateSearchInput(selectedValue);
-    });
-  });
+//   // 선택한 항목을 검색창에 나타냄
+//   const dropdownItems = document.querySelectorAll(".dropdown-item");
+//   dropdownItems.forEach((item) => {
+//     item.addEventListener("click", (event) => {
+//       const selectedValue = event.target.textContent;
+//       updateSearchInput(selectedValue);
+//     });
+//   });
 </script>
 								<div class="d-flex">
 									<div class="form-group mr-2">
-										<label for="" class="label">주차 날짜</label> <input type="text"
-											class="form-control" id="book_pick_date" placeholder="Date">
+										<label for="" class="label">주차 날짜</label> 
+										<input type="text" class="form-control datepicker" id="datepicker" placeholder="Date" autocomplete="off">
 									</div>
 								</div>
 								<div class="d-flex">
 
-
-									<div class="form-group mr-2">
-										<label for="park_on_time" class="label">오전/오후</label> <select
-											class="form-control" id="park_on_time">
-											<option value="AM">오전</option>
-											<option value="PM">오후</option>
-										</select>
-									</div>
 									<div class="form-group ml-2">
-										<label for="park_on_time" class="label">입차 시간</label> <select
-											id="park_on_time_select" class="form-control">
-											<option value="00:00">00:00</option>
-											<option value="00:30">00:30</option>
-											<option value="01:00">01:00</option>
-											<option value="01:30">01:30</option>
-											<option value="00:00">02:00</option>
-											<option value="00:30">02:30</option>
-											<option value="01:00">03:00</option>
-											<option value="01:30">03:30</option>
-											<option value="22:00">04:00</option>
-											<option value="22:30">04:30</option>
-											<option value="23:00">05:00</option>
-											<option value="23:30">05:30</option>
-											<option value="00:00">06:00</option>
-											<option value="00:30">06:30</option>
-											<option value="01:00">07:00</option>
-											<option value="01:30">07:30</option>
-											<option value="00:00">08:00</option>
-											<option value="00:30">08:30</option>
-											<option value="01:00">09:00</option>
-											<option value="01:30">09:30</option>
-											<option value="22:00">10:00</option>
-											<option value="22:30">10:30</option>
-											<option value="23:00">11:00</option>
-											<option value="23:30">11:30</option>
-										</select> <input type="time" step="1800" class="form-control d-none"
-											id="park_on_time">
+										<label for="park_on_time" class="label">입차 시간</label> 
+										<input type="text" id="fromTime" class="form-control ui-timepicker-wrapper" autocomplete="off">
 									</div>
-
-									<script>
-  const select = document.getElementById("park_off_time_select");
-  const input = document.getElementById("park_off_time");
-
-  select.addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
-    input.value = selectedValue;
-  });
-</script>
 
 								</div>
 								<div class="d-flex">
-									<div class="form-group mr-2">
-										<label for="park_off_time" class="label">오전/오후</label> <select
-											class="form-control" id="park_off_time">
-											<option value="AM">오전</option>
-											<option value="PM">오후</option>
-										</select>
-									</div>
 									<div class="form-group ml-2">
-										<label for="park_off_time" class="label">출차 시간</label> <select
-											id="park_off_time_select" class="form-control">
-											<option value="00:00">00:00</option>
-											<option value="00:30">00:30</option>
-											<option value="01:00">01:00</option>
-											<option value="01:30">01:30</option>
-											<option value="00:00">02:00</option>
-											<option value="00:30">02:30</option>
-											<option value="01:00">03:00</option>
-											<option value="01:30">03:30</option>
-											<option value="22:00">04:00</option>
-											<option value="22:30">04:30</option>
-											<option value="23:00">05:00</option>
-											<option value="23:30">05:30</option>
-											<option value="00:00">06:00</option>
-											<option value="00:30">06:30</option>
-											<option value="01:00">07:00</option>
-											<option value="01:30">07:30</option>
-											<option value="00:00">08:00</option>
-											<option value="00:30">08:30</option>
-											<option value="01:00">09:00</option>
-											<option value="01:30">09:30</option>
-											<option value="22:00">10:00</option>
-											<option value="22:30">10:30</option>
-											<option value="23:00">11:00</option>
-											<option value="23:30">11:30</option>
-										</select> <input type="time" step="1800" class="form-control d-none"
-											id="park_off_time">
+										<label for="park_off_time" class="label">출차 시간</label> 
+										 <input type="text" id="toTime" class="form-control" autocomplete="off">
 									</div>
-
-									<script>
-  const select = document.getElementById("park_off_time_select");
-  const input = document.getElementById("park_off_time");
-
-  select.addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
-    input.value = selectedValue;
-  });
-</script>
 
 								</div>
 
-
+								<input type="hidden" id="selectedDate" name="selectedDate">
+								<input type="hidden" id="parkInTime" name="parkInTime">
+								<input type="hidden" id="parkOutTime" name="parkOutTime">
+								
 								<div class="form-group">
-									<input type="submit" value="Rerservation Parking Now"
+									<input type="submit" value="예약하기"
 										class="btn btn-secondary py-3 px-4">
 								</div>
 							</form>
@@ -871,8 +877,14 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/jquery.timepicker.min.js"></script>
+	
+<!-- datepicker -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 	<script src="js/bootstrap-datepicker.js"></script> -->
+<!-- timepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<!--   	<script src="js/jquery.timepicker.min.js"></script>  -->
+
 	<script src="js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>

@@ -1,16 +1,12 @@
 package com.team2.reservation.action;
 
 import java.sql.Time;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.team2.admin.db.ParkingDTO;
@@ -38,10 +34,11 @@ public class ReservationAction implements Action {
 		request.setAttribute("resDate", resDate);
 		
 		//희망 입,출차 시간 
-		String fromTime = request.getParameter("fromTime");
-		String toTime = request.getParameter("toTime");
+		String fromTime = request.getParameter("parkInTime");
+		String toTime = request.getParameter("parkOutTime");
 		fromTime += ":00";
 		toTime += ":00";
+		System.out.println(fromTime + ", " + toTime);
 		
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
@@ -69,6 +66,7 @@ public class ReservationAction implements Action {
 		
 		if(available.size()==0) {
 			JSForward.alertAndBack(response, "예약 가능한 자리가 없습니다.");
+			return null;
 		}
 		
 		String json = new Gson().toJson(available);
