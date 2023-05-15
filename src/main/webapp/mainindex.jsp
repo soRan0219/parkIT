@@ -62,7 +62,7 @@
      <li class="nav-item dropdown">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
       <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li>
+        <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li>
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
       </ul>
     </li>

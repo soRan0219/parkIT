@@ -19,15 +19,10 @@ public class NoticeUpdateAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		    // 파일이 저장되는 실제 경로
-			String realPath = request.getRealPath("/upload");
-			
-			// 파일 최대 사이즈 (10메가)
-			int maxSize = 10 * 1024 * 1024;
-			
-			// MultipartRequest 객체 생성(업로드)
-			MultipartRequest multi = new MultipartRequest(request,realPath,maxSize,"UTF-8", new DefaultFileRenamePolicy());
-			
+			// 한글처리
+			request.setCharacterEncoding("UTF-8");
+		
+
 			// 세션정보 제어(로그인 + 관리자일때만 사용)
 			HttpSession session = request.getSession();
 			String id = (String) session.getAttribute("id");
@@ -38,6 +33,16 @@ public class NoticeUpdateAction implements Action{
 				forward.setRedirect(true);
 				return forward;
 			}
+				
+		    // 파일이 저장되는 실제 경로
+			String realPath = request.getRealPath("/upload");
+			
+			// 파일 최대 사이즈 (10메가)
+			int maxSize = 10 * 1024 * 1024;
+			
+			// MultipartRequest 객체 생성(업로드)
+			MultipartRequest multi = new MultipartRequest(request,realPath,maxSize,"UTF-8", new DefaultFileRenamePolicy());
+			
 			
 			// 전달정보 저장 - NoticeDTO 생성
 			NoticeDTO dto = new NoticeDTO();
@@ -47,6 +52,8 @@ public class NoticeUpdateAction implements Action{
 			
 			// 첨부파일명 저장
 			dto.setNoticeFile(multi.getFilesystemName("noticeFile"));
+			
+			System.out.println(dto);
 			
 			// NoticeDAO 객체생성
 			NoticeDAO dao = new NoticeDAO();
