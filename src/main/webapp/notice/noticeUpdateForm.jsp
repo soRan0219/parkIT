@@ -24,7 +24,7 @@
 	
 	<form action="./noticeUpdateAction.no" method="post" enctype="multipart/form-data" name="fr">
 	<div>
-		제목 : <input type="text" name="noticeTitle" value=${param.noticeTitle }>
+		제목 : <input type="text" name="noticeTitle" value="${param.noticeTitle }">
 	</div>
 	
 	<div>

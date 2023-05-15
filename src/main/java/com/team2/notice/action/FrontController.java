@@ -112,8 +112,8 @@ import com.team2.commons.ActionForward;
 				System.out.println(" C : /noticeUpdateForm.no 주소 요청 ");
 				forward = new ActionForward();
 				forward.setPath("./notice/noticeUpdateForm.jsp");
-				forward.setRedirect(false);
-			}
+				forward.setRedirect(false);////////////
+			}	
 			
 			
 			// 글 수정 완료

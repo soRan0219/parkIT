@@ -95,7 +95,7 @@ public class NoticeDeleteAction implements Action{
 		request.setAttribute("endPage", endPage);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./notice/noticeList.jsp");
+		forward.setPath("./noticeList.jsp");
 		forward.setRedirect(false);	
 		return forward;
 		

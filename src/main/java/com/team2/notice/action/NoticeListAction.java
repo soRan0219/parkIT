@@ -16,6 +16,8 @@ public class NoticeListAction implements Action{
 			HttpServletResponse response) throws Exception {
 		System.out.println(" M : NoticeListAction_execute() ");
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		String keyWord = request.getParameter("keyWord");
 		
 		// NoticeDAO 객체 생성
@@ -98,7 +100,7 @@ public class NoticeListAction implements Action{
 		
 		// 페이지 이동 (./notice/noticeList.jsp)	
 		ActionForward forward = new ActionForward();
-		forward.setPath("./notice/noticeList.jsp");
+		forward.setPath("./noticeList.jsp");
 		forward.setRedirect(false);	
 		return forward;
 		
