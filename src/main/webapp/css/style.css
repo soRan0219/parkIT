@@ -6604,6 +6604,8 @@ button.bg-dark:focus {
 .mx-2 {
   margin-left: 0.5rem !important; }
 
+.ml-2 { z-index: 200; }
+
 .m-3 {
   margin: 1rem !important; }
 
@@ -8637,6 +8639,12 @@ h1, h2, h3, h4, h5,
     background: #01d28e !important;
     border: 1px solid #01d28e !important;
     color: #fff !important; }
+    
+  .btn.parking {
+    background: #1089ff !important;
+    border: 1px solid #ffffff !important;
+    color: #fff !important; }
+    
     .btn.btn-secondary:hover {
       border: 1px solid #01d28e;
       background: transparent;

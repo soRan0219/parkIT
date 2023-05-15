@@ -34,7 +34,7 @@
 			maxDate:+30
 		});
 		
-		$('#from').timepicker({
+		$('#fromTime').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
@@ -45,11 +45,11 @@
 			change:function(time) {
 				var minTime = new Date(time);
 				minTime.setMinutes(minTime.getMinutes() + 30);
-				$('#to').timepicker('option', 'minTime', minTime);
+				$('#toTime').timepicker('option', 'minTime', minTime);
 			}
 		});
 
-		$('#to').timepicker({
+		$('#toTime').timepicker({
 			timeFormat:'H:mm',
 			interval:30,
 			startTime:'06:00',
@@ -61,12 +61,12 @@
 		
 		$('input[type=submit]').click(function() {
 			var selectedDate = $('#datepicker').val();
-			var fromTime = $('#from').val();
-			var toTime = $('#to').val();
+			var fromTime = $('#fromTime').val();
+			var toTime = $('#toTime').val();
 			
 			$('#selectedDate').val(selectedDate);
-			$('input[type="hidden"]#fromTime').val(fromTime);
-			$('input[type="hidden"]#toTime').val(toTime);
+			$('input[type="hidden"]#parkInTime').val(fromTime);
+			$('input[type="hidden"]#parkOutTime').val(toTime);
 		});
 		
 	});
@@ -77,14 +77,14 @@
 			document.fr.datepicker.focus();
 			return false;
 		} 
-		if(document.fr.from.value=="") {
+		if(document.fr.fromTime.value=="") {
 			alert("입차시간을 선택하세요");
-			document.fr.from.focus();
+			document.fr.fromTime.focus();
 			return false;
 		}
-		if(document.fr.to.value=="") {
+		if(document.fr.toTime.value=="") {
 			alert("출차시간을 선택하세요");
-			document.fr.to.focus();
+			document.fr.toTime.focus();
 			return false;
 		}
 	} //check()
@@ -105,12 +105,12 @@
 			</div>
 			<div>
 				<input type="text" id="datepicker" autocomplete="off">
-				<input type="text" id="from" autocomplete="off">
-				<input type="text" id="to" autocomplete="off">
+				<input type="text" id="fromTime" autocomplete="off">
+				<input type="text" id="toTime" autocomplete="off">
 				
 				<input type="hidden" id="selectedDate" name="selectedDate">
-				<input type="hidden" id="fromTime" name="fromTime">
-				<input type="hidden" id="toTime" name="toTime">
+				<input type="hidden" id="parkInTime" name="parkInTime">
+				<input type="hidden" id="parkOutTime" name="parkOutTime">
 				<input type="submit" value="예약하기">
 			</div>
 		</form>

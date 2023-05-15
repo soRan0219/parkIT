@@ -53,6 +53,14 @@ public class MainFrontController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
+		//회사 소개 페이지
+		else if(command.equals("/Introduction.park")) {
+			System.out.println("C: /Introduction.park 호출");
+			
+			forward = new ActionForward();
+			forward.setPath("introduction/introduction.jsp");
+			forward.setRedirect(false);
+		}
 		
 	
 		
