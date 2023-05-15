@@ -43,8 +43,8 @@ public class MainFrontController extends HttpServlet {
 		Action action = null;
 		
 		// 회원가입 - ./MemberJoin.park
-		if(command.equals("/MainMain.park")) {
-			System.out.println(" C : /MainMain.park 호출");
+		if(command.equals("/Main.park")) {
+			System.out.println(" C : /Main.park 호출");
 			System.out.println(" C : DB사용 X, view 페이지 이동 (패턴1)");
 			
 			// 페이지 이동
@@ -53,6 +53,14 @@ public class MainFrontController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
+		//회사 소개 페이지
+		else if(command.equals("/Introduction.park")) {
+			System.out.println("C: /Introduction.park 호출");
+			
+			forward = new ActionForward();
+			forward.setPath("introduction/introduction.jsp");
+			forward.setRedirect(false);
+		}
 		
 	
 		

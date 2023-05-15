@@ -31,7 +31,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/faq.css">
+<link rel="stylesheet" href="css/notice.css">
+<link href="css/notice.css" rel="stylesheet">
 </head>
 <body>
 
@@ -39,7 +40,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="./Main.park">Park<span>IT</span></a>
+			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -119,6 +120,7 @@
 		</div>
 	</section>
 
+	<section class=king>
 	<section class="ftco-section contact-section">
 		<div class="container">
 			<div class="row d-flex mb-5 contact-info">
@@ -157,77 +159,79 @@
 						</div>
 					</div>
 				</div>
-				<div class="faqpage">
-					<div class="container">
-						<h1 class="title">자주 묻는 질문</h1>
-
-						<c:forEach var="dto" items="${requestScope.faqList }">
-							<button class="accordion">${dto.faqTitle }</button>
-							<div class="panel">
-								<p>${dto.faqContents }</p>
-							</div>
-							<c:if test="${id eq 'admin'}">
-							<div class="delete-button">
-								<form action="./FaqUpdate.fa" method="post">
-			<input type="hidden" name="faqNo" value="${dto.faqNo }">
-			<input type="hidden" name="faqTitle" value="${dto.faqTitle }">
-			<input type="hidden" name="faqContents" value="${dto.faqContents }">
-			<input type="submit" value="수정하기">
-		</form>
-								<form action="./FaqDeleteAction.fa" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
-			<input type="hidden" name="faqNo" value="${dto.faqNo }">
-			<input type="submit" value="삭제하기">
-		</form>
-							</div>
-							</c:if>
-						</c:forEach>
-					</div>
-
-					<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-					<script>
-						$(document)
-								.ready(
-										function() {
-											$(".accordion")
-													.click(
-															function() {
-																$(this)
-																		.toggleClass(
-																				"active");
-																var panel = $(
-																		this)
-																		.next();
-																if (panel
-																		.css("max-height") === "0px") {
-																	panel
-																			.css(
-																					"max-height",
-																					panel
-																							.prop("scrollHeight")
-																							+ "px");
-																} else {
-																	panel
-																			.css(
-																					"max-height",
-																					"0px");
-																}
-															});
-										});
-					</script>
-					<c:if test="${id eq 'admin'}">
-					<div>
-						<a href="./FaqWrite.fa">
-							<button class="write-button">글 작성하기</button>
-						</a>
-					</div>
-					</c:if>
-				</div>
-
+				
+			
 
 			</div>
+		</div>	
+		
+		
+				<div id="contents">
+			게시판 총 글의 수 : ${noticeCount} 개
+			
+			<!-- 아이디 없을 때 로그인 페이지로 보내버리는거-->
+			<%-- <c:if test="${id == null}"> --%>
+			<%-- 	<c:redirect url="./MemberLogin.me"/> --%>
+			<%-- </c:if> --%>
+			
+			
+			<form action="./noticeList.no" method="get">
+			<div>
+				<input type="text" name="keyWord">
+				<input type="submit" value="검색">
+			</div>
+			</form>
+				
+			
+			<table class="list">
+			<tr>
+				<th>글번호</th><br>
+				<th>제목</th><br>
+				<th>조회수</th><br>
+				<th>작성일</th><br>
+			</tr>
+			
+			<!-- noticeList 있을 때 마다 들고오는거 -->
+			<c:forEach var="notice" items="${noticeList}">
+			<tr>
+				<td>${notice.noticeNo}</td>
+				<td>
+					<a href="./noticeContent.no?noticeNo=${notice.noticeNo}&amp;pageNum=${pageNum}">
+						${notice.noticeTitle}
+					</a>
+				</td>
+				<td>${notice.noticeRc}</td>
+				<td>${notice.noticeDate}</td>
+			</tr>
+			</c:forEach>
+			</table>
+			</div>
+		
 	</section>
-
-
+		
+	<section class="sec01">
+	 <div id="pageBlock">
+	
+		<c:if test="${startPage > pageBlock}">
+			<a href="./noticeList.no?pageNum=${startPage-pageBlock}">[이전]</a>
+		</c:if>
+		
+			<c:forEach var="i" begin="${startPage}" end="${endPage}">
+				<a href="./noticeList.no?pageNum=${i}">[${i}]</a>
+			</c:forEach>
+		
+		<c:if test="${endPage < pageCount}">
+			<a href="./noticeList.no?pageNum=${startPage+pageBlock}">[다음]</a>
+		</c:if>
+		
+		
+		<div>
+			<input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'" id="write">
+		</div>
+		
+	</div>
+	</section>
+	</section>
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
 			<div class="row mb-5">

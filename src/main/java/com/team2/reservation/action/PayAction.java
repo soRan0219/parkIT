@@ -40,7 +40,6 @@ public class PayAction implements Action {
 		Time parkOutTime = Time.valueOf(toTime);
 		
 		//연락처, 차량번호, 결제예상금액
-		String contact = request.getParameter("tel");
 		String carNo = request.getParameter("carNo");
 		int price = Integer.parseInt(request.getParameter("price"));
 		
@@ -82,12 +81,6 @@ public class PayAction implements Action {
 		
 		response.setContentType("application/x-json; charset=utf-8");
 		response.getWriter().print(obj);
-		
-//		if(result==0) {
-//			JSForward.alertAndBack(response, "결제에 실패했습니다.");
-//		} else {
-//			JSForward.confirmAndMove(response, "결제성공! 예약내역 페이지로 이동하시겠습니까?", "./ResInfo.park", "./Main.park");
-//		}
 		
 		return null;
 	} //execute()

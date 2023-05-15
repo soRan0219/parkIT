@@ -58,12 +58,11 @@ public class AvailableAction implements Action {
 		
 		ResDAO dao = new ResDAO();
 		
-		int price = dao.getPrice(parkInTime, parkOutTime);
-//		System.out.println("price: " + price);
 		List<PDetailDTO> aList = dao.getAvailable(rDto);
 		
 		JsonArray jArr = new JsonArray();
 		
+		//예약 가능한 자리 JsonArray에 저장
 		Iterator it = aList.iterator();
 		if(it.hasNext()) {
 			for(int i=0; i<aList.size(); i++) {
@@ -74,11 +73,21 @@ public class AvailableAction implements Action {
 				jArr.add(jobj);
 			}
 		}
+		
 		JsonObject jobj = new JsonObject();
-		jobj.addProperty("price", price);
 		jArr.add(jobj);
 		
-		System.out.println(jArr.size());
+		//결제 예상 금액
+		int price = dao.getPrice(parkInTime, parkOutTime);
+		//예약 가능한 자리 없으면 0원
+		if(aList.size()==0) {
+			price = 0;
+		}
+		System.out.println("price: " + price);
+		
+		jobj.addProperty("price", price);
+		
+		System.out.println("reservation.jsp로 전달할 정보 개수: " + jArr.size());
 		
 		response.setContentType("application/x-json; charset=utf-8");
 		response.getWriter().print(jArr);
