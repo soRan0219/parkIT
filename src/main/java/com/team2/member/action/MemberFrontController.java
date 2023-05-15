@@ -129,13 +129,13 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/Main.me")) {
-			System.out.println(" C : /Main.me 호출");
+		else if(command.equals("/MainMain.park")) {
+			System.out.println(" C : /MainMain.park 호출");
 			System.out.println(" C : DB사용 X, view 페이지 이동 (패턴1)");
 			
 			// 페이지 이동
 			forward = new ActionForward();
-			forward.setPath("./member/main.jsp");
+			forward.setPath("mainindex.jsp");
 			forward.setRedirect(false);
 			
 		}
@@ -282,21 +282,50 @@ public class MemberFrontController extends HttpServlet {
 			////////////////////////////////////////////////////////////////
 		
 		
-		
 		// --------------------------------------------------------------------------------
-		// 회원 정보 보기 - ./MemberInfo.me
-		else if(command.equals("/MemberInfo.me")) {
-			System.out.println(" C : /MemberInfo.me 호출");
-			System.out.println(" C : DB 사용 O, view 이동 & 출력 (패턴3)");
-			
-			// MemberInfoAction() 객체 생성
-			action = new MemberInfoAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		// 이메일 인증
+		// URL : http://localhost:8088/zemailTest/Main.e
+				// 관리자 메인페이지
+				if(command.equals("/Main.me")) {
+					System.out.println(" C : /Main.me");
+					
+					
+					forward = new ActionForward();
+					forward.setPath("./member/memberJoin.jsp");
+					forward.setRedirect(false);
+					
+					
+				} // .jsp
+				
+				else if(command.equals("/SendEmailAction.me")) {
+					System.out.println(" C : /SendEmailAction.me");
+					
+					action = new SendEmailAction();
+					
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+				}
+				
+				else if(command.equals("/VerifyEmailAction.me")) {
+					System.out.println("C : /VerifyEmailAction.me");
+					
+					action = new VerifyEmailAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+	
 		
 		
 		

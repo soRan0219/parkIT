@@ -76,7 +76,7 @@
       <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
     </div>
     <div class="join-membership">
-      <a href="#">아이디/비밀번호 찾기</a>
+      <a href="./MemberFindID.me">아이디/비밀번호 찾기</a>
     </div>
     <div class="join-membership">
       <a href="./MemberJoin.me">회원가입</a>
@@ -89,8 +89,6 @@
 	
 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
 	<hr>
-	
-	<h3><a href="./MemberInfo.me">회원정보 조회</a></h3>
 
 	<h3><a href="./MemberUpdate.me">회원정보 수정</a></h3>
 

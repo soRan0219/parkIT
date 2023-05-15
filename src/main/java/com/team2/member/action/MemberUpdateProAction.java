@@ -59,7 +59,7 @@ public class MemberUpdateProAction implements Action {
 			return null;
 		}
 		
-		JSForward.alertAndMove(response, "수정 되었습니다.", "./Main.me");
+		JSForward.alertAndMove(response, "수정 되었습니다.", "./MainMain.park");
 		return null;
 	}
 

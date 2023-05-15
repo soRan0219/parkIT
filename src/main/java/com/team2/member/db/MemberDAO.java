@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.team2.member.db.MemberDTO;
-//
+
 // DB에 연결해서 처리하는 모든동작 수행
 public class MemberDAO {
 	// 공통변수 선언
@@ -45,35 +45,7 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	//----------------------------------------------------------------------------	
-	// 아이디 찾기
-//	public String checkId(String id) {
-//		  String check = "empty";
-//		    try {
-//		      con = getCon();
-//		      sql = "select id from member where id=?";
-//		      pstmt = con.prepareStatement(sql);
-//			  pstmt.setString(1, id);
-//			  // 4. sql 실행
-//			  rs = pstmt.executeQuery();
-//		      
-//		      
-//		      if(rs.next()){
-//		        check="existed";
-//		        System.out.println("DAO : 이미 등록된 ID입니다" + check);
-//		      }else{
-//		    	 check = "available";
-//		        System.out.println("DAO : 사용가능한 ID입니다" + check);
-//		      }
-//	      } catch (Exception e) {
-//	        e.printStackTrace();
-//	      }finally{
-//	        closeDB();
-//	    }
-//	  return check;
-//	}
+
 	
 	
 	
@@ -106,68 +78,6 @@ public class MemberDAO {
 	}// 회원가입 - memberJoin()	
 	
 
-	
-	
-	
-	//----------------------------------------------------------------------------	
-	// 아이디 중복확인
-//	public void IdCheck(MemberDTO dto) {
-//		int result = -1; 
-//		
-//		try {
-//			// 1+2 디비연결
-//			con = getCon();
-//			
-//			// 3. sql & pstmt 객체
-//			sql = "select pw from member where id=?";
-//			pstmt = con.prepareStatement(sql);
-//				// ???
-//				pstmt.setString(1, dto.getId());
-//			
-//			// 4. sql 실행(select)
-//			rs = pstmt.executeQuery();
-//			
-//			// 5. 데이터처리
-//			if(rs.next()) { 
-//				// 회원
-//				if(dto.getId().equals(rs.getString("id"))) {
-//					// 3. sql 작성 & pstmt 객체
-//					sql = "update member set tel=? where id=?";
-//					pstmt = con.prepareStatement(sql);
-//						/// ???
-//						pstmt.setString(1, dto.getTel());
-//						pstmt.setString(2, dto.getId());
-//						
-//					// 4. sql 실행(select)
-//					result = pstmt.executeUpdate(); // result = 1 // result에 저장
-//					
-//				}else {
-//					// 비밀번호 오류
-//					result = 0;
-//				}
-//				
-//			}else {
-//				// 비회원
-//				result = -1;
-//			}
-//			
-//			System.out.println(" DAO : 회원정보 수정 완료("+result+")");
-//				
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}finally {
-//			closeDB();
-//		}
-//		
-//		return result;
-//		
-//	}
-	
-	
-	
-	
-	
-	
 	//----------------------------------------------------------------------------	
 	// 로그인 - memberLogin()
 	public int memberLogin(MemberDTO dto) {
@@ -209,8 +119,6 @@ public class MemberDAO {
 		return result;
 	}// 로그인 - memberLogin()
 	
-
-	
 	
 	//----------------------------------------------------------------------------	
 	// 아이디 찾기 - memberFindid()
@@ -249,6 +157,7 @@ public class MemberDAO {
 		// 아이디 찾기 - memberFindid()
 		
 		
+		//----------------------------------------------------------------------------	
 		// 비밀번호 찾기 - memberFindpw()
 		public String memberFindpw(MemberDTO dto) {
 			String pw = null;
@@ -299,13 +208,6 @@ public class MemberDAO {
 		// 비밀번호 찾기 - memberFindpw()
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	//-----------------------------------------------------------------------
 	// 회원정보 보기 - getMember() 
 	public MemberDTO getMember(String id) {
@@ -349,48 +251,47 @@ public class MemberDAO {
 
 	
 	
+	//-----------------------------------------------------------------------
 	// id 중복확인
-		public List<MemberDTO> memberList() {
+	public List<MemberDTO> memberList() {
+		
+		List<MemberDTO> memberList = new ArrayList<MemberDTO>();
+		
+		try {
+			// 1+2 디비연결
+			con = getCon();
 			
-			List<MemberDTO> memberList = new ArrayList<MemberDTO>();
+			// 3 sql & pstmt
+			sql = "select * from member";
+			pstmt = con.prepareStatement(sql);
+			// ???
 			
-			try {
-				// 1+2 디비연결
-				con = getCon();
+			// 4 sql 실행
+			rs = pstmt.executeQuery();
+			
+			// 5 데이터 처리
+			while(rs.next()) {
 				
-				// 3 sql & pstmt
-				sql = "select * from member";
-				pstmt = con.prepareStatement(sql);
-				// ???
+				MemberDTO dto = new MemberDTO();
 				
-				// 4 sql 실행
-				rs = pstmt.executeQuery();
+				dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
 				
-				// 5 데이터 처리
-				while(rs.next()) {
-					
-					MemberDTO dto = new MemberDTO();
-					
-					dto = new MemberDTO();
-					dto.setId(rs.getString("id"));
-					
-					memberList.add(dto);
-				}
-				
-				System.out.println("DAO : 회원리스트 저장완료!");
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				closeDB();
+				memberList.add(dto);
 			}
 			
-			return memberList;
-		}// id 중복확인
+			System.out.println("DAO : 회원리스트 저장완료!");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return memberList;
+	}// id 중복확인
 	
-	
-	
-	
+		
 	//-----------------------------------------------------------------------
 	// 내 정보 보기 및 수정 - memberUpdate(dto)
 	public int memberUpdate(MemberDTO dto) {
@@ -503,10 +404,6 @@ public class MemberDAO {
 		return result;
 		
 	}// 비밀번호 변경
-	
-	
-	
-	
 	
 	
 	//-----------------------------------------------------------------------
