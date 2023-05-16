@@ -62,7 +62,7 @@ public class MemberDAO {
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
 			pstmt.setString(3, dto.getMemname());
-			pstmt.setString(4, dto.getBirth());
+			pstmt.setDate(4, dto.getBirth());
 			pstmt.setString(5, dto.getTel());
 			pstmt.setString(6, dto.getEmail());
 			pstmt.setDate(7, dto.getRegdate());
@@ -229,7 +229,7 @@ public class MemberDAO {
 			// 5 데이터 처리
 			if(rs.next()) {
 				dto = new MemberDTO();
-				dto.setBirth(rs.getString("birth"));
+				dto.setBirth(rs.getDate("birth"));
 				dto.setEmail(rs.getString("email"));
 				dto.setId(rs.getString("id"));
 				dto.setMemname(rs.getString("memname"));

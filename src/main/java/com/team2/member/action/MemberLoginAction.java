@@ -69,7 +69,7 @@ public class MemberLoginAction implements Action{
 		
 		// 페이지 이동 - ActionForward 객체 생성
 		ActionForward forward = new ActionForward();
-		forward.setPath("./MainMain.park");
+		forward.setPath("./Main.park");
 		forward.setRedirect(true);
 		
 		return forward;

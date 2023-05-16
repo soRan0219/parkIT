@@ -129,8 +129,8 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/MainMain.park")) {
-			System.out.println(" C : /MainMain.park 호출");
+		else if(command.equals("/Main.park")) {
+			System.out.println(" C : /Main.park 호출");
 			System.out.println(" C : DB사용 X, view 페이지 이동 (패턴1)");
 			
 			// 페이지 이동
@@ -284,7 +284,7 @@ public class MemberFrontController extends HttpServlet {
 		
 		// --------------------------------------------------------------------------------
 		// 이메일 인증
-		// URL : http://localhost:8088/zemailTest/Main.e
+		// URL : http://localhost:8088/zemailTest/Main.me
 				// 관리자 메인페이지
 				if(command.equals("/Main.me")) {
 					System.out.println(" C : /Main.me");

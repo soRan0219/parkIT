@@ -47,6 +47,6 @@
 	</fieldset>
 	
 	
-	<h3><a href="./Main.me">메인페이지로</a></h3>
+	<h3><a href="./Main.park">메인페이지로</a></h3>
 </body>
 </html>

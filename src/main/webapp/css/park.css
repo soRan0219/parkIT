@@ -4,7 +4,7 @@ select option {
 }
 
 .login-form {
-	max-width: 300px;
+	max-width: 400px;
 }
 
 .login-form h2 {
@@ -67,7 +67,7 @@ body {
     background-color: #fff;
 }
 
-.find_wrap, .relogin_fin_wrap {
+.find_wrap, .relogin_find_wrap {
 	padding: 20px 0 35px;
     display: inline-block;
     font-size: 14px;
@@ -77,8 +77,18 @@ body {
     text-decoration: none;
     color: #888;
 }
+    
+.find_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
 
-ul {
+.find_wrap li {
+    margin-right: 10px;
+}
+
+ol, ul {
 	list-style: none;
 	display: block;
     margin-block-start: 1em;

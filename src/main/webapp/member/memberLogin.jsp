@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/style.css">
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
 </head>
 <body>
 	<div class="form-group">
-		<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
+		<a class="navbar-brand" href="./Main.park">Park<span>IT</span></a>
 	</div>
 	<div class="login_content">
 		<form action="./MemberLoginAction.me" method="post">

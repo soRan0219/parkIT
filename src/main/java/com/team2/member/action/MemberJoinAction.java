@@ -1,6 +1,8 @@
 package com.team2.member.action;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,12 +29,20 @@ public class MemberJoinAction implements Action{
 		// MemberDTO 객체 생성
 		MemberDTO dto = new MemberDTO();
 		// 전달된 정보 저장
+		String dateString = request.getParameter("birth");
+		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		 try {
+		   java.util.Date parsedDate = dateFormat.parse(dateString);
+		   java.sql.Date sqlDate = new java.sql.Date(parsedDate.getTime());
+		   dto.setBirth(sqlDate);
+		 } catch (ParseException e) {
+		   e.printStackTrace();
+		 } 
+		
+//		dto.setBirth(request.getParameter("birth"));
 		dto.setId(request.getParameter("id"));
 		dto.setPw(request.getParameter("pw"));
-		System.out.println("비밀번호를 불러옵니다"+request.getParameter("pw"));
 		dto.setMemname(request.getParameter("memname"));
-		System.out.println("이름을 불러옵니다"+request.getParameter("name"));
-		dto.setBirth(request.getParameter("birth"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setEmail(request.getParameter("email"));
 		dto.setRegdate(new Date(System.currentTimeMillis()));

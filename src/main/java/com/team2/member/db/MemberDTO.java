@@ -7,10 +7,11 @@ public class MemberDTO {
 	private String pw;
 	private String newpw;
 	private String memname;
-	private String birth;
+	private Date birth;
 	private String tel;
 	private String email;
 	private Date regdate;
+	
 	
 	
 	public String getId() {
@@ -37,10 +38,10 @@ public class MemberDTO {
 	public void setMemname(String memname) {
 		this.memname = memname;
 	}
-	public String getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
 	public String getTel() {
@@ -64,11 +65,16 @@ public class MemberDTO {
 	
 	
 	
+	
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pw=" + pw + ", newpw=" + newpw + ", memname=" + memname + ", birth=" + birth
 				+ ", tel=" + tel + ", email=" + email + ", regdate=" + regdate + "]";
 	}
+	
+	
+	
+	
 	
 	
 }
