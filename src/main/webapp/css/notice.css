@@ -24,7 +24,7 @@ th, td {
 #content, row d-flex mb-5 contact-info{display: center;}
 #content {
 	position: relative;
-	margin-top: 80%;
+	/* margin-top: 80%; */
 /* 	width:200px; */
 	float: right;
 }
@@ -130,14 +130,58 @@ row d-flex {
     }
   
 
-   
-   
-   
-	   
 	 #pageBlock {
 	/*   display: flex; */
 	  align-items: center;
 	}
+	
+	input[type="submit"] {
+		  border: none;
+		  outline: none;
+		  border-radius: 10px;
+		  background-color: #007bff;
+		  color: white;
+		}
+	
+	
+	form {
+		  display: flex;
+		  justify-content: flex-end;
+		  margin-bottom: 10px;
+		}
+		
+		input[type="submit"] {
+		  margin-left: 10px;
+		}
+	
+	
+		form {
+	 	 display: flex;
+	 	 justify-content: flex-end;
+	 	 margin-bottom: 10px;
+		}
+
+		input[name="keyWord"] {
+		  margin-right: 1px;
+		}
+		
+		input[type="submit"] {
+		  margin-left: 1px;
+		}
+
+		#write {
+			 border: none;
+			 outline: none;
+			 border-radius: 10px;
+			 background-color: #007bff;
+		     color: white;
+		}
+  
+	
+	
+	
+	
+		
 	
 	  
 

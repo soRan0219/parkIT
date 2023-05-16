@@ -167,7 +167,6 @@
 		
 		
 				<div id="contents">
-			게시판 총 글의 수 : ${noticeCount} 개
 			
 			<!-- 아이디 없을 때 로그인 페이지로 보내버리는거-->
 			<%-- <c:if test="${id == null}"> --%>
