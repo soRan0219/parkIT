@@ -110,9 +110,13 @@ import com.team2.commons.ActionForward;
 			// 글 수정해서 작성
 			else if(command.equals("/noticeUpdateForm.no")) {
 				System.out.println(" C : /noticeUpdateForm.no 주소 요청 ");
-				forward = new ActionForward();
-				forward.setPath("./notice/noticeUpdateForm.jsp");
-				forward.setRedirect(false);////////////
+				
+				action = new NoticeUpdateProAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}	
 			
 			

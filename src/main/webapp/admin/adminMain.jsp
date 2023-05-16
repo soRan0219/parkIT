@@ -5,8 +5,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Insert title here</title>
-<link rel="stylesheet" href="adminMain.css">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<link rel="stylesheet" href="css/aos.css">
+
+<link rel="stylesheet" href="css/ionicons.min.css">
+
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/park.css">
+<link rel="stylesheet" href="css/adminMain.css">
 
 <script src="./js/jquery-3.6.4.min.js"></script>
 
@@ -60,7 +86,7 @@
 		
 		
 		var currentPage = 1; // 현재 페이지 번호
-		var membersPerPage = 5; // 페이지당 회원 수
+		var membersPerPage = 10; // 페이지당 회원 수
 		var memberListCount = 0; // 전체 회원 수
 		
 		var currentPageGroup = 1; // 현재 페이지 그룹 번호
@@ -214,11 +240,9 @@
 		
 		
 		var currentPage = 1; // 현재 페이지 번호
-		var resPerPage = 5; // 페이지당 예약 수
+		var resPerPage = 10; // 페이지당 예약 수
 		var resCount = 0; // 전체 예약 수
 		
-		var currentPageGroup = 1; // 현재 페이지 그룹 번호
-		var pagesPerGroup = 3; // 페이지 그룹당 페이지 수(버튼 수)
 		
 		// 예약관리 버튼을 누르면 ajax로 데이터 받아옴
 		$("#resListBtn").on("click",function(){
@@ -433,31 +457,45 @@
 </head>
 <body>
 
-<%-- 		<c:if test="${sessionScope.id != 'admin' }"> <!-- 접속id가 admin이 아니면 메인페이지로 이동 --> --%>
-<%-- 			<c:redirect url="./MainMain.me"/> --%>
-<%-- 		</c:if> --%>
-		
-		<h3 class="main">관리자 메인페이지</h3>
-		
-		<div class="admin1"> <!-- 좌측페이지 -->
-		
-			<div>
-			admin + 이미지
-			</div>
-			
-			<div>
-				<button id="memberListBtn">회원관리</button>
-				<button id="resListBtn">예약관리</button>
-				<button id="parkingBtn">주차장관리</button>
-				<button id="customerBtn">고객센터</button>
-			</div>
-			
-		</div> <!-- /좌측페이지 -->
-			
-			
-		<div class="admin2"> <!-- 우측페이지 -->
-				
-			<div> <!-- 월별 현황 -->
+<jsp:include page="../inc/top.jsp"/>
+
+
+
+
+
+
+
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-12	featured-top">
+					<div class="row no-gutters">
+						<form action="" class="request-form ftco-animate bg-primary">
+							<h2 class="main">관리자 메인페이지</h2>
+								<div class="login-form">
+								<div class="admin1">
+									<input type="button" id="memberListBtn" value="회원정보"> <br><br>
+									<input type="button" id="resListBtn" value="예약정보"> <br><br>
+									<input type="button" id="parkingBtn" value="주차장정보"> <br><br>
+									<input type="button" value="메인페이지" onclick="location.href='./Main.park'"> <br><br>
+									<div class="dropdown">
+										<input type="button" class="btn btn-secondary dropdown-toggle"
+											type="button" id="dropdownMenuButton" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false" value="고객센터"><br><br>
+										<div class="dropdown-menu"
+											aria-labelledby="dropdownMenuButton">
+											<a class="dropdown-item" href="./noticeList.no">공지사항</a> 
+											<a class="dropdown-item" href="./FaqList.fa">자주묻는 질문</a> 
+										</div>
+									</div>
+									</div>
+								</div>
+						</form>
+					</div>
+						<div class="col-md-8 d-flex align-items-center">
+						<div class="services-wrap rounded-right w-100">
+					<div class="heading-section mb-4">
+				<div class="admin2">
+								<div> <!-- 월별 현황 -->
 			현재 현황
 			</div>
 				
@@ -468,38 +506,43 @@
 				</div>
 			
 				
-			<div> <!-- 지점별 현황 -->
+<div class="status"> <!-- 지점별 현황 -->
 			지점별 현황	
-			</div>
-				
-				<div>
-					<div>
-						주차장1 주차장2 주차장3
-					</div>
-					<div>	
-						<span id="resCountA"></span>건
-						<span id="resCountB"></span>건 
-						<span id="resCountC"></span>건
-					</div>
-				</div>
-					
 			
-			<div> <!-- 고객센터 -->
+			<div class="parkingInfo">
+				<div class="parkingSet">
+					<div class="parkingName">서면점</div>
+					<div class="reservationCount"><span id="resCountA"></span>건</div>
+				</div>
+				
+				<div class="parkingSet">
+					<div class="parkingName">해운대점</div>
+					<div class="reservationCount"><span id="resCountB"></span>건</div>
+				</div>
+				
+				<div class="parkingSet">
+					<div class="parkingName">명지점</div>
+					<div class="reservationCount"><span id="resCountC"></span>건</div>
+				</div>
+			</div> <!-- /parkingInfo -->
+				
+			</div> <!-- /지점별 현황 -->			
+			<div class="status"> <!-- 고객센터 -->
 			고객센터
 			</div>
 			
 				<div> <!-- 고객센터 -->
-					<input type="button" value="공지사항">
-					<input type="button" value="자주 묻는 질문">
-					<input type="button" value="챗봇관리">
+					<input type="button" value="공지사항" class="services-button" onclick="location.href='./noticeList.no'">
+					<input type="button" value="자주 묻는 질문" class="services-button" onclick="location.href='./FaqList.fa'">
 				</div>
 			
 			
 		</div> <!-- // admin2 -->
+	</div>
 		
 		
 		<div class="admin3" style="display: none;"> <!-- 회원관리 -->
-		
+		<h3>회원 정보</h3>
 			<table border="1">
 				<thead>
 					<tr>
@@ -521,7 +564,7 @@
 		
 		
 		<div class="admin4" style="display: none;"> <!-- 예약관리 -->
-		
+		<h3>예약 정보</h3>
 			<table border="1">
 				<thead>
 					<tr>
@@ -542,7 +585,7 @@
 		</div> <!-- //admin4 -->
 		
 		<div class="admin5" style="display: none;"> <!-- 주차장관리 -->
-		
+		<h3>주차장 정보</h3>
 			<table border="1">
 				<thead>
 					<tr>
@@ -561,10 +604,113 @@
 			
 		</div> <!-- //admin5 -->
 		
-		<div>
-			<h2><a href="./Main.me">메인페이지로</a></h2>
+					</div>
+					
+						<div class="row d-flex mb-4"></div>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">
+							<a href="#" class="logo">Car<span>book</span></a>
+						</h2>
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia, there live the blind texts.</p>
+						<ul
+							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Information</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">About</a></li>
+							<li><a href="#" class="py-2 d-block">Services</a></li>
+							<li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+							<li><a href="#" class="py-2 d-block">Best Price
+									Guarantee</a></li>
+							<li><a href="#" class="py-2 d-block">Privacy &amp;
+									Cookies Policy</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Customer Support</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">FAQ</a></li>
+							<li><a href="#" class="py-2 d-block">Payment Option</a></li>
+							<li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+							<li><a href="#" class="py-2 d-block">How it works</a></li>
+							<li><a href="#" class="py-2 d-block">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">203 Fake St. Mountain View, San Francisco,
+										California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+2 392 3929 210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script>
+						All rights reserved | This template is made with <i
+							class="icon-heart color-danger" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
 		</div>
+	</footer>		
 		
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.timepicker.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>		
 		
 </body>
 </html>
