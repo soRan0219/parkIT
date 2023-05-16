@@ -119,43 +119,18 @@
 			</div>
 		</div>
 	</section>
+	
 
 	<section class=king>
 	<section class="ftco-section contact-section">
+	<div id=noticeMain> 
+	공지사항
+	</div>
 		<div class="container">
 			<div class="row d-flex mb-5 contact-info">
 				<div class="col-md-4">
 					<div class="row mb-5">
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-map-o"></span>
-								</div>
-								<p>
-									<span>Address:</span> 아이티윌 23433층 2호
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-mobile-phone"></span>
-								</div>
-								<p>
-									<span>Phone:</span> <a href="tel://1234567920">+ 1235 2355
-										98</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-envelope-o"></span>
-								</div>
-								<p>
-									<span>Email:</span> <a href="mailto:info@yoursite.com">info@itwill.com</a>
-								</p>
-							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -163,52 +138,50 @@
 			
 
 			</div>
-		</div>	
 		
 		
-				<div id="contents">
-			
-			<!-- 아이디 없을 때 로그인 페이지로 보내버리는거-->
-			<%-- <c:if test="${id == null}"> --%>
-			<%-- 	<c:redirect url="./MemberLogin.me"/> --%>
-			<%-- </c:if> --%>
-			
-			
-			<form action="./noticeList.no" method="get">
-			<div>
-				<input type="text" name="keyWord">
-				<input type="submit" value="검색">
-			</div>
-			</form>
 				
+<div id="noticecontents">
+    <table class="list">
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>조회수</th>
+            <th>작성일</th>
+        </tr>
+        <c:forEach var="notice" items="${noticeList}">
+            <tr>
+                <td>${notice.noticeNo}</td>
+                <td>
+                    <a href="./noticeContent.no?noticeNo=${notice.noticeNo}&amp;pageNum=${pageNum}">
+                        ${notice.noticeTitle}
+                    </a>
+                </td>
+                <td>${notice.noticeRc}</td>
+                <td>${notice.noticeDate}</td>
+            </tr>
+        </c:forEach>
+    </table>
+
+    <div class="search-form">
+        <form action="./noticeList.no" method="get">
+            <input type="text" name="keyWord" placeholder="검색어를 입력하세요">
+            <input type="submit" value="검색">
+            <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'" id="write">
+        </form>
+    </div>
+</div>
 			
-			<table class="list">
-			<tr>
-				<th>글번호</th><br>
-				<th>제목</th><br>
-				<th>조회수</th><br>
-				<th>작성일</th><br>
-			</tr>
+			<div id="noticewrite">
+    
+</div>
 			
-			<!-- noticeList 있을 때 마다 들고오는거 -->
-			<c:forEach var="notice" items="${noticeList}">
-			<tr>
-				<td>${notice.noticeNo}</td>
-				<td>
-					<a href="./noticeContent.no?noticeNo=${notice.noticeNo}&amp;pageNum=${pageNum}">
-						${notice.noticeTitle}
-					</a>
-				</td>
-				<td>${notice.noticeRc}</td>
-				<td>${notice.noticeDate}</td>
-			</tr>
-			</c:forEach>
-			</table>
+			<div id="searchFormWrapper">
+			<form action="./noticeList.no" method="get">
+			</form>
 			</div>
-		
-	</section>
-		
-	<section class="sec01">
+			
+				<section class="sec01">
 	 <div id="pageBlock">
 	
 		<c:if test="${startPage > pageBlock}">
@@ -224,12 +197,16 @@
 		</c:if>
 		
 		
-		<div>
-			<input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'" id="write">
-		</div>
+		
 		
 	</div>
 	</section>
+			
+			
+		
+	</section>
+		
+
 	</section>
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
