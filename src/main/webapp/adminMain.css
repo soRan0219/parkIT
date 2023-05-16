@@ -1,18 +1,37 @@
 @charset "UTF-8";
 
-.admin1{
-	float: left;
-	margin-right: 20px;
+/* .admin1{ */
+/* 	float: left; */
+/* 	margin-right: 20px; */
+/* } */
+
+/* .admin2{ */
+/* 	float: left; */
+/* } */
+
+/* .admin3{ */
+/* 	float: left; */
+/* } */
+
+/* .admin4{ */
+/* 	float: left; */
+/* } */
+
+.services-wrap {
+    padding: 4em 3em;
+    background: #fff;
+    -webkit-box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.03);
+    -moz-box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.03);
+    box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.03);
+    width: 700px;
+    height: 300px;
 }
 
-.admin2{
-	float: left;
+.col-md-8 {
+	position: absolute;
+	left:230px;
+	bottom: 180px;
+	font-size: 3px;
 }
 
-.admin3{
-	float: left;
-}
-
-.admin4{
-	float: left;
-}
+table {font-size: 15px;}
