@@ -172,9 +172,7 @@
     </div>
 </div>
 			
-			<div id="noticewrite">
-    
-</div>
+		
 			
 			<div id="searchFormWrapper">
 			<form action="./noticeList.no" method="get">

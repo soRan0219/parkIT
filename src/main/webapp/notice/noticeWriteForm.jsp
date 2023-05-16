@@ -32,8 +32,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/noticeWrite.css">
-<link href="css/noticeWrite.css" rel="stylesheet">
+<link rel="stylesheet" href="css/notice.css">
+<link href="css/notice.css" rel="stylesheet">
 </head>
 <body>
 
@@ -123,48 +123,7 @@
 
 	<section class=king>
 	<section class="ftco-section contact-section">
-		<div class="container">
-			<div class="row d-flex mb-5 contact-info">
-				<div class="col-md-4">
-					<div class="row mb-5">
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-map-o"></span>
-								</div>
-								<p>
-									<span>Address:</span> 아이티윌 23433층 2호
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-mobile-phone"></span>
-								</div>
-								<p>
-									<span>Phone:</span> <a href="tel://1234567920">+ 1235 2355
-										98</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-envelope-o"></span>
-								</div>
-								<p>
-									<span>Email:</span> <a href="mailto:info@yoursite.com">info@itwill.com</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			
-
-			</div>
-		</div>	
+		
 		
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -205,6 +164,8 @@
 				<h1> 공지사항(관리자) </h1>
 			</div>
 			
+			<div id="noWirte">
+			
 			<div>
 				<select name="noticeCategory" id="noticeCategory">
 					<option value="all">전체공지</option>
@@ -237,6 +198,7 @@
 			</div>
 			</form>
 			</div>
+			</div>
 			
 			<script>
 			function validateForm() {
@@ -248,6 +210,7 @@
 			}
 			
 		</script>
+	</section>
 	</section>
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
