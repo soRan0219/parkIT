@@ -67,7 +67,7 @@ import com.team2.commons.ActionForward;
 			else if(command.equals("/noticeWriteForm.no")) {
 				System.out.println(" C : /NoticeWriteForm.no 주소 요청 ");
 				forward = new ActionForward();
-				forward.setPath("./noticeWrite.jsp");
+				forward.setPath("./notice/noticeWriteForm.jsp");
 				forward.setRedirect(false);
 				System.out.println(" C : ./notice/noticeWriteForm.jsp로 이동준비완료 ");
 				
