@@ -9,16 +9,39 @@
 <meta charset="UTF-8">
 <title> reservation </title>
 
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/lot.css">
 <!-- jQuery 라이브러리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- iamport 결제 라이브러리 -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
-<!-- datepicker, timepicker -->
+<!-- datepicker-->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
+
+<!-- timepicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="css/res_timepicker.css"> -->
 
 <script type="text/javascript">			
 	
@@ -27,8 +50,8 @@
 			showOn:'both',
 			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
 			buttonImageOnly:'true',
-			changeMonth:'true',
-			changeYear:'true',
+			changeMonth:false,
+			changeYear:false,
 			nextText:'다음달',
 			prevText:'이전달',
 			showButtonPanel:'true',
@@ -38,6 +61,7 @@
 			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
 			dayNamesMin:['월','화','수','목','금','토','일'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			isRTL: false,
 			minDate:0,
 			maxDate:+30
 		});
@@ -109,16 +133,6 @@
 					
 					var i;
 					for(i=0; i<data.length-1; i++) { 
-						let tmp = "<tr>";
-						tmp += "<td>" + data[i].parkingCode + "</td>";
-						tmp += "<td>" + data[i].parkingPosition + "</td>";
-						tmp += "</tr>";
-						
-						if(i==0) {
-							$('#available').find('table').html(tmp);
-						} else {
-							$('#available').find('table').append(tmp);
-						} //if-else
 							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
 						
@@ -152,11 +166,30 @@
 </script>
 </head>
 <body>
-	<h1> reservation.jsp </h1>
+	
+	
+	
+	<jsp:include page="../inc/top.jsp"/>
+	
+	
+	
+	
+	
+	
+	
 	
 	<div>
 		<h1> ${pDto.parkingName } </h1>
-		<p> ${pDto.inOutDoor } </p>
+		
+		<c:choose>
+			<c:when test="${pDto.inOutDoor.equals('in') }">
+				<p> 실내 </p>
+			</c:when>
+			<c:when test="${pDto.inOutDoor.equals('out') }">
+				<p> 야외 </p>
+			</c:when>
+		</c:choose>
+		
 		<hr>
 		주차장 주소: ${pDto.parkingAdr } <br>
 		주차장 연락처: ${pDto.parkingTel } <br>
@@ -165,7 +198,7 @@
 		<div>
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
-				<input type="text" id="datepicker" name="selectedDate" autocomplete="off">
+				<input type="text" id="datepicker" name="selectedDate" class="picker" autocomplete="off">
 				<input type="text" id="fromTime" name="fromTime" autocomplete="off">
 				<input type="text" id="toTime" name="toTime" autocomplete="off">
 				<input type="button" value="조회하기" id="dateTimeBtn">
@@ -203,7 +236,7 @@
 	</script>
 	
 	<div id="res_click_map">
-		<img src="./img/parking3.png">
+		<img src="./img/parkIT.png">
 		<div class="click_inner">
 		
 			<a href="#" class="cbtn cbtn_01" onclick="return false;">
@@ -235,6 +268,157 @@
 				<input type="hidden" id="position" class="" value="5">
 			05
 			</a>
+			
+			<a href="#" class="cbtn cbtn_06" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="6">
+			06
+			</a>
+			
+			<a href="#" class="cbtn cbtn_07" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="7">
+			07
+			</a>
+			
+			<a href="#" class="cbtn cbtn_08" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="8">
+			08
+			</a>
+			
+			<a href="#" class="cbtn cbtn_09" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="9">
+			09
+			</a>
+			
+			<a href="#" class="cbtn cbtn_10" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="10">
+			10
+			</a>
+			
+			<a href="#" class="cbtn cbtn_11" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="11">
+			11
+			</a>
+			
+			<a href="#" class="cbtn cbtn_12" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="12">
+			12
+			</a>
+			
+			<a href="#" class="cbtn cbtn_13" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="13">
+			13
+			</a>
+			
+			<a href="#" class="cbtn cbtn_14" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="14">
+			14
+			</a>
+			
+			<a href="#" class="cbtn cbtn_15" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="15">
+			15
+			</a>
+			
+			<a href="#" class="cbtn cbtn_16" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="16">
+			16
+			</a>
+			
+			<a href="#" class="cbtn cbtn_17" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="17">
+			17
+			</a>
+			
+			<a href="#" class="cbtn cbtn_18" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="18">
+			18
+			</a>
+			
+			<a href="#" class="cbtn cbtn_19" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="19">
+			19
+			</a>
+			
+			<a href="#" class="cbtn cbtn_20" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="20">
+			20
+			</a>
+			
+			<a href="#" class="cbtn cbtn_21" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="21">
+			21
+			</a>
+			
+			<a href="#" class="cbtn cbtn_22" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="22">
+			22
+			</a>
+			
+			<a href="#" class="cbtn cbtn_23" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="23">
+			23
+			</a>
+			
+			<a href="#" class="cbtn cbtn_24" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="24">
+			24
+			</a>
+			
+			<a href="#" class="cbtn cbtn_25" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="25">
+			25
+			</a>
+			
+			<a href="#" class="cbtn cbtn_26" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="26">
+			26
+			</a>
+			
+			<a href="#" class="cbtn cbtn_27" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="27">
+			27
+			</a>
+			
+			<a href="#" class="cbtn cbtn_28" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="28">
+			28
+			</a>
+			
+			<a href="#" class="cbtn cbtn_29" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="29">
+			29
+			</a>
+			
+			<a href="#" class="cbtn cbtn_30" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="30">
+			30
+			</a>
+			
 			
 		</div>
 	</div>
@@ -360,7 +544,7 @@
 						if(data.resResult==1 && data.payResult==1) {
 							var con = confirm("결제가 완료되었습니다. 예약상세페이지로 이동하시겠습니까?");
 							if(con) {
-								location.href = "./Main.res";
+								location.href = "./Main.park";
 							} else {
 								history.back();
 							}

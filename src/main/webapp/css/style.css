@@ -6604,7 +6604,7 @@ button.bg-dark:focus {
 .mx-2 {
   margin-left: 0.5rem !important; }
 
-.ml-2 { z-index: 200; }
+.ml-2 { z-index: 200 !important; }
 
 .m-3 {
   margin: 1rem !important; }
