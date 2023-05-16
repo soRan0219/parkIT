@@ -32,8 +32,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/notice.css">
-<link href="css/notice.css" rel="stylesheet">
+<link rel="stylesheet" href="css/noticeWrite.css">
+<link href="css/noticeWrite.css" rel="stylesheet">
 </head>
 <body>
 
@@ -200,14 +200,6 @@
 		<body>
 		
 			
-		
-			<div>
-				<a href="#">소개</a>
-				<a href="#">예약하기</a>
-				<a href="#">커뮤니티</a>
-				
-			</div>
-			
 			
 			<div>
 				<h1> 공지사항(관리자) </h1>
@@ -222,28 +214,29 @@
 				</select>
 			</div>
 			
-			
+			<div class="writeform">
 			<form action="./noticeWriteAction.no" method="post" enctype="multipart/form-data" name="fr" onsubmit="return validateForm()">
-			<div>
-				제목 : <input type="text" name="noticeTitle" id="title">
+			<div class="form-group">
+				<input type="text" name="noticeTitle" id="title">
 			</div>
 			
-			<div>
-				내용 : <textarea rows="5" cols="10" name="noticeContents" placeholder="내용을 입력하세요."></textarea>
+			<div class="form-group">
+				<textarea rows="5" cols="10" name="noticeContents" placeholder="내용을 입력하세요."></textarea>
 			</div>
 			
-			<div>
-				첨부파일 : <input type="file" name="noticeFile">
+			<div class="form-group">
+				<input type="file" name="noticeFile">
 			</div>
 			
-			<div>
+			<div class="form-group">
 				<input type="submit" value="등록">
 			</div>
 			
-			<div>
+			<div class="form-group">
 				<input type="button" value="목록으로" onclick="location.href='./noticeList.no'">
 			</div>
 			</form>
+			</div>
 			
 			<script>
 			function validateForm() {
