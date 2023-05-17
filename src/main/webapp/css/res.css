@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+#header {
+	background-color: #ff80c0;
+	height: 100px;
+}
+
+#right-nav {
+	background-color: #333999;
+	color: white;
+	width: 55%;
+	height: 800px;
+	float: left;
+	padding: 10px;
+}
+
+#left-section {
+	background-color: #ffff80;
+	width:43%;
+	height: 400px;
+	text-align: left;
+	float: right;
+	padding: 10px;
+}
+
+#footer {
+	background-color: #ccc;
+	height: 100px;
+	clear: both;
+}
+
+/* #header, #nav, #section { text-align: center; } */
+
+/* #nav, #section { line-height: 240px; } */
+
+input { 
+	padding-left: 8px;
+	border-radius: 6px; 
+}
+
+
+/***** header 요소 *****/
+
+
+/***** right-nav 요소 *****/
+
+
+/***** left-section 요소 *****/
+#left-section .picker {
+	width: 120px;
+	height: 25px;
+}
+#left-section .check {
+	width: 130px;
+	height: 25px;
+}
+#left-section h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#price {
+	width: 200px;
+	height: 40px;
+	font-size: 1.3em;
+	font-weight: 500;
+}
+#left-section button {
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 3px 17px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ff9f40;
+	color: #fff;
+}

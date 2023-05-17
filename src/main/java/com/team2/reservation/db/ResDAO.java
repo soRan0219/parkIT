@@ -23,7 +23,7 @@ public class ResDAO {
 	
 	public Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();
-		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/class7_230118_team2");
+		DataSource ds = (DataSource)initCTX.lookup("java:comp/env/jdbc/c7d2301t2");
 		con = ds.getConnection();
 		
 		System.out.println("DAO: DB 연결 성공 " + con);
