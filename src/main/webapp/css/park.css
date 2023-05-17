@@ -4,7 +4,7 @@ select option {
 }
 
 .login-form {
-	max-width: 300px;
+	max-width: 400px;
 }
 
 .login-form h2 {
@@ -24,10 +24,13 @@ select option {
 }
 
 .login_content {
-	width: 300px;
+	width: 450px;
+	height: 350px;
 	margin: 0 auto;
-	padding: 20px;
+	margin-bottom: 17px;
+	padding: 20px 28PX;
 	border: 1px solid #ddd;
+	border-radius: 10px;
 }
 
 .login_row {
@@ -37,39 +40,95 @@ select option {
 .join_title {
 	display: inline-block;
 	width: 70px;
-	font-weight: bold;
 	margin-right: 10px;
 }
 
 .input_text {
-	padding: 5px;
+	padding: 7px;
 	width: 100%;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	border: 1px solid rgb(209, 209, 209);
+	border-radius: 10px;
+}
+
+.wrap {
+	position: relative;
+    height: 100%;
+    letter-spacing: -.5px;
+}
+
+.li {
+	text-align: -webkit-match-parent;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	 height: 100%;
+    color: #222;
+    background-color: #fff;
+}
+
+.find_wrap {
+	padding: 20px 0 35px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+	margin-top: 20px;
+    text-decoration: none;
+    color: #888;
+}
+    
+.find_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+}
+
+.find_wrap li {
+    margin-right: 10px;
+}
+
+ol, ul {
+	list-style: none;
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
 input[type="submit"], input[type="button"] {
 	display: inline-block;
 	margin-top: 10px;
 	margin-right: 10px;
-	padding: 5px 20px;
+	padding: 3px 17px;
 	border: none;
-	border-radius: 3px;
-	background-color: #2ecc71;
+	border-radius: 8px;
+	background-color: #ff9f40;
 	color: #fff;
 	cursor: pointer;
 }
 
-input[type="button"]:hover {
-	background-color: #27ae60;
+input[type="submit"]:hover {
+	background-color: #e67f19;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
+  text-align: center;
 }
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px; /* 원하는 높이로 설정하세요 */
+}
+
 
 .navbar-brand span:first-of-type {
   color: #007bff;
@@ -83,3 +142,46 @@ input[type="button"]:hover {
   color: #007bff;
 }
 
+.find_text {
+	display: inline-block;
+    font-size: 15px;
+    line-height: 17px;
+    text-decoration: none;
+	color: #888;
+}
+
+.login_content input[type="submit"] {
+  width: 392.67px;
+  height: 55px;
+}
+
+.btn_login {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #fff;
+}
+
+.find_wrap li:not(:last-child)::after {
+  content: "|";
+  margin: 25px 25px; /* 동일한 간격으로 변경 */
+  color: #dadada;
+}
+
+.join_content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 폼의 너비 조정 */
+  max-width: 400px; /* 폼의 최대 너비 설정 */
+  padding: 20px; /* 내부 여백 추가 */
+}
+
+.join_content h2 {
+  margin-top: 0; /* 기본적인 여백 제거 */
+}
+
+.join_content .join_row {
+  margin-bottom: 20px; /* 아이템 간격 조정 */
+}

@@ -4,16 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> introduction </title>
+<title> 카맵 API </title>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a8f31d6c1c411a19691f71462e48ee1&libraries=services"></script>
 
 </head>
 <body>
-	<h1> 주차장 소개 </h1>
+	<h1> introduction.jsp </h1>
 	
 	<div id="map" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	서면점<br>잔여자리 / 전체자리: ${availableA } / ${allA }
 	<br><br><br>
 	
 	<script type="text/javascript">
@@ -54,13 +52,10 @@
 			} //if
 		}); //addressSearch()
 		
+		/////////////////////////////////////////////////////////////////////////////////////
 	</script>
 	
-	
 	<div id="map2" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	해운대점<br>잔여자리 / 전체자리: ${availableB } / ${allB }
-	<br><br><br>
 	
 	<script type="text/javascript">
 		var mapContainer2 = document.getElementById('map2'); //지도를 담을 영역의 DOM 레퍼런스
@@ -103,11 +98,7 @@
 	</script>
 	
 	<br><br><br>
-	
 	<div id="map3" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	명지점<br>잔여자리 / 전체자리: ${availableC } / ${allC }
-	<br><br><br>
 	
 	<script type="text/javascript">
 		var mapContainer3 = document.getElementById('map3'); //지도를 담을 영역의 DOM 레퍼런스

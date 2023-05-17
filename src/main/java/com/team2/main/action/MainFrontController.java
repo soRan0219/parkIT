@@ -57,13 +57,9 @@ public class MainFrontController extends HttpServlet {
 		else if(command.equals("/Introduction.park")) {
 			System.out.println("C: /Introduction.park 호출");
 			
-			action = new IntroAction();
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			forward = new ActionForward();
+			forward.setPath("introduction/introduction.jsp");
+			forward.setRedirect(false);
 		}
 		
 	

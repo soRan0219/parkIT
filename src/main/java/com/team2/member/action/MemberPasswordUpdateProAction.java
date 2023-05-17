@@ -46,7 +46,7 @@ public class MemberPasswordUpdateProAction implements Action {
 		// 수정 처리 결과에 따른 페이지 이동
 		if (result == 1 && dto.getNewpw() != null) {
 		    // 비밀번호 업데이트 성공
-		    JSForward.alertAndMove(response, "비밀번호가 변경되었습니다.", "./Main.me");
+		    JSForward.alertAndMove(response, "비밀번호가 변경되었습니다.", "./Main.park");
 		    return null;
 		} else if (result == 0) {
 		    // 기존 비밀번호가 일치하지 않음

@@ -1,51 +1,24 @@
+<%@page import="java.util.List"%>
+<%@page import="com.team2.parkingdetail.db.PDetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-	rel="stylesheet">
-
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-
-<link rel="stylesheet" href="css/aos.css">
-
-<link rel="stylesheet" href="css/ionicons.min.css">
-
-<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title> reservation </title>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/lot.css">
 <!-- jQuery 라이브러리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- iamport 결제 라이브러리 -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
-<!-- datepicker-->
+<!-- datepicker, timepicker -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
-
-<!-- timepicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="css/res_timepicker.css"> -->
 
 <script type="text/javascript">			
 	
@@ -54,8 +27,8 @@
 			showOn:'both',
 			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
 			buttonImageOnly:'true',
-			changeMonth:false,
-			changeYear:false,
+			changeMonth:'true',
+			changeYear:'true',
 			nextText:'다음달',
 			prevText:'이전달',
 			showButtonPanel:'true',
@@ -65,7 +38,6 @@
 			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
 			dayNamesMin:['월','화','수','목','금','토','일'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-			isRTL: false,
 			minDate:0,
 			maxDate:+30
 		});
@@ -137,6 +109,16 @@
 					
 					var i;
 					for(i=0; i<data.length-1; i++) { 
+						let tmp = "<tr>";
+						tmp += "<td>" + data[i].parkingCode + "</td>";
+						tmp += "<td>" + data[i].parkingPosition + "</td>";
+						tmp += "</tr>";
+						
+						if(i==0) {
+							$('#available').find('table').html(tmp);
+						} else {
+							$('#available').find('table').append(tmp);
+						} //if-else
 							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
 						
@@ -170,34 +152,11 @@
 </script>
 </head>
 <body>
-
-	
-
-	
-
-	<section class="ftco-section contact-section">
-	
-	<jsp:include page="../inc/top.jsp"/>
-	
-	
-	
-	
-	
-	
-	
+	<h1> reservation.jsp </h1>
 	
 	<div>
 		<h1> ${pDto.parkingName } </h1>
-		
-		<c:choose>
-			<c:when test="${pDto.inOutDoor.equals('in') }">
-				<p> 실내 </p>
-			</c:when>
-			<c:when test="${pDto.inOutDoor.equals('out') }">
-				<p> 야외 </p>
-			</c:when>
-		</c:choose>
-		
+		<p> ${pDto.inOutDoor } </p>
 		<hr>
 		주차장 주소: ${pDto.parkingAdr } <br>
 		주차장 연락처: ${pDto.parkingTel } <br>
@@ -206,7 +165,7 @@
 		<div>
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
-				<input type="text" id="datepicker" name="selectedDate" class="picker" autocomplete="off">
+				<input type="text" id="datepicker" name="selectedDate" autocomplete="off">
 				<input type="text" id="fromTime" name="fromTime" autocomplete="off">
 				<input type="text" id="toTime" name="toTime" autocomplete="off">
 				<input type="button" value="조회하기" id="dateTimeBtn">
