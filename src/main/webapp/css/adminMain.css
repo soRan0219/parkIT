@@ -24,14 +24,60 @@
     -moz-box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.03);
     box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.03);
     width: 700px;
-    height: 300px;
+    height: 1000px;
+}
+
+.services-button {
+	font-size: 15px;
 }
 
 .col-md-8 {
 	position: absolute;
 	left:230px;
-	bottom: 180px;
+	top: 0px;
 	font-size: 3px;
+	max-width: 85%;
+}
+
+.col-md-12 {
+	position: relative;
+}
+
+.navbar-brand {
+	font-size: 4rem;
+}
+
+#login-size {
+	font-size: 2rem;
 }
 
 table {font-size: 15px;}
+
+td, th, tr {
+  white-space: nowrap;
+}
+
+.parkingInfo {
+	display: flex;
+	align-items: center;
+}
+
+.parkingSet {
+	margin-right: 20px;
+}
+
+.parkingName,
+.reservationCount {
+	white-space: nowrap;
+}
+
+.reservationCount {
+	text-align: center;
+}
+
+.status{
+	margin-top: 20px;
+}
+
+
+
