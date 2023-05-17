@@ -11,10 +11,6 @@ select option {
 	text-align: center;
 }
 
-.login-form .form-group {
-	margin-top: 20px;
-}
-
 .login-form .btn-primary {
 	width: 100%;
 }
@@ -126,7 +122,6 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 200px; /* 원하는 높이로 설정하세요 */
 }
 
 

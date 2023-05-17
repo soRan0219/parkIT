@@ -469,7 +469,7 @@
 									<input type="button" id="memberListBtn" value="회원정보"> <br><br>
 									<input type="button" id="resListBtn" value="예약정보"> <br><br>
 									<input type="button" id="parkingBtn" value="주차장정보"> <br><br>
-									<input type="button" value="메인페이지" onclick="location.href='./Main.park'"> <br><br>
+									<input type="button" id="mainAdminBtn" value="메인페이지" onclick="location.href='./Main.park'"> <br><br>
 									<div class="dropdown">
 										<input type="button" class="btn btn-secondary dropdown-toggle"
 											type="button" id="dropdownMenuButton" data-toggle="dropdown"
