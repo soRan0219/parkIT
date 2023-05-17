@@ -203,7 +203,7 @@
 	</script>
 	
 	<div id="res_click_map">
-		<img src="./img/parking3.png">
+		<img src="./img/parkIT.png">
 		<div class="click_inner">
 		
 			<a href="#" class="cbtn cbtn_01" onclick="return false;">
@@ -235,6 +235,157 @@
 				<input type="hidden" id="position" class="" value="5">
 			05
 			</a>
+			
+			<a href="#" class="cbtn cbtn_06" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="6">
+			06
+			</a>
+			
+			<a href="#" class="cbtn cbtn_07" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="7">
+			07
+			</a>
+			
+			<a href="#" class="cbtn cbtn_08" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="8">
+			08
+			</a>
+			
+			<a href="#" class="cbtn cbtn_09" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="9">
+			09
+			</a>
+			
+			<a href="#" class="cbtn cbtn_10" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="10">
+			10
+			</a>
+			
+			<a href="#" class="cbtn cbtn_11" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="11">
+			11
+			</a>
+			
+			<a href="#" class="cbtn cbtn_12" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="12">
+			12
+			</a>
+			
+			<a href="#" class="cbtn cbtn_13" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="13">
+			13
+			</a>
+			
+			<a href="#" class="cbtn cbtn_14" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="14">
+			14
+			</a>
+			
+			<a href="#" class="cbtn cbtn_15" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="15">
+			15
+			</a>
+			
+			<a href="#" class="cbtn cbtn_16" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="16">
+			16
+			</a>
+			
+			<a href="#" class="cbtn cbtn_17" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="17">
+			17
+			</a>
+			
+			<a href="#" class="cbtn cbtn_18" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="18">
+			18
+			</a>
+			
+			<a href="#" class="cbtn cbtn_19" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="19">
+			19
+			</a>
+			
+			<a href="#" class="cbtn cbtn_20" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="20">
+			20
+			</a>
+			
+			<a href="#" class="cbtn cbtn_21" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="21">
+			21
+			</a>
+			
+			<a href="#" class="cbtn cbtn_22" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="22">
+			22
+			</a>
+			
+			<a href="#" class="cbtn cbtn_23" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="23">
+			23
+			</a>
+			
+			<a href="#" class="cbtn cbtn_24" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="24">
+			24
+			</a>
+			
+			<a href="#" class="cbtn cbtn_25" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="25">
+			25
+			</a>
+			
+			<a href="#" class="cbtn cbtn_26" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="26">
+			26
+			</a>
+			
+			<a href="#" class="cbtn cbtn_27" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="27">
+			27
+			</a>
+			
+			<a href="#" class="cbtn cbtn_28" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="28">
+			28
+			</a>
+			
+			<a href="#" class="cbtn cbtn_29" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="29">
+			29
+			</a>
+			
+			<a href="#" class="cbtn cbtn_30" onclick="return false;">
+				<input type="hidden" id="code" value="${pDto.parkingCode }">
+				<input type="hidden" id="position" class="" value="30">
+			30
+			</a>
+			
 			
 		</div>
 	</div>
@@ -360,7 +511,7 @@
 						if(data.resResult==1 && data.payResult==1) {
 							var con = confirm("결제가 완료되었습니다. 예약상세페이지로 이동하시겠습니까?");
 							if(con) {
-								location.href = "./Main.res";
+								location.href = "./Main.park";
 							} else {
 								history.back();
 							}
@@ -381,6 +532,123 @@
 			});
 		} //requestPay()
 	</script>
-	
+		
+	</section>
+
+
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">
+							<a href="#" class="logo">Car<span>book</span></a>
+						</h2>
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia, there live the blind texts.</p>
+						<ul
+							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Information</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">About</a></li>
+							<li><a href="#" class="py-2 d-block">Services</a></li>
+							<li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+							<li><a href="#" class="py-2 d-block">Best Price
+									Guarantee</a></li>
+							<li><a href="#" class="py-2 d-block">Privacy &amp;
+									Cookies Policy</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Customer Support</h2>
+						<ul class="list-unstyled">
+							<li><a href="#" class="py-2 d-block">FAQ</a></li>
+							<li><a href="#" class="py-2 d-block">Payment Option</a></li>
+							<li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+							<li><a href="#" class="py-2 d-block">How it works</a></li>
+							<li><a href="#" class="py-2 d-block">Contact Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">203 Fake St. Mountain View, San Francisco,
+										California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+2 392 3929 210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved | This template is made with <i
+							class="icon-heart color-danger" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.timepicker.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+
 </body>
 </html>

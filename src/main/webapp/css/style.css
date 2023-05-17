@@ -353,8 +353,8 @@ h6, .h6 {
   line-height: 1.2; }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
@@ -8157,7 +8157,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #1089ff; }
+  color:#007bff; }
   a:hover, a:focus {
     text-decoration: none;
     color: #1089ff;
@@ -8344,7 +8344,7 @@ h1, h2, h3, h4, h5,
 
 .navbar-brand {
   font-weight: 800;
-  font-size: 40px;
+  font-size: 50px;
   text-transform: none; }
 
 .hero-wrap {

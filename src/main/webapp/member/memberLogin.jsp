@@ -35,14 +35,14 @@
 			<hr>
 			<div>
 				<div>
-					<input type="submit" value="로그인">
+					<input type="submit" value="로그인" class="btn_login">
 				</div>
 			</div>
 	</div>
 	
 			<ul class="find_wrap" id="find_wrap">
                 <li><a target="_blank" href="./MemberJoin.me" class="find_text">회원가입</a></li>
-                <li><a target="_blank" href="./MemberFindID.me" class="find_text">아이디 / 비밀번호 찾기</a></li>
+                <li><a target="_blank" href="./MemberFindID.me" class="find_text">아이디/비밀번호 찾기</a></li>
             </ul>
 
 

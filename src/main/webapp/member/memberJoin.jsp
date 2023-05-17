@@ -151,6 +151,36 @@
 		      
 		      $("#join_submit").prop() == "true" 
 		      
+		      
+		      
+	    	  $(#email).on("blur", function(){
+	    			if($(#email).val().trim() == "") {
+	    				$('#checkEmail').html("이메일을 입력하세요.");
+	    				$('#checkEmail').attr('color','red');
+	    				$('#noch').val(1);
+	    			}
+
+
+	    		}
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
 	} // checkData() 끝
 </script>
 
@@ -398,7 +428,7 @@
 					</span>
 				</p>
 				<p>	
-					<label class="join_title" for="pw2">비밀번호 재확인</label><br>
+					<label class="join_title" for="pw2">비밀번호 재확인</label>
 					<span class="ps_box int_pass_check" id="pswd2Img">
 						<input type="password" id="pw2" name="pw2" class="form-control" title="비밀번호 재확인 입력">
 					</span>
