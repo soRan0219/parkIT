@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.team2.admin.db.ParkingDTO;
@@ -26,12 +25,6 @@ public class ReservationAction implements Action {
 		System.out.println("M: ReservationAction_execute()");
 		
 		request.setCharacterEncoding("utf-8");
-		
-		HttpSession session = request.getSession();
-		if(session.getAttribute("id")==null) {
-			JSForward.alertAndBack(response, "로그인 후에 이용 가능합니다.");
-			return null;
-		}
 		
 		//희망 예약 날짜 
 		String dateString = request.getParameter("selectedDate");

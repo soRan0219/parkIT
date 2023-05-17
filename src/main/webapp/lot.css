@@ -20,19 +20,16 @@ div#res_click_map>img {
 	display: block;
 }
 
-div#res_click_map .click_inner a.cbtn {
-	border-radius: 10px;
-}
-
 div#res_click_map .click_inner a {
 	position: absolute;
 	width: 50px;
 	height: 75px;
 	text-align: center;
-	line-height: 67px;
-	font-size: 15px;
+	line-height: 66px;
+	font-size: 13px;
 	color: #fff;
 	background: #ccc;
+	border-radius: 10px;
 }
 
 div#res_click_map .click_inner a.cbtn_on.selected {

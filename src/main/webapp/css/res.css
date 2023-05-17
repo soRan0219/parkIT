@@ -64,3 +64,13 @@ input {
 	font-size: 1.3em;
 	font-weight: 500;
 }
+#left-section button {
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 3px 17px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ff9f40;
+	color: #fff;
+}

@@ -1,5 +1,9 @@
 package com.team2.member.action;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,14 +37,23 @@ public class MemberUpdateProAction implements Action {
 		
 		// 전달정보(파라미터) 저장(DTO)
 		 MemberDTO dto = new MemberDTO();
+		 
+		 String dateString = request.getParameter("birth");
+		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		 try {
+		   java.util.Date parsedDate = dateFormat.parse(dateString);
+		   java.sql.Date sqlDate = new java.sql.Date(parsedDate.getTime());
+		   dto.setBirth(sqlDate);
+		 } catch (ParseException e) {
+		   e.printStackTrace();
+		 } 
 		
-		dto.setBirth(request.getParameter("birth"));
+//		dto.setBirth(request.getParameter("birth"));
 		dto.setEmail(request.getParameter("email"));
 		dto.setId(request.getParameter("id"));
 		dto.setMemname(request.getParameter("memname"));
 		dto.setPw(request.getParameter("pw"));
 		dto.setTel(request.getParameter("tel"));
-		dto.setBirth(request.getParameter("birth"));
 		
 		// DAO 정보수정 메서드 호출 - memberUpdate(dto)
 		MemberDAO dao = new MemberDAO();
@@ -59,7 +72,7 @@ public class MemberUpdateProAction implements Action {
 			return null;
 		}
 		
-		JSForward.alertAndMove(response, "수정 되었습니다.", "./Main.me");
+		JSForward.alertAndMove(response, "수정 되었습니다.", "./Main.park");
 		return null;
 	}
 

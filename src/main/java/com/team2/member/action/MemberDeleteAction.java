@@ -45,7 +45,7 @@ public class MemberDeleteAction implements Action {
 		}
 		session.invalidate();
 		
-		JSForward.alertAndMove(response, "회원 탈퇴를 했습니다", "./Main.me");
+		JSForward.alertAndMove(response, "회원 탈퇴를 했습니다", "./Main.park");
 		
 		return null;
 	}
