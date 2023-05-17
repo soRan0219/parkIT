@@ -451,11 +451,22 @@
 	function resCountClicked(){
 		document.getElementById("resListBtn").click();
 	}
+	
+	function 
 
 </script>
 
 </head>
 <body>
+
+<c:choose>
+  <c:when test="${id eq null}">
+    <c:redirect url="/MemberLogin.me" />
+  </c:when>
+  <c:when test="${!id.equals('admin')}">
+    <c:redirect url="/Main.park" />
+  </c:when>
+</c:choose>
 
 <jsp:include page="../inc/top.jsp"/>
 		<div class="container">
