@@ -450,9 +450,7 @@
 	
 	function resCountClicked(){
 		document.getElementById("resListBtn").click();
-	}
-	
-	function 
+	} 
 
 </script>
 
