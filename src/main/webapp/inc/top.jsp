@@ -19,8 +19,6 @@
 }
 </style>
 <body>
-
-
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -57,7 +55,8 @@
 		</div>
 
 <c:if test="${empty id }">
-  <div class="login-form">
+  <div class="login-form" >
+  
     <div class="form-group">
       <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
     </div>
@@ -67,7 +66,9 @@
     <div class="join-membership">
       <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">회원가입</a>
     </div>
+    
   </div>
+  
 </c:if>
 <c:if test="${not empty id }">
   <div class="login-form">

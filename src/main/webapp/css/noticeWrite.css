@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+
+
+	
+	/* noticeWrite */
+	
+	
+		.form-group {
+			margin-bottom: 15px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		#title,
+		textarea {
+			width: 40%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 14px;
+			resize: vertical;
+		}
+		
+		select {
+ 		 width: 505px; 원하는 높이로 설정하세요
+		}
+		
+
+
+		input[type="submit"] {
+		  float: left;
+		  margin-left: 200px;
+		}
+		
+		input[type="button"] {
+		  float: right;
+		  margin-right: 940px;
+		}
+		
+		input[type="submit"] {
+		  background-color: #007bff;
+		  color: white;
+		}
+		
+		input[type="button"] {
+		  background-color: #007bff;
+		  color: white;
+		}
+		
+		input[type="submit"],
+		input[type="button"] {
+		  border-radius: 10px;
+		}
+		
+		input[type="submit"],
+		input[type="button"] {
+		  border: none;
+		  outline: none;
+		}
+		
+		
+		input[type="file"] {
+		  border: none;
+		  outline: none;
+		  border-radius: 10px;
+		}

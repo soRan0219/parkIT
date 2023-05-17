@@ -604,7 +604,7 @@
 				</div>
 				</div>
 			</div>
-			
+	
 	<jsp:include page="../inc/bottom.jsp"/>		
 		
 	<script src="js/jquery.min.js"></script>
