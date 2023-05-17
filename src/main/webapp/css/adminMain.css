@@ -79,4 +79,17 @@ td, th, tr {
 	margin-top: 20px;
 }
 
+.main{
+	cursor: pointer;
+}
+#memberCount{
+	cursor: pointer;
+}
+#resCount{
+	cursor: pointer;
+}
+
+#memberListBtn, #resListBtn, #parkingBtn, #mainAdminBtn {
+	background-color: #2ECC71;
+}
 
