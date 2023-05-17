@@ -56,6 +56,7 @@
 		
 	</script>
 	
+	<br><br><br>
 	
 	<div id="map2" style="width:500px;height:400px;"></div>
 	<br><br><br>
@@ -101,6 +102,7 @@
 			} //if
 		}); //addressSearch()
 	</script>
+	
 	
 	<br><br><br>
 	
