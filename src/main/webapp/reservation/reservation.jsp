@@ -36,6 +36,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- iamport 결제 라이브러리 -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
 <!-- datepicker -->
 <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
@@ -46,6 +47,7 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
 
 <link rel="stylesheet" type="text/css" href="css/res.css">
+
 
 <script type="text/javascript">			
 	
@@ -63,7 +65,6 @@
 			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
 			dayNamesMin:['월','화','수','목','금','토','일'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-			isRTL: false,
 			minDate:0,
 			maxDate:+30
 		});
@@ -135,6 +136,16 @@
 					
 					var i;
 					for(i=0; i<data.length-1; i++) { 
+						let tmp = "<tr>";
+						tmp += "<td>" + data[i].parkingCode + "</td>";
+						tmp += "<td>" + data[i].parkingPosition + "</td>";
+						tmp += "</tr>";
+						
+						if(i==0) {
+							$('#available').find('table').html(tmp);
+						} else {
+							$('#available').find('table').append(tmp);
+						} //if-else
 							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
 						
@@ -184,7 +195,6 @@
 				<p>야외</p>
 			</c:when>
 		</c:choose>
-
 	</div>
 	
 	<hr>
@@ -192,9 +202,11 @@
 	<div id="left-section">
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
+
 				예약일: <input type="text" id="datepicker" name="selectedDate" class="picker" autocomplete="off">
 				입차시간: <input type="text" id="fromTime" name="fromTime" class="picker" autocomplete="off">
 				출차시간: <input type="text" id="toTime" name="toTime" class="picker" autocomplete="off">
+
 				<input type="button" value="조회하기" id="dateTimeBtn">
 			</div>
 	</div>

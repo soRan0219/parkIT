@@ -51,15 +51,15 @@
 			showOn:'focus',
 			changeMonth:false,
 			changeYear:false,
-			nextText:'´ÙÀ½´Ş',
-			prevText:'ÀÌÀü´Ş',
+			nextText:'ë‹¤ìŒë‹¬',
+			prevText:'ì´ì „ë‹¬',
 			showButtonPanel:'true',
-			currentText:'¿À´Ã',
-			closeText:'´İ±â',
+			currentText:'ì˜¤ëŠ˜',
+			closeText:'ë‹«ê¸°',
 			dateFormat:'yy-mm-dd',
-			dayNames:['¿ù¿äÀÏ','È­¿äÀÏ','¼ö¿äÀÏ','¸ñ¿äÀÏ','±İ¿äÀÏ','Åä¿äÀÏ','ÀÏ¿äÀÏ'],
-			dayNamesMin:['¿ù','È­','¼ö','¸ñ','±İ','Åä','ÀÏ'],
-			monthNamesShort:['1¿ù','2¿ù','3¿ù','4¿ù','5¿ù','6¿ù','7¿ù','8¿ù','9¿ù','10¿ù','11¿ù','12¿ù'],
+			dayNames:['ì›”ìš”ì¼','í™”ìš”ì¼','ìˆ˜ìš”ì¼','ëª©ìš”ì¼','ê¸ˆìš”ì¼','í† ìš”ì¼','ì¼ìš”ì¼'],
+			dayNamesMin:['ì›”','í™”','ìˆ˜','ëª©','ê¸ˆ','í† ','ì¼'],
+			monthNamesShort:['1ì›”','2ì›”','3ì›”','4ì›”','5ì›”','6ì›”','7ì›”','8ì›”','9ì›”','10ì›”','11ì›”','12ì›”'],
 			isRTL:false,
 			minDate:0,
 			maxDate:+30
@@ -108,17 +108,17 @@
 	function check() {
 		
 		if(document.fr.datepicker.value=="") {
-			alert("³¯Â¥¸¦ ¼±ÅÃÇÏ¼¼¿ä");
+			alert("ë‚ ì§œë¥¼ ì„ íƒí•˜ì„¸ìš”");
 			document.fr.datepicker.focus();
 			return false;
 		} 
 		if(document.fr.fromTime.value=="") {
-			alert("ÀÔÂ÷½Ã°£À» ¼±ÅÃÇÏ¼¼¿ä");
+			alert("ì…ì°¨ì‹œê°„ì„ ì„ íƒí•˜ì„¸ìš”");
 			document.fr.fromTime.focus();
 			return false;
 		}
 		if(document.fr.toTime.value=="") {
-			alert("ÃâÂ÷½Ã°£À» ¼±ÅÃÇÏ¼¼¿ä");
+			alert("ì¶œì°¨ì‹œê°„ì„ ì„ íƒí•˜ì„¸ìš”");
 			document.fr.toTime.focus();
 			return false;
 		}
@@ -150,21 +150,21 @@
 									<label for="" class="label">Parking location</label>
 									<div class="dropdown">
 										<select name="parking" class="btn parking">
-											 <option value="A"> ¼­¸éÁ¡ </option>
-											 <option value="B"> ÇØ¿î´ëÁ¡ </option>
-											 <option value="C"> ¸íÁöÁ¡ </option>
+											 <option value="A"> ì„œë©´ì  </option>
+											 <option value="B"> í•´ìš´ëŒ€ì  </option>
+											 <option value="C"> ëª…ì§€ì  </option>
 										</select>
 									</div>
 								</div>
 
 								<script>
-//   // ¼±ÅÃÇÑ Ç×¸ñÀ» °Ë»öÃ¢¿¡ ³ªÅ¸³»´Â ÇÔ¼ö
+//   // ì„ íƒí•œ í•­ëª©ì„ ê²€ìƒ‰ì°½ì— ë‚˜íƒ€ë‚´ëŠ” í•¨ìˆ˜
 //   function updateSearchInput(value) {
 //     document.getElementById("parking-location").value = value;
 //     document.querySelector(".dropdown-toggle").textContent = value;
 //   }
 
-//   // ¼±ÅÃÇÑ Ç×¸ñÀ» °Ë»öÃ¢¿¡ ³ªÅ¸³¿
+//   // ì„ íƒí•œ í•­ëª©ì„ ê²€ìƒ‰ì°½ì— ë‚˜íƒ€ëƒ„
 //   const dropdownItems = document.querySelectorAll(".dropdown-item");
 //   dropdownItems.forEach((item) => {
 //     item.addEventListener("click", (event) => {
@@ -175,21 +175,21 @@
 </script>
 								<div class="d-flex">
 									<div class="form-group mr-2">
-										<label for="" class="label">ÁÖÂ÷ ³¯Â¥</label> 
+										<label for="" class="label">ì£¼ì°¨ ë‚ ì§œ</label> 
 										<input type="text" class="form-control datepicker" id="datepicker" placeholder="Date" autocomplete="off">
 									</div>
 								</div>
 								<div class="d-flex">
 
 									<div class="form-group ml-2">
-										<label for="park_on_time" class="label">ÀÔÂ÷ ½Ã°£</label> 
+										<label for="park_on_time" class="label">ì…ì°¨ ì‹œê°„</label> 
 										<input type="text" id="fromTime" class="form-control ui-timepicker-wrapper" autocomplete="off">
 									</div>
 
 								</div>
 								<div class="d-flex">
 									<div class="form-group ml-2">
-										<label for="park_off_time" class="label">ÃâÂ÷ ½Ã°£</label> 
+										<label for="park_off_time" class="label">ì¶œì°¨ ì‹œê°„</label> 
 										 <input type="text" id="toTime" class="form-control" autocomplete="off">
 									</div>
 
@@ -200,14 +200,14 @@
 								<input type="hidden" id="parkOutTime" name="parkOutTime">
 								
 								<div class="form-group">
-									<input type="submit" value="¿¹¾àÇÏ±â"
+									<input type="submit" value="ì˜ˆì•½í•˜ê¸°"
 										class="btn btn-secondary py-3 px-4">
 								</div>
 							</form>
 						</div>
 						<div class="col-md-8 d-flex align-items-center">
 							<div class="services-wrap rounded-right w-100">
-								<h3 class="heading-section mb-4">ÁÖÂ÷Àå ¼±ÅÃÀÇ ÃÖ°íÀÇ ¹æ¹ı</h3>
+								<h3 class="heading-section mb-4">ì£¼ì°¨ì¥ ì„ íƒì˜ ìµœê³ ì˜ ë°©ë²•</h3>
 								<div class="row d-flex mb-4">
 									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
 										<div class="services w-100 text-center">
@@ -216,7 +216,7 @@
 												<span class="flaticon-route"></span>
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">ÁÖÂ÷Àå Àå¼Ò ¼±ÅÃ</h3>
+												<h3 class="heading mb-2">ì£¼ì°¨ì¥ ì¥ì†Œ ì„ íƒ</h3>
 											</div>
 										</div>
 									</div>
@@ -274,10 +274,10 @@
 									style="background-image: url(images/park2.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">¼­¸éÁ¡</a>
+										<a href="#">ì„œë©´ì </a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkITÁÖÂ÷Àå</span>
+										<span class="cat">ParkITì£¼ì°¨ì¥</span>
 										<p class="price ml-auto">
 											$2000 <span>/30min</span>
 										</p>
@@ -295,10 +295,10 @@
 									style="background-image: url(images/park3.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">±¤¾È¸®Á¡</a>
+										<a href="#">ê´‘ì•ˆë¦¬ì </a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkITÁÖÂ÷Àå</span>
+										<span class="cat">ParkITì£¼ì°¨ì¥</span>
 										<p class="price ml-auto">
 											$2000 <span>/30min</span>
 										</p>
@@ -316,10 +316,10 @@
 									style="background-image: url(images/park4.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">ÇØ¿î´ëÁ¡</a>
+										<a href="#">í•´ìš´ëŒ€ì </a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkITÁÖÂ÷Àå</span>
+										<span class="cat">ParkITì£¼ì°¨ì¥</span>
 										<p class="price ml-auto">
 											$2000 <span>/30min</span>
 										</p>
@@ -337,10 +337,10 @@
 									style="background-image: url(images/park1.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">¼­¸éÁ¡2</a>
+										<a href="#">ì„œë©´ì 2</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkITÁÖÂ÷Àå</span>
+										<span class="cat">ParkITì£¼ì°¨ì¥</span>
 										<p class="price ml-auto">
 											$2000 <span>/30min</span>
 										</p>
@@ -805,4 +805,4 @@
 	<script src="js/main.js"></script>
 
 </body>
-</html>
+  </html>
