@@ -141,7 +141,7 @@
 				}else if(selectedValue == 'b'){
 					$("#title").val('[해운대점]');
 				}else if(selectedValue == 'c'){
-					$("#title").val('[연산점]');
+					$("#title").val('[명지점]');
 				}
 				
 			}
@@ -162,9 +162,6 @@
 		
 			
 			
-			<div>
-				<h1> 공지사항(관리자) </h1>
-			</div>
 			
 			<div id="writecontainer">
   <div>
@@ -172,7 +169,7 @@
       <option value="all">전체공지</option>
       <option value="a">서면점</option>
       <option value="b">해운대점</option>
-      <option value="c">연산점</option>
+      <option value="c">명지점</option>
     </select>
   </div>
 
