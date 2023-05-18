@@ -11,7 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.team2.member.db.MemberDTO;
+import com.team2.admin.db.ResDTO;
 
 // DB에 연결해서 처리하는 모든동작 수행
 public class MemberDAO {
@@ -454,6 +454,49 @@ public class MemberDAO {
 		return result;
 	}// 회원 탈퇴 - memberDelete(id, pw)
 
+	
+	//----------------------예약내역 조회------------------------
+	public List<ResDTO> getResList(String id) {
+		List<ResDTO> resList = new ArrayList<>();
+		
+		try {
+			con = getCon();
+			
+			sql = "SELECT * FROM reservation "
+					+ " WHERE id=? "
+					+ " ORDER BY resDate DESC";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ResDTO dto = new ResDTO();
+				
+				dto.setCarNo(rs.getString("carNo"));
+				dto.setId(id);
+				dto.setParkingCode(rs.getString("parkingCode"));
+				dto.setParkingPosition(rs.getInt("parkingPosition"));
+				dto.setParkInTime(rs.getTime("parkInTime"));
+				dto.setParkOutTime(rs.getTime("parkOutTime"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setResDate(rs.getDate("resDate"));
+				dto.setResNo(rs.getInt("resNo"));
+				dto.setResStatus(rs.getInt("resStatus"));
+				
+				resList.add(dto);
+			}
+			
+			System.out.println("DAO: 조회 완료_예약 내역 " + resList.size() + "건");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return resList;
+	} //예약내역 조회 - getResLog(id)
+	
+	
 	
 	
 
