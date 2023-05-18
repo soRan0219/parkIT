@@ -8366,7 +8366,7 @@ h1, h2, h3, h4, h5,
     content: '';
     opacity: .3;
     background: #000000;
-    height: 850px; }
+    height: 40rem; }
   @media (max-width: 991.98px) {
     .hero-wrap {
       height: 1150px; }
@@ -9068,21 +9068,21 @@ h1, h2, h3, h4, h5,
 
 .ftco-degree-bg {
   position: relative; }
-  .ftco-degree-bg:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -50px;
-    overflow: visible;
-    width: 100%;
-    height: 120px;
-    z-index: 0;
-    -webkit-transform: skewY(-4deg);
-    -moz-transform: skewY(-4deg);
-    -ms-transform: skewY(-4deg);
-    -o-transform: skewY(-4deg);
-    transform: skewY(-4deg);
-    background-color: #f8f9fa; }
+/*   .ftco-degree-bg:after { */
+/*     content: ''; */
+/*     position: absolute; */
+/*     left: 0; */
+/*     bottom: -50px; */
+/*     overflow: visible; */
+/*     width: 100%; */
+/*     height: 120px; */
+/*     z-index: 0; */
+/*     -webkit-transform: skewY(-4deg); */
+/*     -moz-transform: skewY(-4deg); */
+/*     -ms-transform: skewY(-4deg); */
+/*     -o-transform: skewY(-4deg); */
+/*     transform: skewY(-4deg); */
+/*     background-color: #f8f9fa; } */
 
 .aside-stretch {
   background: #43a2ff; }
