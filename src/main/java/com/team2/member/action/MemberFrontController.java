@@ -425,6 +425,22 @@ public class MemberFrontController extends HttpServlet {
 			}
 		}	
 		
+				
+				
+				
+				
+		//-----------------------------예약내역---------------------------
+		else if(command.equals("/ResList.me")) {
+			System.out.println("C: /ResList.me 호출");
+			
+			action = new ResLogAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
 		

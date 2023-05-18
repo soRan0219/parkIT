@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.team2.admin.db.ParkingDTO;
@@ -26,6 +27,13 @@ public class ReservationAction implements Action {
 		
 		request.setCharacterEncoding("utf-8");
 		
+		//로그인 유효성 검사
+		HttpSession session = request.getSession();
+		if(session.getAttribute("id")==null) {
+			JSForward.alertAndMove(response, "로그인 후 이용하실 수 있습니다.", "./MemberLogin.me");
+			return null;
+		}
+		
 		//희망 예약 날짜 
 		String dateString = request.getParameter("selectedDate");
 		Date parsedDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
@@ -36,6 +44,8 @@ public class ReservationAction implements Action {
 		//희망 입,출차 시간 
 		String fromTime = request.getParameter("parkInTime");
 		String toTime = request.getParameter("parkOutTime");
+		request.setAttribute("parkInTime", fromTime);
+		request.setAttribute("parkOutTime", toTime);
 		fromTime += ":00";
 		toTime += ":00";
 		System.out.println(fromTime + ", " + toTime);
@@ -43,8 +53,6 @@ public class ReservationAction implements Action {
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
 		
-		request.setAttribute("parkInTime", parkInTime);
-		request.setAttribute("parkOutTime", parkOutTime);
 		
 		//주차장 정보 조회
 		String parkingCode = request.getParameter("parking");

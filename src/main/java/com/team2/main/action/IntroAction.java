@@ -63,7 +63,6 @@ public class IntroAction implements Action {
 		System.out.println("C 예약 가능한 자리: " + availableC);
 		request.setAttribute("availableC", availableC);
 		
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./introduction/introduction.jsp");
 		forward.setRedirect(false);

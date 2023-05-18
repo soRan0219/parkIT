@@ -1,0 +1,199 @@
+select option {
+/* 	color: black; */
+	color: #bbe0f7;
+}
+
+.login-form {
+	max-width: 400px;
+}
+
+.login-form h2 {
+	text-align: center;
+}
+
+.login-form .form-group {
+	margin-top: 20px;
+}
+
+.login-form .btn-primary {
+	width: 100%;
+}
+
+.join-membership a {
+	color: #00ff00;
+}
+
+.login_content {
+	width: 450px;
+	height: 350px;
+	margin: 0 auto;
+	margin-bottom: 17px;
+	padding: 20px 28PX;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+
+.login_row {
+	margin-bottom: 10px;
+}
+
+.join_title {
+	display: inline-block;
+	width: 70px;
+	margin-right: 10px;
+}
+
+.input_text {
+	padding: 7px;
+	width: 100%;
+	border: 1px solid rgb(209, 209, 209);
+	border-radius: 10px;
+}
+
+.wrap {
+	position: relative;
+    height: 100%;
+    letter-spacing: -.5px;
+}
+
+.li {
+	text-align: -webkit-match-parent;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	 height: 100%;
+    color: #222;
+    background-color: #fff;
+}
+
+.find_wrap {
+	padding: 20px 0 35px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+	margin-top: 20px;
+    text-decoration: none;
+    color: #888;
+}
+    
+.find_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+}
+
+.find_wrap li {
+    margin-right: 10px;
+}
+
+ol, ul {
+	list-style: none;
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+input[type="submit"], input[type="button"] {
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 3px 17px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ff9f40;
+	color: #fff;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #e67f19;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px; /* 원하는 높이로 설정하세요 */
+}
+
+
+.navbar-brand span:first-of-type {
+  color: #007bff;
+}
+
+.navbar-brand span:last-of-type {
+  color: #28a745;
+}
+
+.navbar-brand span:last-of-type span {
+  color: #007bff;
+}
+
+.find_text {
+	display: inline-block;
+    font-size: 15px;
+    line-height: 17px;
+    text-decoration: none;
+	color: #888;
+}
+
+.login_content input[type="submit"] {
+  width: 392.67px;
+  height: 55px;
+}
+
+.btn_login {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #fff;
+}
+
+.find_wrap li:not(:last-child)::after {
+  content: "|";
+  margin: 25px 25px; /* 동일한 간격으로 변경 */
+  color: #dadada;
+}
+
+.join_content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 폼의 너비 조정 */
+  max-width: 400px; /* 폼의 최대 너비 설정 */
+  padding: 20px; /* 내부 여백 추가 */
+}
+
+.join_content h2 {
+  margin-top: 0; /* 기본적인 여백 제거 */
+}
+
+.join_content .join_row {
+  margin-bottom: 20px; /* 아이템 간격 조정 */
+}
+
+.findsec1 >h3{
+	font-size: 30px;
+}
+
+.input_text {
+	appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+}
+

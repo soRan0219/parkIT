@@ -35,6 +35,8 @@ public class PayAction implements Action {
 		//입, 출차시간
 		String fromTime = request.getParameter("parkInTime");
 		String toTime = request.getParameter("parkOutTime");
+		fromTime += ":00";
+		toTime += ":00";
 		
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
