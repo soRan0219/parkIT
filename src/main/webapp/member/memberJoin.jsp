@@ -11,6 +11,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/memJoin.css">
 <link rel="stylesheet" href="css/park.css">
@@ -339,18 +340,17 @@
 	$(function () {
 		$("#birth").datepicker({
 			dateFormat: 'yy-mm-dd',
-// 			showOn:'both',
-// 			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
-// 			buttonImageOnly: 'true',
+			showOn:'focus',
 			prevText: '이전달',
 			nextText: '다음달',
 			minDate: new Date(1900, 0, 1),
 			maxDate: new Date(2005, 4, new Date().getDate()),
 // 			yearRange: '1900:' + new Date().getFullYear(),
 			yearRange: '1900:2005',
+			closeText:'닫기',
 			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-			dayNames: ['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
-			dayNamesShort: ['월','화','수','목','금','토','일'],
+			dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+			dayNamesMin: ['일','월','화','수','목','금','토'],
 		    showMonthAfterYear: 'true',
 		    changeMonth: 'true',
 		    changeYear: 'true', // 연도 선택 스크롤 활성화

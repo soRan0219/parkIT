@@ -31,11 +31,13 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 800;
   text-align: center;
   margin-top: 2%;
   margin-right: 4%;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
 }
 
 .form_submit {
@@ -112,8 +114,4 @@ button {
   border: 1px solid #ddd;;
   outline: none;
   border-radius: 5px;
-}
-
-body {
-  background-color: black; /* 원하는 배경색으로 수정하세요 */
 }
