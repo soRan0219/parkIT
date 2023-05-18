@@ -183,12 +183,21 @@ public class MemberDAO {
 
 		            // 비밀번호 뒷자리 4개를 ****로 대체
 		            int length = pw.length();
-		            if (length > 4) {
-		                String asterisks = "";
-		                for (int i = 0; i < length - 4; i++) {
-		                    asterisks += "*";
+		            if (length >= 8) {
+//		                String asterisks = "";
+		            	StringBuilder maskedPw = new StringBuilder(pw);
+//		                for (int i = 0; i < length - 4; i++) {
+//		                    asterisks += "*";
+//		                }
+//		                pw = pw.substring(0, length - 4) + asterisks;
+//		            } else {
+//		                pw = "****";
+//		            }
+//		        } else {
+		                for (int i = length - 4; i < length; i++) {
+		                    maskedPw.setCharAt(i, '*');
 		                }
-		                pw = pw.substring(0, length - 4) + asterisks;
+		                pw = maskedPw.toString();
 		            } else {
 		                pw = "****";
 		            }

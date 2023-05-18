@@ -50,6 +50,13 @@ select option {
 	border-radius: 10px;
 }
 
+.input_text1 {
+	padding: 7px;
+	width: 100%;
+	border: 1px solid rgb(209, 209, 209);
+	border-radius: 10px;
+}
+
 .wrap {
 	position: relative;
     height: 100%;
@@ -156,8 +163,8 @@ input[type="submit"]:hover {
 }
 
 .btn_login {
-	font-size: 15px;
-	font-weight: 350;
+	font-size: 20px;
+	font-weight: 700;
 	line-height: 24px;
 	color: #fff;
 }
@@ -195,19 +202,12 @@ input[type="submit"]:hover {
     background-image: none !important;
     background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
     color: fieldtext !important;
+    margin-bottom: 25px;
 }
 
-label{
-	font-size: 25px;
-}
-
-.findsec1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-label > b{
-	text-decoration: underline;
+.input_text1 {
+	appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
 }

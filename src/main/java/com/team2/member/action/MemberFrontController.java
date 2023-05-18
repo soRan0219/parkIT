@@ -425,6 +425,18 @@ public class MemberFrontController extends HttpServlet {
 			}
 		}	
 		
+
+		else if(command.equals("/Main.me")) {
+					System.out.println(" C : /Main.me");
+					
+					
+					forward = new ActionForward();
+					forward.setPath("./member/main.jsp");
+					forward.setRedirect(false);
+					
+					
+				}
+
 				
 				
 				
@@ -442,6 +454,7 @@ public class MemberFrontController extends HttpServlet {
 			}
 		}
 		
+
 		
 		
 		System.out.println("2. 매핑 끝 ");
