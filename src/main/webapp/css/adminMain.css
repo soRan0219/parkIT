@@ -16,7 +16,7 @@
 /* .admin4{ */
 /* 	float: left; */
 /* } */
- 
+
 .services-wrap {
     padding: 4em 3em;
     background: #fff;
@@ -53,17 +53,14 @@ td, th, tr {
 	display: flex;
 	align-items: center;
 }
-
 .parkingSet {
 	margin-right: 20px;
 }
-
 .parkingName,
-.reservationCount {
+.parkingCount {
 	white-space: nowrap;
 }
-
-.reservationCount {
+.parkingCount {
 	text-align: center;
 }
 

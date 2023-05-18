@@ -25,7 +25,35 @@
 #login-size {
 	font-size: 2rem;
 }
+
+.profile-options {
+  display: none;
+  position: absolute;
+  right: 1px;
+  background-color: #fff;
+  padding: 0.8%;
+  white-space: nowrap;
+  border-radius: 10%;
+}
+
+
+
+  .profile-options {
+    display: none;
+  }
+  .profile-options.show {
+    display: block;
+  }
+  
+#profile{
+	cursor: pointer;
+}
+
 </style>
+
+
+
+
 <body>
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -84,14 +112,32 @@
   
 </c:if>
 <c:if test="${not empty id }">
+
   <div class="login-form">
-<%--     아이디: ${id } <br> <!-- sessionScope 생략 --> --%>
-		
-<!-- 		<h6><a href="./Main.me" class="nav-link" style="color: white; padding: 0;">회원정보 조회</a></h6> -->
-		<h6><a href="./Main.me" class="nav-link"><img src="img/free-icon-user-7718888.png" width="60" height="60"></a></h6>
-		<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
+  
+    <div class="nav-link" id="profile-link">
+     <h6> <img src="img/free-icon-user-7718888.png" width="60" height="60" id="profile"> </h6>
+    </div>
+    
+  <input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
+  <ul class="profile-options" id="profile-options">
+    <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
+    <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
+    <li><a href="#">예약내역 보기</a></li>
+    <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
+  </ul>
   </div>
+  
 </c:if>
+
+<script>
+  var profileLink = document.getElementById('profile-link');
+  var profileOptions = document.getElementById('profile-options');
+
+  profileLink.addEventListener('click', function() {
+    profileOptions.classList.toggle('show');
+  });
+</script>
 
 	</nav>
 	<!-- END nav -->
@@ -116,4 +162,3 @@
 	</div>
 </body>
 </html>
-
