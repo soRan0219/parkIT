@@ -8,16 +8,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> reservation </title>
+<title> parkIT: 예약하기 </title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
-
-<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet"> -->
-
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 	
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -44,7 +42,6 @@
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 <!-- datepicker -->
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 
@@ -68,11 +65,23 @@
 			currentText:'오늘',
 			closeText:'닫기',
 			dateFormat:'yy-mm-dd',
-			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
-			dayNamesMin:['월','화','수','목','금','토','일'],
+			dayNames:['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+			dayNamesMin:['일','월','화','수','목','금','토'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			minDate:0,
-			maxDate:+30
+			maxDate:+30,
+			onSelect: function(date, inst) {
+				var selected = $(this).datepicker('getDate');
+				var current = new Date();
+				
+				if(selected > current) {
+					$('#fromTime').timepicker('option', 'minTime', '06:00');
+					$('#toTime').timepicker('option', 'minTime', '06:00');
+				} else {
+					$('#fromTime').timepicker('option', 'minTime', new Date());
+					$('#toTime').timepicker('option', 'minTime', new Date());
+				}
+			} //onSelect
 		});
 		
 		$('#fromTime').timepicker({
@@ -80,6 +89,8 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
+			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
@@ -94,6 +105,8 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
+			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
 		});
@@ -178,9 +191,9 @@
 </head>
 <body>
 	
-	<section class="ftco-section contact-section">
-	
 	<jsp:include page="../inc/top.jsp"/>
+	
+	<section class="ftco-section contact-section" style="padding: 0em;">
 	
 	<div id="header">
 		<span id="pName"> ${pDto.parkingName } </span>
@@ -193,9 +206,13 @@
 				<span id="inout">야외</span>
 			</c:when>
 		</c:choose>
+		<span class="lotInfo">
+			<b>Addr:</b> ${pDto.parkingAdr }
+			| 
+			<b>Tel:</b> ${pDto.parkingTel } 
+		</span>
+		<hr id="hr1">
 	</div>
-	
-	<hr>
 	
 	<div id="right-section">
 			<div>
@@ -241,8 +258,11 @@
 	</script>
 	
 	<div id="left-nav">
-		<b>Addr:</b> ${pDto.parkingAdr } | 
-		<b>Tel:</b> ${pDto.parkingTel } <br>
+<!-- 		<span class="lotInfo"> -->
+<%-- 			<b>Addr:</b> ${pDto.parkingAdr } --%>
+<!-- 			|  -->
+<%-- 			<b>Tel:</b> ${pDto.parkingTel }  --%>
+<!-- 		</span> -->
 	<div id="res_click_map">
 		<img src="./img/parkIT.png">
 		<div class="click_inner">
@@ -452,15 +472,8 @@
 				} 
 			}); //cbtnClick
 			
-			
-// 			var number = $('#price').val();
-// 			var formatNum = number.toLocaleString();
-// 			console.log(formatNum);
-			
 		});
 	</script>
-	
-	<hr>
 	
 	<div id="right-section">
 	
@@ -473,8 +486,6 @@
 		<form action="./PayAction.res" id="payInfo" method="post">
 			<!-- 회원 아이디 -->
 			<input type="hidden" id="id" name="id" value="${sessionScope.id }">
-			<!-- 회원 이메일 -->
-			<input type="hidden" id="email" name="email" value="${sessionScope.email }">
 			<!-- 주차장코드 -->
 			<input type="hidden" id="parkingCode" name="parkingCode" value="${available[0].parkingCode }">
 			<!-- 주차장자리번호 -->
@@ -482,16 +493,18 @@
 			
 			
 			<p><b>※ 예약 날짜와 입, 출차시간을 확인해주세요.</b></p>
-			<!-- 예약날짜 -->
-			<div>예약일: <input type="text" id="resDate" name="resDate" class="check" value="${resDate }" readonly></div>
+			<div id="chk">
+			 <!-- 예약날짜 -->
+			 <div>예약일: <input type="text" id="resDate" name="resDate" class="check" value="${resDate }" readonly></div>
 			
-			<!-- 입차시간 -->
-			<div>입차시간: <input type="text" id="parkInTime" name="parkInTime" class="check" value="${parkInTime }" readonly></div>
+			 <!-- 입차시간 -->
+			 <div>입차시간: <input type="text" id="parkInTime" name="parkInTime" class="check" value="${parkInTime }" readonly></div>
 			
-			<!-- 출차시간 -->
-			<div>출차시간: <input type="text" id="parkOutTime" name="parkOutTime" class="check" value="${parkOutTime }" readonly></div>
+			 <!-- 출차시간 -->
+			 <div>출차시간: <input type="text" id="parkOutTime" name="parkOutTime" class="check" value="${parkOutTime }" readonly></div>
 			
-			<div>차량번호: <input type="text" id="carNo" name="carNo"></div>
+			 <div>차량번호: <input type="text" id="carNo" name="carNo"></div>
+			</div>
 			<hr>
 			<div>
 				<h3> 결제 예상금액: <input type="text" id="price" name="price" class="check" value="${price }" readonly></h3>
@@ -500,8 +513,6 @@
 				
 <%-- 				<div id="dd"><fmt:formatNumber value="${price }"/></div> --%>
 				
-				
-				 
 <%-- 				<input type="hidden" id="price" name="price" value="${price }"> --%>
 			</div>
 		</form>
@@ -654,11 +665,9 @@
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<!-- datepicker -->
-<!-- 	<script src="js/bootstrap-datepicker.js"></script> -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<!-- timepicker -->
-<!-- 	<script src="js/jquery.timepicker.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	
 	<script src="js/scrollax.min.js"></script>
