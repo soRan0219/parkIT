@@ -38,8 +38,8 @@ select option {
 }
 
 .join_title {
-	display: inline-block;
-	width: 70px;
+/* 	display: inline-block; */
+	width: 130px;
 	margin-right: 10px;
 }
 
@@ -117,8 +117,8 @@ input[type="submit"]:hover {
 .navbar-brand {
   display: flex;
   align-items: center;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -155,6 +155,30 @@ input[type="submit"]:hover {
   height: 55px;
 }
 
+.find_wrap li:not(:last-child)::after {
+  content: "|";
+  margin: 25px 25px; /* 동일한 간격으로 변경 */
+  color: #dadada;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.join_content {
+  width: 1000px; /* 폼의 너비를 조정해주세요 */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .btn_login {
 	font-size: 20px;
 	font-weight: 700;
@@ -162,26 +186,18 @@ input[type="submit"]:hover {
 	color: #fff;
 }
 
-.find_wrap li:not(:last-child)::after {
-  content: "|";
-  margin: 25px 25px; /* 동일한 간격으로 변경 */
-  color: #dadada;
+.form_sumit {
+	text-align: center;
 }
 
-.join_content {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%; /* 폼의 너비 조정 */
-  max-width: 400px; /* 폼의 최대 너비 설정 */
-  padding: 20px; /* 내부 여백 추가 */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.join_content h2 {
-  margin-top: 0; /* 기본적인 여백 제거 */
-}
-
-.join_content .join_row {
-  margin-bottom: 20px; /* 아이템 간격 조정 */
+.form_submit {
+	width: 500px;
 }

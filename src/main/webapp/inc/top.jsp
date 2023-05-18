@@ -58,7 +58,7 @@
       <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
     </div>
     <div class="join-membership">
-      <a href="#" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
+      <a href="./MemberFindID.me" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
     </div>
     <div class="join-membership">
       <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">회원가입</a>
