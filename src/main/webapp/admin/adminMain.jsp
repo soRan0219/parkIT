@@ -497,39 +497,56 @@
 						<div class="services-wrap rounded-right w-100">
 					<div class="heading-section mb-4">
 				<div class="admin2">
-								<div> <!-- 월별 현황 -->
-			현재 현황
-			</div>
-				
-				<div>
-					총 회원수 : <span id="memberCount" onclick="memberCountClicked()"></span>명
-					예약건수 : <span id="resCount" onclick="resCountClicked()"></span>건
-					취소건수 : <span id="resCancelCount"></span>건
-				</div>
-			
-				
-<div class="status"> <!-- 지점별 현황 -->
-			지점별 현황	
-			
-			<div class="parkingInfo">
-				<div class="parkingSet">
-					<div class="parkingName">서면점</div>
-					<div class="reservationCount"><span id="resCountA"></span>건</div>
-				</div>
-				
-				<div class="parkingSet">
-					<div class="parkingName">해운대점</div>
-					<div class="reservationCount"><span id="resCountB"></span>건</div>
-				</div>
-				
-				<div class="parkingSet">
-					<div class="parkingName">명지점</div>
-					<div class="reservationCount"><span id="resCountC"></span>건</div>
-				</div>
-			</div> <!-- /parkingInfo -->
-				
-			</div> <!-- /지점별 현황 -->			
-			<div class="status"> <!-- 고객센터 -->
+                
+            <div style="color: #1089FF"> <!-- 월별 현황 -->
+            현재 현황
+            </div>
+                
+            <div class="parkingInfo">
+            
+                <div class="parkingSet">
+                    <div class="parkingName">총 회원수</div>
+                    <div class="parkingCount"><span id="memberCount" onclick="memberCountClicked()"></span>명</div>
+                </div>
+                
+                <div class="parkingSet">
+                    <div class="parkingName">예약건수</div>
+                    <div class="parkingCount"><span id="resCount" onclick="resCountClicked()"></span>건</div>
+                </div>
+                
+                <div class="parkingSet">
+                    <div class="parkingName">취소건수</div>
+                    <div class="parkingCount"><span id="resCancelCount"></span>건</div>
+                </div>
+                
+            </div>
+                
+            
+                
+        <div class="status" > <!-- 지점별 현황 -->
+        	<div style="color: #1089FF;">
+            지점별 현황    
+            </div>
+            <div class="parkingInfo">
+                <div class="parkingSet">
+                    <div class="parkingName">서면점</div>
+                    <div class="parkingCount"><span id="resCountA"></span>건</div>
+                </div>
+                
+                <div class="parkingSet">
+                    <div class="parkingName">해운대점</div>
+                    <div class="parkingCount"><span id="resCountB"></span>건</div>
+                </div>
+                
+                <div class="parkingSet">
+                    <div class="parkingName">명지점</div>
+                    <div class="parkingCount"><span id="resCountC"></span>건</div>
+                </div>
+            </div> <!-- /parkingInfo -->
+                
+            </div> <!-- /지점별 현황 -->	
+					
+			<div class="status" style="color: #1089FF"> <!-- 고객센터 -->
 			고객센터
 			</div>
 			
