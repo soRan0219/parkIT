@@ -72,6 +72,11 @@
 
 </section>	
 
+	<h3><a href="./ResList.me">예약내역 보기</a></h3>
+	
+	<h3><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></h3>
+
+
 
 
 	<!-- admin 계정 추가하기 -->

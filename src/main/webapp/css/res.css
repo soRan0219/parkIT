@@ -1,15 +1,13 @@
 @charset "UTF-8";
 
 #header {
-	background-color: #ff80c0;
 	height: 100px;
 	position: relative;
 	z-index: 3;
 }
 
 #left-nav {
-	background-color: #333999;
-	color: white;
+/* 	color: white; */
 	width: 55%;
 	height: 58%;
 	float: left;
@@ -17,7 +15,6 @@
 }
 
 #right-section {
-	background-color: #ffff80;
 	width:43%;
 	height: 55%;
 	text-align: left;
@@ -26,7 +23,6 @@
 }
 
 #footer {
-	background-color: #ccc;
 	height: 100px;
 	clear: both;
 }
@@ -43,9 +39,10 @@ input {
 
 /***** header 요소 *****/
 #header #pName {
-	padding-left: 14%;
+	margin-top: 15%;
+	padding-left: 8%;
 	font-size: 2.2em;
-	font-weight: 700;
+	font-weight: 900;
 }
 #header #inout {
 	display: inline-block;
@@ -107,7 +104,7 @@ input {
 	border: 1px solid #ccc;
 }
 #dateTimeBtn {
-	height: 1.4em;
+	height: 1.6em;
 }
 #right-section .check {
 	width: 8em;
@@ -127,6 +124,10 @@ input {
 }
 #right-section h3 {
 	font-size: 1.5em;
+	font-weight: bold;
+}
+#right-section h6 {
+	font-size: 1.2em;
 	font-weight: bold;
 }
 #price {
