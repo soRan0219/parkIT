@@ -26,7 +26,7 @@
 
 <section class="findsec1"> 
 
-<h3>아이디 찾기</h3> <!-- 이거 제목 넣말? -->
+<!-- <h3>아이디 찾기</h3> 이거 제목 넣말? -->
 			<% String id = (String)session.getAttribute("id"); 
 			%>
 			<form action="./MemberLogin.me" method="post">

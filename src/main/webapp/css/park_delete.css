@@ -25,7 +25,7 @@ select option {
 
 .login_content {
 	width: 450px;
-	height: 350px;
+	height: 210px;
 	margin: 0 auto;
 	margin-bottom: 17px;
 	padding: 20px 28PX;
@@ -48,6 +48,7 @@ select option {
 	width: 100%;
 	border: 1px solid rgb(209, 209, 209);
 	border-radius: 10px;
+	margin-bottom: 25px;
 }
 
 .wrap {
@@ -156,8 +157,8 @@ input[type="submit"]:hover {
 }
 
 .btn_login {
-	font-size: 15px;
-	font-weight: 350;
+	font-size: 20px;
+	font-weight: 700;
 	line-height: 24px;
 	color: #fff;
 }
@@ -197,17 +198,3 @@ input[type="submit"]:hover {
     color: fieldtext !important;
 }
 
-label{
-	font-size: 25px;
-}
-
-.findsec1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-label > b{
-	text-decoration: underline;
-}

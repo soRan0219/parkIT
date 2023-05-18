@@ -158,12 +158,12 @@ input[type="submit"]:hover {
 }
 
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+/* .container { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   height: 100vh; */
+/* } */
 
 .join_content {
   width: 1000px; /* 폼의 너비를 조정해주세요 */

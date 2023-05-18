@@ -3,6 +3,12 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<!-- <link rel="stylesheet" href="css/park_main.css"> -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/park_memain.css">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,23 +16,62 @@
 <title>MyPage</title>
 </head>
 <body>
-	<h1>MyPage</h1> 
+<!-- 	<h1>MyPage</h1>  -->
 	<!-- 로그인 정보가 있을때만 메인페이지를 사용가능 -->
 	
 	<c:if test="${empty id }">
 		<c:redirect url="./MemberLogin.me"/>
 	</c:if>
 	
-	아이디: ${id } <br>
+<%-- 	아이디: ${id } <br> --%>
 	
-	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
-	<hr>
+<!-- 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	 -->
+<!-- 	<hr> -->
 	
-	<h3><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></h3>
 	
-	<h3><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></h3>
+	
+	
+<section class="ftco-section contact-section">
 
-	<h3><a href="./MemberDelete.me">회원 탈퇴</a></h3>
+<div class="container">
+ <div class="row d-flex mb-5 contact-info">
+  <div class="col-mb-4">
+   <div class="col-mb-5">
+   
+    <div class="col-mb-12">
+     <div class="border w-100 p-4 rounded mb-2 d-flex">
+		<p>
+		 <a href="./MemberUpdate.me">내 정보 보기 및 수정</a>
+		</p>
+	</div>
+    </div>
+    
+    <div class="col-mb-12">
+    <div class="border w-100 p-4 rounded mb-2 d-flex">
+    	<p>
+		<a href="./MemberPasswordUpdate.me">비밀번호 변경</a>
+		</p>
+	</div>
+	</div>
+
+    <div class="col-mb-12">
+    <div class="border w-100 p-4 rounded mb-2 d-flex">
+    	<p>
+		<a href="./MemberDelete.me">회원 탈퇴</a>
+		</p>
+	</div>
+	</div>
+  
+
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+</section>	
+
 
 
 	<!-- admin 계정 추가하기 -->
