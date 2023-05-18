@@ -461,7 +461,7 @@
 			<div class="login-join_form_agreement_privacy">
 				<input type="checkbox" class="joincheck" id="check_2">	
 				<label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
-				<button onclick="window.open('MemberJoinAgree.me', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));">자세히</button>
+				<a onclick="window.open('MemberJoinAgree.me', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));">자세히</a>
 			</div>
 <!-- 		class="adAgreeCheckBox" -->
 			<div class="login-join_form_agreement_ad">

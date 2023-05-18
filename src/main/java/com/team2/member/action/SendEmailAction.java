@@ -33,8 +33,8 @@ public class SendEmailAction implements Action{
 		// 이메일 전송 설정
 		String host = "smtp.gmail.com";
 		String port = "587";
-		String username = "daehwi330@gmail.com";
-		String password = "jgjqelkdrhfdjgtz";
+		String username = "ParkIT22itwill@gmail.com";
+		String password = "cmkvrhkieruclczf";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
@@ -45,7 +45,7 @@ public class SendEmailAction implements Action{
 
 		// 이메일 메시지 작성
 		String recipientEmail = request.getParameter("email");
-		String subject = "이메일 인증 코드";
+		String subject = "ParkIT 회원가입 이메일 인증 코드 입니다.";
 		String content = "인증 코드: " + verificationCode;
 
 		Session session = Session.getInstance(props, new Authenticator() {

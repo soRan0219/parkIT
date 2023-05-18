@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="css/find.css">
 
+<link rel="stylesheet" href="css/alert.css">
 <link rel="stylesheet" href="css/park_delete.css">
 <link rel="stylesheet" href="css/style.css">
 
