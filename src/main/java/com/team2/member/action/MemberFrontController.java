@@ -286,8 +286,8 @@ public class MemberFrontController extends HttpServlet {
 		// 이메일 인증
 		// URL : http://localhost:8088/zemailTest/Main.me
 				// 관리자 메인페이지
-				if(command.equals("/Main.me")) {
-					System.out.println(" C : /Main.me");
+				if(command.equals("/Main.park")) {
+					System.out.println(" C : /Main.park");
 					
 					
 					forward = new ActionForward();

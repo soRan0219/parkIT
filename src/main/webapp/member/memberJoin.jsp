@@ -11,9 +11,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/membercss.css">
+<link rel="stylesheet" href="css/memJoin.css">
+<link rel="stylesheet" href="css/park.css">
 <script type="text/javascript">
 // ------------------------------------------------------------------------------------
 // 회원가입 정규식 유효성 검사
@@ -132,7 +132,7 @@
 		      $("#join_submit").prop() == "true" 
 
 		      
-	    	  $(#email).on("blur", function(){
+	    	  $("#email").on("blur", function(){
 	    			if($(#email).val().trim() == "") {
 	    				$('#checkEmail').html("이메일을 입력하세요.");
 	    				$('#checkEmail').attr('color','red');
@@ -339,9 +339,9 @@
 	$(function () {
 		$("#birth").datepicker({
 			dateFormat: 'yy-mm-dd',
-			showOn:'both',
-			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
-			buttonImageOnly: 'true',
+// 			showOn:'both',
+// 			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
+// 			buttonImageOnly: 'true',
 			prevText: '이전달',
 			nextText: '다음달',
 			minDate: new Date(1900, 0, 1),
@@ -377,7 +377,7 @@
 					<span class="ps_box int_id">
 						<input type="text" id="id" name="id" class="int" title="ID" maxlength="15" placeholder="영문, 숫자 6-15 자"> 
 						<input type="button" id="confirmId" value="중복확인"><br>	
-						<div><span id="id_signed"></span></div>				
+<!-- 						<div><span id="id_signed"></span></div>				 -->
 					</span>
 				</p>
 			</div>	
@@ -445,8 +445,8 @@
 			</div>	
 		</div>
 	<!-- // 이메일 입력 -->	
-	<hr>		
-		<!-- 		약관동의 -->
+		<hr>		
+	<!-- 		약관동의 -->
 		<div class="login-join_form_agreement">
 			<div class="login-join_form_agreement_all-checkbox">
 				<input type="checkbox" id="AgreeCheckBox-All" class="AgreeCheckBox-All">
@@ -468,11 +468,13 @@
 				<input type="checkbox" class="joincheck" id="check_3">	
 				<label for="adAgreeCheckBox">[선택] 광고성 정보 수신 동의 </label>
 			</div>
-		</div>			
-		<div><input type="submit" value="가입하기" id="join_submit"></div>
+		</div>
+		
+		<div><input type="submit" value="가입하기" id="join_submit" class="btn_join"></div>
+		
+		</form>
 	</div>
-	</form>
-	<br><br><br>
+	<br><br><br><br><br>
 
 		
 		
