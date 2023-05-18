@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+
+<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet"> -->
+
+
+	
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -121,8 +127,8 @@
 			$('#payInfo input#parkingPosition').val('');
 			
 			$('#resDate').val(selectedDate);
-			$('#parkInTime').val(fromTime + ":00");
-			$('#parkOutTime').val(toTime + ":00");
+			$('#parkInTime').val(fromTime);
+			$('#parkOutTime').val(toTime);
 			
 			$('#res_click_map').find('.cbtn').each(function() {
 				$(this).removeClass('cbtn_on').addClass('cbtn_off');
@@ -136,16 +142,6 @@
 					
 					var i;
 					for(i=0; i<data.length-1; i++) { 
-						let tmp = "<tr>";
-						tmp += "<td>" + data[i].parkingCode + "</td>";
-						tmp += "<td>" + data[i].parkingPosition + "</td>";
-						tmp += "</tr>";
-						
-						if(i==0) {
-							$('#available').find('table').html(tmp);
-						} else {
-							$('#available').find('table').append(tmp);
-						} //if-else
 							
 						let park = data[i].parkingCode + data[i].parkingPosition;	
 						
@@ -166,6 +162,7 @@
 					
 					$('#price').attr('value',data[i].price);
 					
+					
 				},  //success
 				error:function() {
 					alert("error");
@@ -173,6 +170,7 @@
 			}); //ajax
 			
 		}); //dateTimeBtn
+		
 		
 	});
 	
@@ -185,31 +183,33 @@
 	<jsp:include page="../inc/top.jsp"/>
 	
 	<div id="header">
-		<h1> ${pDto.parkingName } </h1>
+		<span id="pName"> ${pDto.parkingName } </span>
 		
 		<c:choose>
 			<c:when test="${pDto.inOutDoor.equals('in') }">
-				<p>실내</p>
+				<span id="inout">실내</span>
 			</c:when>
 			<c:when test="${pDto.inOutDoor.equals('out') }">
-				<p>야외</p>
+				<span id="inout">야외</span>
 			</c:when>
 		</c:choose>
 	</div>
 	
 	<hr>
 	
-	<div id="left-section">
+	<div id="right-section">
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
-
+				
 				예약일: <input type="text" id="datepicker" name="selectedDate" class="picker" autocomplete="off">
-				입차시간: <input type="text" id="fromTime" name="fromTime" class="picker" autocomplete="off">
-				출차시간: <input type="text" id="toTime" name="toTime" class="picker" autocomplete="off">
-
-				<input type="button" value="조회하기" id="dateTimeBtn">
+				입차: <input type="text" id="fromTime" name="fromTime" class="picker" autocomplete="off">
+				출차: <input type="text" id="toTime" name="toTime" class="picker" autocomplete="off">
+				
+				<input type="button" value="조회" id="dateTimeBtn">
 			</div>
 	</div>
+	
+	
 	
 	
 	<script type="text/javascript">
@@ -240,7 +240,7 @@
 		
 	</script>
 	
-	<div id="right-nav">
+	<div id="left-nav">
 		주차장 주소: ${pDto.parkingAdr } | 
 		주차장 연락처: ${pDto.parkingTel } <br>
 	<div id="res_click_map">
@@ -429,7 +429,14 @@
 			
 			
 		</div>
-	</div>
+	 </div>
+	
+	 <div class="container">
+		<div class="pst1"> </div> <div class="pst-desc1"> 이미 예약된 자리</div> 
+		<div class="pst2"> </div> <div class="pst-desc2"> 예약 가능한 자리 </div> 
+		<div class="pst3"> </div> <div class="pst-desc3"> 선택한 자리</div> 
+	 </div>
+	
 	</div>
 	
 	<script type="text/javascript">
@@ -444,12 +451,25 @@
 // 					console.log($('#tel').val());
 				} 
 			}); //cbtnClick
+			
+			
+// 			var number = $('#price').val();
+// 			var formatNum = number.toLocaleString();
+// 			console.log(formatNum);
+			
 		});
 	</script>
 	
 	<hr>
 	
-	<div id="left-section">
+	<div id="right-section">
+	
+		<p> 주차장 이용 수칙 </p>
+		<p> 요금은 30분당 1,000원입니다. </p>
+		<p> 주차장 내에서는 서행하여야 하며 경적을 울리거나 추월, 위험물 반입 및 취급을 금합니다. </p>
+		<p> 훼손, 분실 등에 주의하시고 차량의 훼손 및 내부 분실물은 당 주차장에서 책임을 지지 않습니다. </p>
+		<p> 이용자의 고의나 과실로 인하여 시설물 및 차량사고(대인, 대물 등) 발생시에는 사고자 책임 하에 변상 및 보상처리가 되어야 합니다. </p>
+		
 		<form action="./PayAction.res" id="payInfo" method="post">
 			<!-- 회원 아이디 -->
 			<input type="hidden" id="id" name="id" value="${sessionScope.id }">
@@ -459,22 +479,45 @@
 			<input type="hidden" id="parkingCode" name="parkingCode" value="${available[0].parkingCode }">
 			<!-- 주차장자리번호 -->
 			<input type="hidden" id="parkingPosition" name="parkingPosition" value="">
-			<div>※ 예약 날짜와 입, 출차시간을 확인해주세요.</div>
+			
+			
+			<p><b>※ 예약 날짜와 입, 출차시간을 확인해주세요.</b></p>
 			<!-- 예약날짜 -->
-			예약일: <input type="text" id="resDate" name="resDate" class="check" value="${resDate }" readonly>
+			<div>예약일: <input type="text" id="resDate" name="resDate" class="check" value="${resDate }" readonly></div>
+			
 			<!-- 입차시간 -->
-			입차시간: <input type="text" id="parkInTime" name="parkInTime" class="check" value="${parkInTime }" readonly>
+			<div>입차시간: <input type="text" id="parkInTime" name="parkInTime" class="check" value="${parkInTime }" readonly></div>
+			
 			<!-- 출차시간 -->
-			출차시간: <input type="text" id="parkOutTime" name="parkOutTime" class="check" value="${parkOutTime }" readonly>
-			차량번호: <input type="text" id="carNo" name="carNo" class="check">
+			<div>출차시간: <input type="text" id="parkOutTime" name="parkOutTime" class="check" value="${parkOutTime }" readonly></div>
+			
+			<div>차량번호: <input type="text" id="carNo" name="carNo"></div>
+			<hr>
 			<div>
-				<h3> 결제 예상금액: <input type="text" id="price" name="price" value="${price }" readonly></h3>
+				<h3> 결제 예상금액: <input type="text" id="price" name="price" class="check" value="${price }" readonly></h3>
+				
+				
+				
+<%-- 				<div id="dd"><fmt:formatNumber value="${price }"/></div> --%>
+				
+				
+				 
 <%-- 				<input type="hidden" id="price" name="price" value="${price }"> --%>
-				<input type="submit" value="결제하기">
 			</div>
 		</form>
-				<button onclick="requestPay()"> 결제하기(iamport) </button>
+				<button onclick="requestPay()"> 결제하기 </button>
 	</div>
+	
+	<script type="text/javascript">
+// 		var number = document.getElementById('price').value;
+		var number = $('#price').val();
+		console.log(number);
+		console.log(typeof number);
+		var formatNum = number.toLocaleString();
+		console.log(formatNum);
+
+	</script>
+	
 	
 	<script type="text/javascript">
 	

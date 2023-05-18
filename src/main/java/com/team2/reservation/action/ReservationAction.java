@@ -36,6 +36,8 @@ public class ReservationAction implements Action {
 		//희망 입,출차 시간 
 		String fromTime = request.getParameter("parkInTime");
 		String toTime = request.getParameter("parkOutTime");
+		request.setAttribute("parkInTime", fromTime);
+		request.setAttribute("parkOutTime", toTime);
 		fromTime += ":00";
 		toTime += ":00";
 		System.out.println(fromTime + ", " + toTime);
@@ -43,8 +45,6 @@ public class ReservationAction implements Action {
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
 		
-		request.setAttribute("parkInTime", parkInTime);
-		request.setAttribute("parkOutTime", parkOutTime);
 		
 		//주차장 정보 조회
 		String parkingCode = request.getParameter("parking");
