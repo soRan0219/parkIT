@@ -1,8 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <style>
 .ftco-navbar-light.scrolled .nav-link {
     padding-top: 0 !important;
@@ -12,9 +17,16 @@
 .nav-link {
   white-space: nowrap;
 }
+
+.navbar-brand {
+	font-size: 4rem;
+}
+
+#login-size {
+	font-size: 2rem;
+}
 </style>
-
-
+<body>
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -32,18 +44,18 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
     <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">È¸»ç¼Ò°³</a>
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">íšŒì‚¬ì†Œê°œ</a>
       <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">ÀÌ¿ë¼öÄ¢</a></li>
-        <li class="nav-item"><a href="./Introduction.park" class="nav-link2">ÁÖÂ÷Àå ¾È³»</a></li>
+        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">ì´ìš©ìˆ˜ì¹™</a></li>
+        <li class="nav-item"><a href="./Introduction.park" class="nav-link2">ì£¼ì°¨ìž¥ ì•ˆë‚´</a></li>
       </ul>
     </li>
-    <li class="nav-item"><a href="./Reservation.res" class="nav-link">¿¹¾àÇÏ±â</a></li>
+    <li class="nav-item"><a href="./Reservation.res" class="nav-link">ì˜ˆì•½í•˜ê¸°</a></li>
      <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ä¿¹Â´ÏÆ¼</a>
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ì»¤ë®¤ë‹ˆí‹°</a>
       <ul class="dropdown-menu">
-        <li class="nav-item"><a href="./noticeList.no" class="nav-link2">°øÁö»çÇ×</a></li>
-        <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">ÀÚÁÖ ¹¯´Â Áú¹®</a></li>
+        <li class="nav-item"><a href="./noticeList.no" class="nav-link2">ê³µì§€ì‚¬í•­</a></li>
+        <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">ìžì£¼ ë¬»ëŠ” ì§ˆë¬¸</a></li>
       </ul>
     </li>
   </ul>
@@ -51,17 +63,16 @@
 		</div>
 
 <c:if test="${empty id }">
-
   <div class="login-form" >
   
     <div class="form-group">
-      <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT ·Î±×ÀÎ</span></a>
+      <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT ë¡œê·¸ì¸</span></a>
     </div>
     <div class="join-membership">
-      <a href="./MemberFindID.me" class="nav-link" style="color: white; padding: 0;">¾ÆÀÌµð/ºñ¹Ð¹øÈ£ Ã£±â</a>
+      <a href="./MemberFindID.me" class="nav-link" style="color: white; padding: 0;">ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
     </div>
     <div class="join-membership">
-      <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">È¸¿ø°¡ÀÔ</a>
+      <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">íšŒì›ê°€ìž…</a>
     </div>
     
   </div>
@@ -69,15 +80,15 @@
 </c:if>
 <c:if test="${not empty id }">
   <div class="login-form">
-    ¾ÆÀÌµð: ${id } <br> <!-- sessionScope »ý·« -->
+    ì•„ì´ë””: ${id } <br> <!-- sessionScope ìƒëžµ -->
     
-		<input type="button" value="·Î±×¾Æ¿ô" onclick="location.href='./MemberLogout.me'">	
+		<input type="button" value="ë¡œê·¸ì•„ì›ƒ" onclick="location.href='./MemberLogout.me'">	
 		<hr>
-		<h6><a href="./Main.me" class="nav-link" style="color: white; padding: 0;">È¸¿øÁ¤º¸ Á¶È¸</a></h6>
+		<h6><a href="./Main.me" class="nav-link" style="color: white; padding: 0;">íšŒì›ì •ë³´ ì¡°íšŒ</a></h6>
 	
-		<h6><a href="./MemberUpdate.me" class="nav-link" style="color: white; padding: 0;">È¸¿øÁ¤º¸ ¼öÁ¤</a></h6>
+		<h6><a href="./MemberUpdate.me" class="nav-link" style="color: white; padding: 0;">íšŒì›ì •ë³´ ìˆ˜ì •</a></h6>
 	
-		<h6><a href="./MemberDelete.me" class="nav-link" style="color: white; padding: 0;">È¸¿øÁ¤º¸ »èÁ¦</a></h6>
+		<h6><a href="./MemberDelete.me" class="nav-link" style="color: white; padding: 0;">íšŒì›ì •ë³´ ì‚­ì œ</a></h6>
 	
   </div>
 </c:if>
@@ -93,12 +104,15 @@
 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
 				<div class="col-lg-8 ftco-animate">
 					<div class="text w-100 text-center mb-md-5 pb-md-5">
-						<h1 class="mb-4">ºü¸£°í ½±°Ô ¿¹¾àÇÏ°í ÁÖÂ÷ÇÏÀÚ
-							ParkIT</h1>
-						<p style="font-size: 18px;">ÁÖÂ÷°ÆÁ¤ ¾øÀÌ ¾ÈÀüÇÏ°Ô
-							ÁÖÂ÷ÇÏÀÚ!</p>
+						<h1 class="mb-4" style="white-space: nowrap;">ë¹ ë¥´ê³  ì‰½ê²Œ ì˜ˆì•½í•˜ê³  ì£¼ì°¨í•˜ìž<br>
+							Park<span style="display: inline; color: #28A745; ">IT</span></h1>
+						<p style="font-size: 18px;">ì£¼ì°¨ê±±ì • ì—†ì´ ì•ˆì „í•˜ê²Œ
+							ì£¼ì°¨í•˜ìž!</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</body>
+</html>
+

@@ -32,139 +32,100 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/noticeWrite.css">
-<link href="css/noticeWrite.css" rel="stylesheet">
+<link rel="stylesheet" href="css/notice.css">
+<link href="css/notice.css" rel="stylesheet">
 </head>
 <body>
 
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span>
-			</button>
+<jsp:include page="../inc/top.jsp"/>
+
+<!-- 	<nav -->
+<!-- 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" -->
+<!-- 		id="ftco-navbar"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a> -->
+<!-- 			<button class="navbar-toggler" type="button" data-toggle="collapse" -->
+<!-- 				data-target="#ftco-nav" aria-controls="ftco-nav" -->
+<!-- 				aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- 				<span class="oi oi-menu"></span> -->
+<!-- 			</button> -->
 			
 			
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li>
-     <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li>
-        <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-		</div>
+<!-- 			<div class="collapse navbar-collapse" id="ftco-nav"> -->
+<!--   <ul class="navbar-nav ml-auto"> -->
+<!--     <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li> -->
+<!--     <li class="nav-item dropdown"> -->
+<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a> -->
+<!--       <ul class="dropdown-menu"> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li> -->
+<!--       </ul> -->
+<!--     </li> -->
+<!--     <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li> -->
+<!--      <li class="nav-item dropdown"> -->
+<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a> -->
+<!--       <ul class="dropdown-menu"> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li> -->
+<!--         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li> -->
+<!--       </ul> -->
+<!--     </li> -->
+<!--   </ul> -->
+<!-- </div> -->
+<!-- 		</div> -->
 
-<c:if test="${empty id }">
-  <div class="login-form">
-    <div class="form-group">
-      <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
-    </div>
-    <div class="join-membership">
-      <a href="#">아이디/비밀번호 찾기</a>
-    </div>
-    <div class="join-membership">
-      <a href="./MemberJoin.me">회원가입</a>
-    </div>
-  </div>
-</c:if>
-<c:if test="${not empty id }">
-  <div class="login-form">
-    아이디: ${id } <br> <!-- sessionScope 생략 -->
+<%-- <c:if test="${empty id }"> --%>
+<!--   <div class="login-form"> -->
+<!--     <div class="form-group"> -->
+<!--       <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a> -->
+<!--     </div> -->
+<!--     <div class="join-membership"> -->
+<!--       <a href="#">아이디/비밀번호 찾기</a> -->
+<!--     </div> -->
+<!--     <div class="join-membership"> -->
+<!--       <a href="./MemberJoin.me">회원가입</a> -->
+<!--     </div> -->
+<!--   </div> -->
+<%-- </c:if> --%>
+<%-- <c:if test="${not empty id }"> --%>
+<!--   <div class="login-form"> -->
+<%--     아이디: ${id } <br> <!-- sessionScope 생략 --> --%>
 	
-	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
-	<hr>
+<!-- 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	 -->
+<!-- 	<hr> -->
 	
-	<h3><a href="./MemberInfo.me">회원정보 조회</a></h3>
+<!-- 	<h3><a href="./MemberInfo.me">회원정보 조회</a></h3> -->
 
-	<h3><a href="./MemberUpdate.me">회원정보 수정</a></h3>
+<!-- 	<h3><a href="./MemberUpdate.me">회원정보 수정</a></h3> -->
 
-	<h3><a href="./MemberDelete.me">회원정보 삭제</a></h3>
-  </div>
-</c:if>
-	</nav>
-	<!-- END nav -->
+<!-- 	<h3><a href="./MemberDelete.me">회원정보 삭제</a></h3> -->
+<!--   </div> -->
+<%-- </c:if> --%>
+<!-- 	</nav> -->
+<!-- 	<!-- END nav --> -->
 
-	<section class="hero-wrap hero-wrap-2 js-fullheight"
-		style="background-image: url('images/bg_3.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.jsp">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
-				</div>
-			</div>
-		</div>
-	</section>
+<!-- 	<section class="hero-wrap hero-wrap-2 js-fullheight" -->
+<!-- 		style="background-image: url('images/bg_3.jpg');" -->
+<!-- 		data-stellar-background-ratio="0.5"> -->
+<!-- 		<div class="overlay"></div> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div -->
+<!-- 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
+<!-- 				<div class="col-md-9 ftco-animate pb-5"> -->
+<!-- 					<p class="breadcrumbs"> -->
+<!-- 						<span class="mr-2"><a href="index.jsp">Home <i -->
+<!-- 								class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i -->
+<!-- 							class="ion-ios-arrow-forward"></i></span> -->
+<!-- 					</p> -->
+<!-- 					<h1 class="mb-3 bread">Contact Us</h1> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</section> -->
 
-	<section class=king>
+<!-- 	<section class=king> -->
 	<section class="ftco-section contact-section">
-		<div class="container">
-			<div class="row d-flex mb-5 contact-info">
-				<div class="col-md-4">
-					<div class="row mb-5">
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-map-o"></span>
-								</div>
-								<p>
-									<span>Address:</span> 아이티윌 23433층 2호
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-mobile-phone"></span>
-								</div>
-								<p>
-									<span>Phone:</span> <a href="tel://1234567920">+ 1235 2355
-										98</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="border w-100 p-4 rounded mb-2 d-flex">
-								<div class="icon mr-3">
-									<span class="icon-envelope-o"></span>
-								</div>
-								<p>
-									<span>Email:</span> <a href="mailto:info@yoursite.com">info@itwill.com</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			
-
-			</div>
-		</div>	
+		
 		
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -196,8 +157,8 @@
 		
 			});
 		</script>
-		</head>
-		<body>
+<!-- 		</head> -->
+<!-- 		<body> -->
 		
 			
 			
@@ -205,38 +166,37 @@
 				<h1> 공지사항(관리자) </h1>
 			</div>
 			
-			<div>
-				<select name="noticeCategory" id="noticeCategory">
-					<option value="all">전체공지</option>
-					<option value="a">서면점</option>
-					<option value="b">해운대점</option>
-					<option value="c">연산점</option>
-				</select>
-			</div>
-			
-			<div class="writeform">
-			<form action="./noticeWriteAction.no" method="post" enctype="multipart/form-data" name="fr" onsubmit="return validateForm()">
-			<div class="form-group">
-				<input type="text" name="noticeTitle" id="title">
-			</div>
-			
-			<div class="form-group">
-				<textarea rows="5" cols="10" name="noticeContents" placeholder="내용을 입력하세요."></textarea>
-			</div>
-			
-			<div class="form-group">
-				<input type="file" name="noticeFile">
-			</div>
-			
-			<div class="form-group">
-				<input type="submit" value="등록">
-			</div>
-			
-			<div class="form-group">
-				<input type="button" value="목록으로" onclick="location.href='./noticeList.no'">
-			</div>
-			</form>
-			</div>
+			<div id="writecontainer">
+  <div>
+    <select name="noticeCategory" id="noticeCategory">
+      <option value="all">전체공지</option>
+      <option value="a">서면점</option>
+      <option value="b">해운대점</option>
+      <option value="c">연산점</option>
+    </select>
+  </div>
+
+  <div class="writeform">
+    <form action="./noticeWriteAction.no" method="post" enctype="multipart/form-data" name="fr" onsubmit="return validateForm()">
+      <div class="form-group">
+        <input type="text" name="noticeTitle" id="title">
+      </div>
+
+      <div class="form-group">
+        <textarea id="writeco" rows="5" cols="10" name="noticeContents" placeholder="내용을 입력하세요."></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="file" name="noticeFile">
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="등록" id="writesubmit">
+        <input type="button" value="목록으로" id="writelist" onclick="location.href='./noticeList.no'">
+      </div>
+    </form>
+  </div>
+</div>
 			
 			<script>
 			function validateForm() {
@@ -249,6 +209,13 @@
 			
 		</script>
 	</section>
+	
+	
+	
+	
+	
+	
+	<!-- 여기서부터 footer -->
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
 			<div class="row mb-5">

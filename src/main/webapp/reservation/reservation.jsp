@@ -9,26 +9,53 @@
 <meta charset="UTF-8">
 <title> reservation </title>
 
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+
+
+<link rel="stylesheet" href="css/park.css">
+
+
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/lot.css">
 <!-- jQuery 라이브러리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- iamport 결제 라이브러리 -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
-<!-- datepicker, timepicker -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!-- datepicker -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
+
+<!-- timepicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="css/res.css">
+
 
 <script type="text/javascript">			
 	
 	$(function() {
 		$('#datepicker').datepicker({
-			showOn:'both',
-			buttonImage:'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif',
-			buttonImageOnly:'true',
-			changeMonth:'true',
-			changeYear:'true',
+			showOn:'focus',
+			changeMonth:false,
+			changeYear:false,
 			nextText:'다음달',
 			prevText:'이전달',
 			showButtonPanel:'true',
@@ -152,27 +179,38 @@
 </script>
 </head>
 <body>
-	<h1> reservation.jsp </h1>
 	
-	<div>
+	<section class="ftco-section contact-section">
+	
+	<jsp:include page="../inc/top.jsp"/>
+	
+	<div id="header">
 		<h1> ${pDto.parkingName } </h1>
-		<p> ${pDto.inOutDoor } </p>
-		<hr>
-		주차장 주소: ${pDto.parkingAdr } <br>
-		주차장 연락처: ${pDto.parkingTel } <br>
+		
+		<c:choose>
+			<c:when test="${pDto.inOutDoor.equals('in') }">
+				<p>실내</p>
+			</c:when>
+			<c:when test="${pDto.inOutDoor.equals('out') }">
+				<p>야외</p>
+			</c:when>
+		</c:choose>
 	</div>
 	
-		<div>
+	<hr>
+	
+	<div id="left-section">
 			<div>
 				<input type="hidden" id="parkingCode" value="${pDto.parkingCode }" >
-				<input type="text" id="datepicker" name="selectedDate" autocomplete="off">
-				<input type="text" id="fromTime" name="fromTime" autocomplete="off">
-				<input type="text" id="toTime" name="toTime" autocomplete="off">
+
+				예약일: <input type="text" id="datepicker" name="selectedDate" class="picker" autocomplete="off">
+				입차시간: <input type="text" id="fromTime" name="fromTime" class="picker" autocomplete="off">
+				출차시간: <input type="text" id="toTime" name="toTime" class="picker" autocomplete="off">
+
 				<input type="button" value="조회하기" id="dateTimeBtn">
 			</div>
 	</div>
 	
-	<hr>
 	
 	<script type="text/javascript">
 		let aList = ${aList};
@@ -202,6 +240,9 @@
 		
 	</script>
 	
+	<div id="right-nav">
+		주차장 주소: ${pDto.parkingAdr } | 
+		주차장 연락처: ${pDto.parkingTel } <br>
 	<div id="res_click_map">
 		<img src="./img/parkIT.png">
 		<div class="click_inner">
@@ -389,6 +430,7 @@
 			
 		</div>
 	</div>
+	</div>
 	
 	<script type="text/javascript">
 		$(function() {
@@ -407,7 +449,7 @@
 	
 	<hr>
 	
-	<div>
+	<div id="left-section">
 		<form action="./PayAction.res" id="payInfo" method="post">
 			<!-- 회원 아이디 -->
 			<input type="hidden" id="id" name="id" value="${sessionScope.id }">
@@ -417,16 +459,17 @@
 			<input type="hidden" id="parkingCode" name="parkingCode" value="${available[0].parkingCode }">
 			<!-- 주차장자리번호 -->
 			<input type="hidden" id="parkingPosition" name="parkingPosition" value="">
+			<div>※ 예약 날짜와 입, 출차시간을 확인해주세요.</div>
 			<!-- 예약날짜 -->
-			<input type="text" id="resDate" name="resDate" value="${resDate }">
+			예약일: <input type="text" id="resDate" name="resDate" class="check" value="${resDate }" readonly>
 			<!-- 입차시간 -->
-			<input type="text" id="parkInTime" name="parkInTime" value="${parkInTime }">
+			입차시간: <input type="text" id="parkInTime" name="parkInTime" class="check" value="${parkInTime }" readonly>
 			<!-- 출차시간 -->
-			<input type="text" id="parkOutTime" name="parkOutTime" value="${parkOutTime }">
-			차량번호: <input type="text" id="carNo" name="carNo">
+			출차시간: <input type="text" id="parkOutTime" name="parkOutTime" class="check" value="${parkOutTime }" readonly>
+			차량번호: <input type="text" id="carNo" name="carNo" class="check">
 			<div>
-				<%-- <h3> 결제 예상금액: <input type="text" id="price" name="price" value="${price }" readonly></h3> --%>
-				<input type="hidden" id="price" name="price" value="${price }">
+				<h3> 결제 예상금액: <input type="text" id="price" name="price" value="${price }" readonly></h3>
+<%-- 				<input type="hidden" id="price" name="price" value="${price }"> --%>
 				<input type="submit" value="결제하기">
 			</div>
 		</form>
@@ -533,6 +576,8 @@
 		} //requestPay()
 	</script>
 		
+	<div id="footer"></div>
+	
 	</section>
 
 
@@ -642,8 +687,14 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/jquery.timepicker.min.js"></script>
+	<!-- datepicker -->
+<!-- 	<script src="js/bootstrap-datepicker.js"></script> -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!-- timepicker -->
+<!-- 	<script src="js/jquery.timepicker.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+	
 	<script src="js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>

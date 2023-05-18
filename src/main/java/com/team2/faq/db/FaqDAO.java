@@ -29,7 +29,7 @@ public class FaqDAO {
 		// 1 드라이버로드 2 디비연결
 		Context initCTX = new InitialContext();
 		DataSource ds 
-		       = (DataSource) initCTX.lookup("java:comp/env/jdbc/class7_230118_team2");
+		       = (DataSource) initCTX.lookup("java:comp/env/jdbc/c7d2301t2");
 		con = ds.getConnection();
 		System.out.println(" DAO : 디비 연결 성공(CP) ");
 		System.out.println(" DAO : "+con);

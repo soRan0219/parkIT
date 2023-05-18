@@ -124,7 +124,7 @@
 	<section class=king>
 	<section class="ftco-section contact-section">
 	<div id=noticeMain> 
-	공지사항
+<!-- 	공지사항 -->
 	</div>
 		<div class="container">
 			<div class="row d-flex mb-5 contact-info">
@@ -165,9 +165,11 @@
 
     <div class="search-form">
         <form action="./noticeList.no" method="get">
-            <input type="text" name="keyWord" placeholder="검색어를 입력하세요">
+            <input type="text" name="keyWord" placeholder="검색어를 입력하세요" id="searchkey">
             <input type="submit" value="검색">
+            <c:if test="${ id eq 'admin' }">
             <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'" id="write">
+            </c:if>
         </form>
     </div>
 </div>

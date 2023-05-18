@@ -24,7 +24,7 @@ public class NoticeDAO {
 	private Connection getCon() throws Exception{
 		Context initCTX = new InitialContext(); //업캐스팅
 		// 고정문구"java:comp/env/다른문구context파일의 name값입력"
-		DataSource ds = (DataSource) initCTX.lookup("java:comp/env/jdbc/class7_230118_team2");
+		DataSource ds = (DataSource) initCTX.lookup("java:comp/env/jdbc/c7d2301t2");
 		
 		con = ds.getConnection();
 		

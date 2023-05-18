@@ -14,6 +14,7 @@
 	<div id="map" style="width:500px;height:400px;"></div>
 	<br><br><br>
 	
+	
 	<script type="text/javascript">
 		var mapContainer = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var mapOption = {  //지도를 생성할 때 필요한 기본 옵션
@@ -55,6 +56,9 @@
 		/////////////////////////////////////////////////////////////////////////////////////
 	</script>
 	
+
+	<br><br><br>
+
 	<div id="map2" style="width:500px;height:400px;"></div>
 	
 	<script type="text/javascript">
