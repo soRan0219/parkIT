@@ -24,6 +24,8 @@
 	
 	<h3><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></h3>
 	
+	<h3><a href="./ResList.me">예약내역 보기</a></h3>
+	
 	<h3><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></h3>
 
 	<h3><a href="./MemberDelete.me">회원 탈퇴</a></h3>

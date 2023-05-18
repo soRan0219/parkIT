@@ -3,21 +3,23 @@
 #header {
 	background-color: #ff80c0;
 	height: 100px;
+	position: relative;
+	z-index: 3;
 }
 
-#right-nav {
+#left-nav {
 	background-color: #333999;
 	color: white;
 	width: 55%;
-	height: 800px;
+	height: 58%;
 	float: left;
 	padding: 10px;
 }
 
-#left-section {
+#right-section {
 	background-color: #ffff80;
 	width:43%;
-	height: 400px;
+	height: 55%;
 	text-align: left;
 	float: right;
 	padding: 10px;
@@ -29,9 +31,9 @@
 	clear: both;
 }
 
-/* #header, #nav, #section { text-align: center; } */
+/* #header, #left-nav, #right-section { text-align: center; } */
 
-/* #nav, #section { line-height: 240px; } */
+/* #left-nav, #right-section { line-height: 240px; } */
 
 input { 
 	padding-left: 8px;
@@ -40,31 +42,102 @@ input {
 
 
 /***** header 요소 *****/
-
-
-/***** right-nav 요소 *****/
-
-
-/***** left-section 요소 *****/
-#left-section .picker {
-	width: 120px;
-	height: 25px;
+#header #pName {
+	margin-top: 15%;
+	padding-left: 8%;
+	font-size: 2.2em;
+	font-weight: 900;
 }
-#left-section .check {
-	width: 130px;
-	height: 25px;
+#header #inout {
+	display: inline-block;
+	width: 3.7em;
+	border-radius: 13px;
+	background-color: #008000;
+	color: #fff;
+	text-align: center;
 }
-#left-section h3 {
+
+/***** left-nav 요소 *****/
+#left-nav .container {
+	display: flex;
+	margin-top: 1em;
+	align-items: center;
+}
+#left-nav .pst1 {
+	width: 2em;
+	height: 2.2em;
+	border-radius: 8px;
+	background-color: #ccc;
+}
+#left-nav .pst-desc1 {
+	margin-left: 1em;
+	margin-right: 1em;
+	font-size: 1em;
+	color: #ccc;
+}
+#left-nav .pst2 {
+	width: 2em;
+	height: 2.2em;
+	border-radius: 8px;
+	background-color: #8080ff;
+}
+#left-nav .pst-desc2 {
+	margin-left: 1em;
+	margin-right: 1em;
+	font-size: 1em;
+	color: #8080ff;
+}
+#left-nav .pst3 {
+	width: 2em;
+	height: 2.2em;
+	border-radius: 8px;
+	background-color: #ff0080;
+}
+#left-nav .pst-desc3 {
+	margin-left: 1em;
+	margin-right: 1em;
+	font-size: 1em;
+	color: #ff0080;
+}
+
+/***** right-section 요소 *****/
+#right-section .picker {
+	width: 8em;
+	height: 1.4em;
+	outline: red;
+	border: 1px solid #ccc;
+}
+#dateTimeBtn {
+	height: 1.4em;
+}
+#right-section .check {
+	width: 8em;
+	height: 1.4em;
+	color: red;
+	outline: none;
+	border-right: 0px;
+	border-left: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	background: transparent;
+}
+#right-section #carNo {
+	width: 8em;
+	height: 1.4em;
+	border: 1px solid #ccc;
+}
+#right-section h3 {
 	font-size: 1.5em;
 	font-weight: bold;
 }
 #price {
-	width: 200px;
-	height: 40px;
+	width: 5em;
+	height: 1.5em;
 	font-size: 1.3em;
-	font-weight: 500;
+	font-weight: 600;
+	color: #28a745 !important;
 }
-#left-section button {
+#right-section button {
 	display: inline-block;
 	margin-top: 10px;
 	margin-right: 10px;

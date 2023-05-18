@@ -5,15 +5,42 @@
 <head>
 <meta charset="UTF-8">
 <title> 카맵 API </title>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+
+<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet"> -->
+
+
+	
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+
+
+<link rel="stylesheet" href="css/park.css">
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a8f31d6c1c411a19691f71462e48ee1&libraries=services"></script>
 
 </head>
 <body>
-	<h1> introduction.jsp </h1>
+	<jsp:include page="../inc/top.jsp"/>
 	
 	<div id="map" style="width:500px;height:400px;"></div>
 	<br><br><br>
-	
+	잔여/전체: ${requestScope.availableA } / ${allA }
+	<br><br><br><br>
 	
 	<script type="text/javascript">
 		var mapContainer = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -57,9 +84,11 @@
 	</script>
 	
 
-	<br><br><br>
-
 	<div id="map2" style="width:500px;height:400px;"></div>
+	<br><br><br>
+	잔여/전체: ${availableB } / ${allB }
+	<br><br><br><br>
+
 	
 	<script type="text/javascript">
 		var mapContainer2 = document.getElementById('map2'); //지도를 담을 영역의 DOM 레퍼런스
@@ -101,8 +130,10 @@
 		}); //addressSearch()
 	</script>
 	
-	<br><br><br>
 	<div id="map3" style="width:500px;height:400px;"></div>
+	<br><br><br>
+	잔여/전체: ${availableC } / ${allC }
+	<br><br><br><br>
 	
 	<script type="text/javascript">
 		var mapContainer3 = document.getElementById('map3'); //지도를 담을 영역의 DOM 레퍼런스
@@ -143,6 +174,33 @@
 			} //if
 		}); //addressSearch()
 	</script>
+	
+	<jsp:include page="../inc/bottom.jsp"/>
+	
+		<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
 	
 </body>
 </html>

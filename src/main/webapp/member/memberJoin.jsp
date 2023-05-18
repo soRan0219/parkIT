@@ -11,29 +11,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-	rel="stylesheet">
-
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-
-<link rel="stylesheet" href="css/aos.css">
-
-<link rel="stylesheet" href="css/ionicons.min.css">
-
-<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/park.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/membercss.css">
 <script type="text/javascript">
 // ------------------------------------------------------------------------------------
 // 회원가입 정규식 유효성 검사
@@ -150,8 +130,7 @@
 		      }
 		      
 		      $("#join_submit").prop() == "true" 
-		      
-		      
+
 		      
 	    	  $(#email).on("blur", function(){
 	    			if($(#email).val().trim() == "") {
@@ -160,26 +139,7 @@
 	    				$('#noch').val(1);
 	    			}
 
-
 	    		}
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
-		      
 		      
 	} // checkData() 끝
 </script>
@@ -312,7 +272,6 @@
 		      return "아이디 중복확인이 완료되지 않았습니다. 정말로 페이지를 떠나시겠습니까?";
 		    }
 		  };
-		
 	});
 </script>
 
@@ -405,7 +364,9 @@
 </head>
 <body>
 <!------------------------------------------------------------------------------------------------------------>
-	<h2>ParkIT 회원가입</h2>	
+	<div class="form-group">
+		<a class="navbar-brand" href="./Main.park">Park<span>IT</span></a>
+	</div>	
 	<div class="join_content">
 		<form action="./MemberJoinAction.me" method="post" name="fr" onsubmit="return checkData();" id="form_sumit">
 	<!-- 아이디, 비밀번호 입력 -->
@@ -424,17 +385,17 @@
 				<p>
 					<label class="join_title" for="pw">비밀번호</label><br>
 					<span class="ps_box int_pass_step3" id="pswd1Img">
-						<input type="password" id="pw" name="pw" class="form-control" title="비밀번호 입력" placeholder="숫자, 영문 조합 최소 8자">
+						<input type="password" id="pw" name="pw" class="int" title="비밀번호 입력" placeholder="숫자, 영문 조합 최소 8자">
 					</span>
 				</p>
 				<p>	
-					<label class="join_title" for="pw2">비밀번호 재확인</label>
+					<label class="join_title" for="pw2">비밀번호 재확인</label><br>
 					<span class="ps_box int_pass_check" id="pswd2Img">
-						<input type="password" id="pw2" name="pw2" class="form-control" title="비밀번호 재확인 입력">
+						<input type="password" id="pw2" name="pw2" class="int" title="비밀번호 재확인 입력">
 					</span>
+				</p>		
 						<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-				</p>		
 			</div>	
 		</div>	
 	<!-- // 아이디, 비밀번호 입력 -->
@@ -463,7 +424,8 @@
 					</span>
 				</p>
 			</div>	
-		</div>		
+		</div>	
+	</div>		
 	<!-- // 이름, 생년월일, 휴대전화 입력 -->
 	<!-- 이메일 입력 -->	
 		<div class="row_group">
@@ -480,19 +442,11 @@
 					<input type="text" id="userInput">
 					<input type="button" value="인증" onclick="verifyCode();">
 				</div>
-				
 			</div>	
-		</div>			
-	<!-- // 이메일 입력 -->			
-		<hr>
-		<div><input type="submit" value="가입하기" id="join_submit"></div>
-	</div>
-	</form>
-		
-		<br><br><br>
-		
-		
-<!-- 		약관동의 -->
+		</div>
+	<!-- // 이메일 입력 -->	
+	<hr>		
+		<!-- 		약관동의 -->
 		<div class="login-join_form_agreement">
 			<div class="login-join_form_agreement_all-checkbox">
 				<input type="checkbox" id="AgreeCheckBox-All" class="AgreeCheckBox-All">
@@ -514,7 +468,15 @@
 				<input type="checkbox" class="joincheck" id="check_3">	
 				<label for="adAgreeCheckBox">[선택] 광고성 정보 수신 동의 </label>
 			</div>
-		</div>
+		</div>			
+		<div><input type="submit" value="가입하기" id="join_submit"></div>
+	</div>
+	</form>
+	<br><br><br>
+
+		
+		
+
 
 </body>
 </html>

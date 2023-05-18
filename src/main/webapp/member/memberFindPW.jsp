@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<link rel="stylesheet" href="css/find.css">
+
+<link rel="stylesheet" href="css/park_find.css">
+<link rel="stylesheet" href="css/style.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,37 +15,55 @@
 <title>아이디/비밀번호 찾기</title>
 </head>
 <body>
-<h1>아이디/비밀번호 찾기</h1>
- 
-<hr>
-<h3>비밀번호 찾기</h3>
+<!-- <h1>아이디/비밀번호 찾기</h1> -->
+
+<div class="form-group">
+	<a class="navbar-brand" href="./Main.park">
+		Park<span>IT</span>
+	</a>
+</div> 
+
+<section class="findsec1">
+<!-- <h3>비밀번호 찾기</h3> -->
+<div class="login_content">
 		<form action="./MemberFindPWAction.me" method="post">
-		<table>
 			<div>
-				<label>* 아이디</label> <br>
-				<input type="text" name="id" id="id">
+				<label>ID</label> <br>
+				<input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" class="input_text">
 			</div>
 			
 			<div>
-				<label>* 이메일</label> <br>
-				<input type="email" name="email" id="email">	
+				<label>Email</label> <br>
+				<input type="email" name="email" id="email" placeholder="이메일을 입력해주세요" class="input_text">	
 			</div>			
 			
-			<br>
-			<input type="submit" value="비밀번호 찾기" >
-		</table>
+			<hr>
+			
+			<input type="submit" value="비밀번호 찾기" class="btn_login">
 		</form>
 		
-		<hr>
+		<ul class="find_wrap" >	
+			<li>
+				<a target="_blank" href="./MemberJoin.me" class="find_text">회원가입</a>
+			</li>
+			
+			<li>
+				<a target="_blank" href="./MemberFindID.me" class="find_text">아이디 찾기</a>
+			</li>
+		</ul>
 		
-		<h3>메뉴</h3>
-		<form action="./MemberFindPW.me" method="post">
-			<input type="submit" value="비밀번호 찾기">
-		</form>
+		
+		</div>
+</section>
+<!-- 		<h3>메뉴</h3> -->
+<!-- 		<form action="./MemberFindPW.me" method="post"> -->
+<!-- 			<input type="submit" value="비밀번호 찾기"> -->
+<!-- 		</form> -->
 
-		<form action="./MemberFindID.me" method="post">
-			<input type="submit" value="아이디 찾기" >
-		</form>
+<!-- 		<form action="./MemberFindID.me" method="post"> -->
+<!-- 			<input type="submit" value="아이디 찾기" > -->
+<!-- 		</form> -->
+
 
 </body>
 </html>

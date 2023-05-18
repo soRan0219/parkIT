@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* .centerid { */
+/* 	width: 300px; */
+/*     margin: 0px auto; */
+/*     padding: 20px; */
+/*     border-width: 1px; */
+/*     border-style: solid; */
+/*     border-color: rgb(221, 221, 221); */
+/*     border-image: initial; */
+/* } */
+
+
+/* .login_row { */
+/*     margin-bottom: 10px; */
+/* } */
+
+.input_text {
+	appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+}
