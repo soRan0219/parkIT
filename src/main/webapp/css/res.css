@@ -43,9 +43,10 @@ input {
 
 /***** header 요소 *****/
 #header #pName {
-	padding-left: 14%;
+	margin-top: 15%;
+	padding-left: 8%;
 	font-size: 2.2em;
-	font-weight: 700;
+	font-weight: 900;
 }
 #header #inout {
 	display: inline-block;
