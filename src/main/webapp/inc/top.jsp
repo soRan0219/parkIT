@@ -44,7 +44,7 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
     <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a>
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">이용안내</a>
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
         <li class="nav-item"><a href="./Introduction.park" class="nav-link2">주차장 안내</a></li>
@@ -58,6 +58,11 @@
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
       </ul>
     </li>
+    <li class="nav-item">
+	    <c:if test="${id.equals('admin')}">
+	    	<a href="./adminMain.ad" class="nav-link">관리자 공간</a>
+	 	</c:if>
+ 	</li>
   </ul>
 </div>
 		</div>
@@ -80,23 +85,19 @@
 </c:if>
 <c:if test="${not empty id }">
   <div class="login-form">
-    아이디: ${id } <br> <!-- sessionScope 생략 -->
-    
+<%--     아이디: ${id } <br> <!-- sessionScope 생략 --> --%>
+		
+<!-- 		<h6><a href="./Main.me" class="nav-link" style="color: white; padding: 0;">회원정보 조회</a></h6> -->
+		<h6><a href="./Main.me" class="nav-link"><img src="img/free-icon-user-7718888.png" width="60" height="60"></a></h6>
 		<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
-		<hr>
-		<h6><a href="./Main.me" class="nav-link" style="color: white; padding: 0;">회원정보 조회</a></h6>
-	
-		<h6><a href="./MemberUpdate.me" class="nav-link" style="color: white; padding: 0;">회원정보 수정</a></h6>
-	
-		<h6><a href="./MemberDelete.me" class="nav-link" style="color: white; padding: 0;">회원정보 삭제</a></h6>
-	
   </div>
 </c:if>
+
 	</nav>
 	<!-- END nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
-		style="background-image: url('images/park5.jpg');"
+		style="background-image: url('images/park5.jpg'); height: 40rem;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
