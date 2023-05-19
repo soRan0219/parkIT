@@ -20,6 +20,7 @@
 
 .navbar-brand {
 	font-size: 4rem;
+	font-family: "Poppins", Arial, sans-serif;
 }
 
 #login-size {
@@ -36,8 +37,6 @@
   border-radius: 10%;
 }
 
-
-
   .profile-options {
     display: none;
   }
@@ -48,6 +47,8 @@
 #profile{
 	cursor: pointer;
 }
+
+
 
 </style>
 
@@ -102,7 +103,7 @@
       <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
     </div>
     <div class="join-membership">
-      <a href="./MemberFindID.me" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
+      <a href="#" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
     </div>
     <div class="join-membership">
       <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">회원가입</a>
@@ -143,8 +144,11 @@
 	<!-- END nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
-		style="background-image: url('images/park5.jpg'); height: 40rem;"
+		style="height: 40rem;"
 		data-stellar-background-ratio="0.5">
+		<video muted autoplay loop style="width: 100%;">
+        <source src="./images/parkpark.mp4" type="video/mp4">
+        </video>
 		<div class="overlay"></div>
 		<div class="container">
 			<div
