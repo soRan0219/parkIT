@@ -31,24 +31,18 @@ public class AvailableAction implements Action {
 		
 		Date parsedDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
 		java.sql.Date resDate = new java.sql.Date(parsedDate.getTime());
-//		System.out.println("resDate: " + resDate);
 		
 		//희망 입,출차 시간 
 		String fromTime = request.getParameter("fromTime");
 		String toTime = request.getParameter("toTime");
 		fromTime += ":00";
 		toTime += ":00";
-//		System.out.println("fromTime: " + fromTime);
-//		System.out.println("toTime: " + toTime);
 		
 		Time parkInTime = Time.valueOf(fromTime);
 		Time parkOutTime = Time.valueOf(toTime);
-//		System.out.println("parkInTime: " + parkInTime);
-//		System.out.println("parkOutTime" + parkOutTime);
 		
 		//주차장 잔여 자리 정보 조회
 		String parkingCode = request.getParameter("parkingCode");
-//		System.out.println("parkingCode = " + parkingCode);
 		
 		ResDTO rDto = new ResDTO();
 		rDto.setParkingCode(parkingCode);

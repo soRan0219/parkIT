@@ -64,6 +64,8 @@ public class IntroAction implements Action {
 		System.out.println("C 예약 가능한 자리: " + availableC);
 		request.setAttribute("availableC", availableC);
 		
+
+		//ajax로 수행할 경우 - json으로 보내기
 		if(request.getParameter("ajax")!=null) {
 			
 			JsonObject obj = new JsonObject();
@@ -77,6 +79,7 @@ public class IntroAction implements Action {
 			return null;
 		}
 		
+
 		ActionForward forward = new ActionForward();
 		forward.setPath("./introduction/introduction.jsp");
 		forward.setRedirect(false);
