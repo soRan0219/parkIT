@@ -66,7 +66,12 @@ public class IntroAction implements Action {
 		
 
 		//ajax로 수행할 경우 - json으로 보내기
-		if(request.getParameter("ajax")!=null) {
+		
+		String requestedWithHeader = request.getHeader("X-Requested-With");
+		boolean isAjax = "XMLHttpRequest".equals(requestedWithHeader);
+		
+//		if(request.getParameter("ajax")!=null) {
+		if(isAjax) {
 			
 			JsonObject obj = new JsonObject();
 			obj.addProperty("availableA", availableA);

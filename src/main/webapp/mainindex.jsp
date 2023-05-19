@@ -152,7 +152,8 @@
 	} //check()
 	
 	$.ajax({
-			url: "./Introduction.park?ajax=true",
+// 			url: "./Introduction.park?ajax=true",
+			url: "./Introduction.park",
 			type: "post",
 			dataType: "json",
 			success: function(data) {
@@ -190,7 +191,7 @@
 							class="request-form ftco-animate bg-primary" style="position: relative; top: 10%;">
 								<h2>Make your reservation</h2>
 								<div class="form-group">
-									<label for="" class="label">Parking location</label>
+									<label for="" class="label">지점목록</label>
 									<div class="dropdown">
 										<select name="parking" class="btn parking">
 											 <option value="A"> 서면점 </option>
@@ -210,14 +211,14 @@
 
 									<div class="form-group ml-2">
 										<label for="park_on_time" class="label">입차 시간</label> 
-										<input type="text" id="fromTime" class="form-control ui-timepicker-wrapper" autocomplete="off">
+										<input type="text" id="fromTime" class="form-control ui-timepicker-wrapper" placeholder="In" autocomplete="off">
 									</div>
 
 								</div>
 								<div class="d-flex">
 									<div class="form-group ml-2">
 										<label for="park_off_time" class="label">출차 시간</label> 
-										 <input type="text" id="toTime" class="form-control" autocomplete="off">
+										 <input type="text" id="toTime" class="form-control" placeholder="Out" autocomplete="off">
 									</div>
 
 								</div>
