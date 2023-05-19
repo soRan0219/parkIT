@@ -35,9 +35,9 @@
         width: 100px;
     }
 
-    td:last-child {
-        text-align: center;
-    }
+/*     td:last-child { */
+/*         text-align: center; */
+/*     } */
 
     img {
         max-width: 100%;
@@ -90,11 +90,16 @@
     
     .previous-next {
     	margin-left: 15%;
+    	
     }
     
     .previous-post {
     	margin-left: 15%;
+    	
     }
+
+  
+
     
     
     

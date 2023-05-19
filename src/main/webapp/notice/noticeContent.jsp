@@ -146,9 +146,7 @@
 <!-- 		<body> -->
 
 	
-		<div>
-		<h1> 공지사항(관리자) </h1>
-		</div>
+		
 	
 		<table border="1">
 		
@@ -174,8 +172,10 @@
 		
 		<tr>
 			<th>내용</th>
-			<td colspan="3" height="300px">${dto.noticeContents} <img src="./upload/${dto.noticeFile }"></td>
-			
+			<td colspan="3" height="300px">${dto.noticeContents} 
+			<c:if test="${dto.noticeFile != null}">
+			<img src="./upload/${dto.noticeFile }"></td>
+			</c:if>
 		</tr>
 		
 		<tr>
@@ -183,7 +183,9 @@
 																					<!-- flex가 있어야 사용가능 -->
 		<div style="display: flex; justify-content: center;"> <!-- flex - 가로정렬기능, justify-content - 가로정렬에서 어떤식으로 정렬할것인지 -->
 		<form action="./noticeUpdateForm.no" method="post">
+			<c:if test="${ id eq 'admin' }">
 			<input type="submit" value="글수정">
+			</c:if>
 			<input type="hidden" name="noticeNo" value="${dto.noticeNo}">
 			<input type="hidden" name="noticeTitle" value="${dto.noticeTitle}">
 			<input type="hidden" name="noticeFile" value="${dto.noticeFile}">
@@ -191,7 +193,9 @@
 		</form>
 			
 		<form action="./noticeDeleteAction.no" method="post" onsubmit="return noticeConfirm()">
+			<c:if test="${ id eq 'admin' }">
 			<input type="submit" value="글삭제">
+			</c:if>
 			<input type="hidden" name="noticeNo" value="${dto.noticeNo}">
 		</form>
 			<input type="button" value="목록으로" onclick="location.href='./noticeList.no?pageNum=${pageNum}'" id="list1">
@@ -204,15 +208,15 @@
 		
 		<div>
 			<div>
-				<c:if test="${maxNoticeCount >= dtoNext.noticeNo }">
-				<div class="previous-next">
-				다음글: <a href="./noticeContent.no?noticeNo=${dtoNext.noticeNo}&amp;pageNum=${pageNum}">${dtoNext.noticeTitle}</a>
+				<c:if test="${!empty dtoPre.noticeNo }">
+				<div class="previous-post">
+				[ 이전글 ] <a href="./noticeContent.no?noticeNo=${dtoPre.noticeNo}&amp;pageNum=${pageNum}" style="color: gray">${dtoPre.noticeTitle}</a>
 				</c:if>
 			</div>
 			<div>
-				<c:if test="${!empty dtoPre.noticeNo }">
-				<div class="previous-post">
-				이전글: <a href="./noticeContent.no?noticeNo=${dtoPre.noticeNo}&amp;pageNum=${pageNum}">${dtoPre.noticeTitle}</a>
+				<c:if test="${maxNoticeCount >= dtoNext.noticeNo }">
+				<div class="previous-next">
+				[ 다음글 ] <a href="./noticeContent.no?noticeNo=${dtoNext.noticeNo}&amp;pageNum=${pageNum}" style="color: gray">${dtoNext.noticeTitle}</a>
 				</c:if>
 			</div>
 		</div>	
