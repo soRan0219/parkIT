@@ -6,7 +6,7 @@
     <title>1대1 문의</title>
 </head>
 <body>
-   <form action="./quWriteAction.qu" method="post" >
+   <form action="./QuestionWriteAction.qu" method="post" >
 	<table id="question">
 		<tr>
 		    <th class="ttitle" colspan="2">1대1 문의</th>

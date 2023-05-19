@@ -102,7 +102,7 @@
 <!--   </div> -->
 <%-- </c:if> --%>
 <!-- 	</nav> -->
-<!-- 	<!-- END nav --> -->
+<!-- 	<!-- END nav -->
 
 <!-- 	<section class="hero-wrap hero-wrap-2 js-fullheight" -->
 <!-- 		style="background-image: url('images/bg_3.jpg');" -->
