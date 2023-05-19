@@ -150,8 +150,8 @@
         <tr>
             <th>글번호</th>
             <th>제목</th>
-            <th>조회수</th>
             <th>작성일</th>
+            <th>조회수</th>
         </tr>
         <c:forEach var="notice" items="${noticeList}">
             <tr>
@@ -161,8 +161,8 @@
                         ${notice.noticeTitle}
                     </a>
                 </td>
-                <td>${notice.noticeRc}</td>
                 <td>${notice.noticeDate}</td>
+                <td>${notice.noticeRc}</td>
             </tr>
         </c:forEach>
     </table>
