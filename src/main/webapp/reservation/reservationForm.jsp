@@ -125,6 +125,7 @@
 		}
 	} //check()
 	
+	
 </script>
 </head>
 <body>
@@ -140,29 +141,40 @@
 	
 	<div id="section" class="common">
 		<form action="./ReservationAction.res" name="fr" method="post" onsubmit="return check();">
-			<span id="parkingLot">
-				<span class="parkSelect">지점 선택</span>
-				<select name="parking" class="parkSelect">
-				 <option value="A"> 서면점 </option>
-				 <option value="B"> 해운대점 </option>
-				 <option value="C"> 명지점 </option>
+		  <span id="form-elements">
+		  
+			<span id="parkingLot" class="pCon">
+				<span id="parkSelect">지점 선택</span>
+				<select name="parking" id="parking">
+				 <option value="A" style="color:#4b4b4b"> 서면점 </option>
+				 <option value="B" style="color:#4b4b4b"> 해운대점 </option>
+				 <option value="C" style="color:#4b4b4b"> 명지점 </option>
 				</select>
 			</span>
-			<span id="resInput">
+			
+			<span class="container">
 				<span>희망 예약 날짜</span>
-				<input type="text" id="datepicker" autocomplete="off">
+				<input type="text" id="datepicker" class="parkSelect" autocomplete="off"  placeholder="날짜를 선택하세요">
+			</span>
+			<span class="container">
 				<span>희망 입차 시간</span>
-				<input type="text" id="fromTime" autocomplete="off">
+				<input type="text" id="fromTime" class="parkSelect" autocomplete="off" placeholder="입차시간을 선택하세요">
+			</span>
+			<span class="container">
 				<span>희망 출차 시간</span>
-				<input type="text" id="toTime" autocomplete="off">
+				<input type="text" id="toTime" class="parkSelect" autocomplete="off" placeholder="출차시간을 선택하세요">
+			</span>
 				
+		  </span>
+		  
 				<input type="hidden" id="selectedDate" name="selectedDate">
 				<input type="hidden" id="parkInTime" name="parkInTime">
 				<input type="hidden" id="parkOutTime" name="parkOutTime">
-				<span id="submitBtn">
-					<input type="submit" value="예약하기">
-				</span>
+		  
+			<span id="submitBtn">
+				<input type="submit" value="예약하기">
 			</span>
+			
 		</form>
 	</div>
 	

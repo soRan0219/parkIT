@@ -411,7 +411,7 @@
 
 
 
-<jsp:include page="./inc/bottom.jsp"/>
+<jsp:include page="inc/bottom.jsp"/>
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
