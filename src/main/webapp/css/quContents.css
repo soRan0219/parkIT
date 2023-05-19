@@ -1,0 +1,44 @@
+.detailTable {
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.detailTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detailTable th,
+.detailTable td {
+  padding: 10px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.detailTable th {
+  background-color: #f0f0f0;
+}
+
+.detailTable h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.detailTable td[colspan="3"] {
+  text-align: left;
+}
+
+.detailTable td#buttonContainer {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.detailTable #buttonContainer div {
+  display: flex;
+  justify-content: center;
+}
+
+.detailTable #listButton {
+  margin-left: 10px;
+}

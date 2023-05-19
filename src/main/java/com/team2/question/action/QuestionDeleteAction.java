@@ -38,7 +38,7 @@ public class QuestionDeleteAction implements Action {
 		// JSFoward jsFoward = new JSFoward(); 
 		// result == 1
 
-		JSForward.alertAndMove(response, "글 삭제 완료!", "./QuestionList.fa");
+		JSForward.alertAndMove(response, "글 삭제 완료!", "./QuestionList.qu");
 		
 		return null;
 	}

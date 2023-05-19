@@ -9,6 +9,8 @@ public class QuestionDTO {
 	//               DB 데이터를 JSP페이지로 전송 
 	
 	private int quNo;
+	private int quNoRe;
+	private String selOp;
 	private String quTitle;
 	private String quContents;
 	private LocalDateTime quDateTime;
@@ -18,44 +20,99 @@ public class QuestionDTO {
 	
 	// alt shift s + r
 	
-	public int getQuestionNo() {
+	
+
+
+
+
+	public int getQuNo() {
 		return quNo;
 	}
-	public void setQuestionNo(int quNo) {
+
+
+
+	public void setQuNo(int quNo) {
 		this.quNo = quNo;
 	}
-	
-	
-	public String getId() {
-		return id;
+
+
+
+	public int getQuNoRe() {
+		return quNoRe;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+
+
+	public void setQuNoRe(int quNoRe) {
+		this.quNoRe = quNoRe;
 	}
-	public String getQuestionTitle() {
+
+
+
+	public String getSelOp() {
+		return selOp;
+	}
+
+
+
+	public void setSelOp(String selOp) {
+		this.selOp = selOp;
+	}
+
+
+
+	public String getQuTitle() {
 		return quTitle;
 	}
-	public void setQuestionTitle(String quTitle) {
+
+
+
+	public void setQuTitle(String quTitle) {
 		this.quTitle = quTitle;
 	}
-	public String getQuestionContents() {
+
+
+
+	public String getQuContents() {
 		return quContents;
 	}
-	public void setQuestionContents(String quContents) {
+
+
+
+	public void setQuContents(String quContents) {
 		this.quContents = quContents;
 	}
+
+
 
 	public LocalDateTime getQuDateTime() {
 		return quDateTime;
 	}
+
+
+
 	public void setQuDateTime(LocalDateTime quDateTime) {
 		this.quDateTime = quDateTime;
 	}
-	// alt shift s + s
+
+
+
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "QuestionDTO [quNo=" + quNo + ", id=" + id +", quTitle=" + quTitle + ", quContents=" + quContents + ", quDateTime="
-				+ quDateTime + "]";
+		return "QuestionDTO [quNo=" + quNo + ", quNoRe=" + quNoRe+ ", selOp=" + selOp + ", quTitle=" + quTitle + ", quContents=" + quContents
+				+ ", quDateTime=" + quDateTime + ", id=" + id + "]";
 	}
 	
 	

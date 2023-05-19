@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,183 +32,152 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/notice.css">
-<link href="css/notice.css" rel="stylesheet">
+<link rel="stylesheet" href="css/quWrite.css">
 </head>
 <body>
 
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span>
-			</button>
+<jsp:include page="../inc/top.jsp"/>
+
+<!-- 	<nav -->
+<!-- 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" -->
+<!-- 		id="ftco-navbar"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a> -->
+<!-- 			<button class="navbar-toggler" type="button" data-toggle="collapse" -->
+<!-- 				data-target="#ftco-nav" aria-controls="ftco-nav" -->
+<!-- 				aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- 				<span class="oi oi-menu"></span> -->
+<!-- 			</button> -->
 			
 			
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li>
-     <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li>
-        <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-		</div>
+<!-- 			<div class="collapse navbar-collapse" id="ftco-nav"> -->
+<!--   <ul class="navbar-nav ml-auto"> -->
+<!--     <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li> -->
+<!--     <li class="nav-item dropdown"> -->
+<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a> -->
+<!--       <ul class="dropdown-menu"> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">주차장 안내</a></li> -->
+<!--       </ul> -->
+<!--     </li> -->
+<!--     <li class="nav-item"><a href="services.jsp" class="nav-link">예약하기</a></li> -->
+<!--      <li class="nav-item dropdown"> -->
+<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a> -->
+<!--       <ul class="dropdown-menu"> -->
+<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">공지사항</a></li> -->
+<!--         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li> -->
+<!--       </ul> -->
+<!--     </li> -->
+<!--   </ul> -->
+<!-- </div> -->
+<!-- 		</div> -->
 
-<c:if test="${empty id }">
-  <div class="login-form">
-    <div class="form-group">
-      <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
-    </div>
-    <div class="join-membership">
-      <a href="#">아이디/비밀번호 찾기</a>
-    </div>
-    <div class="join-membership">
-      <a href="./MemberJoin.me">회원가입</a>
-    </div>
-  </div>
-</c:if>
-<c:if test="${not empty id }">
-  <div class="login-form">
-    아이디: ${id } <br> <!-- sessionScope 생략 -->
+<%-- <c:if test="${empty id }"> --%>
+<!--   <div class="login-form"> -->
+<!--     <div class="form-group"> -->
+<!--       <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a> -->
+<!--     </div> -->
+<!--     <div class="join-membership"> -->
+<!--       <a href="#">아이디/비밀번호 찾기</a> -->
+<!--     </div> -->
+<!--     <div class="join-membership"> -->
+<!--       <a href="./MemberJoin.me">회원가입</a> -->
+<!--     </div> -->
+<!--   </div> -->
+<%-- </c:if> --%>
+<%-- <c:if test="${not empty id }"> --%>
+<!--   <div class="login-form"> -->
+<%--     아이디: ${id } <br> <!-- sessionScope 생략 --> --%>
 	
-	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	
-	<hr>
+<!-- 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	 -->
+<!-- 	<hr> -->
 	
-	<h3><a href="./MemberInfo.me">회원정보 조회</a></h3>
+<!-- 	<h3><a href="./MemberInfo.me">회원정보 조회</a></h3> -->
 
-	<h3><a href="./MemberUpdate.me">회원정보 수정</a></h3>
+<!-- 	<h3><a href="./MemberUpdate.me">회원정보 수정</a></h3> -->
 
-	<h3><a href="./MemberDelete.me">회원정보 삭제</a></h3>
-  </div>
-</c:if>
-	</nav>
-	<!-- END nav -->
+<!-- 	<h3><a href="./MemberDelete.me">회원정보 삭제</a></h3> -->
+<!--   </div> -->
+<%-- </c:if> --%>
+<!-- 	</nav> -->
+<!-- 	<!-- END nav -->
 
-	<section class="hero-wrap hero-wrap-2 js-fullheight"
-		style="background-image: url('images/bg_3.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.jsp">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
-				</div>
-			</div>
-		</div>
-	</section>
-	
+<!-- 	<section class="hero-wrap hero-wrap-2 js-fullheight" -->
+<!-- 		style="background-image: url('images/bg_3.jpg');" -->
+<!-- 		data-stellar-background-ratio="0.5"> -->
+<!-- 		<div class="overlay"></div> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div -->
+<!-- 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
+<!-- 				<div class="col-md-9 ftco-animate pb-5"> -->
+<!-- 					<p class="breadcrumbs"> -->
+<!-- 						<span class="mr-2"><a href="index.jsp">Home <i -->
+<!-- 								class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i -->
+<!-- 							class="ion-ios-arrow-forward"></i></span> -->
+<!-- 					</p> -->
+<!-- 					<h1 class="mb-3 bread">Contact Us</h1> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</section> -->
 
-	<section class=king>
+<!-- 	<section class=king> -->
 	<section class="ftco-section contact-section">
-	<div id=noticeMain> 
-<!-- 	공지사항 -->
-	</div>
-		<div class="container">
-			<div class="row d-flex mb-5 contact-info">
-				<div class="col-md-4">
-					<div class="row mb-5">
-						
-						</div>
-					</div>
-				</div>
-				
+		
+		
+	
+<!-- 		</head> -->
+<!-- 		<body> -->
+		
 			
-
-			</div>
+			
+	
+			
+<div class="writeform">
+  <form action="./QuestionWriteAction.qu" method="post" >
+	<table id="question">
+		<tr>
+		    <th class="ttitle" colspan="2">1대1 문의</th>
+		</tr>
+		<tr>
+			<td> 답변하기 </td>
+		</tr>
+		<tr>
+		<td><input type="hidden" name="id" value="${param.id}"></td>
+        <td><input type="hidden" name="quNoRe" value="${param.quNo}"></td>
+      </tr>
+		<tr>
+			<td> 제목 </td>
+			 <td><input type="text" name="quTitle" value="Re)${param.quTitle}"></td>
+	 	</tr>
+		<tr>
+			<td> 내용 </td>
+			<td><textarea name="quContents"></textarea></td>
+		</tr>
 		
-		
-				
-<div id="noticecontents">
-    <table class="list">
-        <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        <c:forEach var="notice" items="${noticeList}">
-            <tr>
-                <td>${notice.noticeNo}</td>
-                <td>
-                    <a href="./noticeContent.no?noticeNo=${notice.noticeNo}&amp;pageNum=${pageNum}">
-                        ${notice.noticeTitle}
-                    </a>
-                </td>
-                <td>${notice.noticeRc}</td>
-                <td>${notice.noticeDate}</td>
-            </tr>
-        </c:forEach>
-    </table>
-
-    <div class="search-form">
-        <form action="./noticeList.no" method="get">
-            <input type="text" name="keyWord" placeholder="검색어를 입력하세요" id="searchkey">
-            <input type="submit" value="검색">
-            <c:if test="${ id eq 'admin' }">
-            <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'" id="write">
-            </c:if>
-        </form>
-    </div>
+		<tr>
+		   <td colspan="2">
+		     	<div id="table_search">
+					<input type="submit" value="답변하기" class="btn">
+				</div>
+		   </td>
+		</tr>
+	</table>
+	
+</form>
 </div>
 			
-		
 			
-			<div id="searchFormWrapper">
-			<form action="./noticeList.no" method="get">
-			</form>
-			</div>
-			
-				<section class="sec01">
-	 <div id="pageBlock">
 	
-		<c:if test="${startPage > pageBlock}">
-			<a href="./noticeList.no?pageNum=${startPage-pageBlock}">[이전]</a>
-		</c:if>
-		
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="./noticeList.no?pageNum=${i}">[${i}]</a>
-			</c:forEach>
-		
-		<c:if test="${endPage < pageCount}">
-			<a href="./noticeList.no?pageNum=${startPage+pageBlock}">[다음]</a>
-		</c:if>
-		
-		
-		
-		
-	</div>
 	</section>
-			
-			
-		
-	</section>
-		
-
-	</section>
+	
+	
+	
+	
+	
+	
+	<!-- 여기서부터 footer -->
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
 			<div class="row mb-5">

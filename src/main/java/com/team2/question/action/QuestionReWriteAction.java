@@ -10,7 +10,7 @@ import com.team2.commons.ActionForward;
 import com.team2.commons.JSForward;
 
 
-public class QuestionWriteAction implements Action {
+public class QuestionReWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,6 +26,7 @@ public class QuestionWriteAction implements Action {
 		dto.setQuTitle(request.getParameter("quTitle"));
 		dto.setQuContents(request.getParameter("quContents"));
 		dto.setSelOp(request.getParameter("selOp"));
+		dto.setQuNoRe(Integer.parseInt("quNoRe"));
 		
 		System.out.println(" M : "+dto);
 		

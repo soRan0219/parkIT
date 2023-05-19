@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>ParkIT</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/quWrite.css">
+<link rel="stylesheet" href="css/quList.css">
 </head>
 <body>
 
@@ -133,52 +133,145 @@
 			
 			
 	
-			
+			<c:if test="${id.equals('admin')}">
 <div class="writeform">
-  <form action="./QuestionWriteAction.qu" method="post" >
-	<table id="question">
-		<tr>
-		    <th class="ttitle" colspan="2">1대1 문의</th>
-		</tr>
-		<tr>
-			<td> 문의 유형 </td>
-			<td>
-				<select name="selOp">
-				<option value=null></option>
-					<option value="예약 문의">예약 문의</option>
-					<option value="서비스 문의">서비스 문의</option>
-					<option value="위치 문의">위치 문의</option>
-					<option value="결제 문의">결제 문의</option>
-					<option value="환불 문의">환불 문의</option>
-					<option value="기타 문의">기타 문의</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-        <td><input type="hidden" name="id" value="${sessionScope.id}"></td>
-      </tr>
-		<tr>
-			<td> 제목 </td>
-			<td><input type="text" name="quTitle" placeholder="제목을 입력하세요."></td>
-	 	</tr>
-		<tr>
-			<td> 내용 </td>
-			<td><textarea name="quContents"></textarea></td>
-		</tr>
-		
-		<tr>
-		   <td colspan="2">
-		     	<div id="table_search">
-					<input type="submit" value="문의하기" class="btn">
-				</div>
-		   </td>
-		</tr>
-	</table>
-	
-</form>
+  <table border="1">
+    <tr>
+      <th>글번호</th>
+      <th>문의유형</th>
+      <th>제목</th>
+      <th>작성일</th>
+      <th>작성자</th>
+      <th>답글유무</th>
+    </tr>
+
+    <!-- noticeList 있을 때마다 들고오는 거 -->
+    <c:forEach var="qu" items="${quList}">
+   <tr>
+   
+  <form action="./QuestionReWrite.qu" method="post">
+  
+    <td>${qu.quNo}</td>
+    <td>${qu.selOp}</td>
+    <td>
+      <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">
+        ${qu.quTitle}
+      </a>
+    </td>
+    <td>${qu.quDateTime}</td>
+    <td>${qu.id}</td>
+    <td>
+      <c:choose>
+        <c:when test="${not id.equals('admin')}">
+          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a>
+        </c:when>
+        <c:otherwise>
+          <input type="hidden" name="quNo" value="${qu.quNo}">
+          <input type="hidden" name="quTitle" value="${qu.quTitle}">
+          <input type="submit" value="X" class="btn">
+        </c:otherwise>
+      </c:choose>
+    </td>
+  </form>
+</tr>
+      
+    </c:forEach>
+  </table>
+
+  <form id="searchForm" action="./noticeList.no" method="get">
+    <div>
+      <input type="text" name="keyWord">
+      <input type="submit" value="검색">
+    </div>
+  </form>
+
+  <div id="pageBlock">
+    <c:if test="${startPage > pageBlock}">
+      <a href="./QuestionList.qu?pageNum=${startPage-pageBlock}">[이전]</a>
+    </c:if>
+
+    <c:forEach var="i" begin="${startPage}" end="${endPage}">
+      <a href="./QuestionList.qu?pageNum=${i}">[${i}]</a>
+    </c:forEach>
+
+    <c:if test="${endPage < pageCount}">
+      <a href="./QuestionList.qu?pageNum=${startPage+pageBlock}">[다음]</a>
+    </c:if>
+  </div>
+
+  <div id="writeButton">
+    <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'">
+  </div>
 </div>
 			
+			</c:if>
 			
+				<c:if test="${not id.equals('admin') }">
+<div class="writeform">
+  <table border="1">
+    <tr>
+      <th>문의유형</th>
+      <th>제목</th>
+      <th>작성일</th>
+      <th>작성자</th>
+      <th>답글유무</th>
+    </tr>
+
+    <!-- noticeList 있을 때마다 들고오는 거 -->
+    <c:forEach var="qu" items="${quList}">
+    <c:if test="${qu.id.equals(id)}">
+      <tr>
+        <td>${qu.selOp}</td>
+        <td>
+          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">
+            ${qu.quTitle}
+          </a>
+        </td>
+        <td>${qu.quDateTime}</td>
+        <td>${qu.id }</td>
+          <td>
+        <c:choose>
+          <c:when test="${id.equals('admin')}">
+            <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a>
+          </c:when>
+          <c:otherwise>
+          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">X</a>
+          
+          </c:otherwise>
+        </c:choose>
+        </td>
+      </tr>
+      </c:if>
+    </c:forEach>
+  </table>
+
+  <form id="searchForm" action="./noticeList.no" method="get">
+    <div>
+      <input type="text" name="keyWord">
+      <input type="submit" value="검색">
+    </div>
+  </form>
+
+  <div id="pageBlock">
+    <c:if test="${startPage > pageBlock}">
+      <a href="./QuestionList.qu?pageNum=${startPage-pageBlock}">[이전]</a>
+    </c:if>
+
+    <c:forEach var="i" begin="${startPage}" end="${endPage}">
+      <a href="./QuestionList.qu?pageNum=${i}">[${i}]</a>
+    </c:forEach>
+
+    <c:if test="${endPage < pageCount}">
+      <a href="./QuestionList.qu?pageNum=${startPage+pageBlock}">[다음]</a>
+    </c:if>
+  </div>
+
+  <div id="writeButton">
+    <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'">
+  </div>
+</div>
+			
+			</c:if>
 	
 	</section>
 	

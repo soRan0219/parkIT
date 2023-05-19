@@ -21,7 +21,7 @@ public class FaqUpdateAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		if(id == null || !id.equals("admin")) {
-			forward.setPath("./MainMain.park");
+			forward.setPath("./Main.park");
 			forward.setRedirect(true);
 			return forward;
 		}

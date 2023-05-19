@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.notice.action.NoticeContentAction;
 
 // 프로젝트에서 사용되는 주요 개념(명사) => 디비 테이블 구분
 
@@ -53,12 +54,32 @@ public class QuestionFrontController extends HttpServlet {
 			forward.setPath("./question/quWriteForm.jsp");
 			forward.setRedirect(false);
 		}
+		if(command.equals("/QuestionReWrite.qu")) {
+			System.out.println(" C : /QuestionReWrite.qu ");
+			System.out.println(" C : 패턴1 - 디비 x, 연결된 뷰페이지 이동");
+			
+			forward = new ActionForward();
+			forward.setPath("./question/quReWriteForm.jsp");
+			forward.setRedirect(false);
+		}
 		else if(command.equals("/QuestionWriteAction.qu")) {
 			System.out.println(" C : /QuestionWriteAction.qu 호출 ");
 			System.out.println(" C : 패턴2 - DB사용O,페이지 이동");
 			
 			// BoardWriteAction 객체
 			action = new QuestionWriteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/QuestionReWriteAction.qu")) {
+			System.out.println(" C : /QuestionWriteAction.qu 호출 ");
+			System.out.println(" C : 패턴2 - DB사용O,페이지 이동");
+			
+			// BoardWriteAction 객체
+			action = new QuestionReWriteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -74,6 +95,16 @@ public class QuestionFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/QuestionContents.qu")) {
+			System.out.println(" C : /QuestionContents.qu 주소 요청");
+			action = new QuestionContentsAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
