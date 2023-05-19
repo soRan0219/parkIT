@@ -67,7 +67,7 @@
 		</div>
 	</div> <!-- /top -->	
 	
-	<div id="bottom"> <!-- 아래 -->
+	<div id="bottom"> <!-- 아래  -->
 	
 	<h1> 주차장 안내 </h1>
 	<hr style="border: 2px solid #ccc;">

@@ -32,7 +32,7 @@
 <!-- jQuery 라이브러리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<!-- datepicker -->
+<!-- datepicker  -->
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 
 <!-- timepicker -->
