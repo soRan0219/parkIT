@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#total{
+	width: 60rem; margin:0 auto;
+	padding-top: 4em;
+}
+
+#map, #map2, #map3{
+	margin-bottom: 6em;
+}
+
+.box{
+	display: flex;
+}
+
+
+.box > div:first-child {
+    flex: 5;
+}
+
+.box > div:last-child {
+    flex: 5;
+}

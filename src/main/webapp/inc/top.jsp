@@ -20,6 +20,7 @@
 
 .navbar-brand {
 	font-size: 4rem;
+	font-family: "Poppins", Arial, sans-serif;
 }
 
 #login-size {
@@ -36,8 +37,6 @@
   border-radius: 10%;
 }
 
-
-
   .profile-options {
     display: none;
   }
@@ -48,6 +47,10 @@
 #profile{
 	cursor: pointer;
 }
+
+
+
+
 
 </style>
 
@@ -143,18 +146,21 @@
 	<!-- END nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
-		style="background-image: url('images/park5.jpg'); height: 40rem;"
-		data-stellar-background-ratio="0.5">
+		style="height: 40rem;"
+		data-stellar-background-ratio="0.5" >
+		<video muted autoplay loop style="width: 100%; height: 100%; object-fit: fill; z-index: -1; position: absolute;">
+        <source src="./images/parkpark.mp4" type="video/mp4">
+        </video>
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
 				<div class="col-lg-8 ftco-animate">
-					<div class="text w-100 text-center mb-md-5 pb-md-5">
-						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
-							Park<span style="display: inline; color: #28A745; ">IT</span></h1>
+					<div class="text w-100 text-center mb-md-5 pb-md-5" style="z-index: 10;">
 						<p style="font-size: 18px;">주차걱정 없이 안전하게
 							주차하자!</p>
+						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
+							Park<span style="display: inline; color: #28A745; ">IT</span></h1>
 					</div>
 				</div>
 			</div>

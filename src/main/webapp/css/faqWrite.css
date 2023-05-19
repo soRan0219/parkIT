@@ -1,0 +1,61 @@
+.writeform {
+ margin: 0 auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 700px;
+}
+
+#faq {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#faq th,
+#faq td {
+  padding: 10px;
+  border-bottom: 1px solid #e1e8eb;
+}
+
+#faq th {
+  background-color: #f2f5f7;
+  color: #394041;
+  font-weight: bold;
+}
+
+.input-field,
+.textarea-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.textarea-field {
+  height: 150px; /* 수정: 원하는 높이로 조정하세요 */
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+}
+.btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+  }

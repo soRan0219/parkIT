@@ -4,17 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 카맵 API </title>
+<title> parkIT: 소개 </title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
-
-<!-- <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet"> -->
-
-
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 	
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -30,110 +27,173 @@
 
 
 <link rel="stylesheet" href="css/park.css">
+<link rel="stylesheet" href="css/introduction.css">
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a8f31d6c1c411a19691f71462e48ee1&libraries=services"></script>
 
 </head>
 <body>
+
+
 	<jsp:include page="../inc/top.jsp"/>
 	
-	<div id="map" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	잔여/전체: ${requestScope.availableA } / ${allA }
-	<br><br><br><br>
 	
-	<script type="text/javascript">
-		var mapContainer = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var mapOption = {  //지도를 생성할 때 필요한 기본 옵션
-				center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표
-				level: 3  //지도의 레벨(확대, 축소 정도)
-		};
+	<div id="total"> <!-- 전체 -->
+	
+	
+	<div class="box"> <!-- box -->
+	
+	
+	<div style="font-size: 25px;">
+		<h1> 서면점</h1>
+	
+	
+	잔여/전체 : ${requestScope.availableA } / ${allA } <br>
+	
+	tel. 051-333-3333 <br>
+	
+	운영시간 6:00 ~ 24:00 <br>
+	
+	주소
+	
+	</div>
+	
+	
+	
+		<div id="map" style="width:400px;height:300px;">
 		
-		//지도 생성 및 객체 리턴
-		var map = new kakao.maps.Map(mapContainer, mapOption);  
 		
-		//주소-좌표 변환 객체 생성
-		var geocoder = new kakao.maps.services.Geocoder();
+		<script type="text/javascript">
+			var mapContainer = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+			var mapOption = {  //지도를 생성할 때 필요한 기본 옵션
+					center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표
+					level: 3  //지도의 레벨(확대, 축소 정도)
+			};
+			
+			//지도 생성 및 객체 리턴
+			var map = new kakao.maps.Map(mapContainer, mapOption);  
+			
+			//주소-좌표 변환 객체 생성
+			var geocoder = new kakao.maps.services.Geocoder();
+			
+			//주소로 좌표 검색
+			geocoder.addressSearch('부산광역시 부산진구 동천로 109', function(result, status) {
+				//정상적으로 검색 완료시
+				if(status==kakao.maps.services.Status.OK) {
+					var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					
+					console.log("coords: " + coords);
+					
+					//결과값으로 받은 위치를 마커로 표시
+					var marker = new kakao.maps.Marker({
+						map: map,
+						position: coords
+					});
+					
+					//인포윈도우로 장소에 대한 설명 표시
+					var infowindow = new kakao.maps.InfoWindow({
+						content: '<div style="width:150px;text-align:center;padding:6px 0;">서면점</div>'
+					});
+					infowindow.open(map, marker);
+					
+					//지도의 중심을 결과값으로 받은 위치로 이동
+					map.setCenter(coords);
+				} //if
+			}); //addressSearch()
+			
+			/////////////////////////////////////////////////////////////////////////////////////
+		</script>
 		
-		//주소로 좌표 검색
-		geocoder.addressSearch('부산광역시 부산진구 동천로 109', function(result, status) {
-			//정상적으로 검색 완료시
-			if(status==kakao.maps.services.Status.OK) {
-				var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-				
-				console.log("coords: " + coords);
-				
-				//결과값으로 받은 위치를 마커로 표시
-				var marker = new kakao.maps.Marker({
-					map: map,
-					position: coords
-				});
-				
-				//인포윈도우로 장소에 대한 설명 표시
-				var infowindow = new kakao.maps.InfoWindow({
-					content: '<div style="width:150px;text-align:center;padding:6px 0;">서면점</div>'
-				});
-				infowindow.open(map, marker);
-				
-				//지도의 중심을 결과값으로 받은 위치로 이동
-				map.setCenter(coords);
-			} //if
-		}); //addressSearch()
-		
-		/////////////////////////////////////////////////////////////////////////////////////
-	</script>
+		</div> <!-- map 사진 div -->
+	
 	
 
-	<div id="map2" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	잔여/전체: ${availableB } / ${allB }
-	<br><br><br><br>
+	
+	</div> <!-- /box1 -->
+	
+
+
+
+
+	<div class="box">
+
+	<div style="font-size: 25px;">
+		<h1>해운대점</h1>
+		잔여/전체 : ${availableB } / ${allB } <br>
+		
+		tel. 051-331-3443 <br>
+		
+		운영시간 6:00 ~ 24:00
+		
+	</div>
+
+
+		<div id="map2" style="width:400px;height:300px;">
+		
+		
+		<script type="text/javascript">
+			var mapContainer2 = document.getElementById('map2'); //지도를 담을 영역의 DOM 레퍼런스
+			var mapOption2 = {  //지도를 생성할 때 필요한 기본 옵션
+					center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표
+					level: 3  //지도의 레벨(확대, 축소 정도)
+			};
+			
+			//지도 생성 및 객체 리턴
+			var map2 = new kakao.maps.Map(mapContainer2, mapOption2);  
+			console.log("map2: " + map);
+			
+			//주소-좌표 변환 객체 생성
+			var geocoder2 = new kakao.maps.services.Geocoder();
+			
+			//주소로 좌표 검색
+			geocoder.addressSearch('부산광역시 해운대구 해운대해변로 296', function(result, status) {
+				//정상적으로 검색 완료시
+				if(status==kakao.maps.services.Status.OK) {
+					var coords2 = new kakao.maps.LatLng(result[0].y, result[0].x);
+					
+					console.log("coords2" + coords2);
+					
+					//결과값으로 받은 위치를 마커로 표시
+					var marker2 = new kakao.maps.Marker({
+						map: map2,
+						position: coords2
+					});
+					
+					//인포윈도우로 장소에 대한 설명 표시
+					var infowindow2 = new kakao.maps.InfoWindow({
+						content: '<div style="width:150px;text-align:center;padding:6px 0;">해운대점</div>'
+					});
+					infowindow2.open(map2, marker2);
+					
+					//지도의 중심을 결과값으로 받은 위치로 이동
+					map2.setCenter(coords2);
+				} //if
+			}); //addressSearch()
+		</script>
+		
+		</div> <!-- /map2 -->
+	
 
 	
-	<script type="text/javascript">
-		var mapContainer2 = document.getElementById('map2'); //지도를 담을 영역의 DOM 레퍼런스
-		var mapOption2 = {  //지도를 생성할 때 필요한 기본 옵션
-				center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표
-				level: 3  //지도의 레벨(확대, 축소 정도)
-		};
-		
-		//지도 생성 및 객체 리턴
-		var map2 = new kakao.maps.Map(mapContainer2, mapOption2);  
-		console.log("map2: " + map);
-		
-		//주소-좌표 변환 객체 생성
-		var geocoder2 = new kakao.maps.services.Geocoder();
-		
-		//주소로 좌표 검색
-		geocoder.addressSearch('부산광역시 해운대구 해운대해변로 296', function(result, status) {
-			//정상적으로 검색 완료시
-			if(status==kakao.maps.services.Status.OK) {
-				var coords2 = new kakao.maps.LatLng(result[0].y, result[0].x);
-				
-				console.log("coords2" + coords2);
-				
-				//결과값으로 받은 위치를 마커로 표시
-				var marker2 = new kakao.maps.Marker({
-					map: map2,
-					position: coords2
-				});
-				
-				//인포윈도우로 장소에 대한 설명 표시
-				var infowindow2 = new kakao.maps.InfoWindow({
-					content: '<div style="width:150px;text-align:center;padding:6px 0;">해운대점</div>'
-				});
-				infowindow2.open(map2, marker2);
-				
-				//지도의 중심을 결과값으로 받은 위치로 이동
-				map2.setCenter(coords2);
-			} //if
-		}); //addressSearch()
-	</script>
 	
-	<div id="map3" style="width:500px;height:400px;"></div>
-	<br><br><br>
-	잔여/전체: ${availableC } / ${allC }
-	<br><br><br><br>
+	</div> <!-- /box -->
+	
+	
+	
+	
+	<div class="box">
+	
+	<div style="font-size: 25px;">
+	<h1>명지점</h1>
+		잔여/전체 : ${availableC } / ${allC } <br>
+		tel. 051-343-3558 <br>
+		운영시간 6:00 ~ 24:00
+	
+	</div>
+	
+	
+	<div id="map3" style="width:400px;height:300px;">
 	
 	<script type="text/javascript">
 		var mapContainer3 = document.getElementById('map3'); //지도를 담을 영역의 DOM 레퍼런스
@@ -174,6 +234,21 @@
 			} //if
 		}); //addressSearch()
 	</script>
+	
+	</div> <!-- map3 -->
+	
+	
+	</div> <!-- box -->
+	
+	
+	
+	
+	
+	</div> <!-- /전체 (total) -->
+	
+	
+	
+	
 	
 	<jsp:include page="../inc/bottom.jsp"/>
 	

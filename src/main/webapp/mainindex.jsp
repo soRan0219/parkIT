@@ -11,6 +11,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -58,12 +59,24 @@
 			currentText:'오늘',
 			closeText:'닫기',
 			dateFormat:'yy-mm-dd',
-			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
-			dayNamesMin:['월','화','수','목','금','토','일'],
+			dayNames:['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+			dayNamesMin:['일','월','화','수','목','금','토'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			isRTL:false,
 			minDate:0,
-			maxDate:+30
+			maxDate:+30,
+			onSelect: function(date, inst) {
+				var selected = $(this).datepicker('getDate');
+				var current = new Date();
+				
+				if(selected > current) {
+					$('#fromTime').timepicker('option', 'minTime', '06:00');
+					$('#toTime').timepicker('option', 'minTime', '06:00');
+				} else {
+					$('#fromTime').timepicker('option', 'minTime', new Date());
+					$('#toTime').timepicker('option', 'minTime', new Date());
+				}
+			} //onSelect
 		});
 		
 		$('#fromTime').timepicker({
@@ -71,12 +84,11 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
-				console.log("fromTime: " + $(this).val());
-				console.log("fromTime: " + time);
 				var minTime = new Date(time);
 				minTime.setMinutes(minTime.getMinutes() + 30);
 				$('#toTime').timepicker('option', 'minTime', minTime);
@@ -89,6 +101,7 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
@@ -134,8 +147,6 @@
 <jsp:include page="inc/top.jsp"/>
 
 
-
-
 	<section class="ftco-section ftco-no-pt bg-light">
 		<div class="container">
 			<div class="row no-gutters">
@@ -157,22 +168,6 @@
 									</div>
 								</div>
 
-								<script>
-//   // 선택한 항목을 검색창에 나타내는 함수
-//   function updateSearchInput(value) {
-//     document.getElementById("parking-location").value = value;
-//     document.querySelector(".dropdown-toggle").textContent = value;
-//   }
-
-//   // 선택한 항목을 검색창에 나타냄
-//   const dropdownItems = document.querySelectorAll(".dropdown-item");
-//   dropdownItems.forEach((item) => {
-//     item.addEventListener("click", (event) => {
-//       const selectedValue = event.target.textContent;
-//       updateSearchInput(selectedValue);
-//     });
-//   });
-</script>
 								<div class="d-flex">
 									<div class="form-group mr-2">
 										<label for="" class="label">주차 날짜</label> 
@@ -207,16 +202,16 @@
 						</div>
 						<div class="col-md-8 d-flex align-items-center">
 							<div class="services-wrap rounded-right w-100" style="position: relative; top: 10%;">
-								<h3 class="heading-section mb-4">주차장 선택의 최고의 방법</h3>
+								<h3 class="heading-section mb-4">주차장 간편하게 이용하는 방법</h3>
 								<div class="row d-flex mb-4">
 									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-route"></span>
+												<img src="./images/mapicon1.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">주차장 장소 선택</h3>
+												<h3 class="heading mb-2">1. 주차장 장소<br> 선택</h3>
 											</div>
 										</div>
 									</div>
@@ -224,10 +219,10 @@
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-handshake"></span>
+												<img src="./images/mapicon2.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">Select the Best Deal</h3>
+												<h3 class="heading mb-2">2. 예약한 시간에<br> 주차장으로 이동</h3>
 											</div>
 										</div>
 									</div>
@@ -235,18 +230,14 @@
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-rent"></span>
+												<img src="./images/mapicon3.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">Reserve Your Rental Car</h3>
+												<h3 class="heading mb-2">3. 편하게 주차하면<br>완료</h3>
 											</div>
 										</div>
 									</div>
 								</div>
-								<p>
-									<a href="#" class="btn btn-primary py-3 px-4">Reserve Your
-										Perfect Car</a>
-								</p>
 							</div>
 						</div>
 					</div>
@@ -275,18 +266,14 @@
 									style="background-image: url(images/park2.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">서면점</a>
+										<a href="./Introduction.park#map">서면점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -296,18 +283,14 @@
 									style="background-image: url(images/park3.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">광안리점</a>
+										<a href="./Introduction.park#map2">해운대점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -317,39 +300,14 @@
 									style="background-image: url(images/park4.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">해운대점</a>
+										<a href="./Introduction.park#map3">명지점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="car-wrap rounded ftco-animate">
-								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/park1.jpg);"></div>
-								<div class="text">
-									<h2 class="mb-0">
-										<a href="#">서면점2</a>
-									</h2>
-									<div class="d-flex mb-3">
-										<span class="cat">ParkIT주차장</span>
-										<p class="price ml-auto">
-											$2000 <span>/30min</span>
-										</p>
-									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -384,8 +342,8 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="1090">0</strong> <span>Total
-								<br>Cars
+							<strong class="number" data-number="3">0</strong> <span>Total
+								<br>Parking lot
 							</span>
 						</div>
 					</div>
@@ -394,7 +352,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="2590">0</strong> <span>Happy
+							<strong class="number" data-number="1590">0</strong> <span>Happy
 								<br>Customers
 							</span>
 						</div>
@@ -404,7 +362,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text d-flex align-items-center">
-							<strong class="number" data-number="67">0</strong> <span>Total
+							<strong class="number" data-number="123141">0</strong> <span>Total
 								<br>Branches
 							</span>
 						</div>
@@ -415,8 +373,7 @@
 	</section>
 
 
-
-<jsp:include page="/inc/bottom.jsp"/>
+<jsp:include page="inc/bottom.jsp"/>
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">

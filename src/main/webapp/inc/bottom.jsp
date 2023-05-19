@@ -19,11 +19,11 @@
 						<p>쉽고 편하게 원하는 시간! 원하는 자리! 내가 선택 후 예약해 주차 스트레스 없이 주차하자! ParkIT</p>
 						<ul
 							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href="https://twitter.com/parkit"><span
+							<li class="ftco-animate"><a href="https://twitter.com/parkit" target="_blank"><span
 									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.facebook.com/parkit"><span
+							<li class="ftco-animate"><a href="https://www.facebook.com/parkit" target="_blank"><span
 									class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.instagram.com/parkit"><span
+							<li class="ftco-animate"><a href="https://www.instagram.com/____parkit" target="_blank"><span
 									class="icon-instagram"></span></a></li>
 						</ul>
 					</div>

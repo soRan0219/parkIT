@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.common {
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+#header {
+	margin-top: 10%;
+}
+
+#section {
+/* 	height: 30%; */
+	padding-top: 5%;
+	padding-bottom: 13%;
+	text-align: center;
+/* 	background-color: #ccc; */
+}
+
+/***** header *****/
+#header h1 {
+	font-weight: bold;
+}
+#header hr {
+	border: 2px solid #ccc;
+}
+
+/***** section *****/
+#parkSelect {
+	font-size: 1.3em;
+	font-weight: 700;
+}
+.pCon {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+}
+#section #parkingLot select {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #4b4b4b;
+	border: 4px solid;
+	border-radius: 5px;
+	border-color: #007bff;
+	width: 75%;
+	height: 60%;
+}
+#form-elements {
+	display: grid;
+	grid-template-columns: 40% 20% 20% 20% !important;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+input[type="text"] {
+	border: 2px solid;
+	border-radius: 5px;
+	border-color: #ccc;
+}
+.container {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+}
+.container span {
+	font-size: 1.1em;
+	font-weight: 700;
+	color: #4b4b4b;
+}
+.container input {
+	width: 13em;
+	height: 2em;
+}
+/* #submitBtn input[type="submit"] { */
+/* 	background-color: #007bff; */
+/* } */
