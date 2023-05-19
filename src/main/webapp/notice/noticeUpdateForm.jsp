@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/notice.css">
 
+
 </head>
 <body>
 
@@ -67,7 +68,7 @@
 	</div>
 	
 	<div>
-		<input type="button" value="목록으로" class="writelist" onclick="location.href='./noticeList.no'">
+		<input type="button" value="목록으로" class="writelist" id="backBtn" onclick="location.href='./noticeList.no'">
 	</div>
 	</form>
 	</div>

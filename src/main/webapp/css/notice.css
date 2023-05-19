@@ -216,7 +216,18 @@
   	position: relative;
   	bottom: 60px;
 
-  		
   }
   
- 
+  
+#backBtn{
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-end;
+        font-weight: 700;
+}
