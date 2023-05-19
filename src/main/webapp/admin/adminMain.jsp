@@ -470,7 +470,7 @@
 			<div class="row no-gutters" >
 				<div class="col-md-12	featured-top">
 					<div class="row no-gutters">
-						<form action="" class="request-form ftco-animate bg-primary">
+						<form action="" class="request-form ftco-animate bg-primary" id="magin-bottom-2rem">
 							<h2 class="main">관리자 메인페이지</h2>
 								<div class="login-form">
 								<div class="admin1">
@@ -486,6 +486,7 @@
 											aria-labelledby="dropdownMenuButton">
 											<a class="dropdown-item" href="./noticeList.no">공지사항</a> 
 											<a class="dropdown-item" href="./FaqList.fa">자주묻는 질문</a> 
+											<a class="dropdown-item" href="./QuestionWrite.qu">1:1 문의</a> 
 										</div>
 									</div>
 									</div>
@@ -545,13 +546,14 @@
                 
             </div> <!-- /지점별 현황 -->	
 					
-			<div class="status" style="color: #1089FF"> <!-- 고객센터 -->
+			<div class="status" style="color: #1089FF;" > <!-- 고객센터 -->
 			고객센터
 			</div>
 			
 				<div> <!-- 고객센터 -->
 					<input type="button" value="공지사항" class="services-button" onclick="location.href='./noticeList.no'">
 					<input type="button" value="자주 묻는 질문" class="services-button" onclick="location.href='./FaqList.fa'">
+					<input type="button" value="1:1 문의" class="services-button" onclick="location.href='./QuestionWrite.qu'">
 				</div>
 			
 			

@@ -15,7 +15,7 @@ import com.team2.commons.ActionForward;
 
 @WebServlet("*.no")
 	
-	public class FrontController extends HttpServlet {
+	public class NoticeFrontController extends HttpServlet {
 
 		//http://localhost:8088/parkIT/noticeList.no	
 	

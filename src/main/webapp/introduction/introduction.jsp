@@ -38,24 +38,54 @@
 
 	<jsp:include page="../inc/top.jsp"/>
 	
+	<div id="total">
 	
-	<div id="total"> <!-- 전체 -->
 	
+	<div id="top" style="margin-bottom: 10em;">
+	
+	<h1> 이용안내 </h1>
+		<div>
+		<h4>① 가입하기</h4> 
+		parkIT 홈페이지에서 회원가입을 진행해주세요. parkIT는 만19세 이상부터 이용이 가능합니다.
+		</div>
+		
+		<div>
+		<h4>② 예약하기</h4>
+		이용시간, 날짜를 설정하고 원하는 주차장과 자리번호를 선택해 주세요.
+		</div>
+		
+		<div>
+		<h4>③ 이용하기 </h4>
+		예약하신 자리를 예약한 시간에 사용하시면 됩니다.
+		</div>
+	<br><br><br>
+	<h1> 이용요금 </h1>
+		<div>
+		<h4 id="seo123"> 30분당 1000원 </h4>
+		</div>
+	
+	</div> <!-- /top -->	
+	
+	<div id="bottom"> <!-- 아래 -->
+	
+	<h1> 주차장 안내 </h1>
 	
 	<div class="box"> <!-- box -->
 	
 	
 	<div style="font-size: 25px;">
-		<h1> 서면점</h1>
+		<h2> 서면점</h2>
 	
 	
 	잔여/전체 : ${requestScope.availableA } / ${allA } <br>
 	
-	tel. 051-333-3333 <br>
+	tel. 051-9999-9999 <br>
 	
 	운영시간 6:00 ~ 24:00 <br>
 	
-	주소
+	주소 : 부산광역시 부산진구 동천로 109 <br>
+	
+	<span id="hae123">실내 주차장</span>
 	
 	</div>
 	
@@ -119,12 +149,16 @@
 	<div class="box">
 
 	<div style="font-size: 25px;">
-		<h1>해운대점</h1>
+		<h2>해운대점</h2>
 		잔여/전체 : ${availableB } / ${allB } <br>
 		
-		tel. 051-331-3443 <br>
+		tel. 051-8888-8888 <br>
 		
-		운영시간 6:00 ~ 24:00
+		운영시간 6:00 ~ 24:00 <br>
+		
+		주소 : 부산광역시 해운대구 해운대해변로 264 <br>
+		
+		<span id="mung123">실외 주차장</span>
 		
 	</div>
 
@@ -147,7 +181,7 @@
 			var geocoder2 = new kakao.maps.services.Geocoder();
 			
 			//주소로 좌표 검색
-			geocoder.addressSearch('부산광역시 해운대구 해운대해변로 296', function(result, status) {
+			geocoder.addressSearch('부산광역시 해운대구 해운대해변로 264', function(result, status) {
 				//정상적으로 검색 완료시
 				if(status==kakao.maps.services.Status.OK) {
 					var coords2 = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -185,10 +219,17 @@
 	<div class="box">
 	
 	<div style="font-size: 25px;">
-	<h1>명지점</h1>
+	<h2>명지점</h2>
+	
 		잔여/전체 : ${availableC } / ${allC } <br>
-		tel. 051-343-3558 <br>
-		운영시간 6:00 ~ 24:00
+		
+		tel. 051-7777-7777 <br>
+		
+		운영시간 6:00 ~ 24:00 <br>
+		
+		주소 : 부산광역시 강서구 명지국제6로 220번길 30 <br>
+		
+		실외 주차장
 	
 	</div>
 	
@@ -210,7 +251,7 @@
 		var geocoder3 = new kakao.maps.services.Geocoder();
 		
 		//주소로 좌표 검색
-		geocoder.addressSearch('부산광역시 강서구 명지국제6로', function(result, status) {
+		geocoder.addressSearch('부산광역시 강서구 명지국제6로 220번길 30', function(result, status) {
 			//정상적으로 검색 완료시
 			if(status==kakao.maps.services.Status.OK) {
 				var coords3 = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -241,7 +282,7 @@
 	</div> <!-- box -->
 	
 	
-	
+	</div> <!-- bottom -->
 	
 	
 	</div> <!-- /전체 (total) -->
