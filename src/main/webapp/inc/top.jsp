@@ -73,7 +73,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+    <li class="nav-item active"><a href="./Main.park" class="nav-link">Home</a></li>
     <li class="nav-item"><a href="./Introduction.park" class="nav-link">이용안내</a></li>
     <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li>
      <li class="nav-item dropdown">
