@@ -1,6 +1,9 @@
 .faqpage body {
     font-family: Arial, sans-serif;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .faqpage .container {
@@ -8,6 +11,8 @@
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
+    justify-content: center;
+    text-align: center;
 }
 
 .faqpage .title {
@@ -17,8 +22,8 @@
 }
 
 .faqpage .accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #66b3ff;
+    color: #66b3ff;
     cursor: pointer;
     padding: 18px 200px;
     width: 100%;
@@ -52,8 +57,15 @@
 }
 
  .write-button {
-    float: right;
+     margin-left: auto;
+  display: block;
+  text-align: right;
   }
+  
+  .write-button form {
+  display: inline-block;
+ 
+}
   
 .delete-button {
   margin-left: auto;

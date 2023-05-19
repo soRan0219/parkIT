@@ -9,7 +9,7 @@
 <body>
 	<% 	 
 		response.sendRedirect("./Main.park");	
-//  	session.setAttribute("id", "admin");	
+ 	session.setAttribute("id", "admin");	
 // 		session.setAttribute("id", "abc123");	
 	%>
 	
