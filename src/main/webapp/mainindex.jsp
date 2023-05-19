@@ -202,16 +202,16 @@
 						</div>
 						<div class="col-md-8 d-flex align-items-center">
 							<div class="services-wrap rounded-right w-100" style="position: relative; top: 10%;">
-								<h3 class="heading-section mb-4">주차장 선택의 최고의 방법</h3>
+								<h3 class="heading-section mb-4">주차장 간편하게 이용하는 방법</h3>
 								<div class="row d-flex mb-4">
 									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-route"></span>
+												<img src="./images/mapicon1.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">주차장 장소 선택</h3>
+												<h3 class="heading mb-2">1. 주차장 장소<br> 선택</h3>
 											</div>
 										</div>
 									</div>
@@ -219,10 +219,10 @@
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-handshake"></span>
+												<img src="./images/mapicon2.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">Select the Best Deal</h3>
+												<h3 class="heading mb-2">2. 예약한 시간에<br> 주차장으로 이동</h3>
 											</div>
 										</div>
 									</div>
@@ -230,18 +230,14 @@
 										<div class="services w-100 text-center">
 											<div
 												class="icon d-flex align-items-center justify-content-center">
-												<span class="flaticon-rent"></span>
+												<img src="./images/mapicon3.png">
 											</div>
 											<div class="text w-100">
-												<h3 class="heading mb-2">Reserve Your Rental Car</h3>
+												<h3 class="heading mb-2">3. 편하게 주차하면<br>완료</h3>
 											</div>
 										</div>
 									</div>
 								</div>
-								<p>
-									<a href="#" class="btn btn-primary py-3 px-4">Reserve Your
-										Perfect Car</a>
-								</p>
 							</div>
 						</div>
 					</div>
@@ -270,18 +266,14 @@
 									style="background-image: url(images/park2.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">서면점</a>
+										<a href="./Introduction.park#map">서면점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -291,18 +283,14 @@
 									style="background-image: url(images/park3.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">광안리점</a>
+										<a href="./Introduction.park#map2">해운대점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -312,39 +300,14 @@
 									style="background-image: url(images/park4.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="#">해운대점</a>
+										<a href="./Introduction.park#map3">명지점</a>
 									</h2>
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											$2000 <span>/30min</span>
+											₩1000 <span>/30min</span>
 										</p>
 									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="car-wrap rounded ftco-animate">
-								<div class="img rounded d-flex align-items-end"
-									style="background-image: url(images/park1.jpg);"></div>
-								<div class="text">
-									<h2 class="mb-0">
-										<a href="#">서면점2</a>
-									</h2>
-									<div class="d-flex mb-3">
-										<span class="cat">ParkIT주차장</span>
-										<p class="price ml-auto">
-											$2000 <span>/30min</span>
-										</p>
-									</div>
-									<p class="d-flex mb-0 d-block">
-										<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-											href="#" class="btn btn-secondary py-2 ml-1">Details</a>
-									</p>
 								</div>
 							</div>
 						</div>
@@ -379,8 +342,8 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="1090">0</strong> <span>Total
-								<br>Cars
+							<strong class="number" data-number="3">0</strong> <span>Total
+								<br>Parking lot
 							</span>
 						</div>
 					</div>
@@ -389,7 +352,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="2590">0</strong> <span>Happy
+							<strong class="number" data-number="1590">0</strong> <span>Happy
 								<br>Customers
 							</span>
 						</div>
@@ -399,7 +362,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text d-flex align-items-center">
-							<strong class="number" data-number="67">0</strong> <span>Total
+							<strong class="number" data-number="123141">0</strong> <span>Total
 								<br>Branches
 							</span>
 						</div>
