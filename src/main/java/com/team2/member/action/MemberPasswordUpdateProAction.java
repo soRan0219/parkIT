@@ -50,7 +50,7 @@ public class MemberPasswordUpdateProAction implements Action {
 		    return null;
 		} else if (result == 0) {
 		    // 기존 비밀번호가 일치하지 않음
-		    JSForward.alertAndBack(response, "기존 비밀번호가 일치하지 않습니다.\\n다시 입력해주세요.");
+		    JSForward.alertAndBack(response, "기존 비밀번호와 일치하지 않습니다.\\n다시 입력해주세요.");
 		    return null;
 		} else {
 		    // 해당 ID의 회원이 존재하지 않음

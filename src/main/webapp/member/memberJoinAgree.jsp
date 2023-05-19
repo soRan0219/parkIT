@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자세히</title>
+<title>ParkIT : 약관 자세히</title>
 </head>
 <body>
 	<fieldset>

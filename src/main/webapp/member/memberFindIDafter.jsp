@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디/비밀번호 찾기</title>
+<title>ParkIT : 아이디 찾기</title>
 </head>
 <body>
 <!-- <h1>아이디/비밀번호 찾기</h1> -->

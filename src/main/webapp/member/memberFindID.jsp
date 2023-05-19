@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<title>아이디/비밀번호 찾기</title>
+<title>ParkIT : 아이디 찾기</title>
 </head>
 <body>
 <!-- <h1>아이디/비밀번호 찾기</h1> -->
@@ -31,12 +31,12 @@
 		<form action="./MemberFindIDAction.me" method="post">
 			<div>		
 				<label>Name</label> <br>
-				<input type="text" name="name" id="name" placeholder="이름을 입력하세요" class="input_text">
+				<input type="text" name="name" id="name" placeholder="이름을 입력해주세요" class="input_text">
 			</div>
 			
 			<div>
 				<label>Email</label> <br>
-				<input type="email" name="email" id="email" placeholder="이메일을 입력하세요" class="input_text">	
+				<input type="email" name="email" id="email" placeholder="이메일을 입력해주세요" class="input_text">	
 			</div>			
 			
 		<hr>

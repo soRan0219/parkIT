@@ -77,7 +77,7 @@ body {
 .find_wrap {
     display: flex;
     justify-content: center;
-    margin-top: 9px;
+    margin-top: 7px;
 }
 
 .find_wrap li {

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ParkIT 로그인</title>
+<title>ParkIT : 로그인</title>
 <link rel="stylesheet" href="css/alert.css">
 <link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/memLogin.css">

@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyPage</title>
+<title>ParkIT : MyPage</title>
 </head>
 <body>
 <!-- 	<h1>MyPage</h1>  -->

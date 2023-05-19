@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 변경</title>
+<title>ParkIT : 비밀번호 변경</title>
 
 
 	<script type="text/javascript">
@@ -36,7 +36,7 @@
 		    var newPassword = document.getElementById("newpw").value;
 
 		    if (currentPassword === newPassword) {
-		      alert("현재 비밀번호와 새로운 비밀번호가 일치합니다.");
+		      alert("현재 비밀번호와 새로운 비밀번호가 일치합니다.\n다시 입력해주세요.");
 		      return false; // 폼 제출을 중지하기 위해 false 반환
 		    }
 

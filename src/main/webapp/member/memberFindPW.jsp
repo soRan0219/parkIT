@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<title>아이디/비밀번호 찾기</title>
+<title>ParkIT : 비밀번호 찾기</title>
 </head>
 <body>
 <!-- <h1>아이디/비밀번호 찾기</h1> -->
