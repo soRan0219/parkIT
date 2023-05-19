@@ -37,8 +37,6 @@
   border-radius: 10%;
 }
 
-
-
   .profile-options {
     display: none;
   }
@@ -49,6 +47,10 @@
 #profile{
 	cursor: pointer;
 }
+
+
+
+
 
 </style>
 
@@ -71,20 +73,15 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">이용안내</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
-        <li class="nav-item"><a href="./Introduction.park" class="nav-link2">주차장 안내</a></li>
-      </ul>
-    </li>
+    <li class="nav-item active"><a href="./Main.park" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="./Introduction.park" class="nav-link">이용안내</a></li>
     <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li>
      <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
+      <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li>
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
+        <li class="nav-item"><a href="./QuestionWrite.qu" class="nav-link2">1:1 문의</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -125,6 +122,7 @@
     <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
     <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
     <li><a href="./ResList.me">예약내역 보기</a></li>
+    <li><a href="./QuestionList.qu">문의내역 보기</a></li>
     <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
   </ul>
   </div>
@@ -141,7 +139,7 @@
 </script>
 
 	</nav>
-	<!-- END nav  -->
+	<!-- END nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
 		style="background-image: url('images/park5.jpg'); height: 40rem;"
@@ -151,7 +149,7 @@
 			<div
 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
 				<div class="col-lg-8 ftco-animate">
-					<div class="text w-100 text-center mb-md-5 pb-md-5">
+					<div class="text w-100 text-center mb-md-5 pb-md-5" style="z-index: 10;">
 						<p style="font-size: 18px;">주차걱정 없이 안전하게
 							주차하자!</p>
 						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
