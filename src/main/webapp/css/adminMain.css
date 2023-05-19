@@ -41,7 +41,11 @@
 
 .col-md-12 {
 	position: relative;
-	
+	margin-top: 2rem;
+}
+
+#magin-bottom-2rem { 
+	margin-bottom: 2rem;
 }
 
 table {font-size: 15px;}
