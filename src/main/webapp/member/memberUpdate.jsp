@@ -13,6 +13,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -36,7 +37,30 @@
 <link rel="stylesheet" href="css/memUpdate.css">
 <link rel="stylesheet" href="css/style.css">
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script type="text/javascript">
+//------------------------------------------------------------------------------------
+//전화번호에 자동으로 하이픈 넣기
+
+	$(function () {
+		
+		
+		$("#tel").on("keyup", function () {
+			var telVal = $(this).val();
+			telVal = telVal.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+			var telLen = telVal.length;
+			if(telLen > 3){
+				telVal = telVal.substring(0,3) + "-" + telVal.substring(3);
+			}
+			if(telLen > 7){
+				telVal = telVal.substring(0,8) + "-" +telVal.substring(8);
+			}
+			$(this).val(telVal);
+		});
+	
+	}); // 하이픈
+		
 		function checkData() {
 			// 아이디가 입력되어있는지 체크
 			if(document.fr.pw.value == ""){
@@ -50,12 +74,14 @@
 
 </head>
 <body>
-
+	
+	<jsp:include page="../inc/top.jsp"/>
+	
 	<section class="ftco-section ftco-no-pt bg-light">
 	<!-- itwill_member 테이블에 저장될 정보를 입력 -->
 		<div class="memberUpdate_content">
 				<div class="form-group">
-					<a class="navbar-brand" href="./Main.park">Park<span>IT</span></a>
+					<a class="navbar-brand1">회원정보 수정</a>
 				</div>
 			<div class="login_content">	
 				<!-- action 주소가 없으면 자신의 페이지 호출 -->
@@ -64,7 +90,7 @@
 					<div>비밀번호 : <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요"></div>	
 					<div>이름 : <input type="text" id="name" name="memname" value="${dto.memname }" readonly></div>
 					<div>생년월일 : <input type="date" id="birth" name="birth" value="${dto.birth }" readonly></div>
-					<div>휴대전화 : <input type="tel" id="tel" name="tel" value="${dto.tel }" ></div>
+					<div>휴대전화 : <input type="tel" id="tel" name="tel" maxlength="13" value="${dto.tel }" ></div>
 					<div>이메일 : <input type="text" id="email" name="email" value="${dto.email }" readonly></div>
 					
 					<hr>
