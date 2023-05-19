@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
 import com.team2.parkingdetail.db.PDetailDAO;
@@ -62,6 +63,19 @@ public class IntroAction implements Action {
 		int availableC = dao.getAvailablePositions(parkingC, date, time);
 		System.out.println("C 예약 가능한 자리: " + availableC);
 		request.setAttribute("availableC", availableC);
+		
+		if(request.getParameter("ajax")!=null) {
+			
+			JsonObject obj = new JsonObject();
+			obj.addProperty("availableA", availableA);
+			obj.addProperty("availableB", availableB);
+			obj.addProperty("availableC", availableC);
+			
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(obj);
+			
+			return null;
+		}
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./introduction/introduction.jsp");
