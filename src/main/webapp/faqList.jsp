@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>ParkIT</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +12,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -182,7 +183,7 @@
 				<div class="col-md-12 text-center">
 
 					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<!-- Link back to Colorlib  can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
 						<script>
 							document.write(new Date().getFullYear());

@@ -44,6 +44,7 @@
 	<div id="top" style="margin-bottom: 10em;">
 	
 	<h1> 이용안내 </h1>
+	<hr style="border: 2px solid #ccc;">
 		<div>
 		<h4>① 가입하기</h4> 
 		parkIT 홈페이지에서 회원가입을 진행해주세요. parkIT는 만19세 이상부터 이용이 가능합니다.
@@ -60,15 +61,16 @@
 		</div>
 	<br><br><br>
 	<h1> 이용요금 </h1>
+	<hr style="border: 2px solid #ccc;">
 		<div>
 		<h4 id="seo123"> 30분당 1000원 </h4>
 		</div>
-	
 	</div> <!-- /top -->	
 	
-	<div id="bottom"> <!-- 아래 -->
+	<div id="bottom"> <!-- 아래  -->
 	
 	<h1> 주차장 안내 </h1>
+	<hr style="border: 2px solid #ccc;">
 	
 	<div class="box"> <!-- box -->
 	

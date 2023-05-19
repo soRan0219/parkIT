@@ -657,7 +657,7 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
-	<!-- datepicker -->
+	<!--  datepicker -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<!-- timepicker -->

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> parkIT: 예약하기 </title>
+<title> ParkIT: 예약하기 </title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@
 <!-- jQuery 라이브러리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<!-- datepicker -->
+<!-- datepicker  -->
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 
 <!-- timepicker -->
