@@ -9,9 +9,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>ParkIT</title>
 
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -49,7 +48,7 @@
 				
 				// 총회원수 출력
 				var memberCount = data.memberListCount;
-// 				console.log(memberCount); // 총 회원수 출력 확인용
+// 				console.log(memberCount); // 총 회원수 출력 확인용 
 				$("#memberCount").text(memberCount);
 				
 				// 총 예약건수 출력
@@ -468,7 +467,7 @@
 
 <jsp:include page="../inc/top.jsp"/>
 		<div class="container">
-			<div class="row no-gutters">
+			<div class="row no-gutters" >
 				<div class="col-md-12	featured-top">
 					<div class="row no-gutters">
 						<form action="" class="request-form ftco-animate bg-primary">
@@ -630,7 +629,6 @@
 				</div>
 				</div>
 			</div>
-	
 	<jsp:include page="../inc/bottom.jsp"/>		
 		
 	<script src="js/jquery.min.js"></script>

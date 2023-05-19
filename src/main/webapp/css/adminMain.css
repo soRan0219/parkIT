@@ -15,7 +15,7 @@
 
 /* .admin4{ */
 /* 	float: left; */
-/* } */
+/* } */ 
 
 .services-wrap {
     padding: 4em 3em;
@@ -41,6 +41,7 @@
 
 .col-md-12 {
 	position: relative;
+	
 }
 
 table {font-size: 15px;}
