@@ -138,6 +138,25 @@
 		}
 	} //check()
 	
+	$.ajax({
+			url: "./Introduction.park?ajax=true",
+			type: "post",
+			dataType: "json",
+			success: function(data) {
+				console.log("A: " + data.availableA);
+				console.log("B: " + data.availableB);
+				console.log("C: " + data.availableC);
+				
+				$('.parkA').text(data.availableA);
+				$('.parkB').text(data.availableB);
+				$('.parkC').text(data.availableC);
+				
+			},
+			error: function() {
+				alert("실패");
+			}
+		}); //ajax
+	
 </script>
 
 </head>
@@ -266,12 +285,12 @@
 									style="background-image: url(images/park2.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="./Introduction.park#map">서면점</a>
+										<a href="./Introduction.park#seo123">서면점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkIT주차장</span>
+										<span class="cat">현재 예약 가능한 자리</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkA" style="font-size: 16px; color: #1089FF;"></span><span style="font-size: 16px; color: blue;">/30</span>
 										</p>
 									</div>
 								</div>
@@ -283,12 +302,12 @@
 									style="background-image: url(images/park3.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="./Introduction.park#map2">해운대점</a>
+										<a href="./Introduction.park#hae123">해운대점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkIT주차장</span>
+										<span class="cat">현재 예약 가능한 자리</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkB" style="font-size: 16px; color: #1089FF;"></span><span style="font-size: 16px; color: blue;">/30</span>
 										</p>
 									</div>
 								</div>
@@ -300,12 +319,12 @@
 									style="background-image: url(images/park4.jpg);"></div>
 								<div class="text">
 									<h2 class="mb-0">
-										<a href="./Introduction.park#map3">명지점</a>
+										<a href="./Introduction.park#mung123">명지점</a>
 									</h2>
 									<div class="d-flex mb-3">
-										<span class="cat">ParkIT주차장</span>
+										<span class="cat">현재 예약 가능한 자리</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkC" style="font-size: 16px; color: #1089FF;"></span><span style="font-size: 16px; color: blue;">/30</span>
 										</p>
 									</div>
 								</div>
@@ -332,7 +351,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="60">0</strong> <span>Year
+							<strong class="number" data-number="1">0</strong> <span>Year
 								<br>Experienced
 							</span>
 						</div>
@@ -352,7 +371,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="1590">0</strong> <span>Happy
+							<strong class="number" data-number="1134">0</strong> <span>Happy
 								<br>Customers
 							</span>
 						</div>
@@ -362,7 +381,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text d-flex align-items-center">
-							<strong class="number" data-number="123141">0</strong> <span>Total
+							<strong class="number" data-number="12941">0</strong> <span>Total
 								<br>Branches
 							</span>
 						</div>

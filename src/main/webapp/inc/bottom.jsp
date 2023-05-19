@@ -32,8 +32,7 @@
 					<div class="ftco-footer-widget mb-4 ml-md-5">
 						<h2 class="ftco-heading-2">이용안내</h2>
 						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">이용수칙</a></li>
-							<li><a href="./Introduction.park" class="py-2 d-block">주차장 안내</a></li>
+							<li><a href="./Introduction.park" class="py-2 d-block">주차장 이용안내</a></li>
 						</ul>
 					</div>
 				</div>
@@ -43,6 +42,7 @@
 						<ul class="list-unstyled">
 							<li><a href="./noticeList.no" class="py-2 d-block">공지사항</a></li>
 							<li><a href="./FaqList.fa" class="py-2 d-block">자주 묻는 질문</a></li>
+							<li><a href="./QuestionWrite.qu" class="py-2 d-block">1:1 문의</a></li>
 						</ul>
 					</div>
 				</div>
