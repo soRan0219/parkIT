@@ -152,15 +152,15 @@
 				</select>
 			</span>
 			
-			<span class="container">
+			<span class="cont">
 				<span>희망 예약 날짜</span>
 				<input type="text" id="datepicker" class="parkSelect" autocomplete="off"  placeholder="날짜를 선택하세요">
 			</span>
-			<span class="container">
+			<span class="cont">
 				<span>희망 입차 시간</span>
 				<input type="text" id="fromTime" class="parkSelect" autocomplete="off" placeholder="입차시간을 선택하세요">
 			</span>
-			<span class="container">
+			<span class="cont">
 				<span>희망 출차 시간</span>
 				<input type="text" id="toTime" class="parkSelect" autocomplete="off" placeholder="출차시간을 선택하세요">
 			</span>

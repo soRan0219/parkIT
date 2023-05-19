@@ -42,12 +42,10 @@
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 <!-- datepicker -->
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 
 <!-- timepicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
 
 <link rel="stylesheet" type="text/css" href="css/res.css">
 
@@ -89,7 +87,6 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
-// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
@@ -105,7 +102,6 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
-// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
@@ -467,8 +463,6 @@
 					$(this).addClass('selected');
 					$('#payInfo input#parkingCode').val( $(this).find('#code').val() );
 					$('#payInfo input#parkingPosition').val( $(this).find('#position').val() );
-// 					console.log($('#payInfo input#parkingPosition').val());
-// 					console.log($('#tel').val());
 				} 
 			}); //cbtnClick
 			
@@ -520,7 +514,6 @@
 	</div>
 	
 	<script type="text/javascript">
-// 		var number = document.getElementById('price').value;
 		var number = $('#price').val();
 		console.log(number);
 		console.log(typeof number);

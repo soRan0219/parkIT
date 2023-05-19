@@ -10,11 +10,9 @@
 }
 
 #section {
-/* 	height: 30%; */
 	padding-top: 5%;
 	padding-bottom: 13%;
 	text-align: center;
-/* 	background-color: #ccc; */
 }
 
 /***** header *****/
@@ -57,7 +55,7 @@ input[type="text"] {
 	border-radius: 5px;
 	border-color: #ccc;
 }
-.container {
+.cont {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
@@ -72,6 +70,7 @@ input[type="text"] {
 	width: 13em;
 	height: 2em;
 }
-/* #submitBtn input[type="submit"] { */
-/* 	background-color: #007bff; */
-/* } */
+#submitBtn input[type="submit"] {
+	width: 7em;
+	height: 2.5em;
+}

@@ -36,14 +36,10 @@
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<!--  datepicker -->
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-
 <!-- timepicker -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
+<!--  datepicker -->
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
 
 <script type="text/javascript">			
@@ -84,7 +80,6 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
-// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
@@ -101,7 +96,6 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
-// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
@@ -117,7 +111,26 @@
 			$('input[type="hidden"]#parkOutTime').val(toTime);
 		});
 		
-	});
+		$.ajax({
+			url: "./Introduction.park?ajax=true",
+			type: "post",
+			dataType: "json",
+			success: function(data) {
+// 				console.log("A: " + data.availableA);
+// 				console.log("B: " + data.availableB);
+// 				console.log("C: " + data.availableC);
+				
+				$('.parkA').text(data.availableA);
+				$('.parkB').text(data.availableB);
+				$('.parkC').text(data.availableC);
+				
+			},
+			error: function() {
+				alert("실패");
+			}
+		}); //ajax
+		
+	}); //jQuery
 	
 	function check() {
 		
@@ -271,7 +284,7 @@
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkA"> </span> <span>/30</span>
 										</p>
 									</div>
 								</div>
@@ -288,7 +301,7 @@
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkB"> </span> <span>/30</span>
 										</p>
 									</div>
 								</div>
@@ -305,7 +318,7 @@
 									<div class="d-flex mb-3">
 										<span class="cat">ParkIT주차장</span>
 										<p class="price ml-auto">
-											₩1000 <span>/30min</span>
+											<span class="parkC"> </span> <span>/30</span>
 										</p>
 									</div>
 								</div>
@@ -397,12 +410,10 @@
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
 	
-<!-- datepicker -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- 	<script src="js/bootstrap-datepicker.js"></script> -->
-<!-- timepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<!--   	<script src="js/jquery.timepicker.min.js"></script>  -->
+	<!-- datepicker -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- timepicker -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 	<script src="js/scrollax.min.js"></script>
 	<script
