@@ -19,6 +19,22 @@ public class MemberFindPWAction implements Action {
 		
 		HttpSession session = request.getSession();
 		
+		// 공백일 때 제어
+		String id = request.getParameter("id");
+		String email = request.getParameter("email");
+		
+		if(id == "" || email == "") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>");
+			out.print("alert('아이디와 이메일 모두 입력해주세요.');");
+			out.print("history.back()");
+			out.print("</script>");
+			out.close();
+			
+			return null;
+		}
+		
 		// MemberDTO 객체 생성
 		MemberDTO dto = new MemberDTO();
 		System.out.println(request.getParameter("id"));

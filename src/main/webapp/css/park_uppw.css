@@ -202,7 +202,8 @@ input[type="submit"]:hover {
     background-image: none !important;
     background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
     color: fieldtext !important;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+    margin-top: 3px;
 }
 
 .input_text1 {
@@ -210,4 +211,5 @@ input[type="submit"]:hover {
     background-image: none !important;
     background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
     color: fieldtext !important;
+    margin-top: 3px;
 }

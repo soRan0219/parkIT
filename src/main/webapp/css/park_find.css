@@ -81,7 +81,7 @@ body {
 .find_wrap {
     display: flex;
     justify-content: center;
-    margin-top: 9px;
+    margin-top: 37px;
 }
 
 .find_wrap li {
@@ -126,7 +126,7 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 200px; /* 원하는 높이로 설정하세요 */
+  height: 185px; /* 원하는 높이로 설정하세요 */
 }
 
 
@@ -197,3 +197,6 @@ input[type="submit"]:hover {
     color: fieldtext !important;
 }
 
+.login_content input[type="text"] {
+  margin-bottom: 10px;
+  }

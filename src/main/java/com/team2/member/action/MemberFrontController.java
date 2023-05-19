@@ -70,8 +70,6 @@ public class MemberFrontController extends HttpServlet {
 		}
 		
 		
-		
-		
 		// --------------------------------------------------------------------------------
 		// 약관동의자세히 - ./MemberJoinAgree.me
 		else if(command.equals("/MemberJoinAgree.me")) {
@@ -83,9 +81,6 @@ public class MemberFrontController extends HttpServlet {
 			forward.setPath("./member/memberJoinAgree.jsp");
 			forward.setRedirect(false);
 		}
-		
-		
-		
 		
 		
 		// --------------------------------------------------------------------------------
@@ -279,7 +274,6 @@ public class MemberFrontController extends HttpServlet {
 			}
 		
 			
-			////////////////////////////////////////////////////////////////
 		
 		
 		// --------------------------------------------------------------------------------

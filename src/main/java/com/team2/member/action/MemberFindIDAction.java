@@ -24,6 +24,22 @@ public class MemberFindIDAction implements Action {
 			
 			HttpSession session = request.getSession();
 			
+			// null 값 일 때 제어
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			
+			if(name == "" || email == "") {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.print("<script>");
+				out.print("alert('이름과 이메일 모두 입력해주세요.');");
+				out.print("history.back();");
+				out.print("</script>");
+				out.close();
+				
+				return null;
+			}
+			
 			// MemberDTO 객체 생성
 			MemberDTO dto = new MemberDTO();
 			System.out.println(request.getParameter("name"));

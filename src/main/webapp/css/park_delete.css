@@ -48,7 +48,8 @@ select option {
 	width: 100%;
 	border: 1px solid rgb(209, 209, 209);
 	border-radius: 10px;
-	margin-bottom: 25px;
+	margin-bottom: 22px;
+	margin-top: 3px;
 }
 
 .wrap {

@@ -6,48 +6,124 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ParkIT 회원가입</title>
+<title>ParkIT : 회원가입</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/memJoin.css">
-<link rel="stylesheet" href="css/park.css">
+<!-- <link rel="stylesheet" href="css/park.css"> -->
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 <script type="text/javascript">
+
+// 모든 공백 체크 정규식
+var emp = RegExp(/\s/g);
+// 아이디 정규식
+var getId = RegExp(/^[a-z0-9]{6,15}$/i);
+// 비밀번호 정규식
+var getPw = RegExp(/^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,15}$/i); 
+// 이름 정규식
+var getName = RegExp(/^[가-힣]{2,6}$/);
+// 이메일 검사 정규식
+var getMail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
+// 휴대폰 번호 정규식
+var getPhone = RegExp(/^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/);
+// 아이디 중복확인 여부
+var isIdConfirmed = false;
+// 이메일 인증 여부
+var isEmailConfirmed = false;
+
+// 아이디 중복확인 --------------------------------------------------------------------
+
+
+
+$(function () {
+$("#confirmId").on("click", function() {
+  let idValue = $("#id").val();
+
+  if (idValue === "") {
+    alert("아이디를 입력해주세요.");
+    return false;
+  }
+  
+
+	// 아이디 유효성검사
+	if(!getId.test($("#id").val())){
+		alert("6~15자 영문, 숫자를 입력해주세요.");
+		$("#id").focus();
+		return false;
+	}
+  
+  
+  
+
+  $.ajax({
+    type: "POST",
+    url: "./MemberConfirmIdAction.me",
+    dataType: "JSON",
+    success: function (data) {
+      console.log(data);
+
+
+      
+      
+      let checkId = false;
+
+      for (let i = 0; i < data.memberList.length; i++) {
+        if (data.memberList[i].id === idValue) {
+          checkId = true;
+          break;
+        }
+      }
+		
+		      if (checkId) {
+		        alert("이미 사용중인 아이디 입니다.");
+//         		$("#join_submit").prop("disabled", true);
+		        isIdConfirmed = false;
+		      } else {
+		        alert("사용 가능한 아이디 입니다.");
+//         		$("#join_submit").prop("disabled", false);
+		        isIdConfirmed = true;
+		      }
+		    }
+		  }); // ajax
+		}); // 중복관리 버튼
+
+});
+
+
 // ------------------------------------------------------------------------------------
 // 회원가입 정규식 유효성 검사
 		function checkData(){
-			// 모든 공백 체크 정규식
-			var emp = RegExp(/\s/g);
-			// 아이디 정규식
-			var getId = RegExp(/^[a-z0-9]{6,15}$/);
-			// 비밀번호 정규식
-			var getPw = RegExp(/^[A-Za-z0-9]{8,15}$/); 
-			// 이름 정규식
-			var getName = RegExp(/^[가-힣]{2,6}$/);
-			// 이메일 검사 정규식
-			var getMail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
-			// 휴대폰 번호 정규식
-			var getPhone = RegExp(/^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/);
+
 			
+			
+			// 아이디 공백 확인
 			if($("#id").val() == ""){
 		        alert("아이디를 입력해주세요.");
 		        $("#id").focus();
 		        return false;
 		      }
+			
+			
+			// 아이디 중복체크 확인
+			else if(!isIdConfirmed){
+				alert("아이디 중복확인을 해주세요.")
+				$("#id").focus();
+				return false;
+			}
+			
+			
+			
 		           
-		      // 아이디 유효성검사
-		      if(!getId.test($("#id").val())){
-		        alert("아이디 형식에 맞게 입력해주세요.");
-		        $("#id").val("");
-		        $("#id").focus();
-		        return false;
-		      }
+
 
 		      // 비밀번호 공백 확인
-		      if($("#pw").val() == ""){
+		      else if($("#pw").val() == ""){
 		        alert("비밀번호를 입력해주세요.");
 		        $("#pw").focus();
 		        return false;
@@ -55,15 +131,15 @@
 		           
 
 		      // 아이디 비밀번호 같음 확인
-		      if($("#id").val() == $("#pw").val()){
-		        alert("아이디와 비밀번호가 같습니다.");
+		     else if($("#id").val() == $("#pw").val()){
+		        alert("아이디와 비밀번호가 동일합니다.\\n다시 입력해주세요.");
 		        $("#pw").val("");
 		        $("#pw").focus();
 		        return false;
 		      }
 		      
 		      // 비밀번호 유효성검사
-		      if(!getPw.test($("#pw").val())){
+		     else if(!getPw.test($("#pw").val())){
 		        alert("비밀번호 형식에 맞게 입력해주세요.");
 		        $("#pw").val("");
 		        $("#pw").focus();
@@ -71,30 +147,28 @@
 		      }
 		           
 		      // 비밀번호 확인란 공백 확인
-		      if($("#pw2").val() == ""){
+		     else if($("#pw2").val() == ""){
 		        alert("비밀번호 확인란을 입력해주세요.");
 		        $("#pw2").focus();
 		        return false;
 		      }
 		           
 		      // 비밀번호 서로확인
-		      if($("#pw").val() != $("#pw2").val()){
+		     else if($("#pw").val() != $("#pw2").val()){
 		          alert("비밀번호와 비밀번호 확인란이 일치하지 않습니다.");
-		          $("#pw").val("");
-		          $("#pw2").val("");
 		          $("#pw").focus();
 		          return false;
 		      }
 		          
 		      // 이름 공백 검사
-		      if($("#memname").val() == ""){
+		     else if($("#memname").val() == ""){
 		        alert("이름을 입력해주세요.");
 		        $("#name").focus();
 		        return false;
 		      }
 
 		      // 이름 유효성 검사
-		      if(!getName.test($("#memname").val())){
+		     else if(!getName.test($("#memname").val())){
 		        alert("이름 형식에 맞게 입력해주세요.")
 		        $("#name").val("");
 		        $("#name").focus();
@@ -102,73 +176,109 @@
 		      }
 
 		      // 생년월일 공백 확인
-		      if($("#birth").val() == ""){
+		     else if($("#birth").val() == ""){
 		        alert("생년월일을 입력해주세요.");
 		        $("#birth").focus();
 		        return false;
 		      }
 		      
 		      // 휴대전화 공백 확인
-		      if($("#tel").val() == ""){
+		     else if($("#tel").val() == ""){
 		        alert("휴대전화를 입력해주세요.");
 		        $("#tel").focus();
 		        return false;
 		      }
 		      
+			
+			// 휴대전화 유효성 검사
+		     else if(!getPhone.test($("#tel").val().replace(/-/g, ""))){
+		        alert("전화번호를 정확히 입력해주세요.")
+		        $("#tel").focus();
+		        return false;
+		      }
+			
+			
 		      // 이메일 공백 확인
-		      if($("#email").val() == ""){
+		     else if($("#email").val() == ""){
 		        alert("이메일을 입력해주세요.");
 		        $("#email").focus();
 		        return false;
 		      }
 		           
 		      // 이메일 유효성 검사
-		      if(!getMail.test($("#email").val())){
+		     else if(!getMail.test($("#email").val())){ // - 제거하는것
 		        alert("이메일 형식에 맞게 입력해주세요.")
 		        $("#email").val("");
 		        $("#email").focus();
 		        return false;
 		      }
-		      
-		      $("#join_submit").prop() == "true" 
+			
 
+				else if(!isEmailConfirmed){
+					alert("이메일 인증을 해주세요.")
+					return false;
+				}
+					
+			
 		      
-	    	  $("#email").on("blur", function(){
-	    			if($(#email).val().trim() == "") {
-	    				$('#checkEmail').html("이메일을 입력하세요.");
-	    				$('#checkEmail').attr('color','red');
-	    				$('#noch').val(1);
-	    			}
-
-	    		}
+			
+			// 약관 체크 ------------------------------------
+		    	let checked_1 = $("#check_1").is(":checked");
+		        let checked_2 = $("#check_2").is(":checked");
+		        let checked_3 = $("#check_3").is(":checked");
+		        
+		        if (checked_1 && checked_2) {
+					// [필수]약관에 모두 동의한 경우
+					return true;
+				} else {
+					alert('[필수]약관에 모두 동의해야 회원가입이 가능합니다.');
+					return false;
+				}
+			
+		
 		      
 	} // checkData() 끝
-</script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
-<script type="text/javascript">
+
 // ------------------------------------------------------------------------------------
 // 비밀번호 일치,불일치 입력창 밑에 띄우기
+
 	$(function() {
+		
+		$('#alert-error').css('color', 'red');
 		$('#alert-success').css('color', 'blue');
 		$('#alert-danger').css('color', 'red');
+		
+		$("#alert-error").hide();
 		$("#alert-success").hide();
 		$("#alert-danger").hide();
+		
 		$("input").keyup(function() {
 			var pw=$("#pw").val();
 			var pw2=$("#pw2").val();
 			if(pw != "" || pw2 != ""){
-				if(pw == pw2){
+				
+				if (!/^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,15}$/i.test(pw)) {
+					$("#alert-error").show();
+					$("#alert-success").hide();
+					$("#alert-danger").hide();
+				}
+				else if(pw == pw2){
+					$("#alert-error").hide();
 					$("#alert-success").show();
 					$("#alert-danger").hide();
 					$("join_submit").removeAttr("disabled");
-				}else{
+				}
+				else{
+					$("#alert-error").hide();
 					$("#alert-success").hide();
 					$("#alert-danger").show();
 					$("join_submit").attr("disabled", "disabled");
 				}
-			}
+			} 
+			
+			
 		});
 	});
 // ------------------------------------------------------------------------------------
@@ -191,24 +301,21 @@
 		      }
 		    });
 // ------------------------------------------------------------------------------------
-// [필수] 약관에 하나라도 동의 안되어있으면 안넘어가게 처리
-	    $("#join_submit").click(function () {
-	    	let checked_1 = $("#check_1").is(":checked");
-	        let checked_2 = $("#check_2").is(":checked");
-	        let checked_3 = $("#check_3").is(":checked");
-	        
-	        if (checked_1 && checked_2) {
-				// [필수]약관에 모두 동의한 경우
-				return true;
-			} else {
-				alert('[필수]약관에 모두 동의해야 회원가입이 가능합니다.');
-				return false;
-			}
-		});
-	});
+// [필수] 약관에 하나라도 동의 안되어있으면 안넘어가게 처리 -> 위에서 처리함
+
+	}); // 약관동의 전체 선택 처리부터
+	
+	
+
+	
+	
+
 // ------------------------------------------------------------------------------------
 // 전화번호에 자동으로 하이픈 넣기
+
 	$(function () {
+		
+		
 		$("#tel").on("keyup", function () {
 			var telVal = $(this).val();
 			telVal = telVal.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
@@ -221,64 +328,15 @@
 			}
 			$(this).val(telVal);
 		});
-// ------------------------------------------------------------------------------------
-// 아이디 중복확인
-		  var isIdConfirmed = false; // 아이디 중복확인 여부
-
-		  // 페이지 로딩 시 join_submit 버튼을 비활성화
-		  $(document).ready(function() {
-		    $("#join_submit").prop("disabled", true);
-		  });
-
-		  $("#confirmId").on("click", function() {
-		    let idValue = $("#id").val();
-
-		    if (idValue === "") {
-		      alert("아이디를 입력해주세요");
-		      return;
-		    }
-
-		    $.ajax({
-		      type: "POST",
-		      url: "./MemberConfirmIdAction.me",
-		      dataType: "JSON",
-		      success: function (data) {
-		        console.log(data);
-
-		        let checkId = false;
-
-		        for (let i = 0; i < data.memberList.length; i++) {
-		          if (data.memberList[i].id === idValue) {
-		            checkId = true;
-		            break;
-		          }
-		        }
-
-		        if (checkId) {
-		          alert("사용 불가능한 아이디 입니다");
-		          $("#join_submit").prop("disabled", true);
-		          isIdConfirmed = false;
-		        } else {
-		          alert("사용 가능한 아이디 입니다");
-		          $("#join_submit").prop("disabled", false);
-		          isIdConfirmed = true;
-		        }
-		      }
-		    }); // ajax
-		  }); // 중복관리 버튼
-
-		  // "중복확인" 버튼을 안누르면 경고창 표시 및 버튼 누른 후에만 다음으로 진행 가능 ------------------------
-		  window.onbeforeunload = function() {
-		    if (!isIdConfirmed) {
-		      return "아이디 중복확인이 완료되지 않았습니다. 정말로 페이지를 떠나시겠습니까?";
-		    }
-		  };
-	});
-</script>
+	
+	}); // 하이픈
+		
 
 
-<script type="text/javascript">
-// 여기서부터 이메일 인증 관련-------------------------------------------------------------------
+
+
+
+// // 여기서부터 이메일 인증 관련-------------------------------------------------------------------
 	  function sendVerificationEmail() {
 	    var email = $("#email").val();
 
@@ -305,7 +363,7 @@
 	  }
 
 	  function validateEmail(email) {
-	    var re = /\S+@\S+\.\S+/;
+	    var re = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
 	    return re.test(email);
 	  }
 	  
@@ -321,8 +379,11 @@
 	      if (response === "true") {
 	        alert("인증이 완료되었습니다.");
 	        // 인증이 성공한 경우 추가적인 처리를 수행할 수 있습니다.
+	        isEmailConfirmed = true;
+	        
 	      } else {
 	        alert("인증번호가 일치하지 않습니다. 다시 시도해주세요.");
+	        isEmailConfirmed = false;
 	      }
 	    },
 	    error: function(xhr, status, error) {
@@ -330,13 +391,11 @@
 	    }
 	  });
 	}
-</script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script type="text/javascript">
+
 // ------------------------------------------------------------------------------------
 // 미성년자 생일 입력 불가 처리
+
 	$(function () {
 		$("#birth").datepicker({
 			dateFormat: 'yy-mm-dd',
@@ -357,7 +416,10 @@
 		    yearSuffix: '년',
 		    showButtonPanel: 'true',
 		});//datepicker
+		
 	});//function
+	
+	
 </script>
 
 
@@ -367,6 +429,7 @@
 	<div class="form-group">
 		<a class="navbar-brand" href="./Main.park">Park<span>IT</span></a>
 	</div>	
+	
 	<div class="join_content">
 		<form action="./MemberJoinAction.me" method="post" name="fr" onsubmit="return checkData();" id="form_sumit">
 	<!-- 아이디, 비밀번호 입력 -->
@@ -394,6 +457,7 @@
 						<input type="password" id="pw2" name="pw2" class="int" title="비밀번호 재확인 입력">
 					</span>
 				</p>		
+						<div class="alert alert-error" id="alert-error">8~15자 영문, 숫자를 사용해주세요.</div>
 						<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 			</div>	
@@ -471,10 +535,9 @@
 		</div>
 		
 		<div><input type="submit" value="가입하기" id="join_submit" class="btn_join"></div>
-		
 		</form>
 	</div>
-	<br><br><br><br><br>
+		<br><br><br>
 
 		
 		

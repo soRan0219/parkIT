@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 탈퇴</title>
+<title>ParkIT : 회원 탈퇴</title>
 </head>
 <body>
 	

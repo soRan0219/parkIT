@@ -108,6 +108,8 @@ input[type="submit"], input[type="button"] {
 	background-color: #ff9f40;
 	color: #fff;
 	cursor: pointer;
+	width: 210px;
+	height: 35px;
 }
 
 input[type="submit"]:hover {
