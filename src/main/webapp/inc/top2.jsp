@@ -103,7 +103,7 @@
       <a class="navbar-brand" id="login-size" href="./MemberLogin.me">Park<span>IT 로그인</span></a>
     </div>
     <div class="join-membership">
-      <a href="#" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
+      <a href="./MemberFindID.me" class="nav-link" style="color: white; padding: 0;">아이디/비밀번호 찾기</a>
     </div>
     <div class="join-membership">
       <a href="./MemberJoin.me" class="nav-link" style="color: white; padding: 0;">회원가입</a>
@@ -124,7 +124,7 @@
   <ul class="profile-options" id="profile-options">
     <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
     <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
-    <li><a href="#">예약내역 보기</a></li>
+    <li><a href="./ResList.me">예약내역 보기</a></li>
     <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
   </ul>
   </div>
@@ -152,10 +152,10 @@
 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
 				<div class="col-lg-8 ftco-animate">
 					<div class="text w-100 text-center mb-md-5 pb-md-5">
-						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
-							Park<span style="display: inline; color: #28A745; ">IT</span></h1>
 						<p style="font-size: 18px;">주차걱정 없이 안전하게
 							주차하자!</p>
+						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
+							Park<span style="display: inline; color: #28A745; ">IT</span></h1>
 					</div>
 				</div>
 			</div>
