@@ -1,15 +1,16 @@
 @charset "UTF-8";
 
 #header {
-	height: 100px;
+	height: 11%;
 	position: relative;
-	z-index: 3;
+	margin-top: 3%;
+	z-index: -1;
 }
 
 #left-nav {
-/* 	color: white; */
 	width: 55%;
 	height: 58%;
+	margin-left: 1.5em;
 	float: left;
 	padding: 10px;
 }
@@ -41,16 +42,28 @@ input {
 #header #pName {
 	margin-top: 15%;
 	padding-left: 8%;
-	font-size: 2.2em;
+	font-size: 2.3em;
 	font-weight: 900;
 }
 #header #inout {
 	display: inline-block;
 	width: 3.7em;
 	border-radius: 13px;
-	background-color: #008000;
+	background-color: #28a745;
 	color: #fff;
 	text-align: center;
+}
+#header .lotInfo { 
+	display: inline-block;
+	color: #808080;
+	margin-bottom: 0.7em;
+	margin-left: 0.5em;
+}
+#header #hr1 {
+	width: 95%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border: 2px solid #ccc;
 }
 
 /***** left-nav 요소 *****/
@@ -104,8 +117,12 @@ input {
 	border: 1px solid #ccc;
 }
 #dateTimeBtn {
-	height: 1.6em;
+	height: 1.8em;
 }
+/* #right-section #chk { */
+/* 	display: flex; */
+/* 	justify-content: flex-end; */
+/* } */
 #right-section .check {
 	width: 8em;
 	height: 1.4em;
@@ -129,6 +146,12 @@ input {
 #right-section h6 {
 	font-size: 1.2em;
 	font-weight: bold;
+}
+#right-section p {
+	line-height: 1.5em;
+}
+#right-section hr {
+	margin-top: 1.3em;
 }
 #price {
 	width: 5em;

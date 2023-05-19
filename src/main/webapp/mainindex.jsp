@@ -11,6 +11,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -58,12 +59,24 @@
 			currentText:'오늘',
 			closeText:'닫기',
 			dateFormat:'yy-mm-dd',
-			dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
-			dayNamesMin:['월','화','수','목','금','토','일'],
+			dayNames:['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+			dayNamesMin:['일','월','화','수','목','금','토'],
 			monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
 			isRTL:false,
 			minDate:0,
-			maxDate:+30
+			maxDate:+30,
+			onSelect: function(date, inst) {
+				var selected = $(this).datepicker('getDate');
+				var current = new Date();
+				
+				if(selected > current) {
+					$('#fromTime').timepicker('option', 'minTime', '06:00');
+					$('#toTime').timepicker('option', 'minTime', '06:00');
+				} else {
+					$('#fromTime').timepicker('option', 'minTime', new Date());
+					$('#toTime').timepicker('option', 'minTime', new Date());
+				}
+			} //onSelect
 		});
 		
 		$('#fromTime').timepicker({
@@ -71,12 +84,11 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true,
 			change:function(time) {
-				console.log("fromTime: " + $(this).val());
-				console.log("fromTime: " + time);
 				var minTime = new Date(time);
 				minTime.setMinutes(minTime.getMinutes() + 30);
 				$('#toTime').timepicker('option', 'minTime', minTime);
@@ -89,6 +101,7 @@
 			interval:30,
 			startTime:'06:00',
 			minTime:'06:00',
+// 			minTime:new Date(),
 			maxTime: '22:00',
 			dynamic:false,
 			scrollbar:true
@@ -130,106 +143,8 @@
 </head>
 <body>
 
-<!-- top -->
-
-<!-- 		<nav -->
-<!-- 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" -->
-<!-- 		id="ftco-navbar"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a> -->
-<!-- 			<button class="navbar-toggler" type="button" data-toggle="collapse" -->
-<!-- 				data-target="#ftco-nav" aria-controls="ftco-nav" -->
-<!-- 				aria-expanded="false" aria-label="Toggle navigation"> -->
-<!-- 				<span class="oi oi-menu"></span> -->
-<!-- 			</button> -->
-			
-			
-
-<!-- 			<div class="collapse navbar-collapse" id="ftco-nav"> -->
-<!--   <ul class="navbar-nav ml-auto"> -->
-<!--     <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li> -->
-<!--     <li class="nav-item dropdown"> -->
-<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">회사소개</a> -->
-<!--       <ul class="dropdown-menu"> -->
-<!--         <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li> -->
-<!--         <li class="nav-item"><a href="./Introduction.park" class="nav-link2">주차장 안내</a></li> -->
-<!--       </ul> -->
-<!--     </li> -->
-<!--     <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li> -->
-<!--      <li class="nav-item dropdown"> -->
-<!--       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a> -->
-<!--       <ul class="dropdown-menu"> -->
-<!--         <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li> -->
-<!--         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li> -->
-<!--       </ul> -->
-<!--     </li> -->
-<!--   </ul> -->
-<!-- </div> -->
-<!-- 		</div> -->
-
-<%-- <c:if test="${empty id }"> --%>
-<!--   <div class="login-form"> -->
-<!--     <div class="form-group"> -->
-<!--       <a class="navbar-brand" href="./MemberLogin.me">Park<span>IT 로그인</span></a> -->
-<!--     </div> -->
-<!--     <div class="join-membership"> -->
-<!--       <a href="#">아이디/비밀번호 찾기</a> -->
-<!--     </div> -->
-<!--     <div class="join-membership"> -->
-<!--       <a href="./MemberJoin.me">회원가입</a> -->
-<!--     </div> -->
-<!--   </div> -->
-<%-- </c:if> --%>
-<%-- <c:if test="${not empty id }"> --%>
-<!--   <div class="login-form"> -->
-<%--     아이디: ${id } <br> <!-- sessionScope 생략 --> --%>
-	
-<!-- 	<input type="button" value="로그아웃" onclick="location.href='./MemberLogout.me'">	 -->
-<!-- 	<hr> -->
-	
-<!-- 	<h6><a href="./MemberInfo.me">회원정보 조회</a></h6> -->
-<!-- 	<h6><a href="./MemberUpdate.me">회원정보 수정</a></h6> -->
-<!-- 	<h6><a href="./MemberDelete.me">회원정보 삭제</a></h6> -->
-<!--   </div> -->
-<%-- </c:if> --%>
-<!-- 	</nav> -->
-
-<!-- <!-- top --> 
-
-<!-- 	<div class="hero-wrap ftco-degree-bg" -->
-<!-- 		style="background-image: url('images/park5.jpg');" -->
-<!-- 		data-stellar-background-ratio="0.5"> -->
-<!-- 		<div class="overlay"></div> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div -->
-<!-- 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center"> -->
-<!-- 				<div class="col-lg-8 ftco-animate"> -->
-<!-- 					<div class="text w-100 text-center mb-md-5 pb-md-5"> -->
-<!-- 						<h1 class="mb-4">Fast &amp; Easy Way To Parking Lot -->
-<!-- 							Reservation</h1> -->
-<!-- 						<p style="font-size: 18px;">Always drive safely and return -->
-<!-- 							home safely</p> -->
-<!-- 						<a href="https://www.youtube.com/watch?v=uywSy854r8g" -->
-<!-- 							class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center"> -->
-<!-- 							<div -->
-<!-- 								class="icon d-flex align-items-center justify-content-center"> -->
-<!-- 								<span class="ion-ios-play"></span> -->
-<!-- 							</div> -->
-<!-- 							<div class="heading-title ml-5"> -->
-<!-- 								<span>Easy steps for parking a car</span> -->
-<!-- 							</div> -->
-<!-- 						</a> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-
-
 
 <jsp:include page="inc/top.jsp"/>
-
-
 
 
 	<section class="ftco-section ftco-no-pt bg-light">
@@ -253,22 +168,6 @@
 									</div>
 								</div>
 
-								<script>
-//   // 선택한 항목을 검색창에 나타내는 함수
-//   function updateSearchInput(value) {
-//     document.getElementById("parking-location").value = value;
-//     document.querySelector(".dropdown-toggle").textContent = value;
-//   }
-
-//   // 선택한 항목을 검색창에 나타냄
-//   const dropdownItems = document.querySelectorAll(".dropdown-item");
-//   dropdownItems.forEach((item) => {
-//     item.addEventListener("click", (event) => {
-//       const selectedValue = event.target.textContent;
-//       updateSearchInput(selectedValue);
-//     });
-//   });
-</script>
 								<div class="d-flex">
 									<div class="form-group mr-2">
 										<label for="" class="label">주차 날짜</label> 
