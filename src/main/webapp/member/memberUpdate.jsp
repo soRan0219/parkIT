@@ -75,7 +75,7 @@
 </head>
 <body>
 	
-	<jsp:include page="../inc/top.jsp"/>
+	<jsp:include page="../inc/mem_top.jsp"/>
 	
 	<section class="ftco-section ftco-no-pt bg-light">
 	<!-- itwill_member 테이블에 저장될 정보를 입력 -->
@@ -86,12 +86,12 @@
 			<div class="login_content">	
 				<!-- action 주소가 없으면 자신의 페이지 호출 -->
 				<form action="./MemberUpdateProAction.me" method="post" id="form_sumit" name="fr" onsubmit="return checkDate();">
-					<div>아이디 : <input type="text" id="id" name="id" value="${requestScope.dto.id }" readonly></div>
-					<div>비밀번호 : <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요"></div>	
-					<div>이름 : <input type="text" id="name" name="memname" value="${dto.memname }" readonly></div>
-					<div>생년월일 : <input type="date" id="birth" name="birth" value="${dto.birth }" readonly></div>
-					<div>휴대전화 : <input type="tel" id="tel" name="tel" maxlength="13" value="${dto.tel }" ></div>
-					<div>이메일 : <input type="text" id="email" name="email" value="${dto.email }" readonly></div>
+					<div>아이디  <input type="text" id="id" name="id" value="${requestScope.dto.id }" readonly></div>
+					<div>비밀번호  <input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요"></div>	
+					<div>이름  <input type="text" id="name" name="memname" value="${dto.memname }" readonly></div>
+					<div>생년월일  <input type="date" id="birth" name="birth" value="${dto.birth }" readonly></div>
+					<div>휴대전화  <input type="tel" id="tel" name="tel" maxlength="13" value="${dto.tel }" ></div>
+					<div>이메일  <input type="text" id="email" name="email" value="${dto.email }" readonly></div>
 					
 					<hr>
 					<input type="submit" value="회원 정보 수정" class="btn_update">
