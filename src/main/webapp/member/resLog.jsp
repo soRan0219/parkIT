@@ -42,9 +42,13 @@
 	
 	<div class="res1">
 	
-	<p class="res_p">관리자 예약 조회 리스트</p>
+	<c:if test="${empty resList }">
+		<p class="empty_p">현재 예약 내역이 없습니다.</p>
+	</c:if>
+	
+<c:if test="${not empty resList}">
 	<section class="ftco-section ftco-no-pt bg-light">
-
+	<p class="res_p">예약 내역</p>
 	<table border="1" class="rwd-table">
 		<tr>
 			<th> 예약번호 </th>
@@ -87,6 +91,7 @@
 		</c:forEach>
 		
 	</table>
+	</c:if>
 	</section>
 	
 	</div>
