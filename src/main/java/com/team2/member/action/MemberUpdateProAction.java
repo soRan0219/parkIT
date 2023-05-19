@@ -35,6 +35,14 @@ public class MemberUpdateProAction implements Action {
 		// 한글처리(인코딩)
 		request.setCharacterEncoding("UTF-8");
 		
+		// null 값일 때 제어
+		String tel = request.getParameter("tel");
+		
+		if(tel == "" || tel.length() != 13) {
+			JSForward.alertAndBack(response, "변경할 전화번호를 입력해주세요.");
+			return null;
+		}
+		
 		// 전달정보(파라미터) 저장(DTO)
 		 MemberDTO dto = new MemberDTO();
 		 

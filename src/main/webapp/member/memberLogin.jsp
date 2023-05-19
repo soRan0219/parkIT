@@ -1,16 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>ParkIT : 로그인</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">	
+
 <link rel="stylesheet" href="css/alert.css">
 <link rel="stylesheet" href="css/park.css">
-<link rel="stylesheet" href="css/memLogin.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/memLogin.css">
 </head>
 <body>
 	<div class="form-group">
