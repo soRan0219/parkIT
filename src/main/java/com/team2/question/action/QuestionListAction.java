@@ -1,13 +1,16 @@
 package com.team2.question.action;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.team2.question.db.QuestionDAO;
+
 import com.team2.commons.Action;
 import com.team2.commons.ActionForward;
+import com.team2.question.db.QuestionDAO;
+import com.team2.question.db.QuestionDTO;
 
 public class QuestionListAction implements Action {
 
@@ -58,23 +61,25 @@ public class QuestionListAction implements Action {
 
 		////////////////////////////////////////////////////////////////
 		// DB에서 페이징 처리된 리스트 들고오기
-		List queList = dao.getquList(startRow, pageSize);
+		List<QuestionDTO> quList = dao.getQuestionList(startRow, pageSize);
 
 		// 계산된 정보를 모두 저장 -> 전달
 
 		// request 영역에 저장
 		// (count,boardList,pageCount,pageNum,pageBlock,startPage,endPage)
 		request.setAttribute("count", count);
-		request.setAttribute("quList", queList);
+		request.setAttribute("quList", quList);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageNum", pageNum);
 
+		
+		System.out.println(quList);
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("./quList.jsp");
+		forward.setPath("./question/quList.jsp");
 		forward.setRedirect(false);
 
 		return forward;

@@ -13,7 +13,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.team2.member.db.MemberDTO;
+import com.team2.question.db.QuestionDTO;
+
 
 public class QuestionDAO {
 	// DAO (Data Access Object) : DB 데이터 처리 객체
@@ -77,14 +78,15 @@ public class QuestionDAO {
 
 		// 정보 저장( 글쓰기 )
 		// 3. sql(insert) - pstmt
-		sql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id) VALUES (?, ?, ?, NOW(), ?)";
+		sql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id, selOp, quNoRe) VALUES (?, ?, ?, NOW(), ?, ?, ?)";
 	    pstmt = con.prepareStatement(sql);
 
 		pstmt.setInt(1, quNo);
-		pstmt.setString(2, dto.getQuestionTitle());
-		pstmt.setString(3, dto.getQuestionContents());
+		pstmt.setString(2, dto.getQuTitle());
+		pstmt.setString(3, dto.getQuContents());
 		pstmt.setString(4, dto.getId());
-		
+		pstmt.setString(5, dto.getSelOp());
+		pstmt.setInt(6, dto.getQuNoRe());
 
 
 		// 4. sql
@@ -116,6 +118,7 @@ public class QuestionDAO {
 				+ " order by quNo desc";
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		
+		
 		// 4. SQL 실행
 		ResultSet rs = pstmt.executeQuery();
 		// 5. 데이터 처리 
@@ -124,10 +127,11 @@ public class QuestionDAO {
 		while(rs.next()) {
 			//rs -> dto
 			QuestionDTO dto = new QuestionDTO();
-			dto.setQuestionNo(rs.getInt("quNo"));
+			dto.setQuNo(rs.getInt("quNo"));
+			dto.setSelOp(rs.getString("selOp"));
 			dto.setId(rs.getString("id"));
-			dto.setQuestionTitle(rs.getString("quTitle"));
-			dto.setQuestionContents(rs.getString("quContents"));
+			dto.setQuTitle(rs.getString("quTitle"));
+			dto.setQuContents(rs.getString("quContents"));
 			dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());	
 			// dto 1개 -> list 1칸에 저장`
 			quList.add(dto);			
@@ -147,57 +151,46 @@ public class QuestionDAO {
 	 * 커넥션풀 사용
 	 * @return ArrayList 형태로 리턴
 	 */
-	public ArrayList getquList(int startRow,int pageSize) {
-
-		//List boardList = new ArrayList();
-		ArrayList quList = new ArrayList();
-
+public List<QuestionDTO> getQuestionList(int startRow, int pageSize) {
+		
+		List<QuestionDTO> quList = new ArrayList<QuestionDTO>(); // 업캐스팅
+		
 		try {
-			// 1.2. 디비연결
 			con = getCon();
-			// 3. SQL 작성(select) & pstmt 객체
-			String sql = "select * from qu "
-					+ " order by quNo desc ";
-	 			//	+ " where quNo > 0 ";
-				//	+ " order by quNo desc";
+			sql = "select * from qu"
+					+ " order by quNo DESC limit ?, ?";
+			
 			pstmt = con.prepareStatement(sql);
 			
-			// ??? 
-//			pstmt.setInt(1, startRow-1);  // 시작위치-1
-//			pstmt.setInt(2, pageSize);  // 개수
+			pstmt.setInt(1, startRow-1); // 시작위치 (1, 2, ...페이지 => 0, 10, ...)
+			pstmt.setInt(2, pageSize); // 페이지당 글 개수
 			
-			// 4. SQL 실행
+			
 			rs = pstmt.executeQuery();
-			// 5. 데이터 처리 
-			//    DB(rs) -> DTO -> ArrayList
-			//    1 row -> 1 DTO -> 1 ArrayList
-			while(rs.next()) {
-				//rs -> dto
-				QuestionDTO dto = new QuestionDTO();
-				dto.setQuestionNo(rs.getInt("quNo"));
-				dto.setId(rs.getString("id"));
-				dto.setQuestionTitle(rs.getString("quTitle"));
-				dto.setQuestionContents(rs.getString("quContents"));
-				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());	
-				
-				// dto 1개 -> list 1칸에 저장`
-				quList.add(dto);			
-			}// while	
 			
-			System.out.println(" DAO : 게시판 글 정보 모두 저장완료! ");
+			
+			while(rs.next()) {
+				QuestionDTO dto = new QuestionDTO();
+				dto.setQuNo(rs.getInt("quNo"));
+				dto.setSelOp(rs.getString("selOp"));
+				dto.setId(rs.getString("id"));
+				dto.setQuTitle(rs.getString("quTitle"));
+				dto.setQuContents(rs.getString("quContents"));
+				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());
+
+				
+				quList.add(dto);
+				
+			}
+			
+			System.out.println("DAO : 공지 글 저장완료");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// 예외 발생 여부와 상관없이 반드시 한번 실행하는 구문
-			// => 자원 해제  (디비 연결 정보 해제 - 사용한 객체의 역순 종료) 
-			/*
-			 * try { rs.close(); pstmt.close(); con.close(); } catch (SQLException e) {
-			 * e.printStackTrace(); }
-			 */
 			closeDB();
 		}
-
+		
 		return quList;
 	}
 	// getBoardList()
@@ -252,11 +245,12 @@ public class QuestionDAO {
 				// 데이터 저장 (rs -> DTO)
 				dto = new QuestionDTO();
 				
-				dto.setQuestionNo(rs.getInt("quNo"));
+				dto.setQuNo(rs.getInt("quNo"));
+				dto.setSelOp(rs.getString("selOp"));
 				dto.setId(rs.getString("id"));
-				dto.setQuestionTitle(rs.getString("quTitle"));
-				dto.setQuestionContents(rs.getString("quContents"));
-				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());	
+				dto.setQuTitle(rs.getString("quTitle"));
+				dto.setQuContents(rs.getString("quContents"));
+				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());
 			
 				
 				System.out.println(" DAO : "+quNo+"번  글정보 저장완료!");
@@ -272,6 +266,27 @@ public class QuestionDAO {
 		return dto;
 	}
 	// getBoard(quNo)
+	
+	public int getMaxQuestionCount() {
+		int cnt = 0;
+		
+		try {
+			getCon();
+			sql= "SELECT max(quNo) FROM qu;";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+			System.out.println("DAO : DB에 저장된 마지막 공지글 번호 " + cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return cnt;
+	} 
 	
 	
 	

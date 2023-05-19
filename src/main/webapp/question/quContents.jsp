@@ -32,7 +32,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/quWrite.css">
+<link rel="stylesheet" href="css/quContents.css">
+<link href="css/quContent.css" rel="stylesheet">
 </head>
 <body>
 
@@ -101,7 +102,7 @@
 <!--   </div> -->
 <%-- </c:if> --%>
 <!-- 	</nav> -->
-<!-- 	<!-- END nav -->
+<!-- 	<!-- END nav --> 
 
 <!-- 	<section class="hero-wrap hero-wrap-2 js-fullheight" -->
 <!-- 		style="background-image: url('images/bg_3.jpg');" -->
@@ -123,66 +124,61 @@
 <!-- 	</section> -->
 
 <!-- 	<section class=king> -->
-	<section class="ftco-section contact-section">
 		
 		
-	
+		<script>
+			function quConfirm(quNo) {
+				var msg = "정말 삭제하시겠습니까?";
+				var result = confirm(msg);
+				if (result) { // "예"를 선택한 경우
+					return true;
+				}
+				else { // "아니오"를 선택한 경우
+					return false;
+				}
+			}
+		</script>
+
+
+		
 <!-- 		</head> -->
 <!-- 		<body> -->
-		
-			
-			
+
 	
-			
-<div class="writeform">
-  <form action="./QuestionWriteAction.qu" method="post" >
-	<table id="question">
-		<tr>
-		    <th class="ttitle" colspan="2">1대1 문의</th>
-		</tr>
-		<tr>
-			<td> 문의 유형 </td>
-			<td>
-				<select name="selOp">
-				<option value=null></option>
-					<option value="예약 문의">예약 문의</option>
-					<option value="서비스 문의">서비스 문의</option>
-					<option value="위치 문의">위치 문의</option>
-					<option value="결제 문의">결제 문의</option>
-					<option value="환불 문의">환불 문의</option>
-					<option value="기타 문의">기타 문의</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-        <td><input type="hidden" name="id" value="${sessionScope.id}"></td>
-      </tr>
-		<tr>
-			<td> 제목 </td>
-			<td><input type="text" name="quTitle" placeholder="제목을 입력하세요."></td>
-	 	</tr>
-		<tr>
-			<td> 내용 </td>
-			<td><textarea name="quContents"></textarea></td>
-		</tr>
-		
-		<tr>
-		   <td colspan="2">
-		     	<div id="table_search">
-					<input type="submit" value="문의하기" class="btn">
-				</div>
-		   </td>
-		</tr>
-	</table>
-	
-</form>
+		<div class="detailTable">
+  <h1>공지사항(관리자)</h1>
+  
+  <table border="1">
+    <tr>
+      <th>제목</th>
+      <td colspan="3">${dto.quTitle}</td>
+    </tr>
+    
+    <tr>
+      <th>작성일</th>
+      <td colspan="3">${dto.quDateTime}</td>
+    </tr>
+    
+    <tr>
+      <td colspan="3" height="300px">${dto.quContents} ></td>
+    </tr>
+    
+    <tr>
+      <td colspan="4" id="buttonContainer">
+        <div>
+          <form action="./QuestionDeleteAction.qu" method="post" onsubmit="return quConfirm()">
+            <input type="submit" value="글삭제">
+            <input type="hidden" name="quNo" value="${dto.quNo}">
+          </form>
+          <input type="button" value="목록으로" onclick="location.href='./QuestionList.qu?pageNum=${pageNum}'" id="listButton">
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
-			
-			
-	
-	</section>
-	
-	
+		
+		
+
 	
 	
 	
