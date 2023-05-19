@@ -29,18 +29,23 @@
 <link rel="stylesheet" href="css/jquery.timepicker.css">
 
 
+<link rel="stylesheet" href="css/resLog.css">
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/park.css">
-<!-- <link rel="stylesheet" href="css/mem_resLog.css"> -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mem_resLog.css">
 </head>
 <body>
 
-	<jsp:include page="../inc/top.jsp"/>
-
+	<jsp:include page="../inc/mem_top.jsp"/>
+	
+	<div class="res1">
+	
+	<p class="res_p">관리자 예약 조회 리스트</p>
 	<section class="ftco-section ftco-no-pt bg-light">
-	<table border="1">
+
+	<table border="1" class="rwd-table">
 		<tr>
 			<th> 예약번호 </th>
 			<th> 지점 </th>
@@ -84,6 +89,7 @@
 	</table>
 	</section>
 	
+	</div>
 	
 	
 	<jsp:include page="../inc/bottom.jsp"/>

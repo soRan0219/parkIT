@@ -25,7 +25,7 @@ select option {
 
 .login_content {
 	width: 450px;
-	height: 480px;
+/* 	height: 480px; */
 	margin: 0 auto;
 	margin-bottom: 17px;
 	padding: 20px 28PX;
@@ -100,7 +100,20 @@ ol, ul {
     padding-inline-start: 40px;
 }
 
-input[type="submit"], input[type="button"] {
+input[type="submit"] {
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	padding: 3px 16px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ff9f40;
+	color: #fff;
+	cursor: pointer;
+}
+
+input[type="button"] {
 	display: inline-block;
 	margin-top: 10px;
 	margin-right: 10px;
@@ -223,23 +236,39 @@ input[type="submit"]:hover {
 	color: #fff;
 }
 
-#id, #email {
-	width: 80%;
-	height: 40px;
-	margin-top: 10px;
-}
+/* #id, #email { */
+/* 	width: 80%; */
+/* 	height: 40px; */
+/* 	margin-top: 10px; */
+/* } */
 
-#pw, #birth, #tel {
+#pw, #birth, #tel, #id, #email, #name {
 	width: 76%;
 	height: 40px;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
-#name {
-	width: 83%;
-	height: 40px;
-	margin-top: 10px;
+#name{
+	margin-left: 35px;
 }
+
+#id{
+	margin-left: 21px;
+}
+
+#email{
+	margin-left: 21px;
+}
+
+#birth, #tel, #pw{
+	margin-left: 8px;
+}
+
+/* #name { */
+/* 	width: 83%; */
+/* 	height: 40px; */
+/* 	margin-top: 10px; */
+/* } */
 
 .navbar-brand1 {
   display: flex;
@@ -249,6 +278,6 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
-div>readonly {
-	background-color: gray;
+input[readonly] {
+	background-color: #EBEBEB;
 }
