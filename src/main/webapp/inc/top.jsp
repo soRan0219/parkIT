@@ -87,6 +87,7 @@
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li>
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
+        <li class="nav-item"><a href="./QuestionWrite.qu" class="nav-link2">1:1 문의</a></li>
       </ul>
     </li>
     <li class="nav-item">
