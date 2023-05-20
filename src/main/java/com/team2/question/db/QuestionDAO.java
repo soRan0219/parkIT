@@ -19,7 +19,7 @@ import com.team2.question.db.QuestionDTO;
 
 public class QuestionDAO {
 	// DAO  (Data Access Object) : DB 데이터 처리 객체
-	// => DB에 관한 모든 동작 수행
+	// => DB에 관한 모든 동작  수행
 	
 	// 공통사용 변수
 	private Connection con = null;
@@ -119,13 +119,10 @@ public class QuestionDAO {
 	        System.out.println("quNo: " + quNo);
 
 	        // 3. INSERT 문 실행
-	        String insertSql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id, selOp) VALUES (?, ?, ?, NOW(), ?, ?)";
-	        pstmt = con.prepareStatement(insertSql);
-	        pstmt.setInt(1, quNo);
-	        pstmt.setString(2, dto.getQuTitle());
-	        pstmt.setString(3, dto.getQuContents());
-	        pstmt.setString(4, dto.getId());
-	        pstmt.setString(5, dto.getSelOp());
+	        String insertSql = "UPDATE qu SET quContentsRe = ? WHERE quNo = ?";
+	        pstmt = con.prepareStatement(insertSql);	        
+	        pstmt.setString(1, dto.getQuContentsRe());
+	        pstmt.setInt(2, dto.getQuNo());
 
 	        pstmt.executeUpdate();
 
@@ -230,6 +227,7 @@ public List<QuestionDTO> getQuestionList(int startRow, int pageSize) {
 				dto.setQuContents(rs.getString("quContents"));
 				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());
 				dto.setQuNoRe(rs.getInt("quNoRe"));
+				dto.setQuContentsRe(rs.getString("quContentsRe"));
 
 				
 				quList.add(dto);
@@ -304,6 +302,7 @@ public List<QuestionDTO> getQuestionList(int startRow, int pageSize) {
 				dto.setQuTitle(rs.getString("quTitle"));
 				dto.setQuContents(rs.getString("quContents"));
 				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());
+				dto.setQuContentsRe(rs.getString("quContentsRe"));
 			
 				
 				System.out.println(" DAO : "+quNo+"번  글정보 저장완료!");
