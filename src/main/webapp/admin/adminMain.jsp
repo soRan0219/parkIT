@@ -432,6 +432,49 @@
 		
 		// 메인페이지로 돌아가게 하는 버튼
 		$(".main").on("click",function(){
+			
+			$.ajax({
+				type: "POST",
+				url: "./AdminCountData.ad",
+				dataType:"JSON",
+				success: function(data){
+//	 				console.log(data);
+					
+					// 총회원수 출력
+					var memberCount = data.memberListCount;
+//	 				console.log(memberCount); // 총 회원수 출력 확인용 
+					$("#memberCount").text(memberCount);
+					
+					// 총 예약건수 출력
+					var resCount = data.resCount;
+//	 				console.log(resCount); // 총 예약건수 출력 확인용
+					$("#resCount").text(resCount);
+					
+					// 총 취소건수 출력
+					var resCancelCount = data.resCancelCount;
+					$("#resCancelCount").text(resCancelCount);
+					
+					// 총 예약건수 출력
+					var resCountA = data.resCountA;
+					console.log(resCountA); // 총 예약건수 출력 확인용
+					$("#resCountA").text(resCountA);
+					
+					// 총 예약건수 출력
+					var resCountB = data.resCountB;
+					console.log(resCountB); // 총 예약건수 출력 확인용
+					$("#resCountB").text(resCountB);
+					
+					// 총 예약건수 출력
+					var resCountC = data.resCountC;
+					console.log(resCountC); // 총 예약건수 출력 확인용
+					$("#resCountC").text(resCountC);
+					
+				}
+			
+			});
+			
+			
+			
 			$(".admin2").show();
 			$(".admin3, .admin4, .admin5").hide();
 		})
