@@ -42,6 +42,7 @@
   }
   .profile-options.show {
     display: block;
+    margin-right: 1.5rem;
   }
   
 #profile{
@@ -122,7 +123,6 @@
     <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
     <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
     <li><a href="./ResList.me">예약내역 보기</a></li>
-    <li><a href="./QuestionList.qu">문의내역 보기</a></li>
     <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
   </ul>
   </div>
