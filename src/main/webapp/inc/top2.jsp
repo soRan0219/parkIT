@@ -150,7 +150,7 @@
 				class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
 				<div class="col-lg-8 ftco-animate">
 					<div class="text w-100 text-center mb-md-5 pb-md-5" style="z-index: 10;">
-						<p style="font-size: 18px;">주차걱정 없이 안전하게
+						<p style="font-size: 18px;">주차걱정 없이 편안하게
 							주차하자!</p>
 						<h1 class="mb-4" style="white-space: nowrap;">빠르고 쉽게 예약하고 주차하자<br>
 							Park<span style="display: inline; color: #28A745; ">IT</span></h1>

@@ -73,6 +73,11 @@
 	</script>
 
 </head>
+<style>
+.bg-light {
+    background-color: #fff !important;
+}
+</style>
 <body>
 	
 	<jsp:include page="../inc/mem_top.jsp"/>
