@@ -66,13 +66,12 @@
 				<div class="col-md-12 text-center">
 
 					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						상호명 : ParkIT(주) | 대표이사 : 윤소란 | 사업자번호 : 123-19572-594 | 통신판매업신고 : 진구청 제2022-03389<br>
 						Copyright &copy;
 						<script>document.write(new Date().getFullYear());</script>
-						All rights reserved | This template is made with <i
-							class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						All rights reserved 
+						<i class="icon-heart color-danger" aria-hidden="true"></i> 
+						<a href="./Main.park" target="_blank">ParkIT</a>
 					</p>
 				</div>
 			</div>
