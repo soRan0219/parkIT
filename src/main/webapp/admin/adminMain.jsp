@@ -529,7 +529,7 @@
 											aria-labelledby="dropdownMenuButton">
 											<a class="dropdown-item" href="./noticeList.no">공지사항</a> 
 											<a class="dropdown-item" href="./FaqList.fa">자주묻는 질문</a> 
-											<a class="dropdown-item" href="./QuestionWrite.qu">1:1 문의</a> 
+											<a class="dropdown-item" href="./QuestionList.qu">1:1 문의</a> 
 										</div>
 									</div>
 									</div>
