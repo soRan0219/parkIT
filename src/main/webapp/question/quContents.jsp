@@ -41,7 +41,7 @@
 <jsp:include page="../inc/top.jsp"/>
 
 <!-- 	<nav -->
-<!-- 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" -->
+<!-- 		class="navbar navbar-expand-lg navba r-dark ftco_navbar bg-dark ftco-navbar-light" -->
 <!-- 		id="ftco-navbar"> -->
 <!-- 		<div class="container"> -->
 <!-- 			<a class="navbar-brand" href="./MainMain.park">Park<span>IT</span></a> -->

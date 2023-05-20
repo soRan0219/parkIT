@@ -18,7 +18,7 @@ public class QuestionReWriteAction implements Action {
 		
     	// 한글처리
 		 request.setCharacterEncoding("UTF-8");
-//	 	System.out.println(" M : 한글처리 필터(web.xml) ");
+//	 	System.out.println(" M : 한글처리 필터(web.xml)  ");
 		
 		// 전달정보 저장
 		QuestionDTO dto = new QuestionDTO();

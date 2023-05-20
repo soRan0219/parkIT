@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class QuestionDTO {
 	// 자바빈 => DTO(Data Transfer Object)
 	//               데이터 전송 객체
-	//               DB 데이터를 JSP페이지로 전송 
+	//                DB 데이터를 JSP페이지로 전송 
 	
 	private int quNo;
 	private int quNoRe;
