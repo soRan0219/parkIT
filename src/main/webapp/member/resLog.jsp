@@ -91,7 +91,14 @@
 				<td> ${dto.parkInTime } </td>
 				<td> ${dto.parkOutTime } </td>
 				<td> ${dto.price } </td>
-				<td> ${dto.resStatus } </td>
+				<c:choose>
+					<c:when test="${dto.resStatus==1 }">
+						<td> 예약완료 </td>
+					</c:when>
+					<c:when test="${dto.resStatus==0 }">
+						<td> 예약취소 </td>
+					</c:when>
+				</c:choose>
 			</tr>
 		</c:forEach>
 		
