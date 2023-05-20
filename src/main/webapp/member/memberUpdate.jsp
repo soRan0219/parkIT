@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ParkIT : 내 정보 보기 및 수정</title>
+<title>ParkIT</title>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport"
