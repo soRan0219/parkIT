@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/quContents.css">
-<link href="css/quContent.css" rel="stylesheet">
+<link href="css/park.css" rel="stylesheet">
 </head>
 <body>
 
