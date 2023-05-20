@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> parkIT: 소개 </title>
+<title> parkIT: 이용안내 </title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
