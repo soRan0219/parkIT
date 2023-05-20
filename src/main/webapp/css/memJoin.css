@@ -58,7 +58,7 @@
 }
 
 #email {
-	width: 58%;
+	width: 59%;
 	height: 45px;
 }
 
@@ -140,4 +140,32 @@ button {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+a {
+    transition: .3s all ease;
+    color: #007bff;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    width: 480px;
+}
+
+.alert {
+    position: relative;
+    padding: 0.1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.alert-danger {
+    background-color: white;
+    border-color: white;
+}
+
+.alert-success {
+    background-color: white;
+    border-color: white;
 }

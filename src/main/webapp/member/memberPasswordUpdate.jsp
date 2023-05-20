@@ -89,8 +89,8 @@
 <!-- 		<legend>비밀번호 변경</legend> -->
 		<!-- action 주소가 없으면 자신의 페이지 호출 -->
 		<form action="./MemberPasswordUpdateProAction.me" method="post" name="fr" onsubmit="return checkDate();">
-			현재 비밀번호 : <input type="password" name="pw" placeholder="현재 비밀번호를 입력하세요." required="required" class="input_text" id="pw"> 			<br>	
-			변경할 비밀번호 : <input type="password" name="newpw" placeholder="변경할 비밀번호를 입력하세요." required="required" class="input_text1" id="newpw"> 			<br>	
+			현재 비밀번호  <input type="password" name="pw" placeholder="현재 비밀번호를 입력하세요." required="required" class="input_text" id="pw"> 			<br>	
+			변경할 비밀번호  <input type="password" name="newpw" placeholder="변경할 비밀번호를 입력하세요." required="required" class="input_text1" id="newpw"> 			<br>	
 			
 			
 			<hr>

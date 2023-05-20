@@ -14,9 +14,8 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 	
 <link rel="stylesheet" type="text/css" href="css/res_datepicker.css">
-<link rel="stylesheet" href="css/memJoin.css">
-<!-- <link rel="stylesheet" href="css/park.css"> -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/memJoin.css">
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -528,7 +527,7 @@ $("#confirmId").on("click", function() {
 			<div class="login-join_form_agreement_privacy">
 				<input type="checkbox" class="joincheck" id="check_2">	
 				<label for="privacyAgreeCheckBox">[필수] 개인정보 수집 및 이용 동의</label>
-				<a onclick="window.open('MemberJoinAgree.me', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));">자세히</a>
+<span style="display: inline-block; margin-left: 7px;"><a onclick="window.open('MemberJoinAgree.me', '_blank', 'width=500, height=500, top=' + ((screen.height - 500) / 2) + ', left=' + ((screen.width - 500) / 2));" style="text-decoration: underline;">보기</a></span>
 			</div>
 <!-- 		class="adAgreeCheckBox" -->
 			<div class="login-join_form_agreement_ad">
