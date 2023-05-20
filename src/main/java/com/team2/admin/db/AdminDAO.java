@@ -98,7 +98,7 @@ public class AdminDAO {
 			// 1. 2. DB연결
 			con = getCon();
 			// 3. sql작성 & pstmt 객체
-			sql = "SELECT m.id, memName, birth, tel, email, sum(resStatus), point, regDate"
+			sql = "SELECT m.id, memName, birth, tel, email, sum(resStatus), regDate"
 					+ " FROM member m"
 					+ " LEFT outer JOIN reservation r on r.id = m.id GROUP BY m.id ORDER BY regDate;"; // sql문 띄어쓰기 !!
 			pstmt = con.prepareStatement(sql);
@@ -115,7 +115,6 @@ public class AdminDAO {
 				dto.setBirth(rs.getDate("birth"));
 				dto.setTel(rs.getString("tel"));
 				dto.setEmail(rs.getString("email"));
-				dto.setPoint(rs.getInt("point"));
 				dto.setResStatus(rs.getInt("sum(resStatus)"));
 				dto.setRegDate(rs.getDate("regDate"));
 				
