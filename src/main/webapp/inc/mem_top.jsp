@@ -49,7 +49,9 @@
 }
 
 
-
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+ color: black;
+}
 
 
 </style>
@@ -73,17 +75,11 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a href="index.jsp" class="nav-link" style="color:#1089FF">Home</a></li>
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color:black">이용안내</a>
-      <ul class="dropdown-menu">
-        <li class="nav-item"><a href="pricing.jsp" class="nav-link2">이용수칙</a></li>
-        <li class="nav-item"><a href="./Introduction.park" class="nav-link2">주차장 안내</a></li>
-      </ul>
-    </li>
-    <li class="nav-item"><a href="./Reservation.res" class="nav-link" style="color:black">예약하기</a></li>
+    <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="./Introduction.park" class="nav-link" >이용안내</a></li>
+    <li class="nav-item"><a href="./Reservation.res" class="nav-link">예약하기</a></li>
      <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color:black">커뮤니티</a>
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li>
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
@@ -92,7 +88,7 @@
     </li>
     <li class="nav-item">
 	    <c:if test="${id.equals('admin')}">
-	    	<a href="./adminMain.ad" class="nav-link" style="color:black">관리자 공간</a>
+	    	<a href="./adminMain.ad" class="nav-link">관리자 공간</a>
 	 	</c:if>
  	</li>
   </ul>
