@@ -123,6 +123,7 @@ input[type="submit"]:hover {
     font-weight: 800;
     text-align: center;
     margin-top: 8%;
+    font-family: "Poppins", Arial, sans-serif;
 }
 
 .form-group {
