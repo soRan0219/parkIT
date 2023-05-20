@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ParkIT</title>
 </head>
 <body>
 	<h1><a href="./Reservation.res"> 예약하기 </a></h1>

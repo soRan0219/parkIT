@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>parkIT</title>
+<title>ParkIT</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <meta charset="utf-8">
 <meta name="viewport"
