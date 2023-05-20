@@ -391,7 +391,7 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text text-border d-flex align-items-center">
-							<strong class="number" data-number="1134">0</strong> <span>Happy
+							<strong class="number" data-number="983">0</strong> <span>Happy
 								<br>Customers
 							</span>
 						</div>
@@ -401,8 +401,8 @@
 					class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text d-flex align-items-center">
-							<strong class="number" data-number="12941">0</strong> <span>Total
-								<br>Branches
+							<strong class="number" data-number="9273">0</strong> <span>Total
+								<br>Reservation
 							</span>
 						</div>
 					</div>
