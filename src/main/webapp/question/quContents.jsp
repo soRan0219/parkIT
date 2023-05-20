@@ -161,8 +161,8 @@
     </tr>
     
     <tr>
-      <td colspan="3" height="300px">${dto.quContents} ></td>
-    </tr>
+      <td colspan="3" height="300px">${dto.quContents} </td>
+    </tr>	
     
     <tr>
       <td colspan="4" id="buttonContainer">
@@ -179,6 +179,39 @@
     </tr>
   </table>
 </div>
+
+<c:if test="${dto.quContentsRe != null}">
+<div class="detailTable">
+  <table border="1">
+    <tr>
+      <th colspan="3">${dto.quTitle}에 대한 답변입니다.</th>
+    </tr>
+    
+    
+    
+    <tr>
+      <td colspan="3" height="300px">${dto.quContentsRe} </td>
+    </tr>	
+    
+    <tr>
+      <td colspan="4" id="buttonContainer">
+        <div>
+          <form action="./QuestionDeleteAction.qu" method="post" onsubmit="return quConfirm()">
+          <c:if test="${qu.id.equals(id)}">
+            <input type="submit" value="글삭제">
+            </c:if>
+            <input type="hidden" name="quNo" value="${dto.quNo}">
+          </form>
+          <input type="button" value="목록으로" onclick="location.href='./QuestionList.qu?pageNum=${pageNum}'" id="listButton">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+
+</div>
+</c:if>
 		
 <jsp:include page="../inc/bottom.jsp"/>
 

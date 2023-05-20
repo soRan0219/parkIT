@@ -145,16 +145,17 @@
 			<td> 답변하기 </td>
 		</tr>
 		<tr>
+		<td><input type="hidden" name="quNo" value="${param.quNo}"></td>
 		<td><input type="hidden" name="id" value="${param.id}"></td>
         <td><input type="hidden" name="quNoRe" value="${param.quNo}"></td>
       </tr>
 		<tr>
 			<td> 제목 </td>
-			 <td><input type="text" name="quTitle" value="${param.quNo}번문의 Re)" readonly></td>
+			 <td><input type="text" name="quTitle" value="다음 문의에 대한 답변입니다." readonly></td>
 	 	</tr>
 		<tr>
 			<td> 내용 </td>
-			<td><textarea name="quContents"></textarea></td>
+			<td><textarea name="quContentsRe"></textarea></td>
 		</tr>
 		
 		<tr>

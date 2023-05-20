@@ -13,6 +13,7 @@ public class QuestionDTO {
 	private String selOp;
 	private String quTitle;
 	private String quContents;
+	private String quContentsRe;
 	private LocalDateTime quDateTime;
 	private String id;
 	
@@ -85,6 +86,18 @@ public class QuestionDTO {
 
 
 
+	public String getQuContentsRe() {
+		return quContentsRe;
+	}
+
+
+
+	public void setQuContentsRe(String quContentsRe) {
+		this.quContentsRe = quContentsRe;
+	}
+
+
+
 	public LocalDateTime getQuDateTime() {
 		return quDateTime;
 	}
@@ -111,7 +124,7 @@ public class QuestionDTO {
 
 	@Override
 	public String toString() {
-		return "QuestionDTO [quNo=" + quNo + ", quNoRe=" + quNoRe+ ", selOp=" + selOp + ", quTitle=" + quTitle + ", quContents=" + quContents
+		return "QuestionDTO [quNo=" + quNo + ", quNoRe=" + quNoRe+ ", selOp=" + selOp + ", quTitle=" + quTitle + ", quContentsRe=" + quContentsRe+ ", quContents=" + quContents
 				+ ", quDateTime=" + quDateTime + ", id=" + id + "]";
 	}
 	

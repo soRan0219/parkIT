@@ -23,10 +23,12 @@ public class QuestionReWriteAction implements Action {
 		// 전달정보 저장
 		QuestionDTO dto = new QuestionDTO();
 		dto.setId(request.getParameter("id"));
+		dto.setQuNo(Integer.parseInt(request.getParameter("quNo")));
 		dto.setQuTitle(request.getParameter("quTitle"));
 		dto.setQuContents(request.getParameter("quContents"));
 		dto.setSelOp(request.getParameter("selOp"));
 		dto.setQuNoRe(Integer.parseInt(request.getParameter("quNoRe")));
+	    dto.setQuContentsRe(request.getParameter("quContentsRe"));
 		
 		System.out.println(" M : "+dto);
 		
