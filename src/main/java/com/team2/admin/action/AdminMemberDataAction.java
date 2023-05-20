@@ -78,7 +78,6 @@ public class AdminMemberDataAction implements Action {
 			memberObject.addProperty("birth", dto.getBirth()+""); // 문자열로 바꾸기
 			memberObject.addProperty("email", dto.getEmail());
 			memberObject.addProperty("regDate", dto.getRegDate()+"");
-			memberObject.addProperty("point", dto.getPoint());
 			memberObject.addProperty("resStatus", dto.getResStatus());
 			memberArray.add(memberObject);
 		}
