@@ -254,11 +254,6 @@
 	</script>
 	
 	<div id="left-nav">
-<!-- 		<span class="lotInfo"> -->
-<%-- 			<b>Addr:</b> ${pDto.parkingAdr } --%>
-<!-- 			|  -->
-<%-- 			<b>Tel:</b> ${pDto.parkingTel }  --%>
-<!-- 		</span> -->
 	<div id="res_click_map">
 		<img src="./img/parkIT.png">
 		<div class="click_inner">
@@ -503,11 +498,6 @@
 			<div>
 				<h3> 결제 예상금액: <input type="text" id="price" name="price" class="check" value="${price }" readonly></h3>
 				
-				
-				
-<%-- 				<div id="dd"><fmt:formatNumber value="${price }"/></div> --%>
-				
-<%-- 				<input type="hidden" id="price" name="price" value="${price }"> --%>
 			</div>
 		</form>
 				<button onclick="requestPay()"> 결제하기 </button>
@@ -564,6 +554,11 @@
 			}
 			if(name.length<2) {
 				alert("자리를 선택해주세요.");
+				return false;
+			}
+			if(carNo=='') {
+				alert("차량번호를 입력해주세요.");
+				$('#carNo').focus();
 				return false;
 			}
 			
