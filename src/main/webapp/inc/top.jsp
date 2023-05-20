@@ -138,7 +138,7 @@
 </script>
 
 	</nav>
-	<!-- END nav -->
+	<!-- END  nav -->
 
 	<div class="hero-wrap ftco-degree-bg"
 		style="height: 40rem;"

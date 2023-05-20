@@ -18,7 +18,7 @@ import com.team2.question.db.QuestionDTO;
 
 
 public class QuestionDAO {
-	// DAO (Data Access Object) : DB 데이터 처리 객체
+	// DAO  (Data Access Object) : DB 데이터 처리 객체
 	// => DB에 관한 모든 동작 수행
 	
 	// 공통사용 변수

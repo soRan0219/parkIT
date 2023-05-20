@@ -145,7 +145,7 @@
       <th>답글유무</th>
     </tr>
 
-    <!-- noticeList 있을 때마다 들고오는 거 -->
+    <!--  noticeList 있을 때마다 들고오는 거 -->
     <c:forEach var="qu" items="${quList}">
    <tr>
    
