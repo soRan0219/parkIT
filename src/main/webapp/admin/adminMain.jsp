@@ -596,7 +596,7 @@
 				<div> <!-- 고객센터 -->
 					<input type="button" value="공지사항" class="services-button" onclick="location.href='./noticeList.no'">
 					<input type="button" value="자주 묻는 질문" class="services-button" onclick="location.href='./FaqList.fa'">
-					<input type="button" value="1:1 문의" class="services-button" onclick="location.href='./QuestionWrite.qu'">
+					<input type="button" value="1:1 문의" class="services-button" onclick="location.href='./QuestionList.qu'">
 				</div>
 			
 			
