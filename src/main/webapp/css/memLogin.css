@@ -16,3 +16,20 @@
 	line-height: 24px;
 	color: #fff;
 }
+
+a {
+    transition: .3s all ease;
+    color: #007bff;
+}
+
+input[type="submit"], input[type="button"] {
+	display: inline-block;
+	margin-top: 1px;
+	margin-right: 10px;
+	padding: 3px 17px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ff9f40;
+	color: #fff;
+	cursor: pointer;
+}

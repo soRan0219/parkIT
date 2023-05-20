@@ -18,8 +18,8 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">	
 
 <link rel="stylesheet" href="css/find.css">
-<link rel="stylesheet" href="css/park_find_af.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/park_find_af.css">
 
 </head>
 <body>

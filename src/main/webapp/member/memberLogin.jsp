@@ -15,8 +15,8 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">	
 
 <link rel="stylesheet" href="css/alert.css">
-<link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/park.css">
 <link rel="stylesheet" href="css/memLogin.css">
 </head>
 <body>
