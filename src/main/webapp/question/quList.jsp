@@ -137,7 +137,7 @@
 <div class="writeform">
   <table border="1">
     <tr>
-      <th>글번호</th>
+      <th>문의번호</th>
       <th>문의유형</th>
       <th>제목</th>
       <th>작성일</th>
@@ -149,7 +149,7 @@
     <c:forEach var="qu" items="${quList}">
    <tr>
    
-  <form action="./QuestionReWrite.qu" method="post">
+  <form action="./QuestionReWrite.qu" method="post" accept-charset="UTF-8">
   
     <td>${qu.quNo}</td>
     <td>${qu.selOp}</td>
@@ -159,17 +159,22 @@
       </a>
     </td>
     <td>${qu.quDateTime}</td>
-    <td>${qu.id}</td>
+    <td>${qu.id} </td>
     <td>
       <c:choose>
-        <c:when test="${not id.equals('admin')}">
-          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a>
-        </c:when>
-        <c:otherwise>
+         <c:when test="${qu.quNoRe != 0 && !qu.quTitle.contains('Re')}">
+<%--             <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a> --%> O
+          </c:when>
+         <c:when test="${qu.quNoRe == 0 && !qu.quTitle.contains('Re')}">
           <input type="hidden" name="quNo" value="${qu.quNo}">
+          <input type="hidden" name="id" value="${qu.id}">
           <input type="hidden" name="quTitle" value="${qu.quTitle}">
           <input type="submit" value="X" class="btn">
-        </c:otherwise>
+        </c:when>
+        <c:otherwise>
+          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}"></a>
+          
+          </c:otherwise>
       </c:choose>
     </td>
   </form>
@@ -178,12 +183,7 @@
     </c:forEach>
   </table>
 
-  <form id="searchForm" action="./noticeList.no" method="get">
-    <div>
-      <input type="text" name="keyWord">
-      <input type="submit" value="검색">
-    </div>
-  </form>
+  
 
   <div id="pageBlock">
     <c:if test="${startPage > pageBlock}">
@@ -199,9 +199,7 @@
     </c:if>
   </div>
 
-  <div id="writeButton">
-    <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'">
-  </div>
+ 
 </div>
 			
 			</c:if>
@@ -210,10 +208,10 @@
 <div class="writeform">
   <table border="1">
     <tr>
+      <th>문의번호</th>
       <th>문의유형</th>
       <th>제목</th>
       <th>작성일</th>
-      <th>작성자</th>
       <th>답글유무</th>
     </tr>
 
@@ -221,6 +219,7 @@
     <c:forEach var="qu" items="${quList}">
     <c:if test="${qu.id.equals(id)}">
       <tr>
+      <td>${qu.quNo}</td>
         <td>${qu.selOp}</td>
         <td>
           <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">
@@ -228,14 +227,17 @@
           </a>
         </td>
         <td>${qu.quDateTime}</td>
-        <td>${qu.id }</td>
           <td>
+          
         <c:choose>
-          <c:when test="${id.equals('admin')}">
-            <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a>
+          <c:when test="${qu.quNoRe != 0 && !qu.quTitle.contains('Re')}">
+<%--             <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">O</a> --%> O
+          </c:when>
+          <c:when test="${qu.quNoRe == 0 && !qu.quTitle.contains('Re')}">
+<%--             <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">X</a> --%> X
           </c:when>
           <c:otherwise>
-          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}">X</a>
+          <a href="./QuestionContents.qu?quNo=${qu.quNo}&amp;pageNum=${pageNum}"></a>
           
           </c:otherwise>
         </c:choose>
@@ -245,12 +247,7 @@
     </c:forEach>
   </table>
 
-  <form id="searchForm" action="./noticeList.no" method="get">
-    <div>
-      <input type="text" name="keyWord">
-      <input type="submit" value="검색">
-    </div>
-  </form>
+  
 
   <div id="pageBlock">
     <c:if test="${startPage > pageBlock}">
@@ -266,9 +263,11 @@
     </c:if>
   </div>
 
+  <c:if test="${not empty id}">
   <div id="writeButton">
-    <input type="button" value="글쓰기" onclick="location.href='./noticeWriteForm.no'">
+    <input type="button" value="글쓰기" onclick="location.href='./QuestionWrite.qu'">
   </div>
+</c:if>
 </div>
 			
 			</c:if>

@@ -146,7 +146,7 @@
 
 	
 		<div class="detailTable">
-  <h1>공지사항(관리자)</h1>
+  <h1>문의사항</h1>
   
   <table border="1">
     <tr>
@@ -167,7 +167,9 @@
       <td colspan="4" id="buttonContainer">
         <div>
           <form action="./QuestionDeleteAction.qu" method="post" onsubmit="return quConfirm()">
+          <c:if test="${qu.id.equals(id)}">
             <input type="submit" value="글삭제">
+            </c:if>
             <input type="hidden" name="quNo" value="${dto.quNo}">
           </form>
           <input type="button" value="목록으로" onclick="location.href='./QuestionList.qu?pageNum=${pageNum}'" id="listButton">

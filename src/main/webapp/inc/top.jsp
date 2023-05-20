@@ -81,7 +81,7 @@
       <ul class="dropdown-menu">
         <li class="nav-item"><a href="./noticeList.no" class="nav-link2">공지사항</a></li>
         <li class="nav-item"><a href="./FaqList.fa" class="nav-link2">자주 묻는 질문</a></li>
-        <li class="nav-item"><a href="./QuestionWrite.qu" class="nav-link2">1:1 문의</a></li>
+        <li class="nav-item"><a href="./QuestionList.qu" class="nav-link2">1:1 문의</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -122,7 +122,6 @@
     <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
     <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
     <li><a href="./ResList.me">예약내역 보기</a></li>
-    <li><a href="./QuestionList.qu">문의내역 보기</a></li>
     <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
   </ul>
   </div>

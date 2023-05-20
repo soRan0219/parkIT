@@ -26,13 +26,13 @@ public class QuestionReWriteAction implements Action {
 		dto.setQuTitle(request.getParameter("quTitle"));
 		dto.setQuContents(request.getParameter("quContents"));
 		dto.setSelOp(request.getParameter("selOp"));
-		dto.setQuNoRe(Integer.parseInt("quNoRe"));
+		dto.setQuNoRe(Integer.parseInt(request.getParameter("quNoRe")));
 		
 		System.out.println(" M : "+dto);
 		
 		// DAO 객체 생성 - insertBoard();
 		QuestionDAO dao = new QuestionDAO();
-		dao.insertQuestion(dto);
+		dao.reWriteQuestion(dto);
 		
 		// 페이지 이동 ( List )
 		ActionForward forward = new ActionForward();

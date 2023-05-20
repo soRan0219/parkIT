@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.team2.faq.db.FaqDTO;
 import com.team2.question.db.QuestionDTO;
 
 
@@ -78,7 +79,7 @@ public class QuestionDAO {
 
 		// 정보 저장( 글쓰기 )
 		// 3. sql(insert) - pstmt
-		sql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id, selOp, quNoRe) VALUES (?, ?, ?, NOW(), ?, ?, ?)";
+		sql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id, selOp) VALUES (?, ?, ?, NOW(), ?, ?)";
 	    pstmt = con.prepareStatement(sql);
 
 		pstmt.setInt(1, quNo);
@@ -86,7 +87,6 @@ public class QuestionDAO {
 		pstmt.setString(3, dto.getQuContents());
 		pstmt.setString(4, dto.getId());
 		pstmt.setString(5, dto.getSelOp());
-		pstmt.setInt(6, dto.getQuNoRe());
 
 
 		// 4. sql
@@ -97,7 +97,59 @@ public class QuestionDAO {
 		closeDB();
 
 	} // insertBoard()
+	
+	public void reWriteQuestion(QuestionDTO dto) throws Exception {
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
 
+	    try {
+	        // 1. 디비 연결
+	        con = getCon();
+
+	        // 2. 글번호 계산
+	        String getMaxQuNoSql = "SELECT MAX(quNo) FROM qu";
+	        pstmt = con.prepareStatement(getMaxQuNoSql);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        int quNo = 0;
+	        if (rs.next()) {
+	            quNo = rs.getInt(1) + 1;
+	        }
+
+	        System.out.println("quNo: " + quNo);
+
+	        // 3. INSERT 문 실행
+	        String insertSql = "INSERT INTO qu (quNo, quTitle, quContents, quDateTime, id, selOp) VALUES (?, ?, ?, NOW(), ?, ?)";
+	        pstmt = con.prepareStatement(insertSql);
+	        pstmt.setInt(1, quNo);
+	        pstmt.setString(2, dto.getQuTitle());
+	        pstmt.setString(3, dto.getQuContents());
+	        pstmt.setString(4, dto.getId());
+	        pstmt.setString(5, dto.getSelOp());
+
+	        pstmt.executeUpdate();
+
+	        // 4. UPDATE 문 실행
+	        String updateSql = "UPDATE qu SET quNoRe = ? WHERE quNo = ?";
+	        pstmt = con.prepareStatement(updateSql);
+	        pstmt.setInt(1, 1);
+	        pstmt.setInt(2, dto.getQuNoRe());
+
+	        pstmt.executeUpdate();
+
+	        System.out.println("질문 재작성 및 업데이트 완료!");
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        // 5. 리소스 해제
+	        if (pstmt != null) {
+	            pstmt.close();
+	        }
+	        if (con != null) {
+	            con.close();
+	        }
+	    }
+	}
 	// getBoardListAll()
 	/**
 	 * 디비에 저장된 모든 게시판 정보를 조회
@@ -177,6 +229,7 @@ public List<QuestionDTO> getQuestionList(int startRow, int pageSize) {
 				dto.setQuTitle(rs.getString("quTitle"));
 				dto.setQuContents(rs.getString("quContents"));
 				dto.setQuDateTime(rs.getTimestamp("quDateTime").toLocalDateTime());
+				dto.setQuNoRe(rs.getInt("quNoRe"));
 
 				
 				quList.add(dto);

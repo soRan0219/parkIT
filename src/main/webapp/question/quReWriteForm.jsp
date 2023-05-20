@@ -135,7 +135,7 @@
 	
 			
 <div class="writeform">
-  <form action="./QuestionWriteAction.qu" method="post" >
+  <form action="./QuestionReWriteAction.qu" method="post" accept-charset="UTF-8">
 	<table id="question">
 		<tr>
 		    <th class="ttitle" colspan="2">1대1 문의</th>
@@ -149,7 +149,7 @@
       </tr>
 		<tr>
 			<td> 제목 </td>
-			 <td><input type="text" name="quTitle" value="Re)${param.quTitle}"></td>
+			 <td><input type="text" name="quTitle" value="${param.quNo}번문의 Re)" readonly></td>
 	 	</tr>
 		<tr>
 			<td> 내용 </td>
