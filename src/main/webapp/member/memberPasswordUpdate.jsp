@@ -37,40 +37,51 @@
 <link rel="stylesheet" href="css/park_uppw.css">
 <link rel="stylesheet" href="css/style.css">
 
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js" ></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
-		function pwCheck() {
-			if(document.fr.pw.value=="") {
-				alert("현재 비밀번호를 입력해 주세요.");
-				document.fr.pw.focus();
-				return false;
-			}	
-			
-			if(document.fr.newpw.value=="") {
-				alert("변경할 비밀번호를 입력해 주세요.");
-				document.fr.newpw.focus();
-				return false;
-			}	
-			
+    function checkData() {
+	    var currentPassword = document.getElementById("pw").value;
+	    var newPassword = document.getElementById("newpw").value;
+		var getNewPw = RegExp(/^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,15}$/i);
+
+	    if (currentPassword === newPassword) {
+	      alert("현재 비밀번호와 새로운 비밀번호가 일치합니다.\n다시 입력해주세요.");
+	      return false; // 폼 제출을 중지하기 위해 false 반환
+	    }
+
+	  
+	
+	 // 비밀번호 유효성검사
+	    if(!getNewPw.test($("#newpw").val())){
+	       alert("비밀번호 형식에 맞게 입력해주세요.");
+	       $("#newpw").val("");
+	       $("#newpw").focus();
+	       return false;
+	     }
+	    return true; // 폼 제출을 진행하기 위해 true 반환
 		}
+	
+		
 	</script>
 	
 	<!-- 중복 검사 -->
 	<script type="text/javascript">	
-	  function checkDate() {
-		    var currentPassword = document.getElementById("pw").value;
-		    var newPassword = document.getElementById("newpw").value;
-
-		    if (currentPassword === newPassword) {
-		      alert("현재 비밀번호와 새로운 비밀번호가 일치합니다.\n다시 입력해주세요.");
-		      return false; // 폼 제출을 중지하기 위해 false 반환
-		    }
-
-		    return true; // 폼 제출을 진행하기 위해 true 반환
-		  }
+	function pwCheck() {
+		if(document.fr.pw.value=="") {
+			alert("현재 비밀번호를 입력해 주세요.");
+			document.fr.pw.focus();
+			return false;
+		}	
+		
+		if(document.fr.newpw.value=="") {
+			alert("변경할 비밀번호를 입력해 주세요.");
+			document.fr.newpw.focus();
+			return false;
+		}	
+		
+	}
 	</script>
-
-
 
 
 </head>
@@ -93,9 +104,9 @@
 	<fieldset>
 <!-- 		<legend>비밀번호 변경</legend> -->
 		<!-- action 주소가 없으면 자신의 페이지 호출 -->
-		<form action="./MemberPasswordUpdateProAction.me" method="post" name="fr" onsubmit="return checkDate();">
-			현재 비밀번호  <input type="password" name="pw" placeholder="현재 비밀번호를 입력하세요." required="required" class="input_text" id="pw"> 			<br>	
-			변경할 비밀번호  <input type="password" name="newpw" placeholder="변경할 비밀번호를 입력하세요." required="required" class="input_text1" id="newpw"> 			<br>	
+		<form action="./MemberPasswordUpdateProAction.me" method="post" name="fr" onsubmit="return checkData();">
+			현재 비밀번호  <input type="password" id="pw" name="pw" placeholder="현재 비밀번호를 입력하세요." required="required" class="input_text" id="pw"> 			<br>	
+			변경할 비밀번호  <input type="password" id="newpw" name="newpw" placeholder="변경할 비밀번호를 입력하세요." required="required" class="input_text1" id="newpw"> 			<br>	
 			
 			
 			<hr>
