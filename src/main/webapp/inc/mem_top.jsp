@@ -42,6 +42,7 @@
   }
   .profile-options.show {
     display: block;
+    margin-right: 1.5rem;
   }
   
 #profile{
@@ -123,7 +124,9 @@
   <ul class="profile-options" id="profile-options">
     <li><a href="./MemberUpdate.me">내 정보 보기 및 수정</a></li>
     <li><a href="./MemberPasswordUpdate.me">비밀번호 변경</a></li>
+    <c:if test="${!id.equals('admin')}">
     <li><a href="./ResList.me">예약내역 보기</a></li>
+    </c:if>
     <li><a href="./MemberDelete.me">회원 탈퇴</a></li>
   </ul>
   </div>
