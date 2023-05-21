@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -425,6 +426,11 @@ public class MemberDAO {
 			// 1+2 디비연결
 			con = getCon();
 			
+			 // 외래 키 제약 조건 해제
+	        Statement stmt = con.createStatement();
+	        stmt.execute("SET FOREIGN_KEY_CHECKS = 0");
+
+			
 			// 3. sql 작성 & pstmt 객체
 			sql = "select pw from member where id=?";
 			pstmt = con.prepareStatement(sql);
@@ -456,8 +462,17 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			closeDB();
-		}
+	        // 외래 키 제약 조건 활성화
+	        try {
+	            Statement stmt = con.createStatement();
+	            stmt.execute("SET FOREIGN_KEY_CHECKS = 1");
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        
+	        closeDB();
+	    }
+
 		
 		
 		return result;
