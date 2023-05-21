@@ -598,7 +598,7 @@
 						console.log(data.resResult + ", " + data.payResult);
 						
 						if(data.resResult==1 && data.payResult==1) {
-							var con = confirm("결제가 완료되었습니다. 예약상세페이지로 이동하시겠습니까?");
+							var con = confirm("결제가 완료되었습니다. 예약내역페이지로 이동하시겠습니까?");
 							if(con) {
 								location.href = "./ResList.me";
 							} else {
