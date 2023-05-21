@@ -120,9 +120,6 @@ $("#confirmId").on("click", function() {
 			}
 			
 			
-			
-		           
-
 
 		      // 비밀번호 공백 확인
 		      else if($("#pw").val() == ""){
@@ -134,7 +131,7 @@ $("#confirmId").on("click", function() {
 
 		      // 아이디 비밀번호 같음 확인
 		     else if($("#id").val() == $("#pw").val()){
-		        alert("아이디와 비밀번호가 동일합니다.\\n다시 입력해주세요.");
+		        alert("아이디와 비밀번호가 동일합니다. 다시 입력해주세요.");
 		        $("#pw").val("");
 		        $("#pw").focus();
 		        return false;
