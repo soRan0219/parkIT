@@ -191,7 +191,7 @@
 						
 							<form action="./ReservationAction.res" name="fr" method="post" onsubmit="return check();"
 							class="request-form ftco-animate bg-primary" style="position: relative; top: 10%;">
-								<h2>Make your reservation</h2>
+								<h2>예약하기</h2>
 								<div class="form-group">
 									<label for="" class="label">지점목록</label>
 									<div class="dropdown">
